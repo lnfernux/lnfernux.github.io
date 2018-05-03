@@ -56,8 +56,6 @@ PS C:\> $totallysecurecredentials.GetNetworkCredential() | Get-Member
 
    TypeName: System.Net.NetworkCredential
 
- 
-
 Name           MemberType Definition
 
 ----           ---------- ----------
