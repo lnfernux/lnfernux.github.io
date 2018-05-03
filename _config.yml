@@ -6,11 +6,11 @@ title: infernux (Developer | Windows/Cisco/Azure)
 description: Windows might be the death of me
 navbar-links:
   About Me: aboutme
-  What I am doing Now: now
-  Visualize My Experience:
-    - Skills By Tech: infographic
-    - Areas of Expertise: areasexpertise
-    - My Resume: resume
+  #What I am doing Now: now
+ # Visualize My Experience:
+    #- Skills By Tech: infographic
+    #- Areas of Expertise: areasexpertise
+    #- My Resume: resume
 avatar: "/img/avatar-icon.png"
 
 author:
