@@ -4,8 +4,10 @@ title: About me
 subtitle: hello everyone
 ---
 
-Name's Truls. I do stuff.
+### Hey.
 
-### my history
+My name is Truls. I'm a late 20's-something windows developer by day and by night I usually sleep.
 
-oh 
+### What to expect of this space
+
+Nothing. I like Windows, taking stuff apart and troubleshooting. So stuff like that.
