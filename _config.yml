@@ -66,7 +66,7 @@ author:
 # You can reorder the items to define the link order.
 # If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
 social-network-links:
-  rss: true
+  rss: false
  # email: ""
   #github: infernuxmonster
   twitter: infernuxmonster
@@ -125,7 +125,7 @@ excerpt_length: 50
 
 # Character used to separate site title and description in HTML document title
 # and RSS feed title
-title-separator: "-"
+#title-separator: "-"
 
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
