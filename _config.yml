@@ -2,8 +2,8 @@
 
 url: http://infernuxmonster.github.io
 baseurl: ''
-title: infernux (windows dev, security, azure)
-description: Windows might be the death of me
+title: infernux
+description: hey friends
 navbar-links:
   About Me: aboutme
   #What I am doing Now: now
