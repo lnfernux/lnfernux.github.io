@@ -5,10 +5,11 @@ baseurl: ''
 title: infernux - security+
 description: infernux' security blog
 navbar-links:
-  Guides: guides
-  - PracticalHacking: PracticalHacking
+  Guides: guides 
+  - Pracitcal Hacking: PracticalHacking
+  Archive: Archive
   Links: links
-  About Me: aboutme
+  About Me: "aboutme"
 avatar: "/img/avatar-icon.png"
 
 author:
