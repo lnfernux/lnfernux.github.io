@@ -1,14 +1,24 @@
----
+# --- General options --- #
+# url is the full website URL
+# baseurl is the website's URL without the hostname
 
-url: http://infernuxmonster.github.io
-baseurl: ''
-title: infernux - security+
-description: infernux' security blog
+# If you are building a simple GitHub user page (http://username.github.io) then use these settings:
+url: "https://www.infernux.no"
+baseurl: ""
+
+# Name of website
+title: infernux's security blog
+
+# Short description of your site
+description: infernux's security blog
+
+# --- Navigation bar options --- #
+
+# List of links in the navigation bar
 navbar-links:
-  Guides: "guides" 
-  - Pracitcal Hacking: "PracticalHacking"
-  Archive: "Archive"
-  Links: "links"
+  Guides: guides
+  - Practical Hacking: PracticalHacking
+  Archive: Archive
   About Me: "aboutme"
 avatar: "/img/avatar-icon.png"
 
