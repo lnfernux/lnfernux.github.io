@@ -6,30 +6,16 @@ title: infernux - security+
 description: infernux' security blog
 navbar-links:
   Guides: guides
+  - PracticalHacking: Practical Hacking
   Links: links
   About Me: aboutme
- # Visualize My Experience:
-    #- Skills By Tech: infographic
-    #- Areas of Expertise: areasexpertise
-    #- My Resume: resume
 avatar: "/img/avatar-icon.png"
 
 author:
   name: Truls
-  email: youremail@domain.com
-  facebook: yourname
+  email: YmxvZ0BpbmZlcm51eC5ubw==
   github: infernuxmonster
   twitter: infernuxmonster
-  reddit: yourname
-  google-plus: "+yourname"
-  linkedin: 
-  xing: yourname
-  stackoverflow: yourlink
-  snapchat: yourname
-  instagram: yourname
-  youtube: yourlink
-  spotify: yourname
-  telephone: yourphone
 
 footer-links-active:
   rss: false
@@ -59,7 +45,7 @@ share-links-active:
 disqus: ""
 
 # Fill in your Google Analytics ID to track your website using GA
-google_analytics: ""
+google_analytics: "UA-125990163-1"
 
 
 excerpt_length: 50
@@ -87,12 +73,14 @@ defaults:
     show-avatar: true
 link-tags: false
 exclude:
-- Gemfile
-- Gemfile.lock
-- LICENSE
-- README.md
-- CNAME
-- Vagrantfile
+  - CHANGELOG.md
+  - CNAME
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - Vagrantfile
 prose:
   rooturl: _posts
   media: img
