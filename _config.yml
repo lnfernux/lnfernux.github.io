@@ -2,11 +2,12 @@
 
 url: http://infernuxmonster.github.io
 baseurl: ''
-title: infernux
-description: hey friends
+title: infernux - security+
+description: infernux' security blog
 navbar-links:
+  Guides: guides
+  Links: links
   About Me: aboutme
-  #What I am doing Now: now
  # Visualize My Experience:
     #- Skills By Tech: infographic
     #- Areas of Expertise: areasexpertise
