@@ -16,8 +16,8 @@ description: infernux's security blog
 
 # List of links in the navigation bar
 navbar-links:
-  Guides: guides
-  - PracticalHacking: PracticalHacking
+  Guides:
+    - Practical Hacking: PracticalHacking
   Archive: Archive
   About Me: "aboutme"
 avatar: "/img/avatar-icon.png"
