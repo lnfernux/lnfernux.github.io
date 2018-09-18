@@ -6,7 +6,7 @@ title: infernux - security+
 description: infernux' security blog
 navbar-links:
   Guides: guides
-  - PracticalHacking: Practical Hacking
+  - PracticalHacking: PracticalHacking
   Links: links
   About Me: aboutme
 avatar: "/img/avatar-icon.png"
