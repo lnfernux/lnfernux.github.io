@@ -6,16 +6,7 @@ subtitle:
 
 ### About me.
 
-I'm a 20ish something soon to be 30. I'm a systems and network-administrator turned developer and pentester.
-I spend my spare time running and playing games.
-
-### What's the webpage for?
-
-Honestly, no idea. Figured if I have something cool to post I'll do it here.
-
-### Working on anything special?
-
-Nope.
+Just a hacker.
 
 ### I want to start working in security, where do I begin?
 
