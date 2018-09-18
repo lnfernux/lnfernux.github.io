@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Reading SecureString credentials as cleartext
-subtitle: this probably shouldn't be possible
+subtitle: 
 tags:
   - powershell
   - getnetworkcredential
 published: true
 ---
 
-Let's say I want to make a script in which the user has to input credentials. Oh, there's a cmdlet for that? Great.
+Neat little trick abusing  .GetNetworkCredential
 
 ~~~
 PS C:\> $totallysecurecredentials = Get-Credential
@@ -66,7 +66,7 @@ GetHashCode    Method     int GetHashCode()
 GetType        Method     type GetType()
 ToString       Method     string ToString()
 Domain         Property   string Domain {get;set;}
-** Password       Property   string Password {get;set;}
+Password       Property   string Password {get;set;}
 SecurePassword Property   securestring SecurePassword {get;set;}
 UserName       Property   string UserName {get;set;}
 ~~~
