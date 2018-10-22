@@ -7,9 +7,7 @@ tags:
   - security
   - windows
   - server
-  - credential guard
   - uefi
-  - secure boot
 published: true
 ---
 
