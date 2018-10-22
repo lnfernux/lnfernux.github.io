@@ -10,7 +10,6 @@ tags:
   - credential guard
   - uefi
   - secure boot
-  - gpo
 published: true
 ---
 
