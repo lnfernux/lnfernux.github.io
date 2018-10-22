@@ -61,13 +61,14 @@ google_analytics: "UA-125990163-1"
 
 excerpt_length: 50
 title-separator: "-"
-timezone: Europe/Berlin
+timezone: Europe/Oslo
 markdown: kramdown
 highlighter: rouge
 permalink: "/:year-:month-:day-:title/"
 paginate: 5
 kramdown:
   input: GFM
+future: true
 
 defaults:
 - scope:
