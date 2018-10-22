@@ -22,8 +22,6 @@ I might glance over some things - this is not a technical "how to do it" approac
 
 This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on twitter @infernuxmonster
 
-## Disk and file encryption
-
 ### Determine hardware and firmware requirements for Secure Boot and encryption key functionality
 
 #### UEFI
@@ -56,11 +54,12 @@ Enable-WindowsOptionalFeature -Online -FeatureName Bitlocker,BitLocker-Utilities
 #### Configure BitLocker with or without TPM
 BitLocker Drive Encryption can be configured to use a number of authentication methods called protectors.
 
-#### Protector configuration - Startup behavior
-No TPM - Requires a BitLocker password or a startup key on a USB drive
-TPM + startup pin - Requires the presence of a TPM chip and a PIN
-TPM + startup key - Requires a TPM chip and USB drive based startup key
-TPM + startup PIN + startup key - Requires TPM, a pin and a startup key
+Protector configuration | Startup behavior
+--- | ---
+No TPM | Requires a BitLocker password or a startup key on a USB drive
+TPM + startup pin | Requires the presence of a TPM chip and a PIN
+TPM + startup key | Requires a TPM chip and USB drive based startup key
+TPM + startup PIN + startup key | Requires TPM, a pin and a startup key
 
 Configuring the BitLocker Drive Encryption policy is done through GPO and the policy named Required Additional Authentication At Startup. It's located in the GPO path:
 Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\Operating System Drives
@@ -84,7 +83,7 @@ After the GPO settings have taken effect, you need to actually encrypt your OS v
 
 You can also use the BitLocker PowerShell cmdlets. Let's encrypt the C:\ drive using TPM and PIN protectors:
 
-~~~
+~~~powershell
 PS> $SecureString = ConvertTo-SecureString '$trongPa$$w0rd1337' -AsPlainText -Force 
 PS> Enable-BitLocker -MountPoint 'C:' -EncryptionMethod Aes256 -UsedSpaceOnly -Pin $SecureString -TPMandPinProtector
 ~~~
@@ -128,17 +127,17 @@ This policy gives you the choice of storing only BitLocker recovery passwords in
 You'll also need to enable the policy Choose How BitLocker-Protected Operating System Drives Can Be Recovered from the Operating System Drives subfolder in the GPO path. Specifically you need to make sure the option Save BitcLocker Recovery Information To AD DS is enabled for operating system drives.
 
 Next, we need to run the Invoke-GPUpdate cmdlet against relevant servers (imagine I have a file of all relevant servers in a txt file):
-~~~
+~~~powershell
 Invoke-GPUpdate -Computer (Get-Content -Path .\servers.txt) -Force
 ~~~
 
 From now on any server where you enable BitLocker stores its recovery password and also its encryption keys in Active Directory. This doesn't affect servers where BitLocker is already enabled, however. On these machines, run the following command to obtain the systems numerical password ID:
-~~~
+~~~powershell
 Manage-bde -protectors -get c:
 ~~~
 
 And then run this command to force the key/pass archival:
-~~~
+~~~powershell
 Manage-bde -protectors -adbackup c: -id {password-id}
 ~~~
 Accessing the recovery password
@@ -169,3 +168,7 @@ Steps to define the current administrator a new EFS DRA in WS16 AD domain that h
     a. Here you can either Browser Directory - locate the user by searching AD, if you use this option the certs must be published to AD
     b. Browse Folders, locate the .cer exported EFS recovery agent cert in a local or remote file system
 Refresh GPO and your new DRAs have privilege to decrypt all domain users EFS-encrypted files. Comes in handy during emergiencies, but if someone gain access to DA it will become a problem.
+
+### Links
+
+[TechNet-article on server hardening](https://social.technet.microsoft.com/wiki/contents/articles/18931.security-hardening-tips-and-recommendations.aspx)
