@@ -17,7 +17,7 @@ In this series of blogposts I'll try to summarize briefly the most important tak
 
 I might glance over some things - this is not a technical "how to do it" approach, I'll mostly be presenting the concepts and then resources like TechNet will be able to fill in the blanks (there will be many!).
 
-This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on twitter @infernuxmonster
+This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on [twitter](https://twitter.com/infernuxmonster)
 
 #### UEFI
 
