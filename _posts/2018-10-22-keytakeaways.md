@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Securing Windows Server (70-744) Summary, Part 1 - Server Hardening
+title: Securing Windows Server summary - part 1
 subtitle: 
 tags:
   - powershell
