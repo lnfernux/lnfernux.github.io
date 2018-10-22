@@ -3,8 +3,10 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "https://www.infernux.no"
+url: "https://infernuxmonster.github.io"
 baseurl: ""
+
+destination: static
 
 # Name of website
 title: infernux' blog
