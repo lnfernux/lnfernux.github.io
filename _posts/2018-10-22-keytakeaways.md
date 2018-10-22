@@ -43,15 +43,21 @@ Bitlocker Drive Encryption is Microsofts native disk encryption solution for ope
 Boot Configuration Database (BCD) is a firmware-independent database that stores Windows startup configuration data. In Server 2016 this is a unlettered 500 MB System Reserved partition on your startup disk.
 
 In order to prepare BitLocker to use Secure Boot for vplatform and BCD database integrity validation we need to enable the Allow Secure Boot for Integrity alidation policy found in the GPO path:
-Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\Operating System Drives
+> Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\Operating System Drives
 
 #### Deploy BitLocker drive encryption
 
 The first step is to install the BitLocker Drive Encryption Feature, this can be done through powershell (administrative):
+
+~~~powershell
 Install-WindowsFeature -Name BitLocker -IncludeAllSubFeature -IncludeManagementTools -Restart
+~~~
 
 We can also use Server Manager or, if you'd like, DISM through the EnableWindowsOptionalFeature-wrapper:
+
+~~~powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Bitlocker,BitLocker-Utilities -All
+~~~
 
 #### Configure BitLocker with or without TPM
 
@@ -65,7 +71,7 @@ TPM + startup key | Requires a TPM chip and USB drive based startup key
 TPM + startup PIN + startup key | Requires TPM, a pin and a startup key
 
 Configuring the BitLocker Drive Encryption policy is done through GPO and the policy named Required Additional Authentication At Startup. It's located in the GPO path:
-Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\Operating System Drives
+>Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\Operating System Drives
 
 You can use TPM without any other protector, I.E just TPM and no PIN/KEY, it's better that nothing. You can also use BitLocker with no TPM (not advisable) by selecting the Allow BitLocker Without A Compatible TPM (Requires A Password Or A Startup Key On A USB Flash Drive) GPO setting.
 
