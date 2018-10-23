@@ -59,6 +59,7 @@ We can also use Server Manager or, if you'd like, DISM through the EnableWindows
 Enable-WindowsOptionalFeature -Online -FeatureName Bitlocker,BitLocker-Utilities -All
 ~~~
 
+That's all folks!
 
 #### Configure BitLocker with or without TPM
 
@@ -101,7 +102,7 @@ PS> Enable-BitLocker -MountPoint 'C:' -EncryptionMethod Aes256 -UsedSpaceOnly -P
 
 Ooooor if your legacy as fuck, you can use manage-bde command line executable.
 
-#### Implement BitLocker on Hyper-V VM'
+#### Implement BitLocker on Hyper-V VM
 
 Hyper-V in WS16 allows both Secure Boot and virtualized TPM (vTPM) for VM guests. This is a part of each machine's properties - meaning the setup for this is the same as a physical machine/server.
 
@@ -137,7 +138,7 @@ Easiest way is the recovery password that we generated and saved to a file/usb o
 #### Recovery password retrieval from AD DS
 
 We can also back up BitLocker recovery keys to AD. The configuration setting to this lies in the following GPO path:
-Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\
+>Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\
 
 #### The specific GPO is name Store BitLocker recovery information in Active Directory Domain Services
 
@@ -167,12 +168,12 @@ Locate the target server in AD Users and Computers, open it's properties sheet a
 
 #### Self-service recovery
 
-You can also use Microsoft BitLocker Administration and Monitoring toolset (MBAM. Complex installation, full-fledged multi-tier application that can be deployed stand-alone or through SCCM. Provides end-to-end automation for BitLocker, including self-service key retrieval, agent-based user guidance. 
+You can also use Microsoft BitLocker Administration and Monitoring toolset (MBAM. Complex installation, full-fledged multi-tier application that can be deployed stand-alone or through SCCM. Provides end-to-end automation for BitLocker, including self-service key retrieval, agent-based user guidance.
 
 #### Manage Encrypting File System (EFS)
 
-BitLocker functions at the volume level. You can use it to encrypt removable media, but for most production servers you'll be encrypting entire fixed hard disk volumes. We can use BitLocker to create encrypted container files, but these too are treated by WS16 as VHD images. 
-Encrypting File System (EFS) is a more granular solution that can be leveraged to protect individual folders and files. 
+BitLocker functions at the volume level. You can use it to encrypt removable media, but for most production servers you'll be encrypting entire fixed hard disk volumes. We can use BitLocker to create encrypted container files, but these too are treated by WS16 as VHD images.
+Encrypting File System (EFS) is a more granular solution that can be leveraged to protect individual folders and files.
 
 #### Data recovery agents
 
@@ -186,13 +187,14 @@ Steps to define the current administrator a new EFS DRA in WS16 AD domain that h
 1. Request an EFS Recovery Agent cert from AD CS authority. From the Certificates MMC snap-in, do this by right clicking personal certificate store and clicking all tasks, then selecting "request new certificate"
 2. From Cert snap-in, back up EFS, BitLocker or any other digital cert by right clicking all tasks and then export. We can then do the same procedure for import.
 3. To assign DRAs at the domain level, open a GPO and navigate to:
-    a. Computer Configuration\Windows Settings\Security Settings\Public Key Policies
-        i. You'll see two subfolders, EFS and BitLocker
-        ii. You can set DRAs for both
+>Computer Configuration\Windows Settings\Security Settings\Public Key Policies
+        * You'll see two subfolders, EFS and BitLocker
+        * You can set DRAs for both
 4. Right click the EFS policy folder and select Add Data Recovery Agent from the context menu.
     a. Here you can either Browser Directory - locate the user by searching AD, if you use this option the certs must be published to AD
     b. Browse Folders, locate the .cer exported EFS recovery agent cert in a local or remote file system
-Refresh GPO and your new DRAs have privilege to decrypt all domain users EFS-encrypted files. Comes in handy during emergiencies, but if someone gain access to DA it will become a problem.
+
+Refresh GPO (Invoke-GPUpdate or gpupdate from cmd) and your new DRAs have privilege to decrypt all domain users EFS-encrypted files. Comes in handy during emergiencies, but if someone gain access to DA it will become a problem.
 
 ### Links
 
