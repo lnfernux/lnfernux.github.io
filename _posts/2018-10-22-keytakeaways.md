@@ -59,6 +59,7 @@ We can also use Server Manager or, if you'd like, DISM through the EnableWindows
 Enable-WindowsOptionalFeature -Online -FeatureName Bitlocker,BitLocker-Utilities -All
 ~~~
 
+
 #### Configure BitLocker with or without TPM
 
 BitLocker Drive Encryption can be configured to use a number of authentication methods called protectors.
@@ -111,12 +112,14 @@ Was implemented in WS12, you can encrypt volumes before or after you add them to
 #### Configure Network Unlock
 
 WS16 supports the BitLocker Network Unlock feature. It allows automatic access to BitLocker decryption keys, which means that you can start, restart aor remotely manage your windows serers without having to manually input a PIN. The requirements, in addition to UEFI firmware and TPM chips are the following:
-• UEFI DHCP - previously known as PXE (preboot execution enviroment)
-• No CSM (i.e Compability Support Modules must be disabled)
-• Separate WDS and DHCP servers. (i.e these roles can't be on the same server)
-• PKI - this is in order to generate the X.509 digital certificates that's required for Network Unlock. AD Certificate Services (AD CS) works fine.
-• Network Unlock Group Policy Settings - under Computer Configuration\Policies\Windows Settings\Security Settings\Public Key Policies\BitLocker Drive Encryption Network Certificate and upload the .cer file
-    ○ Must also configure the previously mentioned GPO settings for BitLocker to specify pin+TPM
+
+1. UEFI DHCP - previously known as PXE (preboot execution enviroment)
+2. No CSM (i.e Compability Support Modules must be disabled)
+3. Separate WDS and DHCP servers. (i.e these roles can't be on the same server)
+4. PKI - this is in order to generate the X.509 digital certificates that's required for Network Unlock. AD Certificate Services (AD CS) works fine.
+5. Must also configure the previously mentioned GPO settings for BitLocker to specify pin+TPM
+6. Network Unlock Group Policy Settings (upload the .cer file to this location)
+>Computer Configuration\Policies\Windows Settings\Security Settings\Public Key Policies\BitLocker Drive Encryption Network Certificate
 
 #### The Network Unlock sequence
 
