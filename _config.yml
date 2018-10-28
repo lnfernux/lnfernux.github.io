@@ -20,6 +20,7 @@ description: security by obscurity
 navbar-links:
   Guides:
     - Practical Hacking: PracticalHacking
+    - Securing Winndows Server: SecuringWindowsServer
   Archive: Archive
   About Me: "aboutme"
 avatar: "/img/avatar-icon.png"

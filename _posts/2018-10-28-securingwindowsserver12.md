@@ -33,6 +33,7 @@ Computer groups will help deploying and testing patches and hotfixes easier. You
 * Improve stability by first testing, approving and/or blacklisting patches before the computers you support receive them
 * Control how and when approved updates are installed in your enviroment
 
+
 #### Installing WSUS
 
 Follow these steps:
@@ -56,6 +57,7 @@ Follow these steps:
         * Configure sync schedule - manually specify sync with upstream partner. Choose when to perform the initial sync.
 3. After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
 
+
 #### Create computer groups and configure Automatic Update
 
 By default WSUS creates (but doesn't populate) a single computer group called Unassigned Computers. Let's create a new group for our infrastructure servers:
@@ -73,6 +75,7 @@ To point clients and servers to the right WSUS server, do the following in an AD
         * Intranet statistics server, same as above in our case.
 2. In the same GPO path, open the Configure Automatic Updates policy. Here you control how often the targeted hosts query the WSUS server.
 
+
 #### Implement Windows Defender
 
 In Windows Server 16 defender behavior is configurable from the Update and Security pane in Settings. 
@@ -85,6 +88,7 @@ You can control real-time protection (runs defender in the background constantly
 Start-MpScan #to start a normal scan
 Start-MpWDOScan #to start offline scan (if you've created an offline boot media).
 ~~~
+
 
 #### Integrate Windows Defender with WSUS
 
@@ -119,6 +123,7 @@ For each rule we have a choice of three conditions:
 2. Path - block or allow based on path they're run out of
 3. File hash - if the  file recieves an update, the rule is useless, but still works for hardened offline systems
 
+
 #### Implementing an AppLocker policy
 
 We will try to create an automatically generated rule to whitelist the standard applications and block the firefox browser executable.
@@ -142,6 +147,7 @@ Log on to a computer and try to run calc.exe, doesn't work. You can also view th
 3. Package App Deployment
 4. Package App Execution
 
+
 #### Implement Control Flow Guard
 
 Control Flow Guard is a developer focused feature.
@@ -158,6 +164,7 @@ You can manage device guard with:
 2. System Center Configuration Manager SCCM
 3. Microsoft Intune
 4. Windows Powershell (ConfigCI-module)
+
 
 #### Creating Code integrity policy rules
 
@@ -179,6 +186,7 @@ High level steps to deploy a new CI-policy:
 4. Audit the policy before applying it in production
 5. To deploy, enable the Deploy Code Intergrity Policy Group Policy from Comp Conf\Pol\Adm Temp\System\DeviceGuard - this requires you to enter the path to your CI pol file.
 6. Restart target system and check event log for results. Check the app and servcies\microsoft\windows\codeintegrity\operational log
+
 
 #### Catalog files
 
