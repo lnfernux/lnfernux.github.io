@@ -40,7 +40,7 @@ Follow these steps:
 
 1. Install the WSUS role on a server
     * You can either use Windows Interal database (WID) or Microsoft SQL server (on server 2016)
-    * Use one of the following cmdlets:
+    * Use the following cmdlet:
     ~~~powershell
     Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
     ~~~
@@ -56,8 +56,8 @@ Follow these steps:
         * Choose classifications - Choose what to download, by default this is critical updates, windows defender malware definition updates and security updates. 
         * Configure sync schedule - manually specify sync with upstream partner. Choose when to perform the initial sync.
 3. After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
-
-
+  
+  
 #### Create computer groups and configure Automatic Update
 
 By default WSUS creates (but doesn't populate) a single computer group called Unassigned Computers. Let's create a new group for our infrastructure servers:
