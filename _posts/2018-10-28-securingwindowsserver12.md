@@ -165,7 +165,7 @@ You can manage device guard with:
 3. Microsoft Intune
 4. Windows Powershell (ConfigCI-module)
 
-
+  
 #### Creating Code integrity policy rules
 
 Define the actual application whitelist that is enforced on the target node. 
@@ -187,7 +187,7 @@ High level steps to deploy a new CI-policy:
 5. To deploy, enable the Deploy Code Intergrity Policy Group Policy from Comp Conf\Pol\Adm Temp\System\DeviceGuard - this requires you to enter the path to your CI pol file.
 6. Restart target system and check event log for results. Check the app and servcies\microsoft\windows\codeintegrity\operational log
 
-
+  
 #### Catalog files
 
 You can store your application whitelisting exceptions in catalog files and device guard whitelists the catalog entries. This can be done with the PackageInspector.exe command line tool.
