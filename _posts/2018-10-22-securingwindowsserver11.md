@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server summary - part 1
-subtitle: 
+title: Securing Windows Server - Chapter 1 (Server Hardening)
+subtitle: Part 1 - Disk and file encryption
 tags:
   - powershell
   - security
@@ -11,7 +11,7 @@ tags:
 published: true
 ---
 
-### Part 1: Disk and file encryption
+### Chapter 1, Part 2: Disk and file encryption
 
 In this series of blogposts I'll try to summarize briefly the most important takeaways from doing my 70-744 exam. We're starting out with server hardening, this includes disk and file encryption, boot-protection, patching and upgrading, malware protection, credential protection and working with security baselines.
 
