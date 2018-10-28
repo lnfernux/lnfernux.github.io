@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Securing Windows Server - Chapter 1 (Server Hardening)
-subtitle: Part 2 - Implement server patching, updating solutions and malware protection
+subtitle: 'Part 2 - Implement server patching, updating solutions and malware protection'
 tags:
   - powershell
   - security
@@ -32,8 +32,8 @@ Computer groups will help deploying and testing patches and hotfixes easier. You
 * Saving bandwidth because local servers and clients download updates at LAN speed from downstream servers
 * Improve stability by first testing, approving and/or blacklisting patches before the computers you support receive them
 * Control how and when approved updates are installed in your enviroment
-
-
+  
+  
 #### Installing WSUS
 
 Follow these steps:
