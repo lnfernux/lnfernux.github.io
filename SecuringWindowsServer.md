@@ -24,6 +24,10 @@ In this "guide" I'll write about the things I summarized for myself while taking
 
 *ETA sometime later*
 
+### Scripts and stuff
+
+[Securing Windows Server (70-744) scripts](https://www.infernux.no/2018-09-18-powershell/)
+
 ## Information
 
 The official Microsoft page with informaton can be found [here](https://www.microsoft.com/en-us/learning/exam-70-744.aspx)
