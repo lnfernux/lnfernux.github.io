@@ -4,9 +4,16 @@ title: About me
 subtitle: 
 ---
 
-### About me.
+### About me
 
-Just a hacker.
+Windows dev, security consultant, former sysadmin and general nerd.
+
+I work mostly with the Windows Server and Client-OS product lines, using tools like PowerShell for automation.
+
+### Contact info
+
+email: YmxvZ0BpbmZlcm51eC5ubw==
+twitter: [infernuxmonster](https://twitter.com/infernuxmonster "this is my twitter")
 
 ### I want to start working in security, where do I begin?
 
