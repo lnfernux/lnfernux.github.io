@@ -10,6 +10,8 @@ Windows dev, security consultant, former sysadmin and general nerd.
 
 I work mostly with the Windows Server and Client-OS product lines, using tools like PowerShell for automation.
 
+On my spare time I run a lot, hence the Forrest Gump picture.
+
 ### Contact info
 
 email: YmxvZ0BpbmZlcm51eC5ubw==
