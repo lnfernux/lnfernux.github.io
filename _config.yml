@@ -20,14 +20,14 @@ description: security by obscurity
 navbar-links:
   Guides:
     - Practical Hacking: PracticalHacking
-    - Securing Winndows Server: SecuringWindowsServer
+    - Securing Windows Server: SecuringWindowsServer
   Archive: Archive
   About Me: "aboutme"
 avatar: "/img/avatar-icon.png"
 
 author:
   name: Truls Dahlsveen
-  email: aW5mZXJudXhAaW5mZXJudXgubm8=
+  email: YmxvZ0BpbmZlcm51eC5ubw==
   github: infernuxmonster
   twitter: infernuxmonster
 
