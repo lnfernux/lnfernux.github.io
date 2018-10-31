@@ -6,7 +6,7 @@ subtitle:
 
 ### About me
 
-Hey, I'm Truls Dahlsveen.
+Hey, I'm Truls, also known online as *infernux*.
 
 I'm currently working as a Windows developer and security consultant.
 I've previously worked on support, network administration, system administration and a bunch of other stuff.
