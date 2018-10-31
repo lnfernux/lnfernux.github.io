@@ -26,7 +26,7 @@ navbar-links:
 avatar: "/img/avatar-icon.png"
 
 author:
-  name: Truls
+  name: Truls Dahlsveen
   email: aW5mZXJudXhAaW5mZXJudXgubm8=
   github: infernuxmonster
   twitter: infernuxmonster
@@ -34,12 +34,12 @@ author:
 footer-links-active:
   rss: false
   facebook: false
-  email: false
+  email: true
   twitter: true
   google-plus: false
   github: true
   reddit: false
-  linkedin: true
+  linkedin: false
   xing: false
   stackoverflow: false
   snapchat: false
@@ -48,7 +48,7 @@ footer-links-active:
   spotify: false
   telephone: false
 share-links-active:
-  twitter: true
+  twitter: false
   facebook: false
   google: false
   linkedin: false

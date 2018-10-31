@@ -15,6 +15,4 @@ On my spare time I run a lot, hence the Forrest Gump picture.
 
 ### Contact info
 
-email: YmxvZ0BpbmZlcm51eC5ubw==
-
 twitter: [infernuxmonster](https://twitter.com/infernuxmonster "this is my twitter")
