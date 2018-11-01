@@ -29,7 +29,7 @@ Computer groups will help deploying and testing patches and hotfixes easier. You
 * Improve stability by first testing, approving and/or blacklisting patches before the computers you support receive them
 * Control how and when approved updates are installed in your enviroment
   
-
+[This](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) TechNet-guide is great for getting started, and goes into the technical stuff that I don't hit on.
 
 #### Installing WSUS
 
@@ -38,9 +38,7 @@ Follow these steps:
 1. Install the WSUS role on a server
     * You can either use Windows Interal database (WID) or Microsoft SQL server (on server 2016)
     * Use the following cmdlet:
-    ~~~powershell
-    Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
-    ~~~
+    * Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
 2. After installation, open the Windows Server Update Services console from the server manager, this starts the Complete WSUS Installation Wizard
     * You'll be asked for a update storage location, specify your desired path and type run
     * Post installation tasks take a few minutes, after which you're taken into a second wizard
@@ -75,7 +73,7 @@ To point clients and servers to the right WSUS server, do the following in an AD
   
 #### Implement Windows Defender
 
-In Windows Server 16 defender behavior is configurable from the Update and Security pane in Settings. 
+In Windows Server 16 defender behavior is configurable from the Update and Security pane in Settings.
 
 You can control real-time protection (runs defender in the background constantly), cloud-based protection (sends results to windows to help make defender better and faster at detecting), automatic sample submission (submits samples of detected malware to microsoft), exclusions (don't scan certain files / folders if you're sure they're safe), windows defender offline (you can scan the system from an alternative startup volume, but you have to install windows defender offline to do this, version info (how recent is the defitions and signature files.
 
@@ -100,6 +98,7 @@ Configure WSUS to automatically approve windows defender updates automatically.
 
 Your server should now automatically approve and download Windows Defender definition updates.
 You can control defender from GPO:
+
 >Comp Conf\Policies\Adm Temp\Windows Components\Windows Defender.
 
 Here you can do stuff like enable headless ui mode for users, allow users to pause scans and set time of day to run scans.
@@ -122,6 +121,7 @@ For each rule we have a choice of three conditions:
 2. Path - block or allow based on path they're run out of
 3. File hash - if the  file recieves an update, the rule is useless, but still works for hardened offline systems
 
+To get more into the nitty-gritty and understand AppLocker rules and policies, check out [this](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/applocker/create-your-applocker-rules) guide.
   
 #### Implementing an AppLocker policy
 
@@ -146,11 +146,29 @@ Log on to a computer and try to run calc.exe, doesn't work. You can also view th
 3. Package App Deployment
 4. Package App Execution
 
+For a reference guide with links to each individual step, check [this](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/applocker/create-your-applocker-policies) TechNet-article out!
   
 #### Implement Control Flow Guard
 
 Control Flow Guard is a developer focused feature.
 To enable it the creators of .NET software need to enable it in Visual Studio and recompile the program.
+
+In most cases, there is no need to change source code. All you have to do is add an option to your Visual Studio 2015 project, and the compiler and linker will enable CFG.
+The simplest method is to navigate to Project | Properties | Configuration Properties | C/C++ | Code Generation and choose Yes (/guard:cf) for Control Flow Guard.
+
+![cfg3](https://docs.microsoft.com/en-us/windows/desktop/secbp/images/cfg-vs.png "enable cfg")
+
+How does it work? Well, when a CFG check fails at runtime, Windows immediately terminates the program, thus breaking any exploit that attempts to indirectly call an invalid address.
+
+![cfg4](https://docs.microsoft.com/en-us/windows/desktop/secbp/images/cfg-pseudocode.jpg "how does it work")
+
+#### Check that Control Flow Guard is enabled on a binary
+
+Run the dumpbin tool (included in the Visual Studio 2015 installation) from the Visual Studio command prompt with the /headers and /loadconfig options: dumpbin /headers /loadconfig test.exe. The output for a binary under CFG should show that the header values include "Guard", and that the load config values include "CF Instrumented" and "FID table present".
+
+![cfg2](https://docs.microsoft.com/en-us/windows/desktop/secbp/images/cfg-dumpbin-headers.png "check cfg")
+
+![cfg3](https://docs.microsoft.com/en-us/windows/desktop/secbp/images/cfg-dumpbin-loadconfig.png "check cfg2")
 
   
 #### Implement Device Guard policies
@@ -187,10 +205,12 @@ High level steps to deploy a new CI-policy:
 5. To deploy, enable the Deploy Code Intergrity Policy Group Policy from Comp Conf\Pol\Adm Temp\System\DeviceGuard - this requires you to enter the path to your CI pol file.
 6. Restart target system and check event log for results. Check the app and servcies\microsoft\windows\codeintegrity\operational log
 
+Also important to note, as Microsoft likes to change things up, Code Integrity is now known as Windows Defender Application Control or WDAC. Please [use this article](https://blogs.technet.microsoft.com/datacentersecurity/2018/03/10/default-code-integrity-policy-for-windows-server/) as reference for the default policy and how to add publishers, merge policies and publish them.
+
   
 #### Catalog files
 
-You can store your application whitelisting exceptions in catalog files and device guard whitelists the catalog entries. This can be done with the PackageInspector.exe command line tool.
+You can store your application whitelisting exceptions in catalog files and device guard whitelists the catalog entries. This can be done with the PackageInspector.exe command line tool. For more information, [this series of TechNet How-To topics](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-how-to-topics) should be a good start for a great many things.
 
   
 #### Enable Device Guard (high level)
@@ -206,4 +226,6 @@ You can store your application whitelisting exceptions in catalog files and devi
   
 ### Links
 
-[TechNet-article on server hardening](https://social.technet.microsoft.com/wiki/contents/articles/18931.security-hardening-tips-and-recommendations.aspx)
+[TechNet-article on server patching and WSUS](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
+
+[Microsoft security products overview](https://www.microsoft.com/en-us/wdsi/products)
