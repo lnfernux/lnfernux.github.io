@@ -15,6 +15,8 @@ published: true
 
 ### Chapter 1, Part 3: Protect credentials and create security baselines
 
+#### What is Credential Guard
+
 Kerberos, NTLM, and Credential manager isolate secrets by using virtualization-based security. Previous versions of Windows stored secrets in the Local Security Authority (LSA). Prior to Windows 10, the LSA stored secrets used by the operating system in its process memory. With Windows Defender Credential Guard enabled, the LSA process in the operating system talks to a new component called the isolated LSA process that stores and protects those secrets. Data stored by the isolated LSA process is protected using virtualization-based security and is not accessible to the rest of the operating system. LSA uses remote procedure calls to communicate with the isolated LSA process.
 
 ![alt text](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/images/credguard.png "High Level Overview")
