@@ -62,8 +62,6 @@ This is all we need GPO-wise.
 
 ##### Configure using registry
 
-Open Registry Editor
-
 Enable virtualization-based security:
 
 * Go to HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard.
