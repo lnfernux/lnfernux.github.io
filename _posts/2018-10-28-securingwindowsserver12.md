@@ -17,6 +17,7 @@ published: true
 ### Chapter 1, Part 2: Implement server patching, updating solutions and malware protection
 
 
+
 #### Install and configure WSUS
 
 Windows Server Update Services can be deployed many ways. Also included as a part of SCCM.
@@ -28,7 +29,8 @@ Computer groups will help deploying and testing patches and hotfixes easier. You
 * Improve stability by first testing, approving and/or blacklisting patches before the computers you support receive them
 * Control how and when approved updates are installed in your enviroment
   
-  
+
+
 #### Installing WSUS
 
 Follow these steps:
@@ -52,7 +54,7 @@ Follow these steps:
         * Configure sync schedule - manually specify sync with upstream partner. Choose when to perform the initial sync.
 3. After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
   
-  
+    
 #### Create computer groups and configure Automatic Update
 
 By default WSUS creates (but doesn't populate) a single computer group called Unassigned Computers. Let's create a new group for our infrastructure servers:
@@ -70,13 +72,14 @@ To point clients and servers to the right WSUS server, do the following in an AD
         * Intranet statistics server, same as above in our case.
 2. In the same GPO path, open the Configure Automatic Updates policy. Here you control how often the targeted hosts query the WSUS server.
 
-
+  
 #### Implement Windows Defender
 
 In Windows Server 16 defender behavior is configurable from the Update and Security pane in Settings. 
 
 You can control real-time protection (runs defender in the background constantly), cloud-based protection (sends results to windows to help make defender better and faster at detecting), automatic sample submission (submits samples of detected malware to microsoft), exclusions (don't scan certain files / folders if you're sure they're safe), windows defender offline (you can scan the system from an alternative startup volume, but you have to install windows defender offline to do this, version info (how recent is the defitions and signature files.
 
+  
 #### Running scans from PowerShell
 
 ~~~powershell
@@ -84,7 +87,7 @@ Start-MpScan #to start a normal scan
 Start-MpWDOScan #to start offline scan (if you've created an offline boot media).
 ~~~
 
-
+  
 #### Integrate Windows Defender with WSUS
 
 Configure WSUS to automatically approve windows defender updates automatically.
@@ -101,6 +104,7 @@ You can control defender from GPO:
 
 Here you can do stuff like enable headless ui mode for users, allow users to pause scans and set time of day to run scans.
 
+  
 #### Implement AppLocker Rules
 
 AppLocker is basically whitelisting. Make sure that AppIDSvc is running on all protected servers, you can use GPOs to force-enable this service.
@@ -118,7 +122,7 @@ For each rule we have a choice of three conditions:
 2. Path - block or allow based on path they're run out of
 3. File hash - if the  file recieves an update, the rule is useless, but still works for hardened offline systems
 
-
+  
 #### Implementing an AppLocker policy
 
 We will try to create an automatically generated rule to whitelist the standard applications and block the firefox browser executable.
@@ -142,12 +146,13 @@ Log on to a computer and try to run calc.exe, doesn't work. You can also view th
 3. Package App Deployment
 4. Package App Execution
 
-
+  
 #### Implement Control Flow Guard
 
 Control Flow Guard is a developer focused feature.
 To enable it the creators of .NET software need to enable it in Visual Studio and recompile the program.
 
+  
 #### Implement Device Guard policies
 
 Device Guard isn't a single product, it's a collection of security-related hardware and software features that fully protects the servers executable environment.
@@ -187,6 +192,7 @@ High level steps to deploy a new CI-policy:
 
 You can store your application whitelisting exceptions in catalog files and device guard whitelists the catalog entries. This can be done with the PackageInspector.exe command line tool.
 
+  
 #### Enable Device Guard (high level)
 
 1. Make sure all systems meet all DG requirements
@@ -196,7 +202,8 @@ You can store your application whitelisting exceptions in catalog files and devi
 3. Inventory and review all hardware and software 
     * If they aren't signed by a known CA you trust, they won't work with DG
 4. Digitally sign all internal applications
-
+  
+  
 ### Links
 
 [TechNet-article on server hardening](https://social.technet.microsoft.com/wiki/contents/articles/18931.security-hardening-tips-and-recommendations.aspx)
