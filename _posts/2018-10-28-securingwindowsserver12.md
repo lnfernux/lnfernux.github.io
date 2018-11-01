@@ -98,6 +98,7 @@ Start-MpScan #to start a normal scan
 Start-MpWDOScan #to start offline scan (if you've created an offline boot media).
 ~~~
 
+Please refer to the article on [running and reviewing offline scans with Windows Defender](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-antivirus/windows-defender-offline) for more details. There's also an overview over [different defender cmdlets](https://docs.microsoft.com/en-us/powershell/module/defender/index?view=win10-ps) that might prove useful!
   
 #### Integrate Windows Defender with WSUS
 
