@@ -16,7 +16,7 @@ In this "guide" I'll write about the things I summarized for myself while taking
 
 [Part 2 - Implement server patching, updating solutions and malware protection](https://www.infernux.no/2018-10-28-securingwindowsserver12/)
 
-[Part 3 - Protect credentials and create security baselines](https://www.infernux.no/SecuringWindowsServer/)
+[Part 3 - Protect credentials and create security baselines](https://www.infernux.no/2018-11-01-securingwindowsserver13/)
 
 [Part 4 - Summary](https://www.infernux.no/SecuringWindowsServer/)
 

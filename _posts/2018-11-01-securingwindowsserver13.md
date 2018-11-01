@@ -15,6 +15,8 @@ published: true
 
 ### Chapter 1, Part 3: Protect credentials and create security baselines
 
+The world of security is always changing and that's also the case for Microsoft. To follow all their updates, new products, what's retiring and namechanges please use the following link to [stay updated](https://blogs.technet.microsoft.com/secguide/) on all their blogs and updates. Here they discuss updated baselines and so much more.
+
 #### What is Credential Guard
 
 Kerberos, NTLM, and Credential manager isolate secrets by using virtualization-based security. Previous versions of Windows stored secrets in the Local Security Authority (LSA). Prior to Windows 10, the LSA stored secrets used by the operating system in its process memory. With Windows Defender Credential Guard enabled, the LSA process in the operating system talks to a new component called the isolated LSA process that stores and protects those secrets. Data stored by the isolated LSA process is protected using virtualization-based security and is not accessible to the rest of the operating system. LSA uses remote procedure calls to communicate with the isolated LSA process.
@@ -117,7 +119,10 @@ You can use several GPOs:
 
 The idea with NTLM  blocking is to audit first, then see what effects blocking brings to your system. [This article from 2009](https://blogs.technet.microsoft.com/askds/2009/10/08/ntlm-blocking-and-you-application-analysis-and-auditing-methodologies-in-windows-7/) goes over the concepts for how to go about this, but the core concept as mentioned is to audit for a long time before making any changes and implementing policies.
 
-#### Install and configure Security Compliance Manager (toolkit)
+#### Install and configure Security Compliance Manager
+
+Important to note, from 2017 and onwards Microsoft retired SCM, [click here](https://blogs.technet.microsoft.com/secguide/2017/06/15/security-compliance-manager-scm-retired-new-tools-and-procedures/) for reference. 
+This WILL impact the exam. The reference material I worked with referenced SCM a bunch, but there "new kid on the block" is the [Security Compliance Toolkit](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-compliance-toolkit-10), or SCT for short.
 
 You need to download SCM v4.0 to configure WS16 and W10
 You don't have to install on a server, you can perform all baseline conf work from your windows 10 administrative workstation. The SCM.exe is around 130mb.
@@ -138,6 +143,15 @@ In the templates pane, you have three columns, for each GPO , three states exist
 2. Microsoft - microsoft recommended security baseline
 3. Custom - settings contained in your customized version of the template, if you have one
 
+This material is outdated at the time of writing, please refer to the next chapter on SCT.
+
+#### Security Compliance Toolkit
+
+What is it? According to the aforementioned TechNet-article it is 
+>a set of tools that allows enterprise security administrators to download, analyze, test, edit, and store Microsoft-recommended security configuration baselines for Windows and other Microsoft products.
+
+To download the SCT please use [this official download link](https://www.microsoft.com/en-us/download/details.aspx?id=55319).
+
 #### Create, view and import security baselines
 
 In order to create your own, you need to duplicate one of Microsoft Read-Only baselines. A quick way to do this is to expose a security setting and click the "Customize this setting by duplicating the baseline" hyperlink. This baseline will now show up under custom baselines.
@@ -155,6 +169,8 @@ We'll export a GPO of a DC, import it into SCM and then compare the deployed GPO
 5. Comparison - go to  the action pane, find the baseline section, click compare/merge
 6. In the comparison dialog, chose a builtin or custom sec baseline and click ok
 7. If you have excel you can export the results to a spreadsheet for offline analysis
+
+For more information on security baselines in general, check out [this article](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-security-baselines)
 
 #### Deploy configurations to domain and non-domain-joined servers
 
