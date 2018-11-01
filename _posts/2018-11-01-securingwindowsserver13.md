@@ -103,6 +103,8 @@ The output of this command provides details of the available hardware-based secu
 * Malware that uses currently logged on users creds
 * Digest and CredSSP credentials
 
+This is just a bullett list, but for more in-depth please check out [Windows Defender Credential Guard protection limits](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-not-protected-scenarios) and [considerations when using Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-considerations).
+
 #### Implement NTLM blocking
 
 NTLM blocking is just preventing NTLM being used for authentication in your domain.
@@ -121,7 +123,7 @@ The idea with NTLM  blocking is to audit first, then see what effects blocking b
 
 #### Install and configure Security Compliance Manager
 
-Important to note, from 2017 and onwards Microsoft retired SCM, [click here](https://blogs.technet.microsoft.com/secguide/2017/06/15/security-compliance-manager-scm-retired-new-tools-and-procedures/) for reference. 
+Important to note, from 2017 and onwards [Microsoft retired SCM](https://blogs.technet.microsoft.com/secguide/2017/06/15/security-compliance-manager-scm-retired-new-tools-and-procedures/).
 This WILL impact the exam. The reference material I worked with referenced SCM a bunch, but there "new kid on the block" is the [Security Compliance Toolkit](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-compliance-toolkit-10), or SCT for short.
 
 You need to download SCM v4.0 to configure WS16 and W10
