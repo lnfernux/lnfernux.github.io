@@ -33,28 +33,29 @@ Computer groups will help deploying and testing patches and hotfixes easier. You
 
 #### Installing WSUS
 
-Install the WSUS role on a server
+##### Install the WSUS role on a server
 
-* You can either use Windows Interal database (WID) or Microsoft SQL server (on server 2016)
-* Use the following cmdlet:
-    
-    ~~~powershell
-    Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
-    ~~~
+You can either use Windows Interal database (WID) or Microsoft SQL server (on server 2016)
+To install the tools, use the following cmdlet:
 
-After installation
+~~~powershell
+Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
+~~~
 
-* Open the Windows Server Update Services console from the server manager, this starts the Complete WSUS Installation Wizard
-    * You'll be asked for a update storage location, specify your desired path and type run
-* Post installation tasks take a few minutes, after which you're taken into a second wizard
-* Before you begin - verification step that asks you if WSUS servers firewall rules are configured and you're logged in with proper credentials
-    * Microsoft Update Improvement Program - simple opt-in or out
-    * Choose upstream server - sync with Microsoft update directly or via a upstream server already configured in the domain
-    * Specify proxy server - if you're using one
-    * Choose languages - select only the languages you support
-    * Choose products - choose to download updates only for the operating systems and products you support
-    * Choose classifications - Choose what to download, by default this is critical updates, windows defender malware definition updates and security updates. 
-    * Configure sync schedule - manually specify sync with upstream partner. Choose when to perform the initial sync.
+##### After installation
+
+Open the Windows Server Update Services console from the server manager, this starts the Complete WSUS Installation Wizard
+
+* You'll be asked for a update storage location, specify your desired path and type run
+
+Post installation tasks take a few minutes, after which you're taken into a second wizard where there's a verification step that asks you if WSUS servers firewall rules are configured and you're logged in with proper credentials. Then we're presented with the following choices that needs to be made (in some cases ignored):
+
+* Choose upstream server - sync with Microsoft update directly or via a upstream server already configured in the domain
+* Specify proxy server - if you're using one
+* Choose languages - select only the languages you support
+* Choose products - choose to download updates only for the operating systems and products you support
+* Choose classifications - Choose what to download, by default this is critical updates, windows defender malware definition updates and security updates. 
+* Configure sync schedule - manually specify sync with upstream partner. Choose when to perform the initial sync.
 
 After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
 
@@ -214,7 +215,7 @@ High level steps to deploy a new CI-policy:
 3. Use the ConvertFromCIPolicy cmdlet to convert the ci policy from plaintext xml to binary format
 4. Audit the policy before applying it in production
 5. To deploy, enable the Deploy Code Intergrity Policy Group Policy from Comp Conf\Pol\Adm Temp\System\DeviceGuard - this requires you to enter the path to your CI pol file.
-6. Restart target system and check event log for results. Check the app and servcies\microsoft\windows\codeintegrity\operational log
+6. Restart target system and check event log for results (eventviewer). Check the app and services\microsoft\windows\codeintegrity\operational log
 
 Also important to note, as Microsoft likes to change things up, Code Integrity is now known as Windows Defender Application Control or WDAC. Please [use this article](https://blogs.technet.microsoft.com/datacentersecurity/2018/03/10/default-code-integrity-policy-for-windows-server/) as reference for the default policy and how to add publishers, merge policies and publish them.
 
