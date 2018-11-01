@@ -141,19 +141,29 @@ To get more into the nitty-gritty and understand AppLocker rules and policies, c
 
 We will try to create an automatically generated rule to whitelist the standard applications and block the firefox browser executable.
 
-1. Make sure AppIDSvc is running
-2. In GPO editor, navigate to Comp Conf\Policies\Windows Settings\Security Settings\Application Control Policies\AppLocker.
-3. Right click the Executable Rules node and select Automatically Generate Rules. This allows the following:
-    * Everyone to run all files located in the Program Files folder
-    * Everyone to run all files located in the  Windows folder
-4. Right click executeable rules and click Create New Rule and change the User or Group scope to Authenticated User
-5. Permissions page, select Deny action
-6. Conditions, select file hash
-7. In the file hash page, navigate to C:\Windows\System32\calc.exe
-8. Create to finish making the rule
-9. User powershell to force domain wide gpo-update (invoke-gpupdate -computer $_.name -Force)
+First we need to sure AppIDSvc is running, then in GPO editor, navigate to:
 
-Log on to a computer and try to run calc.exe, doesn't work. You can also view this in  eventviewer, you have 4 applocker logs:
+>Comp Conf\Policies\Windows Settings\Security Settings\Application Control Policies\AppLocker
+
+Right click the Executable Rules node and select Automatically Generate Rules. This allows the following:
+
+* Everyone to run all files located in the Program Files folder
+* Everyone to run all files located in the  Windows folder
+
+Right click executeable rules and click Create New Rule and change the User or Group scope to Authenticated User:
+
+* On the permissions page, select Deny action
+* Under conditions, select file hash
+* In the file hash page, navigate to C:\Windows\System32\calc.exe
+* Click create to finish making the rule
+
+Then we can use PowerShell to force domain wide gpo-update 
+
+~~~powershell
+invoke-gpupdate -computer $_.name -Force
+~~~
+
+Log on to a computer and try to run calc.exe, doesn't work. You can also view this in eventviewer, where you will have four different applocker logs:
 
 1. EXE and DLL
 2. Msi and Script
