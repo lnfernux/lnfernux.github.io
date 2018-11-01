@@ -33,25 +33,31 @@ Computer groups will help deploying and testing patches and hotfixes easier. You
 
 #### Installing WSUS
 
-Follow these steps:
+Install the WSUS role on a server
 
-1. Install the WSUS role on a server
-    * You can either use Windows Interal database (WID) or Microsoft SQL server (on server 2016)
-    * Use the following cmdlet:
-    * Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
-2. After installation, open the Windows Server Update Services console from the server manager, this starts the Complete WSUS Installation Wizard
+* You can either use Windows Interal database (WID) or Microsoft SQL server (on server 2016)
+* Use the following cmdlet:
+    
+    ~~~powershell
+    Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
+    ~~~
+
+After installation
+
+* Open the Windows Server Update Services console from the server manager, this starts the Complete WSUS Installation Wizard
     * You'll be asked for a update storage location, specify your desired path and type run
-    * Post installation tasks take a few minutes, after which you're taken into a second wizard
-        * Before you begin - verification step that asks you if WSUS servers firewall rules are configured and you're logged in with proper credentials
-        * Microsoft Update Improvement Program - simple opt-in or out
-        * Choose upstream server - sync with Microsoft update directly or via a upstream server already configured in the domain
-        * Specify proxy server - if you're using one
-        * Choose languages - select only the languages you support
-        * Choose products - choose to download updates only for the operating systems and products you support
-        * Choose classifications - Choose what to download, by default this is critical updates, windows defender malware definition updates and security updates. 
-        * Configure sync schedule - manually specify sync with upstream partner. Choose when to perform the initial sync.
-3. After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
-  
+* Post installation tasks take a few minutes, after which you're taken into a second wizard
+* Before you begin - verification step that asks you if WSUS servers firewall rules are configured and you're logged in with proper credentials
+    * Microsoft Update Improvement Program - simple opt-in or out
+    * Choose upstream server - sync with Microsoft update directly or via a upstream server already configured in the domain
+    * Specify proxy server - if you're using one
+    * Choose languages - select only the languages you support
+    * Choose products - choose to download updates only for the operating systems and products you support
+    * Choose classifications - Choose what to download, by default this is critical updates, windows defender malware definition updates and security updates. 
+    * Configure sync schedule - manually specify sync with upstream partner. Choose when to perform the initial sync.
+
+After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
+
     
 #### Create computer groups and configure Automatic Update
 
@@ -64,11 +70,15 @@ Adding computers to the group is a bit hard, we must use a GPO to point our clie
 
 To point clients and servers to the right WSUS server, do the following in an AD-GPO:
 
-1. Go to Computer Config\Policies\Administrative Templates\Windows Components\Windows Update
-    * Open the Specify Intranet Microsoft Update Service Location and provide the following URLs
-        * Intranet update service, HTTP(S) address of WSUS server, check IIS to see which port WSUS uses.
-        * Intranet statistics server, same as above in our case.
-2. In the same GPO path, open the Configure Automatic Updates policy. Here you control how often the targeted hosts query the WSUS server.
+Go to 
+
+>Computer Config\Policies\Administrative Templates\Windows Components\Windows Update
+ 
+* Open the Specify Intranet Microsoft Update Service Location and provide the following URLs
+    * Intranet update service, HTTP(S) address of WSUS server, check IIS to see which port WSUS uses.
+    * Intranet statistics server, same as above in our case.
+
+In the same GPO path, open the Configure Automatic Updates policy. Here you control how often the targeted hosts query the WSUS server.
 
   
 #### Implement Windows Defender
