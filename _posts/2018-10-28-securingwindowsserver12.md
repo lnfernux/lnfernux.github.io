@@ -193,6 +193,7 @@ You can manage device guard with:
 3. Microsoft Intune
 4. Windows Powershell (ConfigCI-module)
 
+This gives us the ability to choose from preference, and also automate a great deal.
   
 #### Creating Code integrity policy rules
 
