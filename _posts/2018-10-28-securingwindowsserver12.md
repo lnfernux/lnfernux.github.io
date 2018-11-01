@@ -16,11 +16,6 @@ published: true
 
 ### Chapter 1, Part 2: Implement server patching, updating solutions and malware protection
 
-In this series of blogposts I'll try to summarize briefly the most important takeaways from doing my 70-744 exam. We're starting out with server hardening, this includes disk and file encryption, boot-protection, patching and upgrading, malware protection, credential protection and working with security baselines.
-
-I might glance over some things - this is not a technical "how to do it" approach, I'll mostly be presenting the concepts and then resources like TechNet will be able to fill in the blanks (there will be many!).
-
-This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on [twitter](https://twitter.com/infernuxmonster)
 
 #### Install and configure WSUS
 
