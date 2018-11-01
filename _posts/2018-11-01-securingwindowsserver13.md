@@ -40,11 +40,13 @@ To verify credential guard, either look at system information if the Device Guar
 
 #### Configure Credential Guard
 
-We can use GPO, WMI (powershell) or CMD. First, check if your PC is ready for Credential Guard with [this](https://www.microsoft.com/en-us/download/details.aspx?id=53337) tool from Microsoft. Run it like so:
+We can use GPO, WMI (powershell) or CMD. First, check if your PC is ready for Credential Guard with [this](https://www.microsoft.com/en-us/download/details.aspx?id=53337) tool from Microsoft.
 
 ~~~powershell
 DG_Readiness_Tool_v3.5.ps1 -Ready
 ~~~
+
+The Device Guard Readiness tool is designed to check a number of requirements for creating a PC that supports a variety of security enhancement features. [Read more about it here.](https://docs.microsoft.com/en-us/windows-hardware/drivers/driversecurity/use-device-guard-readiness-tool)
 
 ##### Configure using GPO
 
