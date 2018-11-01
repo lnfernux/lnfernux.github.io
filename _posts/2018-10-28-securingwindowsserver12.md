@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server - Chapter 1 (Server Hardening)
-subtitle: 'Part 2 - Implement server patching, updating solutions and malware protection'
+title: Securing Windows Server - Implement server patching, updating solutions and malware protection
+subtitle: 'Chapter 1, Part 2'
 tags:
   - powershell
   - security

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server - Chapter 1 (Server Hardening)
-subtitle: Part 1 - Disk and file encryption
+title: Securing Windows Server - Disk and file encryption
+subtitle: 'Chapter 1, Part 1'
 tags:
   - powershell
   - security

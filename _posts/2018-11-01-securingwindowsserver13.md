@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server - Chapter 1 (Server Hardening)
-subtitle: 'Part 3 - Protect credentials and create security baselines'
+title: Securing Windows Server - Protect credentials and create security baselines
+subtitle: 'Chapter 1, Part 3'
 tags:
   - powershell
   - security
