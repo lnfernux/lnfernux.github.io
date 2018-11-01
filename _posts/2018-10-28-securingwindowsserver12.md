@@ -42,6 +42,8 @@ To install the tools, use the following cmdlet:
 Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
 ~~~
 
+This installs all the tools needed.
+  
 ##### After installation
 
 Open the Windows Server Update Services console from the server manager, this starts the Complete WSUS Installation Wizard
