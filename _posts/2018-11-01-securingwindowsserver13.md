@@ -10,7 +10,7 @@ tags:
   - credentials
   - security baseline
   - securing windows server
-published: false
+published: true
 ---
 
 ### Chapter 1, Part 3: Protect credentials and create security baselines
@@ -44,25 +44,30 @@ DG_Readiness_Tool_v3.5.ps1 -Ready
 
 ##### Configure using GPO
 
-* From the Group Policy Management Console, go to
-    * Computer Configuration -> Administrative Templates -> System -> Device Guard.
+From the Group Policy Management Console, go to
+
+>Computer Configuration -> Administrative Templates -> System -> Device Guard.
+
 * Double-click Turn On Virtualization Based Security, and then click the Enabled option.
 * In the Select Platform Security Level box, choose Secure Boot or Secure Boot and DMA Protection.
 * In the Credential Guard Configuration box, click Enabled with UEFI lock, and then click OK. If you want to be able to turn this off remotely, choose Enabled without lock.
 
+This is all we need GPO-wise.
+
 ##### Configure using registry
 
-* Open Registry Editor.
-    * Enable virtualization-based security:
-    * Go to HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard.
-    * Add a new DWORD value named EnableVirtualizationBasedSecurity. Set the value of this registry setting to 1 to enable virtualization-based security and set it to 0 to disable it.
-    * Add a new DWORD value named RequirePlatformSecurityFeatures. Set the value of this registry setting to 1 to use Secure Boot only or set it to 3 to use Secure Boot and DMA protection.
+Open Registry Editor
+
+* Enable virtualization-based security:
+* Go to HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\DeviceGuard.
+* Add a new DWORD value named EnableVirtualizationBasedSecurity. Set the value of this registry setting to 1 to enable virtualization-based security and set it to 0 to disable it.
+* Add a new DWORD value named RequirePlatformSecurityFeatures. Set the value of this registry setting to 1 to use Secure Boot only or set it to 3 to use Secure Boot and DMA protection.
 
 Enable Windows Defender Credential Guard
 
 * Go to HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA.
-    * Add a new DWORD value named LsaCfgFlags. Set the value of this registry setting to 1 to enable Windows Defender Credential Guard with UEFI lock, set it to 2 to enable Windows Defender Credential Guard without lock, and set it to 0 to disable it.
-    * Close Registry Editor
+* Add a new DWORD value named LsaCfgFlags. Set the value of this registry setting to 1 to enable Windows Defender Credential Guard with UEFI lock, set it to 2 to enable Windows Defender Credential Guard without lock, and set it to 0 to disable it.
+* Close Registry Editor
 
 To verify credential guard, either look at system information if the Device Guard Virtualization Based Security shows as running and the Device Guard Security Services Running item lists Credential Guard it's enabled. You can also check for a virtual lsass process in the process tool.
 
