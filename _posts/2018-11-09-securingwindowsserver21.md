@@ -17,11 +17,35 @@ published: false
 
 The world of security is always changing and that's also the case for Microsoft. To follow all their updates, new products, what's retiring and namechanges please use the following link to [stay updated](https://blogs.technet.microsoft.com/secguide/) on all their blogs and updates. Here they discuss updated baselines and so much more.
 
+#### So what is a guarded fabric
+
+A guarded fabric is a Windows Server 2016 Hyper-V fabric capable of protecting tenant workloads against inspection, theft, and tampering from malware running on the host, as well as from system administrators. These virtualized tenant workloads—protected both at rest and in-flight—are called shielded VMs.
+
+![alt text3](https://docs.microsoft.com/en-us/windows-server/security/media/guarded-fabric-shielded-vm/guarded-host-overview-diagram.png "Guarded Host Overview Diagram")
+
+When a tenant creates shielded VMs that run on a guarded fabric, the Hyper-V hosts and the shielded VMs themselves are protected by the Host Guardian Service (HGS). The HGS provides two distinct services: attestation and key protection. The Attestation service ensures only trusted Hyper-V hosts can run shielded VMs while the Key Protection Service provides the keys necessary to power them on and to live migrate them to other guarded hosts.
+
+#### What is the Host Guardian Service
+
+The Host Guardian Service (HGS) is the centerpiece of the guarded fabric solution. It is responsible for ensuring that Hyper-V hosts in the fabric are known to the hoster or enterprise and running trusted software and for managing the keys used to start up shielded VMs. When a tenant decides to trust you to host their shielded VMs, they are placing their trust in your configuration and management of the Host Guardian Service. Therefore, it is very important to follow best practices when managing the Host Guardian Service to ensure the security, availability and reliability of your guarded fabric. The guidance in the following sections addresses the most common operational issues facing administrators of HGS.
+
+More information can be found on [Microsoft's pages](https://docs.microsoft.com/en-us/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-manage-hgs)
+
 #### Install and configure the Host Guardian service
 
-Building a trusted fabric for Hyper-V involves deploying a Host Guardian Service (HGS) cluster. HGS is a new server role in WS16. 
-HGS cluster exists in a seperate forest called a safe harbor forest. This creates a strong security and isolation boundary between the HGS cluster and your production forest. 
-You need to manually create a one way external trust between the HGS and the prod forest. 
+Imagine your normal Hyper-V fabric, like the image below.
+
+![alt text2](https://docs.microsoft.com/en-us/windows-server/security/media/guarded-fabric-shielded-vm/guarded-fabric-existing-hyper-v.png "Standard Hyper-V Fabric")
+
+Building a trusted fabric for Hyper-V involves deploying a Host Guardian Service (HGS) cluster. HGS is a new server role in WS16.
+HGS cluster exists in a seperate forest called a safe harbor forest. This creates a strong security and isolation boundary between the HGS cluster and your production forest.
+You need to manually create a one way external trust between the HGS and the prod forest.
+
+The image below shows your normal forest and a three-node HGS cluster, relecloud.com
+
+![alt text](https://docs.microsoft.com/en-us/windows-server/security/media/guarded-fabric-shielded-vm/guarded-fabric-deployment-step-two-deploy-hgs.png "HGS Cluster")
+
+If you wish to learn more about the steps in a high level overview, [this guide shows you each step with links to step-by-step guides for reach ... well, step](https://docs.microsoft.com/en-us/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-deployment-overview)
 
 #### Preparing your HGS nodes
 
@@ -54,7 +78,7 @@ When the server starts after it's second boot you'll have a brand new dc in a  b
 Let's imagine that a workload admin attempts to access a shielded VM, by using RDP.
 Because the VM is shielded and  resides on a guarded host the Hyper-V host requests two things:
 
-* Host attestation 
+* Host attestation
 * Decryption keys from the HGS cluster
 
 Depending on how attestation is confed, the host is either allowed or not allowed to unlock the shielded VM
@@ -108,10 +132,10 @@ In the HGS forest we run a powershell command to include the GuardedHostGroup to
 The command:
 
 ~~~powershell
-Add-HGsAttestationHostGroup -Name 'GuardedHostGroup' -Identifier 'SID' 
+Add-HGsAttestationHostGroup -Name 'GuardedHostGroup' -Identifier 'SID'
 ~~~
 
-You can get the SID from running Get-ADGroup on one of the DCs in the prod forest. 
+You can get the SID from running Get-ADGroup on one of the DCs in the prod forest.
 
 To make sure everything is ok, run:
 
@@ -135,7 +159,7 @@ To make your HSM-backend keys the default ones to be used by each node in the cl
 Set-HgsKeyProtectionCertificate
 ~~~
 
-#### Configuring a guarded host.
+#### Configuring a guarded host
 
 Install Hyper-V server and Host Guardian Cluent server roles
 
@@ -164,9 +188,9 @@ The VM we want to shield is named vs1. This powershell command performs the shie
 ~~~powershell
 $vm = 'vs1.contoso.local'
 Stop-VM -VMName $vm
-$Owner = New-HGSGuardian -name 'Owner -GenerateCertificates 
+$Owner = New-HGSGuardian -name 'Owner' -GenerateCertificates 
 $Guardian = Import-HgsGuardian -Path 'C:\HgsGuardian.xml' -Name 'TestFabric' -AllowUntrustedRoot
-$KP =New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
+$KP = New-HgsKeyProtector -Owner $Owner -Guardian $Guardian -AllowUntrustedRoot
 Set-VMKeyprotector -VMName $VM -KeyProtector $KP.RawData
 Set-VMSecurityPolicy -VMName $VM -Shielded $true
 Enable-VMTPM -VMName $VM
@@ -184,7 +208,7 @@ Migrating a shielded VM to another guarded hosts - you can use standard methods 
 Determine if a VM is shielded
 
 ~~~powershell
-Get-VmSecurity -VmName 'vs1.domain.local' 
+Get-VmSecurity -VmName 'vs1.domain.local'
 ~~~
 
 Can also verify the VMs status in the properties in Hyper-V manager.
@@ -199,6 +223,6 @@ Set-VMSecurityPolicy -Vmname 'vs1.domain.local' -Shielded $false
 
 ### Links
 
-[Enable virtualization-based protection of code integrity](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-exploit-guard/enable-virtualization-based-protection-of-code-integrity)
+[Guarded fabric and shielded VMs overview](https://docs.microsoft.com/en-us/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)
 
-[Manage Windows Defender Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-manage)
+[Quick overview from Windows on YouTube](https://www.youtube.com/watch?v=nPJfI7r_AGg)
