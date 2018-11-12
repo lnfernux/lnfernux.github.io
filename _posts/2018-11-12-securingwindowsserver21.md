@@ -51,8 +51,8 @@ If you wish to learn more about the steps in a high level overview, [this guide 
 
 The HGS server role provides two services that enable guarded hosts, also known as HGS clients. For now, consider a shielded VM to be a protected VM. These two services are:
 
-    * Attestation, HGS unlocks a shielded VM only if the identity and integrity of the VM has been verified
-    * Key protection, these are the encryption keys that enable the shielded VM to transition between the encrypted and unencrypted states
+* Attestation, HGS unlocks a shielded VM only if the identity and integrity of the VM has been verified
+* Key protection, these are the encryption keys that enable the shielded VM to transition between the encrypted and unencrypted states
 
 It's recommended to deploy at least 3 virtual / physical HGS servers to provide high availability. The reason is simple, you won't be able to work with a shielded VM unless the HGS cluster is available. Lets install HGS, first make sure you are logged in on the HGS server with the local administrator and that you have an elevated powershell session.
 
@@ -61,6 +61,8 @@ It's recommended to deploy at least 3 virtual / physical HGS servers to provide 
 ~~~powershell
 Install-WindowsFeature -Name HostGuardianServiceRole -IncludeManagementTools -restart
 ~~~
+
+Obviosuly you don't have to have -restart, but you need to restart soooo, yeah.
 
 #### Configuring the HGS server
 
@@ -95,11 +97,11 @@ A fabric admin, on the other hand is the administrator of the fabric. It's the g
 
 We can chose between:
 
-| Type | Difficulty rating | Who can start shielded VM's? | - |
+| Type | Difficulty rating | Who can start shielded VM's? |
 | --- | --- | --- | --- |
 | Admin-trusted | Simple config | Ensures that only Hyper-V hosts that are designated as guarded hosts can start shielded VMs, while guarded hosts are placed in a special AD-group |
 | TPM | Difficult config | Ensures that only guarded hyper-v hosts can start shielded vms, also ensures that guarded hosts can run only trusted code as defined in CI policies |
-| Host key | Simple config | 
+| Host key | Simple config | Works almost the same as Admin-trust, see link below for more information | 
 
 Keep in mind that we need to have TPM 2.20 and UEFI 2.3.1 with SecureBoot enabled for TPM-attestation to work.
 
@@ -149,7 +151,9 @@ Now let's *actually* initialize the HGS server:
 Initialize-HgsServer -LogDirectory C:\ -HgsServiceName 'HGS' -http -TrustActiveDirectory -SigningCertificatePath 'C:\SigningCert.pfx' -SigningCertificatePassword $certpw -EncryptionCertificatePath 'C:\enccert.pfx' -EncryptionCertificatePassword $certpw
 ~~~
 
-##### Main takeaways
+It's a long command, but it's not actually that scary when you look at it.
+
+#### Main takeaways thus far
 
 * HgsServiceName is the host name of the HGS cluster, therefore the safe.local dns includes and entry for hgs.safe.local that refers to the cluster itself
 * TrustActiveDirectory signifies admintrusted attestation, for tpm use the -TrustTPM switch
@@ -158,13 +162,11 @@ Initialize-HgsServer -LogDirectory C:\ -HgsServiceName 'HGS' -http -TrustActiveD
 Since we're using admin trusted attestation, we need to make sure we create a global security group in our production forest called GuardedHostGroup that contains the hostname of our hyperv1.domain.local Hyper-V server.
 In the HGS forest we run a powershell command to include the GuardedHostGroup to the HGS clusters attestation group. That means only hosts inside this group are allowed to work with shielded vms.
 
-The command:
-
 ~~~powershell
 Add-HGsAttestationHostGroup -Name 'GuardedHostGroup' -Identifier 'SID'
 ~~~
 
-You can get the SID from running Get-ADGroup on one of the DCs in the prod forest.
+You can get the SID from running Get-ADGroup on one of the DCs in the production forest.
 
 #### Verify the HGS installation
 
@@ -246,7 +248,7 @@ Because you won't have console access to the vm it's important you prepare for r
 #### Export the VM from the tenant host and import on a guarded host
 
 As long as the shielded VM is powered off, the VHDX is unlocked you can attach it to your host system. If this is not bitlocker encrypted, you can access it freely.
-The routine is as follows:
+The routine is basic:
 
 * Shut down the VM
 * Export the VM from the tenant host
@@ -261,17 +263,15 @@ You can use standard methods as long as it's inside the HGS cluster, live migrat
 
 #### Troubleshoot guarded hosts
 
-Determine if a VM is shielded
+Determine if a VM is shielded by running a simple cmdlet.
 
 ~~~powershell
 Get-VmSecurity -VmName 'vs1.domain.local'
 ~~~
 
-Can also verify the VMs status in the properties in Hyper-V manager.
+We can also verify the VMs status in the properties in Hyper-V manager.
 
-If a client fails RDP and bitlocker is enabled, you can do the following:
-
-Export the shielded VM from the guarded host and import it on a host along with the owners guardian key, then run this powershell command to disable shielding:
+If a client fails RDP and bitlocker is enabled, you can export the shielded VM from the guarded host and import it on a host along with the owners guardian key, then run this powershell command to disable shielding:
 
 ~~~powershell
 Set-VMSecurityPolicy -Vmname 'vs1.domain.local' -Shielded $false
