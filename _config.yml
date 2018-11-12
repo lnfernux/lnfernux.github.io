@@ -72,6 +72,7 @@ paginate: 5
 kramdown:
   input: GFM
 future: true
+bigimg: /img/front.png
 
 defaults:
 - scope:
