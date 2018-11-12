@@ -132,7 +132,7 @@ netdom trust trusting_domain_name /domain:name_of_trusted_domain.com /UserD:acco
 
 I'd like input on this, however, as people on TechNet are saying MS is being overly vague and that the exam questions actually say that the fabric domain should trust HGS (which is the oposite of what I've concluded here)
 
-#### Setting up host key attestation
+#### Setting up admin-trusted attestation
 
 In this expample we will create our own self-signed certificates, but for more information about obtaining certs for your HGS-server, [lookie here!](https://docs.microsoft.com/nb-no/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-obtain-certs)
 
@@ -156,7 +156,7 @@ It's a long command, but it's not actually that scary when you look at it.
 
 #### Main takeaways thus far
 
-* HgsServiceName is the host name of the HGS cluster, therefore the safe.local dns includes and entry for hgs.safe.local that refers to the cluster itself
+* HgsServiceName is the host name of the HGS cluster, therefore the safe.local dns includes an entry for hgs.safe.local that refers to the cluster itself
 * TrustActiveDirectory signifies admintrusted attestation, for tpm use the -TrustTPM switch
 * Pfx files contain the private and public keys for the certificates the cluster uses to encrypt and decrypt shielded vms
 
