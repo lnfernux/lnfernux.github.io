@@ -69,7 +69,7 @@ Obviosuly you don't have to have -restart, but you need to restart soooo, yeah.
 
 Confirm the new HGS node isn't already a member of an AD domain before you start setting up a safe harbor forest.
 
-~~~powershell
+~~~console
 $pw = ConvertTo-SecureString -String 'SuperSecurePassword1234' -AsPlainText
 Install-HgsServer -HgsDomainName 'safe.local' -SafeModeAdministratorPassword $pw -Restart
 ~~~
