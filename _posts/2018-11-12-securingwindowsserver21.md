@@ -11,6 +11,7 @@ tags:
   - hgs
   - securing windows server
 published: true
+image: /img/shielded-vm.png
 ---
 
 ### Chapter 2, Part 1: Implement a Guarded Fabric solution
