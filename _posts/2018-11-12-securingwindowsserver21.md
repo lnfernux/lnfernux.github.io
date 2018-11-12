@@ -59,7 +59,7 @@ It's recommended to deploy at least 3 virtual / physical HGS servers to provide 
 
 #### Installing the HGS role
 
-~~~powershell
+~~~console
 Install-WindowsFeature -Name HostGuardianServiceRole -IncludeManagementTools -restart
 ~~~
 
@@ -69,7 +69,7 @@ Obviosuly you don't have to have -restart, but you need to restart soooo, yeah.
 
 Confirm the new HGS node isn't already a member of an AD domain before you start setting up a safe harbor forest.
 
-~~~powershell
+~~~console
 $pw = ConvertTo-SecureString -String 'SuperSecurePassword1234' -AsPlainText
 Install-HgsServer -HgsDomainName 'safe.local' -SafeModeAdministratorPassword $pw -Restart
 ~~~
@@ -114,23 +114,20 @@ Keep in mind that we need to have TPM 2.20 and UEFI 2.3.1 with SecureBoot enable
 
 First we need to ensure DNS resolution between the forests:
 
-~~~powershell
-Add-DnsServerConditionalForwarderZone -Name 'safe.local' -ReplicationScope 'Forest'
--MasterServers 10.0.0.2
+~~~console
+Add-DnsServerConditionalForwarderZone -Name 'safe.local' -ReplicationScope 'Forest' -MasterServers 10.0.0.2
 ~~~
 
 Then we create a one way external trust between our safe.local HGS forest and our domain.com production forest. We can do this with netdom:
 
-~~~powershell
-netdom trust safe.local /domain:domain.com /userD:domain\Administrator
-/passwordD:SuperSecurePassword1234 /add
+~~~console
+netdom trust safe.local /domain:domain.com /userD:domain\Administrator /passwordD:SuperSecurePassword1234 /add
 ~~~
 
 Microsoft is very vague when they define which direction the trust is, i.e who should trust who. [Examining this](https://social.technet.microsoft.com/Forums/en-US/19c517b6-724c-48eb-9ab1-bcbf194345d4/hgs-requirements?forum=winserversecurity) forum post on TechNet and [this](https://docs.microsoft.com/nb-no/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-configure-dns-forwarding-and-trust) DNS-Trust guide on Guarded Fabric and HGS we can conclude that official documentation's syntax suggests that our safe HGS-domain should trust the fabric domain, as the syntax is the following:
 
-~~~powershell
-netdom trust trusting_domain_name /domain:name_of_trusted_domain.com /UserD:account_used_to_make_connection
-/passwordD:password_of_account /add
+~~~console
+netdom trust trusting_domain_name /domain:name_of_trusted_domain.com /UserD:account_used_to_make_connection /passwordD:password_of_account /add
 ~~~
 
 I'd like input on this, however, as people on TechNet are saying MS is being overly vague and that the exam questions actually say that the fabric domain should trust HGS (which is the oposite of what I've concluded here)
@@ -139,7 +136,7 @@ I'd like input on this, however, as people on TechNet are saying MS is being ove
 
 In this expample we will create our own self-signed certificates, but for more information about obtaining certs for your HGS-server, [lookie here!](https://docs.microsoft.com/nb-no/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-obtain-certs)
 
-~~~powershell
+~~~console
 $certPW = -ConverTo-SecureString -AsPlainText "SuperSecurePassword1234" -force
 
 $signcert = New-SelfSignedCertificate -DnsName 'signing.safe.local'
@@ -151,10 +148,8 @@ Export-PfxCertificate -Cert $enccert -Password $certpw -FilePath 'C:\enccert.pfx
 
 Now let's *actually* initialize the HGS server:
 
-~~~powershell
-Initialize-HgsServer -LogDirectory C:\ -HgsServiceName 'HGS' -http -TrustActiveDirectory
--SigningCertificatePath 'C:\SigningCert.pfx' -SigningCertificatePassword $certpw
--EncryptionCertificatePath 'C:\enccert.pfx' -EncryptionCertificatePassword $certpw
+~~~console
+Initialize-HgsServer -LogDirectory C:\ -HgsServiceName 'HGS' -http -TrustActiveDirectory -SigningCertificatePath 'C:\SigningCert.pfx' -SigningCertificatePassword $certpw -EncryptionCertificatePath 'C:\enccert.pfx' -EncryptionCertificatePassword $certpw
 ~~~
 
 It's a long command, but it's not actually that scary when you look at it.
@@ -168,7 +163,7 @@ It's a long command, but it's not actually that scary when you look at it.
 Since we're using admin trusted attestation, we need to make sure we create a global security group in our production forest called GuardedHostGroup that contains the hostname of our hyperv1.domain.local Hyper-V server.
 In the HGS forest we run a powershell command to include the GuardedHostGroup to the HGS clusters attestation group. That means only hosts inside this group are allowed to work with shielded vms.
 
-~~~powershell
+~~~console
 Add-HGsAttestationHostGroup -Name 'GuardedHostGroup' -Identifier 'SID'
 ~~~
 
@@ -220,11 +215,11 @@ Install-WindowsFeature -Name Hyper-V, Host-Guardian -Includemanagementtools -res
 
 On a HGS cluster node you can run Get-HgsServer to retrieve HGS cluster attestation and key protection URLs. Then, run the following command on the host you wish to guard:
 
-~~~powershell
+~~~console
 Set-HgsClientConfiguration -AttestationServerUrl 'http://hgs.safe.local/Attestation' -KeyProtectionServerUrl 'http://hgs.safe.local/KeyProtection'
 ~~~
 
-That should be it, please refer to [this](https://blogs.technet.microsoft.com/datacentersecurity/2016/03/16/windows-server-2016-and-host-guardian-service-for-shielded-vms/) low-level guide if there's anything that's unclear. 
+That should be it, please refer to [this](https://blogs.technet.microsoft.com/datacentersecurity/2016/03/16/windows-server-2016-and-host-guardian-service-for-shielded-vms/) low-level guide if there's anything that's unclear.
 
 #### Migrate Shielded VMs to other guarded hosts
 
@@ -238,7 +233,7 @@ Invoke-WebRequest http://hgs.safe.local/KeyProtection/service/metadata/2014-07/m
 
 The VM we want to shield is named vs1. This powershell command performs the shielding operation on the VM. The key protector that is created contains one owner guardian, and one or more HGS guardians.
 
-~~~powershell
+~~~console
 $vm = 'vs1.contoso.local'
 Stop-VM -VMName $vm
 $Owner = New-HGSGuardian -name 'Owner' -GenerateCertificates 
