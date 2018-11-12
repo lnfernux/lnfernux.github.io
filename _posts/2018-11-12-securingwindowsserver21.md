@@ -175,7 +175,7 @@ Because the HGS configuration does not yet contain information about the hosts t
 
 We can use powershell and this relatively simple cmdlet to run our diagnostics:
 
-~~~powershell
+~~~console
 Get-HgsTrace -RunDiagnostics
 ~~~
 
@@ -193,13 +193,13 @@ The Key Protection Services (KPS) is installed automatically when you install HG
 
 There's also something called hardware security module (HSM). To migrate existing certificates to the HSM after installation, you can use:
 
-~~~powershell
+~~~console
 Add-HgsKeyProtectionCertificate
 ~~~
 
 To make your HSM-backend keys the default ones to be used by each node in the cluster we can do:
 
-~~~powershell
+~~~console
 Set-HgsKeyProtectionCertificate
 ~~~
 
@@ -209,7 +209,7 @@ And that's it. For more information and "Bring Your Own Key (BYOY)", look [here]
 
 Install Hyper-V server and Host Guardian Client server roles
 
-~~~powershell
+~~~console
 Install-WindowsFeature -Name Hyper-V, Host-Guardian -Includemanagementtools -restart
 ~~~
 
@@ -227,7 +227,7 @@ High level procedure (unshielded generation 2 VM running on a Hyper-V host that 
 
 Retrieve the HGS guardian metadata from the HGS server (the output) which allows us to create a key protector for the VM. The key protector is an extensible markup language (XML) file that needs to be copied to the non-guarded hyper-v host
 
-~~~powershell
+~~~console
 Invoke-WebRequest http://hgs.safe.local/KeyProtection/service/metadata/2014-07/metadata.xml -OutFile C:\HGSGuardian.xml'
 ~~~
 
@@ -266,7 +266,7 @@ You can use standard methods as long as it's inside the HGS cluster, live migrat
 
 Determine if a VM is shielded by running a simple cmdlet.
 
-~~~powershell
+~~~console
 Get-VmSecurity -VmName 'vs1.domain.local'
 ~~~
 
@@ -274,7 +274,7 @@ We can also verify the VMs status in the properties in Hyper-V manager.
 
 If a client fails RDP and bitlocker is enabled, you can export the shielded VM from the guarded host and import it on a host along with the owners guardian key, then run this powershell command to disable shielding:
 
-~~~powershell
+~~~console
 Set-VMSecurityPolicy -Vmname 'vs1.domain.local' -Shielded $false
 ~~~
 
