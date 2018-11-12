@@ -69,7 +69,7 @@ Obviosuly you don't have to have -restart, but you need to restart soooo, yeah.
 
 Confirm the new HGS node isn't already a member of an AD domain before you start setting up a safe harbor forest.
 
-~~~console
+~~~powershell
 $pw = ConvertTo-SecureString -String 'SuperSecurePassword1234' -AsPlainText
 Install-HgsServer -HgsDomainName 'safe.local' -SafeModeAdministratorPassword $pw -Restart
 ~~~
@@ -115,19 +115,22 @@ Keep in mind that we need to have TPM 2.20 and UEFI 2.3.1 with SecureBoot enable
 First we need to ensure DNS resolution between the forests:
 
 ~~~powershell
-Add-DnsServerConditionalForwarderZone -Name 'safe.local' -ReplicationScope 'Forest' -MasterServers 10.0.0.2
+Add-DnsServerConditionalForwarderZone -Name 'safe.local' -ReplicationScope 'Forest'
+-MasterServers 10.0.0.2
 ~~~
 
 Then we create a one way external trust between our safe.local HGS forest and our domain.com production forest. We can do this with netdom:
 
 ~~~powershell
-netdom trust safe.local /domain:domain.com /userD:domain\Administrator /passwordD:SuperSecurePassword1234 /add
+netdom trust safe.local /domain:domain.com /userD:domain\Administrator
+/passwordD:SuperSecurePassword1234 /add
 ~~~
 
 Microsoft is very vague when they define which direction the trust is, i.e who should trust who. [Examining this](https://social.technet.microsoft.com/Forums/en-US/19c517b6-724c-48eb-9ab1-bcbf194345d4/hgs-requirements?forum=winserversecurity) forum post on TechNet and [this](https://docs.microsoft.com/nb-no/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-configure-dns-forwarding-and-trust) DNS-Trust guide on Guarded Fabric and HGS we can conclude that official documentation's syntax suggests that our safe HGS-domain should trust the fabric domain, as the syntax is the following:
 
 ~~~powershell
-netdom trust trusting_domain_name /domain:name_of_trusted_domain.com /UserD:account_used_to_make_connection /passwordD:password_of_account /add
+netdom trust trusting_domain_name /domain:name_of_trusted_domain.com /UserD:account_used_to_make_connection
+/passwordD:password_of_account /add
 ~~~
 
 I'd like input on this, however, as people on TechNet are saying MS is being overly vague and that the exam questions actually say that the fabric domain should trust HGS (which is the oposite of what I've concluded here)
@@ -149,7 +152,9 @@ Export-PfxCertificate -Cert $enccert -Password $certpw -FilePath 'C:\enccert.pfx
 Now let's *actually* initialize the HGS server:
 
 ~~~powershell
-Initialize-HgsServer -LogDirectory C:\ -HgsServiceName 'HGS' -http -TrustActiveDirectory -SigningCertificatePath 'C:\SigningCert.pfx' -SigningCertificatePassword $certpw -EncryptionCertificatePath 'C:\enccert.pfx' -EncryptionCertificatePassword $certpw
+Initialize-HgsServer -LogDirectory C:\ -HgsServiceName 'HGS' -http -TrustActiveDirectory
+-SigningCertificatePath 'C:\SigningCert.pfx' -SigningCertificatePassword $certpw
+-EncryptionCertificatePath 'C:\enccert.pfx' -EncryptionCertificatePassword $certpw
 ~~~
 
 It's a long command, but it's not actually that scary when you look at it.
