@@ -24,7 +24,7 @@ A server is a soft-target if operating system files installed from non trusted s
 
 Here we take a look at implementing a Guarded Fabric solution, complete with HGS, shielded VMs and the likes.
 
-[Part 1 - Implement a Guarded Fabric solution](https://www.infernux.no/SecuringWindowsServer/)
+[Part 1 - Implement a Guarded Fabric solution](https://www.infernux.no/2018-11-12-securingwindowsserver21/)
 
 [Part 2 - Implement Shielded and encryption-supported VMs](https://www.infernux.no/SecuringWindowsServer/)
 
