@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Securing Windows Server - Protect credentials and create security baselines
-subtitle: 'Chapter 1, Part 3'
+subtitle: 'Hiding credentials from baddies and baselining things'
 tags:
   - powershell
   - security
@@ -12,6 +12,8 @@ tags:
   - securing windows server
 published: true
 ---
+
+Let's go on a ride together!
 
 ### Chapter 1, Part 3: Protect credentials and create security baselines
 
