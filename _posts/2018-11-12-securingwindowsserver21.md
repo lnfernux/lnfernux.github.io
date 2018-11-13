@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Securing Windows Server - Implement a Guarded Fabric solution
-subtitle: 'Chapter 2, Part 1'
+subtitle: 'Trying to unravel the mystery of the Host Guardian Service and more'
 tags:
   - powershell
   - security
