@@ -7,8 +7,10 @@ tags:
   - security
   - windows
   - hyper-v
-  - guarded fabric
   - hgs
+  - encryption supported vm
+  - guarded fabric
+  - shielded vm
   - securing windows server
 published: false
 image: /img/tbd
