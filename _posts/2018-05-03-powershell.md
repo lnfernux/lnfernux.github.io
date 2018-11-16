@@ -6,6 +6,7 @@ tags:
   - powershell
   - getnetworkcredential
 published: true
+image: /img/ps.png
 ---
 
 Neat little trick abusing  .GetNetworkCredential

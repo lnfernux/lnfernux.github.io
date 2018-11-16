@@ -13,7 +13,7 @@ tags:
   - shielded vm
   - securing windows server
 published: false
-image: /img/tbd
+image: /img/ws.png
 ---
 
 ### Chapter 2, Part 2: Implement a Guarded Fabric solution

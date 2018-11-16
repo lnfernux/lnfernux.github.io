@@ -9,6 +9,7 @@ tags:
   - server
   - uefi
 published: true
+image: /img/ws.png
 ---
 
 # Chapter 1, Part 1: Disk and file encryption

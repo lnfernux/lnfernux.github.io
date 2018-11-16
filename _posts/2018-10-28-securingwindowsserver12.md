@@ -12,6 +12,7 @@ tags:
   - WSUS
   - securing windows server
 published: true
+image: /img/ws.png
 ---
 
 Welcome to the newest chapter in the series.

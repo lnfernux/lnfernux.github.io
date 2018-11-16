@@ -8,6 +8,7 @@ tags:
   - windows
   - server
 published: true
+image: /img/ps.png
 ---
 
 ### Some scripts that I stole during my 744 prep
