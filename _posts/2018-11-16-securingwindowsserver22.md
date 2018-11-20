@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server - Implement a Guarded Fabric solution
-subtitle: 'Trying to unravel the mystery of the Host Guardian Service and more'
+title: Securing Windows Server - Implement shielded and encryption supported VMs
+subtitle: 'Welcome to the jungle'
 tags:
   - powershell
   - security
@@ -143,6 +143,8 @@ You can now toggle vTPM support in the settings page of the VM in the Hyper-V ma
 vTPM is portable, so your shielded VMs remain protected both at rest (BDE) and while the data is transmitted.
 
 #### What is an encryption supported VM
+
+To be filled in.
 
 #### Determine requirements and scenarios for implementing encryption supported VMs
 

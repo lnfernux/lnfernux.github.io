@@ -8,7 +8,7 @@ subtitle: A summary of the most important aspects from the 70-744 exam
 
 ## About the guide
 
-In this "guide" I'll write about the things I summarized for myself while taking the exam, going into some of the concepts, technologies and PowerShell cmdlets I studied and used.
+In this "guide" I'll write about the things I summarized for myself while studying for the "Securing Windows Server 2016" exam, building my lab, working with windows in general, going  - into some of the concepts, technologies and PowerShell cmdlets I studied and used.
 
 ### Chapter 1 - Server Hardening
 
@@ -34,4 +34,10 @@ Here we take a look at implementing a Guarded Fabric solution, complete with HGS
 
 ## Information
 
-The official Microsoft page with informaton can be found [here](https://www.microsoft.com/en-us/learning/exam-70-744.aspx)
+The official Microsoft exam page with informaton can be found [here.](https://www.microsoft.com/en-us/learning/exam-70-744.aspx)
+
+[ADSecurity.org](https://adsecurity.org/) is a great resource for securing your Windows Servers and AD-environment.
+
+Also check out the [https://www.reddit.com/r/WindowsSecurity](/r/WindowsSecurity) subreddit.
+
+Last, but not least, my friend Chryzsh has a [great gitbook](https://hunter2.gitbook.io/darthsidious/) with both blue- and red-team resources and information.
