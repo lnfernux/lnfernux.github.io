@@ -38,6 +38,6 @@ The official Microsoft exam page with informaton can be found [here.](https://ww
 
 [ADSecurity.org](https://adsecurity.org/) is a great resource for securing your Windows Servers and AD-environment.
 
-Also check out the [https://www.reddit.com/r/WindowsSecurity](/r/WindowsSecurity) subreddit.
+Also check out the [/r/WindowsSecurity](https://www.reddit.com/r/WindowsSecurity) subreddit.
 
 Last, but not least, my friend Chryzsh has a [great gitbook](https://hunter2.gitbook.io/darthsidious/) with both blue- and red-team resources and information.
