@@ -9,6 +9,9 @@ subtitle:
 Hey, I'm Truls Dahlsveen, also known as *infernux*.
 
 I'm currently working as a infrastructure and security consultant.
-I've previously worked on support, network administration, system administration and a bunch of other stuff.
+I've previously worked on IT support, network and system administration.
 
-On this page I'm writing about mostly PowerShell, Windows Server and security.
+I love teaching and I currently teach a intro course for aspiring pentesters.
+I've held created and held several courses on practical system administration and written guides that have been widely used.
+
+On this page I'm writing about mostly PowerShell, Windows Server and security - mostly stuff I'm currently learning myself, so if something is wrong (there will be loads), please hit me up and I'll correct it! 
