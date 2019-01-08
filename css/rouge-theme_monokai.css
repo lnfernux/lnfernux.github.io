@@ -91,7 +91,7 @@
  .language-text .highlight .code pre
 {
     /*color: #66d9ef;*/
-    color: #fff;
+    color: rgb(66, 61, 61);
 }
 
 /* powershell highlight */
