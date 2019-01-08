@@ -8,6 +8,8 @@ subtitle:
 
 Hey, I'm Truls Dahlsveen, also known as online as *infernux*.
 
+<script src="https://www.hackthebox.eu/badge/13543"></script>
+
 I'm currently working as a infrastructure and security consultant.
 I've previously worked on IT support, network and system administration.
 
