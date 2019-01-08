@@ -78,6 +78,8 @@ Then we need to sign our unshielded template disk. In production we'd use a vali
 Protect-ServerVHDX -Path 'C:\vms\template.vhdx' -TemplateName 'ServerOSTemplate' -Version 1.0.0.1 -Certificate $cert
 ~~~
 
+We now have a signed VHDX-template disk.
+
 #### Creating the shielding data (PDK) file
 
 The PDK file is essentially an encrypted collection of secrets that allows you to shield the VM, link the vm to your HGS cluster and keep sensitive data out of reach of the fabric admin who's provisioning the vm in the first place.
