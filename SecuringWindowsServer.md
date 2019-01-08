@@ -4,11 +4,13 @@ title: Securing Windows Server 2016
 subtitle: A summary of the most important aspects from the 70-744 exam
 ---
 
-# Securing Windows Server 2016
+# Securing Windows Server
 
 ## About the guide
 
-In this "guide" I'll write about the things I summarized for myself while studying for the "Securing Windows Server 2016" exam, building my lab, working with windows in general, going  - into some of the concepts, technologies and PowerShell cmdlets I studied and used.
+In this "guide" I'll write about the things I summarized for myself while studying for the "Securing Windows Server 2016" exam, building my lab, working with windows in general, going into some of the concepts, technologies and PowerShell cmdlets I used.
+
+I will try to use both server 2019 and 2016.
 
 ### Chapter 1 - Server Hardening
 
@@ -26,7 +28,7 @@ Here we take a look at implementing a Guarded Fabric solution, complete with HGS
 
 [Part 1 - Implement a Guarded Fabric solution](https://www.infernux.no/2018-11-12-securingwindowsserver21/)
 
-[Part 2 - Implement Shielded and encryption-supported VMs](https://www.infernux.no/SecuringWindowsServer/)
+[Part 2 - Implement Shielded and encryption-supported VMs](https://www.infernux.no/2019-01-09-securingwindowsserver22/)
 
 ### Scripts and more
 
