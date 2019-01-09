@@ -32,7 +32,7 @@ author:
   twitter: infernuxmonster
 
 footer-links-active:
-  rss: false
+  rss: true
   facebook: false
   email: true
   twitter: true
@@ -60,7 +60,6 @@ disqus: ""
 
 # Fill in your Google Analytics ID to track your website using GA
 google_analytics: "UA-125990163-1"
-
 
 excerpt_length: 50
 title-separator: "-"
