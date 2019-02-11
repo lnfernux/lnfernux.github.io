@@ -60,7 +60,7 @@ We can also use Server Manager or, if you'd like, DISM through the EnableWindows
 Enable-WindowsOptionalFeature -Online -FeatureName Bitlocker,BitLocker-Utilities -All
 ~~~
 
-That's all folks!
+That should be all for BitLocker installation.
 
 #### Configure BitLocker with or without TPM
 
@@ -74,6 +74,7 @@ TPM + startup key | Requires a TPM chip and USB drive based startup key
 TPM + startup PIN + startup key | Requires TPM, a pin and a startup key
 
 Configuring the BitLocker Drive Encryption policy is done through GPO and the policy named Required Additional Authentication At Startup. It's located in the GPO path:
+
 >Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\Operating System Drives
 
 You can use TPM without any other protector, I.E just TPM and no PIN/KEY, it's better that nothing. You can also use BitLocker with no TPM (not advisable) by selecting the Allow BitLocker Without A Compatible TPM (Requires A Password Or A Startup Key On A USB Flash Drive) GPO setting.
@@ -86,7 +87,7 @@ After the GPO settings have taken effect, you need to actually encrypt your OS v
 4. Create a strong password and choose to back it up in 1/3 locations (USB/File/Print)
 5. Chose how much of your OS drive to encrypt (used disk space or entire drive) - for an existing server, choose the latter always.
     a. You should also encrypt data drives
-6. Choose encryption algorythm 
+6. Choose encryption algorythm
     a. AES-128 (default algo+cipher length)
     b. AES-256
     c. XTS-AES-128 (incompatible with previous versions of win server)
@@ -101,7 +102,7 @@ PS> $SecureString = ConvertTo-SecureString '$trongPa$$w0rd1337' -AsPlainText -Fo
 PS> Enable-BitLocker -MountPoint 'C:' -EncryptionMethod Aes256 -UsedSpaceOnly -Pin $SecureString -TPMandPinProtector
 ~~~
 
-Ooooor if your legacy as fuck, you can use manage-bde command line executable.
+You can also use manage-bde command line executable.
 
 #### Implement BitLocker on Hyper-V VM
 
@@ -113,7 +114,7 @@ Was implemented in WS12, you can encrypt volumes before or after you add them to
 
 #### Configure Network Unlock
 
-WS16 supports the BitLocker Network Unlock feature. It allows automatic access to BitLocker decryption keys, which means that you can start, restart aor remotely manage your windows serers without having to manually input a PIN. The requirements, in addition to UEFI firmware and TPM chips are the following:
+WS16 supports the BitLocker Network Unlock feature. It allows automatic access to BitLocker decryption keys, which means that you can start, restart or remotely manage your windows servers without having to manually input a PIN. The requirements, in addition to UEFI firmware and TPM chips are the following:
 
 1. UEFI DHCP - previously known as PXE (preboot execution enviroment)
 2. No CSM (i.e Compability Support Modules must be disabled)
@@ -121,6 +122,7 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 4. PKI - this is in order to generate the X.509 digital certificates that's required for Network Unlock. AD Certificate Services (AD CS) works fine.
 5. Must also configure the previously mentioned GPO settings for BitLocker to specify pin+TPM
 6. Network Unlock Group Policy Settings (upload the .cer file to this location)
+
 >Computer Configuration\Policies\Windows Settings\Security Settings\Public Key Policies\BitLocker Drive Encryption Network Certificate
 
 #### The Network Unlock sequence
@@ -139,6 +141,7 @@ Easiest way is the recovery password that we generated and saved to a file/usb o
 #### Recovery password retrieval from AD DS
 
 We can also back up BitLocker recovery keys to AD. The configuration setting to this lies in the following GPO path:
+
 >Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\
 
 #### The specific GPO is name Store BitLocker recovery information in Active Directory Domain Services
@@ -188,6 +191,7 @@ Steps to define the current administrator a new EFS DRA in WS16 AD domain that h
 1. Request an EFS Recovery Agent cert from AD CS authority. From the Certificates MMC snap-in, do this by right clicking personal certificate store and clicking all tasks, then selecting "request new certificate"
 2. From Cert snap-in, back up EFS, BitLocker or any other digital cert by right clicking all tasks and then export. We can then do the same procedure for import.
 3. To assign DRAs at the domain level, open a GPO and navigate to:
+
 >Computer Configuration\Windows Settings\Security Settings\Public Key Policies
         * You'll see two subfolders, EFS and BitLocker
         * You can set DRAs for both
