@@ -136,6 +136,8 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 4. WDS provider processess the rquest and produces and AES-256 key that unlocks the local servers OS volume
 5. Server continues to boot
 
+This sequence doesn't match the exact process on the image, but the "Securing Windows Server 70-744 exam" only lists 5 steps, so it makes the most sense for me to keep it at that level.
+
 #### Enable Network Unlock
 
 First, check that WDS is running:
