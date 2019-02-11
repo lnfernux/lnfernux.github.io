@@ -9,7 +9,7 @@ published: true
 image: /img/ps.png
 ---
 
-Neat little trick abusing  .GetNetworkCredential
+Neat little trick "abusing"  .GetNetworkCredential
 
 ~~~
 PS C:\> $totallysecurecredentials = Get-Credential
@@ -72,11 +72,11 @@ SecurePassword Property   securestring SecurePassword {get;set;}
 UserName       Property   string UserName {get;set;}
 ~~~
 
-Excuse me? SecurePassword still shows up as a securestring, but our Password now is a plain string? What happens if we try to play with that?
+SecurePassword still shows up as a securestring, but our password now is a plain string? What happens if we try to play with that?
 
 ~~~
 PS C:\> $totallysecurecredentials.GetNetworkCredential().password
 123456
 ~~~
 
-Oh. Okay. So don't parse credentials in PowerShell using Get-Credential kids, it's dangerous.
+Cool.

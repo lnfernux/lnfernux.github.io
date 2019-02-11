@@ -11,14 +11,14 @@ published: true
 image: /img/ps.png
 ---
 
-### Some scripts that I stole during my 744 prep
+## Some stolen scripts
 
 Gentle reminder that these scripts are stolen from the exam ref written by Timothy L. Warner and Craig Zacker.
 At best I've added some steps to make the scripts easier to re-use, like having variables be user-prompted and not hardcoded.
 
 First of all, let's look at making sure our Windows Defender is up to date with it's signatures, and then running a scan.
 
-~~~
+~~~powershell
 #Start by importing defender module
 Import-Module -Name Defender
 
@@ -37,7 +37,7 @@ Start-MpScan
 
 Secondly a script for whitelisting apps from a certain provider.
 
-~~~
+~~~powershell
 #First take argument where you define the publisher
 $var = Read-Host "Enter publisher you want to check (Microsoft)"
 
@@ -51,6 +51,4 @@ $AllowedApps | Get-AppLockerFileInformation | New-AppLockerPolicy -User Everyone
 (Get-AppLockerPolicy -Effective).Rulecollections.PublisherConditions | Sort-Object ProductName
 ~~~
 
-That's it for now.
-
-Not actually taken the exam yet, but will write a better more detailed post soon. 
+That's all for now.
