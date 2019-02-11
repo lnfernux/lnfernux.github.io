@@ -14,13 +14,13 @@ image: /img/ws.png
 
 # Chapter 1, Part 1: Disk and file encryption
 
-In this series of blogposts I'll try to summarize briefly the most important takeaways from doing my 70-744 exam. We're starting out with server hardening, this includes disk and file encryption, boot-protection, patching and upgrading, malware protection, credential protection and working with security baselines.
+In this series of blogposts I'll try to summarize briefly the most important takeaways from exploring security on the Windows Server product line. We're starting out with server hardening, this includes disk and file encryption, boot-protection, patching and upgrading, malware protection, credential protection and working with security baselines.
 
 I might glance over some things - this is not a technical "how to do it" approach, I'll mostly be presenting the concepts and then resources like TechNet will be able to fill in the blanks (there will be many!).
 
 This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on [twitter](https://twitter.com/infernuxmonster)
 
-## UEFI
+### UEFI
 
 Enabling UEFI is done by hitting a key-stroke (OEM dependant) on boot and enabling it. Newer hardware is UEFI by default.
 
@@ -127,6 +127,8 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 
 #### The Network Unlock sequence
 
+![alt text3](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/images/bitlockernetworkunlocksequence.png "The Network Unlock Sequence")
+
 1. Server starts, boot manager detects the presence of a Network Unlock protector
     a. Protector is realized by the Allow Network Unlock At Startup GPO
 2. Server uses UEFI DHCP driver to obtain a valid Ipv4 adress
@@ -134,9 +136,33 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 4. WDS provider processess the rquest and produces and AES-256 key that unlocks the local servers OS volume
 5. Server continues to boot
 
+#### Enable Network Unlock
+
+First, check that WDS is running:
+
+~~~console
+Get-Service WDSServer
+~~~
+
+Then, install the Network Unlock feature
+
+~~~console
+Install-WindowsFeature BitLocker-NetworkUnlock
+~~~
+
+Then we create a certificate, in this example a self signed one (please see the link furthest down in this part for more in-depth information here):
+
+~~~~console
+New-SelfSignedCertificate -CertStoreLocation Cert:\LocalMachine\My -Subject "CN=BitLocker Network Unlock certificate" -Provider "Microsoft Software Key Storage Provider" -KeyUsage KeyEncipherment -KeyUsageProperty Decrypt,Sign -KeyLength 2048 -HashAlgorithm sha512 -TextExtension @("1.3.6.1.4.1.311.21.10={text}OID=1.3.6.1.4.1.311.67.1.1","2.5.29.37={text}1.3.6.1.4.1.311.67.1.1")
+~~~
+
+After that we deploy the private key to our WDS server and configure Group Policy settings for Network Unlock.
+
+For more in depth information, particularly creating the certificate template for network unlock, check out [this article!](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock)
+
 #### Implement the BitLocker Recovery Process
 
-Easiest way is the recovery password that we generated and saved to a file/usb or printed out when we enabled bitlocker - a 48-digit unlock key.
+Easiest way is the recovery password that we generated and saved to a file/usb or printed out when we enabled bitlocker - a 48-digit unlock key. Saving this file to an offline, removable media that's stored securely should be the one of the main ways to handle BitLocker recovery passwords.
 
 #### Recovery password retrieval from AD DS
 
@@ -167,12 +193,15 @@ And then run this command to force the key/pass archival:
 Manage-bde -protectors -adbackup c: -id {password-id}
 ~~~
 
-Accessing the recovery password
-Locate the target server in AD Users and Computers, open it's properties sheet and navigate to the bitlocker recovery tab. You'll see the recovery password here.
+#### Accessing the recovery password
+
+Locate the target server in AD Users and Computers, open it's properties sheet and navigate to the bitlocker recovery tab. You'll see the recovery password here. Keep in mind that anyone with access to this object in AD will be able to see it, so this protection is only as good as your AD-security itself.
 
 #### Self-service recovery
 
-You can also use Microsoft BitLocker Administration and Monitoring toolset (MBAM. Complex installation, full-fledged multi-tier application that can be deployed stand-alone or through SCCM. Provides end-to-end automation for BitLocker, including self-service key retrieval, agent-based user guidance.
+You can also use Microsoft BitLocker Administration and Monitoring toolset, or MBAM for short. 
+
+It has a pretty complex installation that we won't get into, full-fledged multi-tier application that can be deployed stand-alone or through SCCM. Provides end-to-end automation for BitLocker, including self-service key retrieval, agent-based user guidance.
 
 #### Manage Encrypting File System (EFS)
 
@@ -193,6 +222,7 @@ Steps to define the current administrator a new EFS DRA in WS16 AD domain that h
 3. To assign DRAs at the domain level, open a GPO and navigate to:
 
 >Computer Configuration\Windows Settings\Security Settings\Public Key Policies
+
         * You'll see two subfolders, EFS and BitLocker
         * You can set DRAs for both
 4. Right click the EFS policy folder and select Add Data Recovery Agent from the context menu.
