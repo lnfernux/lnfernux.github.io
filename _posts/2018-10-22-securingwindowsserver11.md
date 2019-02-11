@@ -129,14 +129,17 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 
 ![alt text3](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/images/bitlockernetworkunlocksequence.png "The Network Unlock Sequence")
 
-1. Server starts, boot manager detects the presence of a Network Unlock protector
-    a. Protector is realized by the Allow Network Unlock At Startup GPO
-2. Server uses UEFI DHCP driver to obtain a valid Ipv4 adress
-3. Server broadcasts a vendor-specific DHCP request that's encrypted with the WDS server's Network Unlock cert (which our server has thanks to the cert-GPO we confed)
-4. WDS provider processess the rquest and produces and AES-256 key that unlocks the local servers OS volume
-5. Server continues to boot
+1. The Windows boot manager detects that a Network Unlock protector exists in the BitLocker configuration.
+2. The client computer uses its DHCP driver in the UEFI to obtain a valid IPv4 IP address.
+3. The client computer broadcasts a vendor-specific DHCP request that contains the Network Key (a 256-bit intermediate key) and an AES-256 session key for the reply. Both of these keys are encrypted using the 2048-bit RSA Public Key of the Network Unlock certificate from the WDS server.
+4. The Network Unlock provider on the WDS server recognizes the vendor-specific request.
+5. The provider decrypts it with the WDS server’s BitLocker Network Unlock certificate RSA private key.
+6. The WDS provider then returns the network key encrypted with the session key using its own vendor-specific DHCP reply to the client computer. This forms an intermediate key.
+7. The returned intermediate key is then combined with another local 256-bit intermediate key that can only be decrypted by the TPM.
+8. This combined key is used to create an AES-256 key that unlocks the volume.
+Windows continues the boot sequence.
 
-This sequence doesn't match the exact process on the image, but the "Securing Windows Server 70-744 exam" only lists 5 steps, so it makes the most sense for me to keep it at that level.
+I rewrote my sequence (mine was 5 steps) to match that of the TechNet article detailing the Network Unlock feature (see link below.)
 
 #### Enable Network Unlock
 
@@ -234,3 +237,4 @@ Refresh GPO (Invoke-GPUpdate or gpupdate from cmd) and your new DRAs have privil
 ### Links
 
 [TechNet-article on server hardening](https://social.technet.microsoft.com/wiki/contents/articles/18931.security-hardening-tips-and-recommendations.aspx)
+[Network Unlock article](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock)
