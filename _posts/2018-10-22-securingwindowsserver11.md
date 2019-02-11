@@ -220,11 +220,9 @@ Steps to define the current administrator a new EFS DRA in WS16 AD domain that h
 1. Request an EFS Recovery Agent cert from AD CS authority. From the Certificates MMC snap-in, do this by right clicking personal certificate store and clicking all tasks, then selecting "request new certificate"
 2. From Cert snap-in, back up EFS, BitLocker or any other digital cert by right clicking all tasks and then export. We can then do the same procedure for import.
 3. To assign DRAs at the domain level, open a GPO and navigate to:
-
->Computer Configuration\Windows Settings\Security Settings\Public Key Policies
-
-        * You'll see two subfolders, EFS and BitLocker
-        * You can set DRAs for both
+   *. Computer Configuration\Windows Settings\Security Settings\Public Key Policies
+   *. You'll see two subfolders, EFS and BitLocker
+   *. You can set DRAs for both
 4. Right click the EFS policy folder and select Add Data Recovery Agent from the context menu.
     a. Here you can either Browser Directory - locate the user by searching AD, if you use this option the certs must be published to AD
     b. Browse Folders, locate the .cer exported EFS recovery agent cert in a local or remote file system
