@@ -20,7 +20,7 @@ I might glance over some things - this is not a technical "how to do it" approac
 
 This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on [twitter](https://twitter.com/infernuxmonster)
 
-### UEFI
+#### UEFI
 
 Enabling UEFI is done by hitting a key-stroke (OEM dependant) on boot and enabling it. Newer hardware is UEFI by default.
 
@@ -37,6 +37,12 @@ Stands for Trusted Platform Module, which is a microchip that's installed on cur
 #### TPM vs Secure Boot
 
 Technically TPM can provide the same type of boot-time protection that UEFI Secure Boot can. However, the two systems are seperate and rely upon seperate trust stores.
+
+### BitLocker
+
+![alt](https://upload.wikimedia.org/wikipedia/en/d/de/BitLocker_icon.png "bitlocker")
+
+BitLocker is a full disk encryption feature included in Windows. It is designed to protect data by providing encryption for entire volumes.
 
 #### Enable BitLocker to use Secure Boot and BCD integrity verification
 
