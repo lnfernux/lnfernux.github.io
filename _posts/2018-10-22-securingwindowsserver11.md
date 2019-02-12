@@ -237,4 +237,5 @@ Refresh GPO (Invoke-GPUpdate or gpupdate from cmd) and your new DRAs have privil
 ### Links
 
 [TechNet-article on server hardening](https://social.technet.microsoft.com/wiki/contents/articles/18931.security-hardening-tips-and-recommendations.aspx)
+
 [Network Unlock article](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock)
