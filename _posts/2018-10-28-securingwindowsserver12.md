@@ -195,11 +195,11 @@ This article on demystifying [Device Guard and Credential Guard on TechNet expla
 To summarize briefly, device guard consist of three primary components:
 
 1. Configurable Code Integrity (CCI).
-   1. Ensures only trusted code runs from bootloader onwards.
+   * Ensures only trusted code runs from bootloader onwards.
 2. VSM Protected Code Integrity.
-   1. Moves kernel mode CI and hypervisor CI into the VSM, hardening them from attacks.
+   * Moves kernel mode CI and hypervisor CI into the VSM, hardening them from attacks.
 3. Platform and UEFI secure boot.
-   1. Ensigns boot binaries and UEFI firmware has been signed and not tampered with.
+   * Ensigns boot binaries and UEFI firmware has been signed and not tampered with.
 
 ![dev guard](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/01/03/19/metablogapi/image_thumb_28944A6D.png "device guard overview")
 
