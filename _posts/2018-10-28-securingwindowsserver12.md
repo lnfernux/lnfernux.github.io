@@ -24,12 +24,14 @@ Welcome to the newest chapter in the series.
 Windows Server Update Services can be deployed many ways. Also included as a part of SCCM.
 Either as a single server standalone, or a replicated server farm. Secondary (downstream) servers pull their updates from upstream (master) WSUS server; master-servers download updates from Microsoft Update over the internet.
 
+![WSUS1](https://docs.microsoft.com/de-de/security-updates/windowsupdateservices/images/cc708456.7858baf2-f6c3-4e87-ad8d-a06a20aa5dd8%28ws.10%29.gif "WSUS downstream and upstream")
+
 Computer groups will help deploying and testing patches and hotfixes easier. You can have a group a "test servers" as a part of the production enviroment, but with nothing important on to see what implications a patch bring along. Summing up the benefits of WSUS:
 
 * Saving bandwidth because local servers and clients download updates at LAN speed from downstream servers
 * Improve stability by first testing, approving and/or blacklisting patches before the computers you support receive them
 * Control how and when approved updates are installed in your enviroment
-  
+
 [This](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) TechNet-guide is great for getting started, and goes into the technical stuff that I don't hit on.
 
 #### Install the WSUS role on a server
@@ -40,10 +42,6 @@ To install the tools, use the following cmdlet:
 ~~~powershell
 Install-WindowsFeature -Name UpdateServices, UpdateServices-WiDB, UpdateServices-Services, UpdateServices-API, UpdatesServices-UI
 ~~~
-
-This installs all the tools needed.
-  
-##### After installation
 
 Open the Windows Server Update Services console from the server manager, this starts the Complete WSUS Installation Wizard
 
@@ -60,7 +58,6 @@ Post installation tasks take a few minutes, after which you're taken into a seco
 
 After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
 
-    
 #### Create computer groups and configure Automatic Update
 
 By default WSUS creates (but doesn't populate) a single computer group called Unassigned Computers. Let's create a new group for our infrastructure servers:
@@ -274,3 +271,5 @@ You can store your application whitelisting exceptions in catalog files and devi
 [TechNet-article on server patching and WSUS](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
 
 [Microsoft security products overview](https://www.microsoft.com/en-us/wdsi/products)
+
+[Planning your WSUS deployment](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)
