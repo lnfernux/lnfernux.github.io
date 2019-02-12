@@ -199,7 +199,7 @@ To summarize briefly, device guard consist of three primary components:
 2. VSM Protected Code Integrity.
    * Moves kernel mode CI and hypervisor CI into the VSM, hardening them from attacks.
 3. Platform and UEFI secure boot.
-   * Ensigns boot binaries and UEFI firmware has been signed and not tampered with.
+   * Ensures boot binaries and UEFI firmware has been signed and not tampered with.
 
 ![dev guard](https://msdnshared.blob.core.windows.net/media/TNBlogsFS/prod.evol.blogs.technet.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/01/03/19/metablogapi/image_thumb_28944A6D.png "device guard overview")
 
