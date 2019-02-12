@@ -70,13 +70,15 @@ By default WSUS creates (but doesn't populate) a single computer group called Un
 
 Adding computers to the group is a bit hard, we must use a GPO to point our client servers and desktop computers to a given WSUS server. Once that has been done, however, you can reassign the host by clicking the host and selecting change membership.
 
-To point clients and servers to the right WSUS server, do the following in an AD-GPO:
+To point clients and servers to the right WSUS server, go to this GPO:
 
 >Computer Config\Policies\Administrative Templates\Windows Components\Windows Update
 
-*. Open the Specify Intranet Microsoft Update Service Location and provide the following URLs
-    *. Intranet update service, HTTP(S) address of WSUS server, check IIS to see which port WSUS uses.
-    *. Intranet statistics server, same as above in our case.
+And to the following:
+
+* Open the Specify Intranet Microsoft Update Service Location and provide the following URLs
+* Intranet update service, HTTP(S) address of WSUS server, check IIS to see which port WSUS uses.
+* Intranet statistics server, same as above in our case.
 
 In the same GPO path, open the Configure Automatic Updates policy. Here you control how often the targeted hosts query the WSUS server.
 
