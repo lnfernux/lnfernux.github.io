@@ -20,13 +20,29 @@ I might glance over some things - this is not a technical "how to do it" approac
 
 This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on [twitter](https://twitter.com/infernuxmonster)
 
+### Overview
+
+![windows boot process](https://docs.microsoft.com/nb-no/windows/security/information-protection/images/dn168167.boot_process%28en-us%2cmsdn.10%29.png "windows boot process")
+
+The image above describes the boot process. We will get into some of the parts described in the diagram, but focusing mostly on the server side. For more on securing the Windows 10 boot process, check [this out.](https://docs.microsoft.com/nb-no/windows/security/information-protection/secure-the-windows-10-boot-process)
+
 #### UEFI
 
-Enabling UEFI is done by hitting a key-stroke (OEM dependant) on boot and enabling it. Newer hardware is UEFI by default.
+What does UEFI provide us with?
+
+* Ability to support Windows 10 security features like Secure Boot, Windows Defender Device Guard, Windows Defender Credential Guard, and Windows Defender Exploit Guard. All require UEFI firmware.
+* Faster boot and resume times.
+* Ability to more easily support large hard drives (more than 2 terabytes) and drives with more than four partitions.
+* Support for multicast deployment, which allows PC manufacturers to broadcast a PC image that can be received by multiple PCs without overwhelming the network or image server.
+* Support for UEFI firmware drivers, applications, and option ROMs.
+
+#### Enabling UEFI
+
+Enabling UEFI is done by hitting a key-stroke (OEM dependant) on boot and [enabling it](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/boot-to-uefi-mode-or-legacy-bios-mode). Newer hardware is UEFI by default.
 
 #### Secure Boot
 
-UEFI feature that protects a servers startup enviroment. UEFI firmware stores a database of trusted hardware, drivers, operating systems and option ROMs. This DB is structured by the server's OEM. This way the server only starts if its OS boot loader files and device drivers are digitally signed and trusted by the Secure Boot database.
+Is an UEFI feature that protects a servers startup enviroment. UEFI firmware stores a database of trusted hardware, drivers, operating systems and option ROMs. This DB is structured by the server's OEM. This way the server only starts if its OS boot loader files and device drivers are digitally signed and trusted by the Secure Boot database.
 
 Secure Boot can be turned off with physical access. Also smart to have a UEFI admin password enabled.
 
@@ -37,6 +53,8 @@ Stands for Trusted Platform Module, which is a microchip that's installed on cur
 #### TPM vs Secure Boot
 
 Technically TPM can provide the same type of boot-time protection that UEFI Secure Boot can. However, the two systems are seperate and rely upon seperate trust stores.
+
+To read up further on TPM, UEFI and Secure Boot in a security perspective check out [this excellent article on infosecinstitute](https://resources.infosecinstitute.com/uefi-and-tpm/).
 
 ### BitLocker
 
@@ -142,8 +160,7 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 5. The provider decrypts it with the WDS server’s BitLocker Network Unlock certificate RSA private key.
 6. The WDS provider then returns the network key encrypted with the session key using its own vendor-specific DHCP reply to the client computer. This forms an intermediate key.
 7. The returned intermediate key is then combined with another local 256-bit intermediate key that can only be decrypted by the TPM.
-8. This combined key is used to create an AES-256 key that unlocks the volume.
-Windows continues the boot sequence.
+8. This combined key is used to create an AES-256 key that unlocks the volume. Windows continues the boot sequence.
 
 I rewrote my sequence (mine was 5 steps) to match that of the TechNet article detailing the Network Unlock feature (see link below.)
 
@@ -163,7 +180,7 @@ Install-WindowsFeature BitLocker-NetworkUnlock
 
 Then we create a certificate, in this example a self signed one (please see the link furthest down in this part for more in-depth information here):
 
-~~~~console
+~~~console
 New-SelfSignedCertificate -CertStoreLocation Cert:\LocalMachine\My -Subject "CN=BitLocker Network Unlock certificate" -Provider "Microsoft Software Key Storage Provider" -KeyUsage KeyEncipherment -KeyUsageProperty Decrypt,Sign -KeyLength 2048 -HashAlgorithm sha512 -TextExtension @("1.3.6.1.4.1.311.21.10={text}OID=1.3.6.1.4.1.311.67.1.1","2.5.29.37={text}1.3.6.1.4.1.311.67.1.1")
 ~~~
 
@@ -238,7 +255,7 @@ Steps to define the current administrator a new EFS DRA in WS16 AD domain that h
     a. Here you can either Browser Directory - locate the user by searching AD, if you use this option the certs must be published to AD
     b. Browse Folders, locate the .cer exported EFS recovery agent cert in a local or remote file system
 
-Refresh GPO (Invoke-GPUpdate or gpupdate from cmd) and your new DRAs have privilege to decrypt all domain users EFS-encrypted files. Comes in handy during emergiencies, but if someone gain access to DA it will become a problem.
+Refresh GPO (Invoke-GPUpdate or gpupdate from cmd) and your new DRAs have privilege to decrypt all domain users EFS-encrypted files. Comes in handy during emergiencies, but if someone gain access to DA it will become a problem. For more, [see this article from Microsoft](https://docs.microsoft.com/en-us/windows/security/information-protection/windows-information-protection/create-and-verify-an-efs-dra-certificate).
 
 ### Links
 
