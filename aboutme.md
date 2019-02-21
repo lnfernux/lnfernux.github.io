@@ -4,7 +4,7 @@ title: whoami
 subtitle: 
 ---
 
-### $whoami
+### whoami
 
 I'm Truls Dahlsveen, also known as infernux on the world wide web.
 
@@ -12,7 +12,7 @@ I'm currently working as an infrastructure and security consultant.
 
 <script src="https://www.hackthebox.eu/badge/13543"></script>
 
-### ps>invoke-contact
+### invoke-contact
 
 * [Keybase: infernuxmonster](https://keybase.io/infernuxmonster) - secure, encrypted chat.
   
