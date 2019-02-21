@@ -19,7 +19,7 @@ Feedback always welcome.
 
 * [Keybase:](https://keybase.io/infernuxmonster) infernuxmonster - secure, encrypted chat.
   
-* [Twitter:](https://twitter.com/infernuxmonster) @infernuxmonster - direct messages should be open.
+* [Twitter:](https://twitter.com/infernuxmonster) infernuxmonster - direct messages should be open.
   
 * [Email](mailto:YmxvZ0BpbmZlcm51eC5ubw==) - you can find my pgp-key on keybase.io.
 
