@@ -13,7 +13,7 @@ tags:
   - shielded vm
   - securing windows server
 published: true
-image: /img/ws.png
+image: /img/ws2.png
 ---
 
 Talking about the guarded fabric and more!

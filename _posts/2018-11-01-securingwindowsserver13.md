@@ -11,7 +11,7 @@ tags:
   - security baseline
   - securing windows server
 published: true
-image: /img/ws.png
+image: /img/ws2.png
 ---
 
 Let's go on a ride together!

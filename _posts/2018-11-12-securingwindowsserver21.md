@@ -11,7 +11,7 @@ tags:
   - hgs
   - securing windows server
 published: true
-image: /img/ws.png
+image: /img/ws2.png
 ---
 
 Hopefully this makes sense...

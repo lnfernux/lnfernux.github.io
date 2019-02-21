@@ -9,7 +9,7 @@ tags:
   - server
   - uefi
 published: true
-image: /img/ws.png
+image: /img/ws2.png
 ---
 
 This time we're looking at disk and file encryption!
