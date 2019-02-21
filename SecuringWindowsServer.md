@@ -10,7 +10,7 @@ subtitle: A summary of the most important aspects from the 70-744 exam
 
 In this "guide" I'll write about the things I summarized for myself while studying for the "Securing Windows Server 2016" exam. I will present the technologies, concepts Microsoft use and outline basic commands and actions for implementing these. In other words, this is not a guide in the true sense of the word. This is my ramblings and experiences reading the study material, with additional research. Take it with a grain of salt.
 
-I highly recommend checking out the 70-744 Exam Ref (it's )
+I highly recommend checking out the 70-744 Exam Ref written by Timothy Warner and Craig Zacker (it's available on [amazon](https://www.amazon.com/Exam-70-744-Securing-Windows-Server/dp/1509304266)) - the book is really good at presenting concepts and making it understandable. If you pick it up you'll notice I have no fantasy and have shamelessly stolen every heading from them (thanks guys). 
 
 Please note, however:
 

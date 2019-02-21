@@ -4,22 +4,25 @@ title: whoami
 subtitle: 
 ---
 
-### whoami
+## $whoami
 
-I'm Truls Dahlsveen, also known as infernux on the world wide web.
+### Hi, I'm Truls
 
-I'm currently working as an infrastructure and security consultant.
+I'm an IT Consultant. At the moment I work mostly with infrastructure, automation and security.
 
-<script src="https://www.hackthebox.eu/badge/13543"></script>
+This website is just my notes from when I'm taking certifications, building stuff in my lab or hacking on HackTheBox.eu - hopefully some of it is of use to anyone.
 
-### invoke-contact
+Feedback always welcome.
 
-* [Keybase: infernuxmonster](https://keybase.io/infernuxmonster) - secure, encrypted chat.
+## invoke-contact
+
+* [Keybase:](https://keybase.io/infernuxmonster) infernuxmonster - secure, encrypted chat.
   
-* [Twitter: @infernuxmonster](https://twitter.com/infernuxmonster) - direct messages should be open.
+* [Twitter:](https://twitter.com/infernuxmonster) @infernuxmonster - direct messages should be open.
   
-* [Email: YmxvZ0BpbmZlcm51eC5ubw==](mailto:YmxvZ0BpbmZlcm51eC5ubw==) - you can find my pgp-key on keybase.io.
+* [Email](mailto:YmxvZ0BpbmZlcm51eC5ubw==) - you can find my pgp-key on keybase.io.
 
+![invoke-stuff](/img/invoke-contact.png "high meme potential")
 
 ---
 
