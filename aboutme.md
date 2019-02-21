@@ -10,7 +10,8 @@ subtitle:
 
 I'm an IT Consultant. At the moment I work mostly with infrastructure, automation and security.
 
-This website is just my notes from when I'm taking certifications, building stuff in my lab or hacking on HackTheBox.eu - hopefully some of it is of use to anyone.
+This website is just my notes from when I'm taking certifications, building stuff in my lab or hacking on HackTheBox.eu.
+Hopefuly some of it is of use to anyone.
 
 Feedback always welcome.
 
@@ -21,8 +22,6 @@ Feedback always welcome.
 * [Twitter:](https://twitter.com/infernuxmonster) @infernuxmonster - direct messages should be open.
   
 * [Email](mailto:YmxvZ0BpbmZlcm51eC5ubw==) - you can find my pgp-key on keybase.io.
-
-![invoke-stuff](/img/invoke-contact.png "high meme potential")
 
 ---
 
