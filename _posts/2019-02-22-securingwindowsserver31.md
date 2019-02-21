@@ -6,11 +6,11 @@ tags:
   - powershell
   - security
   - windows
-  - hyper-v
-  - hgs
-  - encryption supported vm
-  - guarded fabric
-  - shielded vm
+  - infrastructure
+  - networking
+  - windows firewall
+  - group policies
+  - connection security groups
   - securing windows server
 published: false
 image: /img/ws2.png
