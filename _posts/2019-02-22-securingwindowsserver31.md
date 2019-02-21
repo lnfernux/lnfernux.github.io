@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Secure a network infrastructure
+title: Configure Windows Firewall
 subtitle: Securing Windows Server - Chapter 3, Part 1
 tags:
   - powershell
