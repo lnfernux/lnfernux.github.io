@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server - Disk and file encryption
-subtitle: 'Taking a look at different technologies to help us protect our server'
+title: Disk and file encryption
+subtitle: Securing Windows Server - Chapter 1, Part 1
 tags:
   - powershell
   - security

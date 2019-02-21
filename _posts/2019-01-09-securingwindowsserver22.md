@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server - Implement shielded and encryption supported VMs
-subtitle: 'Welcome to the jungle'
+title: Implement shielded and encryption supported VMs
+subtitle: Securing Windows Server - Chapter 2, Part 2
 tags:
   - powershell
   - security

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Securing Windows Server - Implement server patching, updating solutions and malware protection
-subtitle: 'WSUS, Defender and more'
+title: Implement server patching, updating solutions and malware protection
+subtitle: Securing Windows Server - Chapter 1, Part 2
 tags:
   - powershell
   - security
@@ -15,7 +15,7 @@ published: true
 image: /img/ws2.png
 ---
 
-Welcome to the newest chapter in the series.
+WSUS and more fun stuff!
 
 # Chapter 1, Part 2: Implement server patching, updating solutions and malware protection
 
