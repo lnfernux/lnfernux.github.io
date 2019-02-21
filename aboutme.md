@@ -11,7 +11,7 @@ subtitle:
 I'm an IT Consultant. At the moment I work mostly with infrastructure, automation and security.
 
 This website is just my notes from when I'm taking certifications, building stuff in my lab or hacking on HackTheBox.eu.
-Hopefuly some of it is of use to anyone.
+Hopefully some of it is of use to anyone.
 
 Feedback always welcome.
 
