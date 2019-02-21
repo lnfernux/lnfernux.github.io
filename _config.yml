@@ -9,10 +9,10 @@ baseurl: ""
 destination: static
 
 # Name of website
-title: infernux' blog
+title: Truls' blog
 
 # Short description of your site
-description: security by obscurity
+description: random ramblings from a raving madman
 
 # --- Navigation bar options --- #
 
