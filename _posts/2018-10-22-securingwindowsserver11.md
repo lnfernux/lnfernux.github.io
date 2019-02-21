@@ -16,19 +16,13 @@ This time we're looking at disk and file encryption!
 
 # Chapter 1, Part 1: Disk and file encryption
 
-In this series of blogposts I'll try to summarize briefly the most important takeaways from exploring security on the Windows Server product line. We're starting out with server hardening, this includes disk and file encryption, boot-protection, patching and upgrading, malware protection, credential protection and working with security baselines.
-
-I might glance over some things - this is not a technical "how to do it" approach, I'll mostly be presenting the concepts and then resources like TechNet will be able to fill in the blanks (there will be many!).
-
-This first part is all about disk and file encryption - if there's any feedback or something you feel that's important (and missing), please hit me up on [twitter](https://twitter.com/infernuxmonster)
-
-### Overview
+## Overview
 
 ![windows boot process](https://docs.microsoft.com/nb-no/windows/security/information-protection/images/dn168167.boot_process%28en-us%2cmsdn.10%29.png "windows boot process")
 
 The image above describes the boot process. We will get into some of the parts described in the diagram, but focusing mostly on the server side. For more on securing the Windows 10 boot process, check [this out.](https://docs.microsoft.com/nb-no/windows/security/information-protection/secure-the-windows-10-boot-process)
 
-#### UEFI
+### UEFI
 
 What does UEFI provide us with?
 
@@ -38,21 +32,23 @@ What does UEFI provide us with?
 * Support for multicast deployment, which allows PC manufacturers to broadcast a PC image that can be received by multiple PCs without overwhelming the network or image server.
 * Support for UEFI firmware drivers, applications, and option ROMs.
 
-#### Enabling UEFI
+That's a short summary, now let's enable it, shall we?
+
+### Enabling UEFI
 
 Enabling UEFI is done by hitting a key-stroke (OEM dependant) on boot and [enabling it](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/boot-to-uefi-mode-or-legacy-bios-mode). Newer hardware is UEFI by default.
 
-#### Secure Boot
+### Secure Boot
 
 Is an UEFI feature that protects a servers startup enviroment. UEFI firmware stores a database of trusted hardware, drivers, operating systems and option ROMs. This DB is structured by the server's OEM. This way the server only starts if its OS boot loader files and device drivers are digitally signed and trusted by the Secure Boot database.
 
 Secure Boot can be turned off with physical access. Also smart to have a UEFI admin password enabled.
 
-#### TPM
+### TPM
 
 Stands for Trusted Platform Module, which is a microchip that's installed on current gen servers and desktop-class mobos. Main function is protecting security related data, particulary encryption and decryption keys. Server 2016 supports TPM v1.2 and 1.0.
 
-#### TPM vs Secure Boot
+### TPM vs Secure Boot
 
 Technically TPM can provide the same type of boot-time protection that UEFI Secure Boot can. However, the two systems are seperate and rely upon seperate trust stores.
 
@@ -64,7 +60,7 @@ To read up further on TPM, UEFI and Secure Boot in a security perspective check 
 
 BitLocker is a full disk encryption feature included in Windows. It is designed to protect data by providing encryption for entire volumes.
 
-#### Enable BitLocker to use Secure Boot and BCD integrity verification
+### Enable BitLocker to use Secure Boot and BCD integrity verification
 
 Bitlocker Drive Encryption is Microsofts native disk encryption solution for operating systems and data drives.
 Boot Configuration Database (BCD) is a firmware-independent database that stores Windows startup configuration data. In Server 2016 this is a unlettered 500 MB System Reserved partition on your startup disk.
@@ -72,7 +68,7 @@ Boot Configuration Database (BCD) is a firmware-independent database that stores
 In order to prepare BitLocker to use Secure Boot for vplatform and BCD database integrity validation we need to enable the Allow Secure Boot for Integrity alidation policy found in the GPO path:
 > Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\Operating System Drives
 
-#### Deploy BitLocker drive encryption
+### Deploy BitLocker drive encryption
 
 The first step is to install the BitLocker Drive Encryption Feature, this can be done through powershell (administrative):
 
@@ -88,7 +84,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Bitlocker,BitLocker-Utilities
 
 That should be all for BitLocker installation.
 
-#### Configure BitLocker with or without TPM
+### Configure BitLocker with or without TPM
 
 BitLocker Drive Encryption can be configured to use a number of authentication methods called protectors.
 
@@ -130,15 +126,15 @@ PS> Enable-BitLocker -MountPoint 'C:' -EncryptionMethod Aes256 -UsedSpaceOnly -P
 
 You can also use manage-bde command line executable.
 
-#### Implement BitLocker on Hyper-V VM
+### Implement BitLocker on Hyper-V VM
 
 Hyper-V in WS16 allows both Secure Boot and virtualized TPM (vTPM) for VM guests. This is a part of each machine's properties - meaning the setup for this is the same as a physical machine/server.
 
-#### Implement BitLocker on Cluster Shared Volumes (CSV) and Storage Area Networks (SAN)
+### Implement BitLocker on Cluster Shared Volumes (CSV) and Storage Area Networks (SAN)
 
 Was implemented in WS12, you can encrypt volumes before or after you add them to a cluster. Use either Windows Powershell or managezbde.exe to perform the task.
 
-#### Configure Network Unlock
+### Configure Network Unlock
 
 WS16 supports the BitLocker Network Unlock feature. It allows automatic access to BitLocker decryption keys, which means that you can start, restart or remotely manage your windows servers without having to manually input a PIN. The requirements, in addition to UEFI firmware and TPM chips are the following:
 
@@ -151,7 +147,7 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 
 >Computer Configuration\Policies\Windows Settings\Security Settings\Public Key Policies\BitLocker Drive Encryption Network Certificate
 
-#### The Network Unlock sequence
+### The Network Unlock sequence
 
 ![alt text3](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/images/bitlockernetworkunlocksequence.png "The Network Unlock Sequence")
 
@@ -166,7 +162,7 @@ WS16 supports the BitLocker Network Unlock feature. It allows automatic access t
 
 I rewrote my sequence (mine was 5 steps) to match that of the TechNet article detailing the Network Unlock feature (see link below.)
 
-#### Enable Network Unlock
+### Enable Network Unlock
 
 First, check that WDS is running:
 
@@ -190,17 +186,17 @@ After that we deploy the private key to our WDS server and configure Group Polic
 
 For more in depth information, particularly creating the certificate template for network unlock, check out [this article!](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock)
 
-#### Implement the BitLocker Recovery Process
+### Implement the BitLocker Recovery Process
 
 Easiest way is the recovery password that we generated and saved to a file/usb or printed out when we enabled bitlocker - a 48-digit unlock key. Saving this file to an offline, removable media that's stored securely should be the one of the main ways to handle BitLocker recovery passwords.
 
-#### Recovery password retrieval from AD DS
+### Recovery password retrieval from AD DS
 
 We can also back up BitLocker recovery keys to AD. The configuration setting to this lies in the following GPO path:
 
 >Computer Configuration\Policies\Administrative Templates\Windows Components\BitLocker Drive Encryption\
 
-#### The specific GPO is name Store BitLocker recovery information in Active Directory Domain Services
+### The specific GPO is name Store BitLocker recovery information in Active Directory Domain Services
 
 This policy gives you the choice of storing only BitLocker recovery passwords in AD DS, or both the passwords as well as the underlying encryption keys.
 You'll also need to enable the policy Choose How BitLocker-Protected Operating System Drives Can Be Recovered from the Operating System Drives subfolder in the GPO path. Specifically you need to make sure the option Save BitcLocker Recovery Information To AD DS is enabled for operating system drives.
@@ -223,22 +219,22 @@ And then run this command to force the key/pass archival:
 Manage-bde -protectors -adbackup c: -id {password-id}
 ~~~
 
-#### Accessing the recovery password
+### Accessing the recovery password
 
 Locate the target server in AD Users and Computers, open it's properties sheet and navigate to the bitlocker recovery tab. You'll see the recovery password here. Keep in mind that anyone with access to this object in AD will be able to see it, so this protection is only as good as your AD-security itself.
 
-#### Self-service recovery
+### Self-service recovery
 
 You can also use Microsoft BitLocker Administration and Monitoring toolset, or MBAM for short. 
 
 It has a pretty complex installation that we won't get into, full-fledged multi-tier application that can be deployed stand-alone or through SCCM. Provides end-to-end automation for BitLocker, including self-service key retrieval, agent-based user guidance.
 
-#### Manage Encrypting File System (EFS)
+### Manage Encrypting File System (EFS)
 
 BitLocker functions at the volume level. You can use it to encrypt removable media, but for most production servers you'll be encrypting entire fixed hard disk volumes. We can use BitLocker to create encrypted container files, but these too are treated by WS16 as VHD images.
 Encrypting File System (EFS) is a more granular solution that can be leveraged to protect individual folders and files.
 
-#### Data recovery agents
+### Data recovery agents
 
 EFS generates self-signed certs and stores them in each user or administrators profile folder by default. This is a bad idea in production, because the keys can stolen/damaged and there's not trust chain with self-signing.
 If you plan to implement EFS, you should have a true blue PKI established, like with AD CS, so you can fully manage EFS certs. AD CS includes basic EFS and EFS recovery agent templates out of box.
@@ -264,3 +260,7 @@ Refresh GPO (Invoke-GPUpdate or gpupdate from cmd) and your new DRAs have privil
 [TechNet-article on server hardening](https://social.technet.microsoft.com/wiki/contents/articles/18931.security-hardening-tips-and-recommendations.aspx)
 
 [Network Unlock article](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-how-to-enable-network-unlock)
+
+#### Standard disclaimer
+
+The world of security is always changing and that's also the case for Microsoft. To follow all their updates, new products, what's retiring and namechanges please use the following link to [stay updated](https://blogs.technet.microsoft.com/secguide/) on all their blogs and updates. Here they discuss updated baselines and so much more.

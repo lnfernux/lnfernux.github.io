@@ -19,7 +19,7 @@ WSUS and more fun stuff!
 
 # Chapter 1, Part 2: Implement server patching, updating solutions and malware protection
 
-### Install and configure WSUS
+## Overview: Install and configure WSUS
 
 Windows Server Update Services can be deployed many ways. Also included as a part of SCCM.
 Either as a single server standalone, or a replicated server farm. Secondary (downstream) servers pull their updates from upstream (master) WSUS server; master-servers download updates from Microsoft Update over the internet.
@@ -34,7 +34,7 @@ Computer groups will help deploying and testing patches and hotfixes easier. You
 
 [This](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) TechNet-guide is great for getting started, and goes into the technical stuff that I don't hit on.
 
-#### Install the WSUS role on a server
+### Install the WSUS role on a server
 
 You can either use Windows Interal database (WID) or Microsoft SQL server (on server 2016)
 To install the tools, use the following cmdlet:
@@ -58,7 +58,7 @@ Post installation tasks take a few minutes, after which you're taken into a seco
 
 After initial sync completes, you're ready to define computer groups, apply approval policies and configure automatic update. All of this can be done via the Update Services MMC console
 
-#### Create computer groups and configure Automatic Update
+### Create computer groups and configure Automatic Update
 
 By default WSUS creates (but doesn't populate) a single computer group called Unassigned Computers. Let's create a new group for our infrastructure servers:
 
@@ -79,13 +79,13 @@ And to the following:
 
 In the same GPO path, open the Configure Automatic Updates policy. Here you control how often the targeted hosts query the WSUS server.
 
-#### Implement Windows Defender
+### Implement Windows Defender
 
 In Windows Server 16 defender behavior is configurable from the Update and Security pane in Settings.
 
 You can control real-time protection (runs defender in the background constantly), cloud-based protection (sends results to windows to help make defender better and faster at detecting), automatic sample submission (submits samples of detected malware to microsoft), exclusions (don't scan certain files / folders if you're sure they're safe), windows defender offline (you can scan the system from an alternative startup volume, but you have to install windows defender offline to do this, version info (how recent is the defitions and signature files.
 
-#### Running scans from PowerShell
+### Running scans from PowerShell
 
 ~~~powershell
 Start-MpScan #to start a normal scan
@@ -94,7 +94,7 @@ Start-MpWDOScan #to start offline scan (if you've created an offline boot media)
 
 Please refer to the article on [running and reviewing offline scans with Windows Defender](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-antivirus/windows-defender-offline) for more details. There's also an overview over [different defender cmdlets](https://docs.microsoft.com/en-us/powershell/module/defender/index?view=win10-ps) that might prove useful!
   
-#### Integrate Windows Defender with WSUS
+### Integrate Windows Defender with WSUS
 
 Configure WSUS to automatically approve windows defender updates automatically.
 
@@ -111,7 +111,7 @@ You can control defender from GPO:
 
 Here you can do stuff like enable headless UI mode for users, allow users to pause scans and set time of day to run scans. Headless UI mode refers to update running in background, without bothering the users with pop-ups or information they don't need.
 
-#### Implement AppLocker Rules
+### Implement AppLocker Rules
 
 AppLocker is basically whitelisting. Make sure that AppIDSvc is running on all protected servers, you can use GPOs to force-enable this service.
 You can have five types of rules:
@@ -130,7 +130,7 @@ For each rule we have a choice of three conditions:
 
 To get more into the nitty-gritty and understand AppLocker rules and policies, check out [this](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/applocker/create-your-applocker-rules) guide.
   
-#### Implementing an AppLocker policy
+### Implementing an AppLocker policy
 
 We will try to create an automatically generated rule to whitelist the standard applications and block the firefox browser executable.
 
@@ -165,7 +165,7 @@ Log on to a computer and try to run calc.exe, doesn't work. You can also view th
 
 For a reference guide with links to each individual step, check [this](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/applocker/create-your-applocker-policies) TechNet-article out!
   
-#### Implement Control Flow Guard
+### Implement Control Flow Guard
 
 Control Flow Guard is a developer focused feature.
 To enable it the creators of .NET software need to enable it in Visual Studio and recompile the program.
@@ -179,7 +179,7 @@ How does it work? Well, when a CFG check fails at runtime, Windows immediately t
 
 ![cfg4](https://docs.microsoft.com/en-us/windows/desktop/secbp/images/cfg-pseudocode.jpg "how does it work")
 
-#### Check that Control Flow Guard is enabled on a binary
+### Check that Control Flow Guard is enabled on a binary
 
 Run the dumpbin tool (included in the Visual Studio 2015 installation) from the Visual Studio command prompt with the /headers and /loadconfig options: dumpbin /headers /loadconfig test.exe. The output for a binary under CFG should show that the header values include "Guard", and that the load config values include "CF Instrumented" and "FID table present".
 
@@ -187,7 +187,7 @@ Run the dumpbin tool (included in the Visual Studio 2015 installation) from the 
 
 ![cfg3](https://docs.microsoft.com/en-us/windows/desktop/secbp/images/cfg-dumpbin-loadconfig.png "check cfg2")
 
-#### Implement Device Guard policies
+### Implement Device Guard policies
 
 Device Guard isn't a single product, it's a collection of security-related hardware and software features that fully protects the servers executable environment.
 This article on demystifying [Device Guard and Credential Guard on TechNet explains a lot!](https://blogs.technet.microsoft.com/ash/2016/03/02/windows-10-device-guard-and-credential-guard-demystified/)
@@ -214,7 +214,7 @@ You can manage device guard with:
 
 This gives us the ability to choose from preference, and also automate a great deal. For more information on how to configure this, see the article above.
   
-#### Creating Code integrity policy rules
+### Creating Code integrity policy rules
 
 Define the actual application whitelist that is enforced on the target node.
 Create a "golden" server and workstation images that contain all the signed software and components that are allowed by the policy.
@@ -252,11 +252,11 @@ High level steps to deploy CI:
 
 Also important to note, as Microsoft likes to change things up, Code Integrity is now known as Windows Defender Application Control or WDAC. Please [use this article](https://blogs.technet.microsoft.com/datacentersecurity/2018/03/10/default-code-integrity-policy-for-windows-server/) as reference for the default policy and how to add publishers, merge policies and publish them.
 
-#### Catalog files
+### Catalog files
 
 You can store your application whitelisting exceptions in catalog files and device guard whitelists the catalog entries. This can be done with the PackageInspector.exe command line tool. For more information, [this series of TechNet How-To topics](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-how-to-topics) should be a good start for a great many things.
 
-#### Enable Device Guard (high level)
+### Enable Device Guard (high level)
 
 1. Make sure all systems meet all DG requirements
     * System needs to be able to perform virtualization based security (VBS)
@@ -273,3 +273,7 @@ You can store your application whitelisting exceptions in catalog files and devi
 [Microsoft security products overview](https://www.microsoft.com/en-us/wdsi/products)
 
 [Planning your WSUS deployment](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)
+
+#### Standard disclaimer
+
+The world of security is always changing and that's also the case for Microsoft. To follow all their updates, new products, what's retiring and namechanges please use the following link to [stay updated](https://blogs.technet.microsoft.com/secguide/) on all their blogs and updates. Here they discuss updated baselines and so much more.

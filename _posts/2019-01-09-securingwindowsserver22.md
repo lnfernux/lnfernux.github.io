@@ -18,9 +18,9 @@ image: /img/ws2.png
 
 Talking about the guarded fabric and more!
 
-### Chapter 2, Part 2: Implement a Guarded Fabric solution
+# Chapter 2, Part 2: Implement a Guarded Fabric solution
 
-The world of security is always changing and that's also the case for Microsoft. To follow all their updates, new products, what's retiring and namechanges please use the following link to [stay updated](https://blogs.technet.microsoft.com/secguide/) on all their blogs and updates. Here they discuss updated baselines and so much more.
+## Overview
 
 In this part we will look at shielded and encryption supported VMs and how to create and deploy them, using PowerShell. You can also use [Virtual Machine Manager](https://docs.microsoft.com/en-us/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-tenant-deploys-shielded-vm-using-vmm) or [Windows Azure Pack](https://docs.microsoft.com/en-us/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-shielded-vm-windows-azure-pack), but we won't get into that here.
 
@@ -244,3 +244,7 @@ While this is a hassle, it's so far the only way (that I know of). [This article
 [Quick overview from Windows on YouTube](https://www.youtube.com/watch?v=nPJfI7r_AGg)
 
 [Shield an existing VM](https://docs.microsoft.com/en-us/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-vm-shielding-helper-vhd)
+
+#### Standard disclaimer
+
+The world of security is always changing and that's also the case for Microsoft. To follow all their updates, new products, what's retiring and namechanges please use the following link to [stay updated](https://blogs.technet.microsoft.com/secguide/) on all their blogs and updates. Here they discuss updated baselines and so much more.
