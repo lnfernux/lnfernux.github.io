@@ -30,6 +30,8 @@ author:
   email: YmxvZ0BpbmZlcm51eC5ubw==
   github: infernuxmonster
   twitter: infernuxmonster
+  linkedin: truls-dahlsveen
+  keybase: infernuxmonster
 
 footer-links-active:
   rss: true
@@ -39,7 +41,7 @@ footer-links-active:
   google-plus: false
   github: true
   reddit: false
-  linkedin: false
+  linkedin: true
   xing: false
   stackoverflow: false
   snapchat: false
@@ -47,6 +49,7 @@ footer-links-active:
   youtube: false
   spotify: false
   telephone: false
+  keybase: true
 share-links-active:
   twitter: false
   facebook: false

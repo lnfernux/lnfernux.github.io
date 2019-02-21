@@ -157,6 +157,17 @@
             </a>
           </li>
           {% endif %}
+          {% if site.author.keybase and site.footer-links-active.keybase %}
+          <li>
+            <a href="https://keybase.io/{{ site.author.keybase }}" title="keybase">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-keybase fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Keybase</span>
+            </a>
+          </li>
+          {% endif %}
           {% if site.footer-links-active.rss %}
           <li>
             <a href="{{ '/feed.xml' | prepend: site.baseurl }}" title="RSS">
