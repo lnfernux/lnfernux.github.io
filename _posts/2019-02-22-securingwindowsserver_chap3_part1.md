@@ -17,13 +17,13 @@ published: true
 image: /img/fw.png
 ---
 
-Let's firewall some stuff, shall we not?
+Let's firewall some stuff, shall we?
 
 # Chapter 3, Part 1: Configure Windows Defender Firewall (act 1)
 
 ## Overview
 
-![firewall](/img/fw.png "Windows Defender Firewall logo")
+So, what is a firewall? Let's not get philosophical, let's get down to business!
 
 A firewall is hardware, or in this case, software that protects a host or zone by checking inbound (and if needed outbound) traffic on the network. Windows firewall is a host-based software firewall that's been a part of Windows Server since Windows Server 2003. 
 
