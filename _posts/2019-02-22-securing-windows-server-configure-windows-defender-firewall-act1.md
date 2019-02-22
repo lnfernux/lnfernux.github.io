@@ -213,7 +213,7 @@ This procedure is almost identical to configuring the firewall on a host, except
 2. Navigate to the firewall path
 
 ~~~CONSOLE
-Computer Configuration\Policies\Windows Settings\Security Settings\Windows Defender Firewall with Advanced Security\Windows Defender Firewall with Advanced Security\Inbound Rules
+\Computer Configuration\Policies\Windows Settings\Security Settings\Windows Defender Firewall with Advanced Security\Windows Defender Firewall with Advanced Security\Inbound Rules
 ~~~
 
 Now, the process is the same as using the New Inbound Rule Wizard.
@@ -224,7 +224,7 @@ Earlier we exported some rules we had created - if those rules are something you
 Simply navigate to this GPO:
 
 ~~~CONSOLE
-Computer Configuration\Policies\Windows Settings\Security Settings\Windows Defender Firewall with Advanced Security\Windows Defender Firewall with Advanced Security
+\Computer Configuration\Policies\Windows Settings\Security Settings\Windows Defender Firewall with Advanced Security\Windows Defender Firewall with Advanced Security
 ~~~
 
 Right-click the 'Windows Firewall with Advanced Security' node and select Import Policy. All we need to do now is select our exported 'firewallz_rule.wfw', and we're done.
@@ -233,9 +233,9 @@ Next time we're taking a look at connection security rules and some more tips an
 
 ### Links
 
-[70-744 Exam Reference on Amazon](https://www.amazon.com/Exam-70-744-Securing-Windows-Server/dp/1509304266) - check this out, it's really good!
-[Windows Defender Firewall with Advanced Security on docs.microsoft.com](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) - this has a PowerShell reference guide, Design Guide and Deployment Guide.
-[NetSecurity cmdlets reference](https://docs.microsoft.com/en-us/powershell/module/netsecurity/?view=win10-ps)
+* [70-744 Exam Reference on Amazon](https://www.amazon.com/Exam-70-744-Securing-Windows-Server/dp/1509304266) - check this out, it's really good!
+* [Windows Defender Firewall with Advanced Security on docs.microsoft.com](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) - this has a PowerShell reference guide, Design Guide and Deployment Guide.
+* [NetSecurity cmdlets reference](https://docs.microsoft.com/en-us/powershell/module/netsecurity/?view=win10-ps)
 
 
 #### Standard disclaimer
