@@ -154,11 +154,7 @@ ForEach($rule in $sql_rules) {
 }
 ~~~
 
-Using netsh I can something similar, to list out the rule I just created for SQL
-
-~~~console
-netsh advfirewall firewall show rule name=all dir=in
-~~~
+netsh doesn't have the same capabilities, here you have to specify the name parameter to match exactly the name of the rule you want to find (as far as I know).
 
 ##### Exporting and importing
 
