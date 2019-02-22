@@ -13,7 +13,7 @@ tags:
   - connection security groups
   - securing windows server
   - netsh
-published: false
+published: true
 image: /img/fw.png
 ---
 
