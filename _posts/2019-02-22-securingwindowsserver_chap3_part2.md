@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Scure network traffic
-subtitle: Securing Windows Server - Chapter 3, Part 3
+title: Implement a software-defined Distributed Firewall
+subtitle: Securing Windows Server - Chapter 3, Part 2
 tags:
   - powershell
   - security
@@ -9,6 +9,8 @@ tags:
   - infrastructure
   - networking
   - windows firewall
+  - software defined networking
+  - distributed firewall
   - group policies
   - connection security groups
   - securing windows server
@@ -16,11 +18,15 @@ published: false
 image: /img/ws2.png
 ---
 
-Talking about the guarded fabric and more!
+A short post!
 
-# Chapter 2, Part 2: Implement a Guarded Fabric solution
+# Chapter 3, Part 2: Implement a software-defined Distributed Firewall
 
 ## Overview
+
+### Determine requirements and scenarios
+
+### Usage scenarios
 
 ### Links
 

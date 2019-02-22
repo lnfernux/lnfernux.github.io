@@ -1,26 +1,50 @@
 ---
 layout: post
-title: Configure Windows Firewall
-subtitle: Securing Windows Server - Chapter 3, Part 1
+title: Secure network traffic
+subtitle: Securing Windows Server - Chapter 3, Part 3
 tags:
   - powershell
   - security
   - windows
   - infrastructure
   - networking
-  - windows firewall
+  - smb
+  - smb3
+  - smb1
+  - microsoft message analyzer
+  - dns
+  - dnssec
   - group policies
-  - connection security groups
   - securing windows server
 published: false
 image: /img/ws2.png
 ---
 
-Let's firewall some stuff, shall we not?
+Turning off SMB and breaking the internal network!
 
-# Chapter 3, Part 1: Configure Windows Firewall
+# Chapter 3, Part 1: Secure network traffic
 
 ## Overview
+
+### SMB 3.1.1
+
+#### Scenarios
+
+#### Implementations
+
+### SMB Encryption on SMB shares
+
+### Configure SMB signing
+
+### Disabling SMB 1.0
+
+### Securing DNS
+
+#### DNSSEC
+
+#### DNS Policies
+
+### Microsoft Message Analyzer
 
 ### Links
 
