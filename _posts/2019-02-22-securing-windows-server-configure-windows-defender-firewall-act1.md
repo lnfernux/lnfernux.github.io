@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Configure Windows Defender Firewall (act 1)
-subtitle: Securing Windows Server - Chapter 3, Part 1
+title: Configure Windows Defender Firewall
+subtitle: Securing Windows Server - Chapter 3, Part 1, Act 1
 tags:
   - powershell
   - security
