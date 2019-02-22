@@ -84,6 +84,8 @@ On the left hand side you'll notice four categories:
 3. Connection Security Rules - Network policies that employ IPSec to control host-to-host authentication, encryption and data-integrity
 4. Monitoring - Here we can monitor the behavior of the firewall, connection security rules and IPSec security associations.
 
+Let's first start by getting to know how the firewall rules work!
+
 #### Windows Defender Firewall rules
 
 Let's dig deeper into the inbound rules. For this, I present to you a snip from my own personal firewall (mind you everythings Norwegian).
