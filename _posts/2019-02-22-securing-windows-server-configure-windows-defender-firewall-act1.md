@@ -237,6 +237,7 @@ Next time we're taking a look at connection security rules and some more tips an
 * [Windows Defender Firewall with Advanced Security on docs.microsoft.com](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) - this has a PowerShell reference guide, Design Guide and Deployment Guide.
 * [NetSecurity cmdlets reference](https://docs.microsoft.com/en-us/powershell/module/netsecurity/?view=win10-ps)
 
+If you have any suggestions on items I can add, please let me know!
 
 #### Standard disclaimer
 
