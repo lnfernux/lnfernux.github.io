@@ -12,6 +12,7 @@ tags:
   - group policies
   - connection security groups
   - securing windows server
+  - netsh
 published: false
 image: /img/ws2.png
 ---
@@ -35,14 +36,14 @@ We have many ways of interacting with the Windows Defender Firewall. I'm listing
 #### Control panel
 
 ~~~powershell
-firewall.cpl 
+firewall.cpl
 #opens the Windows Defender Firewall control panel
 ~~~
 
 #### netsh
 
 ~~~powershell
-netsh advfirewall firewall 
+netsh advfirewall firewall
 #uses the now legacy netsh command-line program to configure
 #the firewall programmatically
 ~~~
@@ -68,7 +69,7 @@ New-NetFirewallRule
 #### Advanced Security MMC
 
 ~~~powershell
-wf.msc 
+wf.msc
 #opens the Windows Defender Firewall with Advanced Security MMC console
 ~~~
 
@@ -121,12 +122,14 @@ netsh advfirewall firewall add rule name="Truls Example Rule 1337" dir=in action
 ##### powershell
 
 ~~~powershell
-New-NetFirewallRule -DisplayName "Truls Example Rule 1337" -Direction Inbound -LocalPort 1337 -Protocol UDP -Action Allow -RemoteAddress 10.10.10.0/24 -Enabled True -Profile Private
+New-NetFirewallRule -DisplayName "Truls Example Rule 1337" -Direction Inbound -LocalPort 1337 -Protocol UDP -Action Allow -RemoteAddress 10.10.10.0/24 -Enabled $True -Profile Private
 ~~~
 
 Alternatively, we can use the New Inbound Rule Wizard by right clicking the Inbound Rules node and selcting new rule. Here we would select Rule Type (Port), define Protocol and Ports (UDP/1337), choose an Action (allow), determine the Profile (private) and choose a Name (Truls Example Rule 1337).
 
 #### Using netsh and PowerShell to list and export rules
+
+##### Listing files and changing rules
 
 To view the rule I just created, I can do
 
@@ -134,7 +137,62 @@ To view the rule I just created, I can do
 Get-NetFirewallRule -DisplayName "Truls Example Rule 1337"
 ~~~
 
-### Configure network location profiles and deploy profile rules using Group Olicy
+By that logic, to change rule settings easily in the same PowerShell session, I can do something like this
+
+~~~powershell
+Get-NetFirewallRule -DisplayName "Truls Example Rule 1337" | Set-NetFirewallRule -Description "Test" -LocalPort 1338 -Profile All
+~~~
+
+To add several rules to a group, I can create a simple loop to add all inbound rules that have SQL in the name to a generic SQL rule group
+
+~~~powershell
+$sql_rules = Get-NetFirewallRule -DisplayName "*SQL*" -Direction in
+ForEach($rule in $sql_rules) {
+  $rule | Set-NetFirewallRule -Group "Generic SQL rules"
+}
+~~~
+
+Using netsh I can something similar, to list out the rule I just created for SQL
+
+~~~console
+netsh advfirewall firewall show rule name=all dir=in
+~~~
+
+##### Exporting and importing
+
+To export using netsh, use the following command
+
+~~~console
+netsh advfirewall export "C:\temp\firewallz_rule.wfw"
+~~~
+
+Importing follows the exact same logic
+
+~~~console
+netsh advfirewall import "C:\temp\firewallz_rule.wfw"
+~~~
+
+Powershell does not have the same functionality, but we can use Copy-NetFirewallRule to either copy a group, or an entire policy store to a new one. A policy store is a container for firewall and IPsec policy - a Group Policy, in that sense, is also a policy store.
+
+First, let's copy our single rule from earlier
+
+~~~powershell
+Copy-NetFirewallRule -DisplayName "Truls Example Rule 1337" -NewName "Truls Example Rule 1338"
+~~~
+
+Then, let's copy our SQL group!
+
+~~~powershell
+Copy-NetFirewallRule -Group "Generic SQL rules" -Enabled $True -PolicyStore truls.lab\SQL_Server -NewPolicyStore truls.lab\SQL_Server_New
+~~~
+
+Last, but not least, let's copy the entirity of the domain rules over to a new policy store! This requires access to the new policy store, obviously.
+
+~~~powershell
+Get-NetFirewallProfile -Profile Domain -PolicyStore truls.lab\Security_Baseline | Copy-NetFirewallRule -NewPolicyStore new.lab\Copied_Security_Baseline
+~~~
+
+### Configure network location profiles and deploy profile rules using Group Policy
 
 ### Configure connection security rules
 
