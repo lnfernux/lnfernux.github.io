@@ -1,32 +1,50 @@
 ---
 layout: post
-title: Implement a software-defined Distributed Firewall
-subtitle: Securing Windows Server - Chapter 3, Part 3
+title: Secure network traffic
+subtitle: Securing Windows Server - Chapter 3, Part 4
 tags:
   - powershell
   - security
   - windows
   - infrastructure
   - networking
-  - windows firewall
-  - software defined networking
-  - distributed firewall
+  - smb
+  - smb3
+  - smb1
+  - microsoft message analyzer
+  - dns
+  - dnssec
   - group policies
-  - connection security groups
   - securing windows server
 published: false
 image: /img/ws2.png
 ---
 
-A short post!
+Turning off SMB and breaking the internal network!
 
-# Chapter 3, Part 3: Implement a software-defined Distributed Firewall
+# Chapter 3, Part 4: Secure network traffic
 
 ## Overview
 
-### Determine requirements and scenarios
+### SMB 3.1.1
 
-### Usage scenarios
+#### Scenarios
+
+#### Implementations
+
+### SMB Encryption on SMB shares
+
+### Configure SMB signing
+
+### Disabling SMB 1.0
+
+### Securing DNS
+
+#### DNSSEC
+
+#### DNS Policies
+
+### Microsoft Message Analyzer
 
 ### Links
 

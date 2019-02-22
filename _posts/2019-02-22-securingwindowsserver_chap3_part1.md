@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Configure Windows Firewall
+title: Configure Windows Defender Firewall (act 1)
 subtitle: Securing Windows Server - Chapter 3, Part 1
 tags:
   - powershell
@@ -8,22 +8,22 @@ tags:
   - windows
   - infrastructure
   - networking
-  - windows firewall
+  - windows defender firewall
   - group policies
   - connection security groups
   - securing windows server
   - netsh
 published: false
-image: /img/ws2.png
+image: /img/fw.png
 ---
 
 Let's firewall some stuff, shall we not?
 
-# Chapter 3, Part 1: Configure Windows Firewall
+# Chapter 3, Part 1: Configure Windows Defender Firewall (act 1)
 
 ## Overview
 
-![firewall](https://upload.wikimedia.org/wikipedia/en/8/8b/Windows_Firewall_Vista_icon.png "Windows Defender Firewall logo")
+![firewall](/img/fw.png "Windows Defender Firewall logo")
 
 A firewall is hardware, or in this case, software that protects a host or zone by checking inbound (and if needed outbound) traffic on the network. Windows firewall is a host-based software firewall that's been a part of Windows Server since Windows Server 2003. 
 
@@ -194,22 +194,54 @@ Get-NetFirewallProfile -Profile Domain -PolicyStore truls.lab\Security_Baseline 
 
 ### Configure network location profiles and deploy profile rules using Group Policy
 
-### Configure connection security rules
+Network location profiles are used by the Network Location Awareness service that runs on Windows Server and Client operating systems. There's three default profiles, which most people using Windows in some shape or form are familiar with:
 
-#### Group Policy
+1. Public - default profile, provides the strongest default firewall security.
+2. Private - provides some isolation for systems on trusted networks.
+3. Domain - automatically assigned when an Active Directory connection is detected by Windows.
 
-#### GUI Console
+For the 744 exam it's assumed that we are working with:
 
-#### Powershell
+* A Windows Server system
+* A domain joined system
 
-### Configure the Windows Firewall for applications
+So further on in this sub-chapter we'll be talking about the *domain* profile.
 
-### Configure authenticated firewall exceptions
+#### Deploying Windows Firewall Rules using GPO
 
-### Importing and exporting settings
+This procedure is almost identical to configuring the firewall on a host, except for these first two steps:
+
+1. On a Domain Controller (DC), open the Group Policy Management Console and open the desired GPO
+2. Navigate to the firewall path
+
+~~~CONSOLE
+Computer Configuration\Policies\Windows Settings\Security Settings\Windows Defender Firewall with Advanced Security\Windows Defender Firewall with Advanced Security\Inbound Rules
+~~~
+
+Now, the process is the same as using the New Inbound Rule Wizard.
+
+#### Importing "golden" firewall to GPO
+
+Earlier we exported some rules we had created - if those rules are something you'd want to push to, say, all your clients, you can easily import the rules in the Group Policy Editor.
+Simply navigate to this GPO:
+
+~~~CONSOLE
+Computer Configuration\Policies\Windows Settings\Security Settings\Windows Defender Firewall with Advanced Security\Windows Defender Firewall with Advanced Security
+~~~
+
+Right-click the 'Windows Firewall with Advanced Security' node and select Import Policy. All we need to do now is select our exported 'firewallz_rule.wfw', and we're done.
+
+Next time we're taking a look at connection security rules and some more tips and tricks for configuring the Windows Defender Firewall
 
 ### Links
+
+[70-744 Exam Reference on Amazon](https://www.amazon.com/Exam-70-744-Securing-Windows-Server/dp/1509304266) - check this out, it's really good!
+[Windows Defender Firewall with Advanced Security on docs.microsoft.com](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) - this has a PowerShell reference guide, Design Guide and Deployment Guide.
+[NetSecurity cmdlets reference](https://docs.microsoft.com/en-us/powershell/module/netsecurity/?view=win10-ps)
+
 
 #### Standard disclaimer
 
 The world of security is always changing and that's also the case for Microsoft. To follow all their updates, new products, what's retiring and namechanges please use the following link to [stay updated](https://blogs.technet.microsoft.com/secguide/) on all their blogs and updates. Here they discuss updated baselines and so much more.
+
+Most of this writing is strongly influenced by the 70-744 Exam Reference - so there will be a lot of similarities. It's a great book, please check it out.
