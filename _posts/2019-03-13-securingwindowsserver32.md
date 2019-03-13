@@ -18,8 +18,6 @@ published: true
 image: /img/fw.png
 ---
 
-A short post!
-
 # Chapter 3, Part 2: Configure Windows Defender Firewall
 
 ## Overview
