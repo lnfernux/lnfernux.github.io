@@ -41,11 +41,13 @@ It's time for some networking! We will look at the Windows Firewall, setting up 
 
 #### COMING SOON (most likely during february/march 2019)
 
-[Part 1 - Configure Windows Firewall](https://www.infernux.no/SecuringWindowsServer/)
+[Part 1 - Configure Windows Firewall](https://www.infernux.no/2019-02-22-securingwindowsserver31/)
 
-[Part 2 - Implement a software-defined Distributed Firewall](https://www.infernux.no/SecuringWindowsServer/)
+[Part 2 - Configure Windows Firewall](https://www.infernux.no/SecuringWindowsServer/)
 
-[Part 3 - Securing network traffic](https://www.infernux.no/SecuringWindowsServer/)
+[Part 3 - Implement a software-defined Distributed Firewall](https://www.infernux.no/SecuringWindowsServer/)
+
+[Part 4 - Securing network traffic](https://www.infernux.no/SecuringWindowsServer/)
 
 ### Chapter 4 - Manage privileged identities
 
