@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Configure Windows Defender Firewall (act 2)
+title: Configure Windows Defender Firewall (part 2)
 subtitle: Securing Windows Server - Chapter 3, Part 2
 tags:
   - powershell
@@ -26,7 +26,7 @@ A short post!
 
 ![firewall](/img/fw.png "Windows Defender Firewall logo")
 
-In this post we'll pick up where we left things last time, Windows Firewall. Windows firewall in itself might be very trivial, but this time we're jumping straight into the world of network security rules and IPSec, which hopefully should be a bit more interesting
+In this post we'll pick up where we left things last time, Windows *Defender* Firewall. Windows firewall in itself might be very trivial, but this time we're jumping straight into the world of network security rules and IPSec, which hopefully should be a bit more interesting
 
 ### Configure connection security rules
 
