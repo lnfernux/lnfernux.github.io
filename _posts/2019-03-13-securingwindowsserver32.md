@@ -344,7 +344,7 @@ Now we use the sid-strings page to find what this means:
 I won't get into DACL and SACL flags here, because I wouldn't be able to explain them properly and it's not in the scope for the 70-744 exam. Everything I've just done with explaining this is not in the scope in terms of allowing bypass. The string you'll need to know is:
 
 ~~~C++
-0:DAG:DAD:(A;;RCG-W;;;S-1-0-0)
+O:DAG:DAD:(A;;RCG-W;;;S-1-0-0)
 ~~~
 
 Obviously the S-1-0-0 is the **NULL-SID** which identifies a group with no members, so you'll want to use the SID of the object (computer or group) you want to let bypass the firewall.
