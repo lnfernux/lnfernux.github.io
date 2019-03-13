@@ -89,7 +89,7 @@ This means that we can communicate with every single node, but only accept conne
 * Bind the rule to the network location profile (if you don't know what a NLP is, check out the [last blogpost I did.](https://www.infernux.no/2019-02-22-securingwindowsserver31/))
 * Give the rule a name, then you're finished!
 
-You should now be able to view the rule using Grou Policy Management Editor to verify that it's set up correctly!
+You should now be able to view the rule using Group Policy Management Editor to verify that it's set up correctly!
 
 #### GUI Console
 
