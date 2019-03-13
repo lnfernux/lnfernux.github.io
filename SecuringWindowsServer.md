@@ -39,11 +39,9 @@ Here we take a look at implementing a Guarded Fabric solution, complete with HGS
 
 It's time for some networking! We will look at the Windows Firewall, setting up a software-defined Distributed Firewall and securing network traffic.
 
-#### COMING SOON (most likely during february/march 2019)
+[Part 1 - Configure Windows Defender Firewall (Part 1)](https://www.infernux.no/2019-02-22-securingwindowsserver31/)
 
-[Part 1 - Configure Windows Firewall](https://www.infernux.no/2019-02-22-securingwindowsserver31/)
-
-[Part 2 - Configure Windows Firewall](https://www.infernux.no/SecuringWindowsServer/)
+[Part 2 - Configure Windows Defender Firewall (Part 2)](https://www.infernux.no/2019-03-13-securingwindowsserver32/)
 
 [Part 3 - Implement a software-defined Distributed Firewall](https://www.infernux.no/SecuringWindowsServer/)
 
