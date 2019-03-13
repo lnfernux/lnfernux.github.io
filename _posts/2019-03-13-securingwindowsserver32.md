@@ -101,7 +101,7 @@ Ok, so the builtin MMC-snapins for mmc.exe are a bit outdated, but are included 
 
 Now, using this trying to create a new IPSec Policy will show that it default refers to Windows 2003 and XP. Sooooo, yeah. That's a thing.
 
-![img](../img/magic.jpg)
+![img](../img/magic.png)
 
 The IPSec policies can be created using the mmc-snapins locally on your PC, or you can find the IP Security Policies node using Group Policies:
 
