@@ -10,12 +10,14 @@ subtitle: A summary of the most important aspects from the 70-744 exam
 
 In this "guide" I'll write about the things I summarized for myself while studying for the "Securing Windows Server 2016" exam. I will present the technologies, concepts Microsoft use and outline basic commands and actions for implementing these. In other words, this is not a guide in the true sense of the word. This is my ramblings and experiences reading the study material, with additional research. Take it with a grain of salt.
 
-I highly recommend checking out the 70-744 Exam Ref written by Timothy Warner and Craig Zacker (it's available on [amazon](https://www.amazon.com/Exam-70-744-Securing-Windows-Server/dp/1509304266)) - the book is really good at presenting concepts and making it understandable. If you pick it up you'll notice I have no fantasy and have shamelessly stolen every heading from them (thanks guys). 
+I highly recommend checking out the 70-744 Exam Ref written by Timothy Warner and Craig Zacker (it's available on [amazon](https://www.amazon.com/Exam-70-744-Securing-Windows-Server/dp/1509304266)) - the book is really good at presenting concepts and making it understandable. If you pick it up you'll notice I have no fantasy and have shamelessly stolen every heading from them (thanks guys).
 
 Please note, however:
 
 * The steps I go through in my guide are correct at the time of publishing, but technologies change. If you see an error, please contact me.
 * This is NOT a how-to or step-by-step - I will however try to link to those types of guides in every chapter I can find one.
+* The material on this page will at some point be touched by the passing of time i.e not applicable or just plain wrong - I take no responsibility for that.
+* I'm slow as a steamboat so this guide will probably never be finished.
 
 ### Chapter 1 - Server Hardening
 
@@ -63,7 +65,7 @@ TBA
 
 [Securing Windows Server (70-744) scripts](https://www.infernux.no/2018-09-18-powershell/)
 
-### Bytesize-pieces 
+### Bytesize-pieces
 
 I'm planning to do a more in depth guide on how to set up and test some of these technologies on your homelab if possible. 
 I'll gladly take suggestions on what to do first, please contact me if you want to see something here.
