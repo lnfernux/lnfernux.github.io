@@ -16,6 +16,12 @@ image: /img/ps.png
 
 ## The basic structure of a try catch
 
+So, what is a `try catch`?
+
+A Try statement contains a `Try` block, zero or more `Catch` blocks, and zero or one `Finally` block. A `Try` statement must have at least one `Catch` block or one `Finally` block.
+
+So, the `Try` block is where we put our code, the `Catch` block is where we handle errors and the `Finally` block is where we do actions like log the running of a function.
+
 Let's first try (eeyy) something we know will work, like a simple `Write-Host`
 
 ~~~powershell
@@ -29,7 +35,13 @@ function Test-TryCatch {
 }
 ~~~
 
-If we run this code, it outputs `Hey mom look at me` like expected.
+If we run this code, it outputs the following.
+
+~~~powershell
+Hey mom look at me
+~~~
+
+Just like expected.
 
 Now, let's try something we know will fail, like finding a service that doesn't exist with `Get-Service`.
 
@@ -58,7 +70,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : NoServiceFoundForGivenName,Microsoft.PowerShell.Commands.GetServiceCommand
 ~~~
 
-This produces an error, but it's quite *heavy* and hard to read. Now, let's try running our function.
+This produces an error, but it's quite alot and hard to read. Now, let's try running our function.
 
 ~~~powershell
 C:\temp $ Test-TryCatch-v2
@@ -67,7 +79,7 @@ Cannot find any service with service name 'thisisjustabogusservicedesignedtogive
 
 As you can see, it outputs only the first line of the error, making it more readable. We can also create custom messages if we so desire. 
 
-## Retrying an action
+## Handling errors
 
 Ok, so we've got the basics of the try catch down, let's move onto handling known errors. I've chosen to work with the `xbgm` service
 
