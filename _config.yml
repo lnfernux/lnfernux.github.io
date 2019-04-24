@@ -63,9 +63,9 @@ share-links-active:
 # for the navigation bar, the main page, and the footer.
 #navbar-col: "orange"
 # navbar-img: "/img/bgimage.png"
-#footer-col: "orange"
+# footer-col: "orange"
 # footer-img: "/img/bgimage.png"
-#page-col: "#fff"
+ page-col: "#eee"
 # page-img: "/img/bgimage.png"
 
 # --- Misc --- #
