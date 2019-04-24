@@ -2,13 +2,6 @@
 _site
 .sass-cache
 .vagrant
-404.html
-CNAME
-CHANGELOG.md
-feed.xml
-README.md
-PracticalHacking.md
-SecuringWindowsServer.md
 
 # general
 .DS_Store
