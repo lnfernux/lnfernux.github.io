@@ -5,9 +5,9 @@
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 18px;
-  color: #404040;
+  color: #1f1f1f;
   position: relative;
-  background: #FFF;
+  background: rgb(153, 153, 153);
   {% if site.page-col %}
   background: {{ site.page-col }};
   {% endif %}
