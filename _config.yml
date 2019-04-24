@@ -111,6 +111,7 @@ prose:
   - "/css"
   - "/img"
   - "/js"
+  - "/poc"
   metadata:
     _posts:
     - name: layout
