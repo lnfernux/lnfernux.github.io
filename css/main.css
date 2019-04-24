@@ -7,7 +7,7 @@ body {
   font-size: 18px;
   color: #1f1f1f;
   position: relative;
-  background: rgb(153, 153, 153);
+  background: rgb(228, 228, 228);
   {% if site.page-col %}
   background: {{ site.page-col }};
   {% endif %}
@@ -339,11 +339,13 @@ footer .theme-by {
 .post-preview a:focus,
 .post-preview a:hover {
   text-decoration: none;
+  text-decoration: underline;
   color: #890000;
 }
 
 .post-preview .post-title {
   font-size: 30px;
+  text-decoration: underline;
   margin-top: 0;
 }
 .post-preview .post-subtitle {
