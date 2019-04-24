@@ -56,6 +56,17 @@ share-links-active:
   google: false
   linkedin: false
 
+# --- Background colour/image options --- #
+
+# By default, the navigation bar and footer have a light gray background, and the main page
+# has a white background. You can specify a different background colour or a background image
+# for the navigation bar, the main page, and the footer.
+ navbar-col: "orange"
+# navbar-img: "/img/bgimage.png"
+ footer-col: "orange"
+# footer-img: "/img/bgimage.png"
+ page-col: "grey"
+# page-img: "/img/bgimage.png"
 
 # --- Misc --- #
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
