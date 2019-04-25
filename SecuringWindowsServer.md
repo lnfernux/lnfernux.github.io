@@ -65,11 +65,6 @@ TBA
 
 [Securing Windows Server (70-744) scripts](https://www.infernux.no/2018-09-18-powershell/)
 
-### Bytesize-pieces
-
-I'm planning to do a more in depth guide on how to set up and test some of these technologies on your homelab if possible. 
-I'll gladly take suggestions on what to do first, please contact me if you want to see something here.
-
 ## More resources
 
 The official Microsoft exam page for 70-744: Securing Windows Server 2016 can be found [here.](https://www.microsoft.com/en-us/learning/exam-70-744.aspx)
