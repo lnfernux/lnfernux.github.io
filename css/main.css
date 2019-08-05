@@ -473,7 +473,7 @@ footer .theme-by {
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
   padding: 100px 0;
-  color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255);
   text-shadow: 1px 1px 3px #000;
 }
 .intro-header .page-heading h1 {
@@ -492,7 +492,7 @@ footer .theme-by {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
-  color: rgb(255, 174, 0);
+  color: rgb(255, 255, 255);
 }
 .intro-header .post-heading .post-subheading {
   margin-bottom: 20px;
@@ -544,7 +544,7 @@ footer .theme-by {
 
 .header-section.has-img .no-img {
   margin-top: 0;
-  background: #FCFCFC;
+  background: rgb(255, 255, 255);
   margin: 0 0 40px;
   padding: 20px 0;
   box-shadow: 0 0 5px #AAA;
@@ -773,7 +773,7 @@ td.gutter {
 
 .box-warning {
   background-color: #fdf5d4;
-  border-left-color: #f1c40f;
+  border-left-color: #ffffff;
 }
 
 .box-error {
