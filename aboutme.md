@@ -6,22 +6,19 @@ subtitle:
 
 ## $whoami
 
-### Hi, I'm Truls
+My name is Truls and I currently work as an IT Consultant doing infrastructure and automation.
 
-I'm an IT Consultant. At the moment I work mostly with infrastructure, automation and security.
-
-This website is just my notes from when I'm taking certifications, building stuff in my lab or hacking on HackTheBox.eu.
-Hopefully some of it is of use to anyone.
+This website is just my own personal notes, if it helps someone else that's awesome.
 
 Feedback always welcome.
 
 ## invoke-contact
 
-* [Keybase:](https://keybase.io/infernuxmonster) infernuxmonster - secure, encrypted chat.
+* [Keybase](https://keybase.io/infernuxmonster)
   
-* [Twitter:](https://twitter.com/infernuxmonster) infernuxmonster - direct messages should be open.
+* [Twitter](https://twitter.com/infernuxmonster)
   
-* [Email](mailto:YmxvZ0BpbmZlcm51eC5ubw==) - you can find my pgp-key on keybase.io.
+* [Email](mailto:YmxvZ0BpbmZlcm51eC5ubw==)
 
 ---
 
