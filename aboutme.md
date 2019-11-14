@@ -6,9 +6,9 @@ subtitle:
 
 ## $whoami
 
-My name is Truls and I currently work as an IT Consultant doing infrastructure and automation.
+Late 20's infrastructure engineer with a love for automation and security.
 
-This website is just my own personal notes, if it helps someone else that's awesome.
+This website is just my own personal notes, if it helps someone else that's a bonus.
 
 Feedback always welcome.
 
