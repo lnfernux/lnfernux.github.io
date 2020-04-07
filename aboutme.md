@@ -4,14 +4,6 @@ title: whoami
 subtitle: 
 ---
 
-## $whoami
-
-Late 20's infrastructure engineer with a love for automation and security.
-
-This website is just my own personal notes, if it helps someone else that's a bonus.
-
-Feedback always welcome.
-
 ## invoke-contact
 
 * [Keybase](https://keybase.io/infernuxmonster)
