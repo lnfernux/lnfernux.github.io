@@ -84,20 +84,18 @@
   future: true
   
   defaults:
-  - scope:
-      path: ''
-    values:
-      layout: page
-      show-avatar: true
-  - scope:
-      path: ''
-      type: posts
-    values:
-        layout: single
-        author_profile: true
-        read_time: true
-        share: true
-        related: false
+    - scope:
+        path: ''
+        type: posts
+      values:
+        layout: post
+        comments: true
+        social-share: true
+    - scope:
+        path: ''
+      values:
+        layout: page
+        show-avatar: true
   link-tags: false
   exclude:
     - CHANGELOG.md
