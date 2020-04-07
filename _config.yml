@@ -3,163 +3,164 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-  url: "https://infernuxmonster.github.io"
-  baseurl: ""
-  
-  destination: static
-  
-  # Name of website
-  title: infernux
-  
-  # Short description of your site
-  description: 
-  
-  # --- Navigation bar options --- #
-  
-  # List of links in the navigation bar
-  navbar-links:
-    Archive: Archive
-  # --- avatar: "/img/avatar-icon.png"
-  
-  author:
-    name: infernuxmonster
-    bio: "master of none."
-    #location: "C:\Windows\System32\WindowsPowerShell\v1.0"
-    avatar: /img/ps.png
-    email: YmxvZ0BpbmZlcm51eC5ubw==
-    github: infernuxmonster
-    twitter: infernuxmonster
-  
-  footer-links-active:
-    rss: true
-    facebook: false
-    email: true
-    twitter: true
-    google-plus: false
-    github: true
-    reddit: false
-    linkedin: true
-    xing: false
-    stackoverflow: false
-    snapchat: false
-    instagram: false
-    youtube: false
-    spotify: false
-    telephone: false
-    keybase: true
-  share-links-active:
-    twitter: false
-    facebook: false
-    google: false
-    linkedin: false
-  
-  # --- Background colour/image options --- #
-  
-  # By default, the navigation bar and footer have a light gray background, and the main page
-  # has a white background. You can specify a different background colour or a background image
-  # for the navigation bar, the main page, and the footer.
-  #navbar-col: "orange"
-  # navbar-img: "/img/bgimage.png"
-  # footer-col: "orange"
-  # footer-img: "/img/bgimage.png"
-  page-col: "#eee"
-  # page-img: "/img/bgimage.png"
-  
-  # --- Misc --- #
-  # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-  disqus: ""
-  
-  # Fill in your Google Analytics ID to track your website using GA
-  google_analytics: "UA-125990163-1"
-  
-  excerpt_length: 50
-  title-separator: "-"
-  timezone: Europe/Berlin
-  markdown: kramdown
-  highlighter: rouge
-  permalink: "/:title/"
-  paginate: 5
-  kramdown:
-    input: GFM
-  future: true
-  
-  defaults:
-    - scope:
-        path: ''
-        type: posts
-      values:
-        layout: post
-        comments: true
-        social-share: true
-    - scope:
-        path: ''
-      values:
-        layout: page
-        show-avatar: true
-  link-tags: false
-  exclude:
-    - CHANGELOG.md
-    - CNAME
-    - Dockerfile
-    - Gemfile
-    - Gemfile.lock
-    - LICENSE
-    - README.md
-    - Vagrantfile
-  prose:
-    rooturl: _posts
-    media: img
-    ignore:
-    - 404.html
-    - LICENSE
-    - feed.xml
-    - _config.yml
-    - "/_layouts"
-    - "/_includes"
-    - "/css"
-    - "/img"
-    - "/js"
-    - "/poc"
-    metadata:
-      _posts:
-      - name: layout
-        field:
-          element: hidden
-          value: post
-      - name: title
-        field:
-          element: text
-          label: Post title
-          placeholder: Title
-          alterable: true
-      - name: subtitle
-        field:
-          element: textarea
-          label: Subtitle
-          placeholder: A description of your post.
-          alterable: true
-      - name: date
-        field:
-          element: text
-          label: Date
-          help: Enter date of post.
-          placeholder: yyyy-mm-dd
-          alterable: true
-      - name: image
-        field:
-          element: text
-          label: Image
-          help: Add a thumbnail image to your post.
-          placeholder: Thumbnail
-          alterable: true
-      - name: published
-        field:
-          element: checkbox
-          label: Publish
-          help: Check to publish post, uncheck to hide.
-  gems:
-  - jekyll-paginate
-  - jekyll-mentions
-  - jemoji
-  #- jekyll-crosspost-to-medium
-  
+url: "https://infernuxmonster.github.io"
+baseurl: ""
+
+destination: static
+
+# Name of website
+title: home of champions
+
+# Short description of your site
+description: 
+
+# --- Navigation bar options --- #
+
+# List of links in the navigation bar
+navbar-links:
+  Guides:
+    - Practical Hacking: PracticalHacking
+    - Securing Windows Server: SecuringWindowsServer
+  Archive: Archive
+  About Me: "aboutme"
+# --- avatar: "/img/avatar-icon.png"
+
+author:
+  name: infernuxmonster
+  email: YmxvZ0BpbmZlcm51eC5ubw==
+  github: infernuxmonster
+  twitter: infernuxmonster
+  keybase: infernuxmonster
+
+footer-links-active:
+  rss: true
+  facebook: false
+  email: true
+  twitter: true
+  google-plus: false
+  github: true
+  reddit: false
+  linkedin: true
+  xing: false
+  stackoverflow: false
+  snapchat: false
+  instagram: false
+  youtube: false
+  spotify: false
+  telephone: false
+  keybase: true
+share-links-active:
+  twitter: false
+  facebook: false
+  google: false
+  linkedin: false
+
+# --- Background colour/image options --- #
+
+# By default, the navigation bar and footer have a light gray background, and the main page
+# has a white background. You can specify a different background colour or a background image
+# for the navigation bar, the main page, and the footer.
+#navbar-col: "orange"
+# navbar-img: "/img/bgimage.png"
+# footer-col: "orange"
+# footer-img: "/img/bgimage.png"
+page-col: "#eee"
+# page-img: "/img/bgimage.png"
+
+# --- Misc --- #
+# Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
+disqus: ""
+
+# Fill in your Google Analytics ID to track your website using GA
+google_analytics: "UA-125990163-1"
+
+excerpt_length: 50
+title-separator: "-"
+timezone: Europe/Berlin
+markdown: kramdown
+highlighter: rouge
+permalink: "/:year-:month-:day-:title/"
+paginate: 5
+kramdown:
+  input: GFM
+future: true
+
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+    comments: true
+    social-share: true
+- scope:
+    path: ''
+  values:
+    layout: page
+    show-avatar: true
+link-tags: false
+exclude:
+  - CHANGELOG.md
+  - CNAME
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - Vagrantfile
+prose:
+  rooturl: _posts
+  media: img
+  ignore:
+  - 404.html
+  - LICENSE
+  - feed.xml
+  - _config.yml
+  - "/_layouts"
+  - "/_includes"
+  - "/css"
+  - "/img"
+  - "/js"
+  - "/poc"
+  metadata:
+    _posts:
+    - name: layout
+      field:
+        element: hidden
+        value: post
+    - name: title
+      field:
+        element: text
+        label: Post title
+        placeholder: Title
+        alterable: true
+    - name: subtitle
+      field:
+        element: textarea
+        label: Subtitle
+        placeholder: A description of your post.
+        alterable: true
+    - name: date
+      field:
+        element: text
+        label: Date
+        help: Enter date of post.
+        placeholder: yyyy-mm-dd
+        alterable: true
+    - name: image
+      field:
+        element: text
+        label: Image
+        help: Add a thumbnail image to your post.
+        placeholder: Thumbnail
+        alterable: true
+    - name: published
+      field:
+        element: checkbox
+        label: Publish
+        help: Check to publish post, uncheck to hide.
+gems:
+- jekyll-paginate
+- jekyll-mentions
+- jemoji
+#- jekyll-crosspost-to-medium
