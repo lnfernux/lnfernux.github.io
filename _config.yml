@@ -164,8 +164,19 @@ prose:
         element: checkbox
         label: Publish
         help: Check to publish post, uncheck to hide.
-gems:
-- jekyll-paginate
-- jekyll-mentions
-- jemoji
-#- jekyll-crosspost-to-medium
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+  whitelist:
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-gist
+    - jekyll-feed
+    - jemoji
+    - jekyll-include-cache
