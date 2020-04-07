@@ -47,7 +47,7 @@
     youtube: false
     spotify: false
     telephone: false
-    keybase: true
+    keybase: false
   share-links-active:
     twitter: false
     facebook: false
@@ -71,32 +71,40 @@
   disqus: ""
   
   # Fill in your Google Analytics ID to track your website using GA
-  google_analytics: "UA-125990163-1"
+  analytics:
+    provider               : "google" # false (default), "google", "google-universal", "custom"
+    google:
+      tracking_id          : "UA-125990163-1"
+      anonymize_ip         : true # true, false (default)
   
   excerpt_length: 50
   title-separator: "-"
   timezone: Europe/Berlin
   markdown: kramdown
   highlighter: rouge
-  permalink: "/:year-:month-:day-:title/"
-  paginate: 5
+  # Outputting
+  permalink: /:title/
+  paginate: 5 # amount of posts to show
+  paginate_path: /page:num/
+  timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   kramdown:
     input: GFM
   future: true
   
-  defaults:
+# Defaults
+defaults:
+  # _posts
   - scope:
-      path: ''
+      path: ""
       type: posts
     values:
-      layout: post
-      comments: true
-      social-share: true
-  - scope:
-      path: ''
-    values:
-      layout: page
-      show-avatar: true
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: # true
+      share: true
+      related: false
+
   link-tags: false
   exclude:
     - CHANGELOG.md
