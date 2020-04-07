@@ -1,6 +1,6 @@
 ---
 layout: page
-author_profile: true
+author: author_infernux
 meta-title: "infernux"
 ---
 
@@ -69,4 +69,9 @@ meta-title: "infernux"
   </li>
   {% endif %}
 </ul>
+{% endif %}
+
+## if there is an author bio
+{% if author.bio %}
+    {% include author_bio.html %}
 {% endif %}
