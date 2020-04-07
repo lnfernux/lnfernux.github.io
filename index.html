@@ -4,6 +4,10 @@ author: author_infernux
 meta-title: "infernux"
 ---
 
+{% if author.bio %}
+    {% include author_bio.html %}
+{% endif %}
+
 <!-- site body-->
 <div class="posts-list">
   {% for post in paginator.posts %}
@@ -71,6 +75,3 @@ meta-title: "infernux"
 </ul>
 {% endif %}
 
-{% if author.bio %}
-    {% include author_bio.html %}
-{% endif %}
