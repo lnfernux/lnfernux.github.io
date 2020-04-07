@@ -18,11 +18,7 @@ description:
 
 # List of links in the navigation bar
 navbar-links:
-  Guides:
-    - Practical Hacking: PracticalHacking
-    - Securing Windows Server: SecuringWindowsServer
   Archive: Archive
-  About Me: "aboutme"
 # --- avatar: "/img/avatar-icon.png"
 
 author:
