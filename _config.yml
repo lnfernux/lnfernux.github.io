@@ -23,8 +23,9 @@
   
   author:
     name: infernuxmonster
-    avatar: /img/avatar-icon.png
+    avatar: /img/ps.png
     bio: "master of none"
+    location: "C:\Windows\System32\WindowsPowerShell\v1.0"
     email: YmxvZ0BpbmZlcm51eC5ubw==
     github: infernuxmonster
     twitter: infernuxmonster
@@ -162,4 +163,21 @@
   - jekyll-mentions
   - jemoji
   #- jekyll-crosspost-to-medium
-  
+
+  # Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
