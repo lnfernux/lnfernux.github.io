@@ -11,6 +11,7 @@ tags:
   - function
   - trap
 published: true
+author: author_infernux
 image: /img/ps.png
 ---
 
