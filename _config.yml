@@ -91,19 +91,19 @@
     input: GFM
   future: true
   
-# Defaults
-defaults:
-  # _posts
+  defaults:
   - scope:
-      path: ""
+      path: ''
       type: posts
     values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: false
+      layout: post
+      comments: true
+      social-share: true
+  - scope:
+      path: ''
+    values:
+      layout: page
+      show-avatar: true
 
   link-tags: false
   exclude:
@@ -171,21 +171,3 @@ defaults:
   - jekyll-mentions
   - jemoji
   #- jekyll-crosspost-to-medium
-
-  # Plugins (previously gems:)
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
-
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
