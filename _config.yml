@@ -9,7 +9,7 @@
   destination: static
   
   # Name of website
-  title: infernux.no
+  title: infernux
   
   # Short description of your site
   description: 
@@ -23,13 +23,11 @@
   
   author:
     name: infernuxmonster
-    avatar: /img/ps.png
-    bio: "master of none"
+    bio: "master of none."
     location: "C:\Windows\System32\WindowsPowerShell\v1.0"
     email: YmxvZ0BpbmZlcm51eC5ubw==
     github: infernuxmonster
     twitter: infernuxmonster
-    keybase: infernuxmonster
   
   footer-links-active:
     rss: true
@@ -71,22 +69,15 @@
   disqus: ""
   
   # Fill in your Google Analytics ID to track your website using GA
-  analytics:
-    provider               : "google" # false (default), "google", "google-universal", "custom"
-    google:
-      tracking_id          : "UA-125990163-1"
-      anonymize_ip         : true # true, false (default)
+  google_analytics: "UA-125990163-1"
   
   excerpt_length: 50
   title-separator: "-"
   timezone: Europe/Berlin
   markdown: kramdown
   highlighter: rouge
-  # Outputting
-  permalink: /:title/
-  paginate: 5 # amount of posts to show
-  paginate_path: /page:num/
-  timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  permalink: "/:title/"
+  paginate: 5
   kramdown:
     input: GFM
   future: true
@@ -104,7 +95,6 @@
     values:
       layout: page
       show-avatar: true
-
   link-tags: false
   exclude:
     - CHANGELOG.md
@@ -171,3 +161,4 @@
   - jekyll-mentions
   - jemoji
   #- jekyll-crosspost-to-medium
+  
