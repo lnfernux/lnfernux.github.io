@@ -4,9 +4,7 @@ layout: base
 
 {% include header.html type="post" %}
 
-{% if author.bio %}
-      {% include author_bio.html %}
-{% endif %}
+
 
 <div class="container">
   <div class="row">
@@ -50,6 +48,10 @@ layout: base
             {{ page.tags | join: ", " }}
           {% endif %}
         </div>
+      {% endif %}
+
+      {% if author.bio %}
+        {% include author_bio.html %}
       {% endif %}
 
       {% if page.social-share %}
