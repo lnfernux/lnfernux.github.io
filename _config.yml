@@ -46,7 +46,7 @@
     youtube: false
     spotify: false
     telephone: false
-    keybase: false
+    keybase: true
   share-links-active:
     twitter: false
     facebook: false
