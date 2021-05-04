@@ -18,8 +18,26 @@
   
   # List of links in the navigation bar
   navbar-links:
-    Archive: Archive
+    Guides:
+      PracticalHacking: /_data/PracticalHacking
+      SecuringWindowsServer: /_data/SecuringWindowsServer
+    Archive: /_data/Archive
   # --- avatar: "/img/avatar-icon.png"
+  remote_theme: daattali/beautiful-jekyll
+  title-img: /img/38424484.png
+  site-css: "/css/infx.css"
+
+  keywords: "powershell,azure,security architecture"
+
+  mobile-theme-col: "#0085A1"
+  navbar-col: "#05172d"
+  navbar-text-col: "#fff"
+  navbar-border-col: "#05172d"
+
+
+  url-pretty: "Infernux.no"
+
+  footer-img: "/img/footer-bg.png"
   
   author:
     name: infernuxmonster
