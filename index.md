@@ -17,11 +17,13 @@ ext-js:
 
 <div id="header-inner" markdown="1">
 
-</div>
+# INFX {#title}
+
+## automation and security {#subtitle}
 
 <div id="particles-js"></div>
 
-</div>
+</div> </div>
 
 <!-- site body-->
 <div class="posts-list">
