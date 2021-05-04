@@ -27,25 +27,26 @@ ext-js:
 
 </div>
 
+<div id="main-sections">
 <!-- site body-->
-<div class="posts-list">
+<div id="posts-list" class="page-section cut1">
   {% for post in paginator.posts %}
   <article class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
 	  <h2 class="post-title">{{ post.title }}</h2>
 
-	  {% if post.subtitle %}
-	  <h3 class="post-subtitle">
-	    {{ post.subtitle }}
-	  </h3>
-	  {% endif %}
+    {% if post.subtitle %}
+    <h3 class="post-subtitle">
+      {{ post.subtitle }}
+    </h3>
+    {% endif %}
     </a>
 
     <p class="post-meta">
       Posted on {{ post.date | date: "%B %-d, %Y" }}
     </p>
 
-    <div class="post-entry-container">
+    <div id="post-entry-container" class="page-section cut2">
       {% if post.image %}
       <div class="post-image">
         <a href="{{ post.url | prepend: site.baseurl }}">
@@ -53,7 +54,7 @@ ext-js:
         </a>
       </div>
       {% endif %}
-      <div class="post-entry">
+      <div id="post-entry" class="page-section cut">
         {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }}
         {% assign excerpt_word_count = post.excerpt | number_of_words %}
         {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
@@ -93,3 +94,5 @@ ext-js:
   {% endif %}
 </ul>
 {% endif %}
+
+</div>
