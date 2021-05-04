@@ -23,7 +23,9 @@ ext-js:
 
 <div id="particles-js"></div>
 
-</div> </div>
+</div> 
+
+</div>
 
 <!-- site body-->
 <div class="posts-list">
