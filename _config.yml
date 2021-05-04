@@ -19,12 +19,11 @@
   # List of links in the navigation bar
   navbar-links:
     Guides:
-      PracticalHacking: /_data/PracticalHacking
-      SecuringWindowsServer: /_data/SecuringWindowsServer
-    Archive: /_data/Archive
+      PracticalHacking: /nav/PracticalHacking
+      SecuringWindowsServer: /nav/SecuringWindowsServer
+    Archive: /nav/Archive
   # --- avatar: "/img/avatar-icon.png"
   remote_theme: daattali/beautiful-jekyll
-  title-img: /img/38424484.png
   site-css: "/css/infx.css"
 
   keywords: "powershell,azure,security architecture"
