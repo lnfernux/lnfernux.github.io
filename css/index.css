@@ -68,7 +68,7 @@ footer {
   background: #05172d;
   padding: 10rem 0 13rem;
   color: #fff;
-  background-image: url(/assets/img/stardust-bg.png);
+  background-image: url(/img/stardust-bg.png);
   animation: animatedBackground 100s linear infinite;
 }
 #header h1,
