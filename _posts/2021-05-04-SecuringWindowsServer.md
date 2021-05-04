@@ -32,47 +32,41 @@ Please note, however:
 
 A server is a soft-target if operating system files installed from non trusted source, system is not current with system and security patches, administrators have weak passwords or if file systems don't use NTFS and are unencrypted. Chapter 1 will look at implementing solutions to deal with this.
 
-[Part 1 - Disk and file encryption](https://www.infernux.no/2018-10-22-securingwindowsserver11/)
+[Part 1 - Disk and file encryption](https://www.infernux.no/securingwindowsserver11/)
 
-[Part 2 - Implement server patching, updating solutions and malware protection](https://www.infernux.no/2018-10-28-securingwindowsserver12/)
+[Part 2 - Implement server patching, updating solutions and malware protection](https://www.infernux.no/securingwindowsserver12/)
 
-[Part 3 - Protect credentials and create security baselines](https://www.infernux.no/2018-11-01-securingwindowsserver13/)
+[Part 3 - Protect credentials and create security baselines](https://www.infernux.no/securingwindowsserver13/)
 
 ### Chapter 2 - Secure a Virtualization Infrastructure
 
 Here we take a look at implementing a Guarded Fabric solution, complete with HGS, shielded VMs and the likes.
 
-[Part 1 - Implement a Guarded Fabric solution](https://www.infernux.no/2018-11-12-securingwindowsserver21/)
+[Part 1 - Implement a Guarded Fabric solution](https://www.infernux.no/securingwindowsserver21/)
 
-[Part 2 - Implement Shielded and encryption-supported VMs](https://www.infernux.no/2019-01-09-securingwindowsserver22/)
+[Part 2 - Implement Shielded and encryption-supported VMs](https://www.infernux.no/securingwindowsserver22/)
 
 ### Chapter 3 - Secure a network infrastructure
 
 It's time for some networking! We will look at the Windows Firewall, setting up a software-defined Distributed Firewall and securing network traffic.
 
-[Part 1 - Configure Windows Defender Firewall (Part 1)](https://www.infernux.no/2019-02-22-securingwindowsserver31/)
+[Part 1 - Configure Windows Defender Firewall (Part 1)](https://www.infernux.no/securingwindowsserver31/)
 
-[Part 2 - Configure Windows Defender Firewall (Part 2)](https://www.infernux.no/2019-03-13-securingwindowsserver32/)
+[Part 2 - Configure Windows Defender Firewall (Part 2)](https://www.infernux.no/securingwindowsserver32/)
 
 [Part 3 - Implement a software-defined Distributed Firewall](https://www.infernux.no/SecuringWindowsServer/)
 
 [Part 4 - Securing network traffic](https://www.infernux.no/SecuringWindowsServer/)
 
+## Note
+
+At this point I took the exam and passed, so my I don't have any notes or tips to pass on from the following chapters. Please consult the included links below for more information and exam prep.
 ### Chapter 4 - Manage privileged identities
-
-TBA
-
 ### Chapter 5 - Implement threat detection solutions
-
-TBA
-
 ### Chapter 6 - Implement workload-specific security
-
-TBA
-
 ### Scripts and more
 
-[Securing Windows Server (70-744) scripts](https://www.infernux.no/2018-09-18-powershell/)
+[Securing Windows Server (70-744) scripts](https://www.infernux.no/powershell/)
 
 ## More resources
 
