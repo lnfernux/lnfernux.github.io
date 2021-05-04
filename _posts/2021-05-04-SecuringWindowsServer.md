@@ -1,7 +1,16 @@
 ---
-layout: page
-title: Securing Windows Server 2016
+layout: post
+title: Securing Windows Server 2016 Exam Prep Guide (ish)
 subtitle: A summary of the most important aspects from the 70-744 exam
+tags:
+  - windows
+  - server
+  - Securing Windows Server 2016
+  - exam
+  - prep
+published: true
+author: author_infernux
+image: /img/ps.png
 ---
 
 # Securing Windows Server

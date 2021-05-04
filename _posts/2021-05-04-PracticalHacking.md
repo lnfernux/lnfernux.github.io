@@ -1,7 +1,15 @@
 ---
-layout: page
+layout: post
 title: Practical Hacking
 subtitle: 
+tags:
+  - practical
+  - hacking
+  - practical hacking
+  - hackthebox
+published: true
+author: author_infernux
+image: /img/ps.png
 ---
 
 # Practical Hacking GitBook
