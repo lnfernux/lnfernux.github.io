@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deploying Automation Rules via API
-subtitle: 
+subtitle: Using the Az Powershell-module to deploy Automation Rules from JSON-templates
 tags:
   - Azure REST API
   - Azure Sentinel
@@ -13,7 +13,7 @@ author: author_infernux
 image: /img/ps.png
 ---
 
-# What and why?
+# Introduction to Automation Rules
 
 Automation Rules is a resource in Azure, mainly used to automatically manage incidents and trigger playbooks in Azure Sentinel. 
 All examples in this post are based purely on Azure Sentinel use-cases.
