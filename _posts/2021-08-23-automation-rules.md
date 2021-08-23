@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deploying Automation Rules via API
-subtitle: Using the Az Powershell-module to deploy Automation Rules from JSON-templates
+subtitle: Automate more of your Azure Sentinel deployment by combining the Az Powershell-module and the 2019-01-01-preview API to deploy Automation Rules from JSON-templates. 
 tags:
   - Azure REST API
   - Azure Sentinel
