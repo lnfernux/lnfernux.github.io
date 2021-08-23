@@ -83,6 +83,8 @@ The `$result` variable should hold the returned information. If you want to avoi
 
 ### Scenario 2 JSON-template
 
+Everything in the JSON-template pertains to a configurable element in the Automation Rule GUI. To read more about Automation Rules I'd suggest starting [here.](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-automation-rules/ba-p/2216926)
+
 ```json
 {
   "etag": "\"0300bf09-0000-0000-0000-5c37296e0000\"",
@@ -130,5 +132,5 @@ The `$result` variable should hold the returned information. If you want to avoi
 
 # Sources
 
-[The 2019-01-01-preview API github](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2019-01-01-preview/AutomationRules.json)
-[Automation Rule example-calls](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2019-01-01-preview/examples/automationRules)
+* [The 2019-01-01-preview API github](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2019-01-01-preview/AutomationRules.json)
+* [Automation Rule example-calls](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2019-01-01-preview/examples/automationRules)
