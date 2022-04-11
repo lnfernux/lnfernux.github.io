@@ -9,7 +9,7 @@
   destination: static
   
   # Name of website
-  title: infernux
+  title: security automation and other stuff
   
   # Short description of your site
   description: 
@@ -19,6 +19,7 @@
   # List of links in the navigation bar
   navbar-links:
     Archive: Archive
+    About me: about-me
   # --- avatar: "/img/avatar-icon.png"
 
   keywords: "powershell,azure,security architecture"
