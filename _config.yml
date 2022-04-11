@@ -19,7 +19,7 @@
   # List of links in the navigation bar
   navbar-links:
     Archive: Archive
-    About me: about-me
+    About me: aboutme
   # --- avatar: "/img/avatar-icon.png"
 
   keywords: "powershell,azure,security architecture"
