@@ -14,8 +14,6 @@ This website is just my own personal notes, if it helps someone else that's a bo
 Feedback always welcome.
 
 ## invoke-contact
-
-* [Keybase](https://keybase.io/infernuxmonster)
   
 * [Twitter](https://twitter.com/infernuxmonster)
   
