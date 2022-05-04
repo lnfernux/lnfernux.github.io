@@ -6,7 +6,7 @@ subtitle:
 
 ## $whoami
 
-Hi I'm Truls Dahlsveen.
+Hi I'm Truls.
 
 Early 30's security architect/engineer with a love for automation.
 
