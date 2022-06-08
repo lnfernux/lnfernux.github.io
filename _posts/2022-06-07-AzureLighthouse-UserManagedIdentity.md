@@ -1,13 +1,15 @@
 ---
 layout: post
 title: Assigning roles to Managed Identities via Azure Lighthouse
-subtitle: Using the User Access Administrator assignment to assign roles to Managed Identities. 
+subtitle: Grant Managed Identites access via Azure Lighthouse using User Access Administrator delegation. 
 tags:
   - Azure REST API
   - Microsoft Sentinel
   - Azure Lighthouse
   - ARM Template
   - PowerShell
+  - Managed Identity
+  - User Access Administrator
 published: true
 author: author_infernux
 image: /img/ps.png
