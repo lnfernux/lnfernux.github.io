@@ -40,7 +40,6 @@
     #location: "C:\Windows\System32\WindowsPowerShell\v1.0"
     avatar: /img/ps.png
     email: YmxvZ0BpbmZlcm51eC5ubw==
-    github: infernuxmonster
     twitter: infernuxmonster
   
   footer-links-active:
@@ -49,7 +48,7 @@
     email: true
     twitter: true
     google-plus: false
-    github: true
+    github: false
     reddit: false
     linkedin: true
     xing: false
