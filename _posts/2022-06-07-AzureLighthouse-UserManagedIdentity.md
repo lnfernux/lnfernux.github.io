@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Assigning roles to Managed Identities via Azure Lighthouse
-subtitle: Grant Managed Identites access via Azure Lighthouse using User Access Administrator delegation. 
+title: Create Managed Identitiy and assign roles using Azure Lighthouse
+subtitle: Create Managed Identites and grant access via Azure Lighthouse using User Access Administrator delegation. 
 tags:
   - Azure REST API
   - Microsoft Sentinel
@@ -17,7 +17,7 @@ image: /img/ps.png
 
 # Scenario
 
-- We're creating a user managed identity for use in Microsoft Sentinel Playbooks. 
+- We're creating a user managed identity in a managed tenant.
 - It needs to have the `Microsoft Sentinel Contributor` role.
 - We want to be able to assign that role using access granted by Azure Lighthouse.
 
@@ -39,7 +39,7 @@ Create a Lighthouse-configuration and grant the User Access Administrator to a p
             "defaultValue": [
                 {
                     //Grants user access administrator to the SPN
-                    "principalId": "3kl47fff-5655-4779-b726-2cf02b05c7c4",
+                    "principalId": "3kl47fff-1337-4779-b726-2cf02b05c7c4",
                     "principalIdDisplayName": "TEST",
                     "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
                     //Allows the SPN to assign the following roles
