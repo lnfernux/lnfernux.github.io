@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create Managed Identitiy and assign roles using Azure Lighthouse
+title: Create Managed Identity and assign roles using Azure Lighthouse
 subtitle: Create Managed Identites and grant access via Azure Lighthouse using User Access Administrator delegation. 
 tags:
   - Azure REST API
