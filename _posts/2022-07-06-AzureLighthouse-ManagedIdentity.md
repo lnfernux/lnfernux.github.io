@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Assign roles to a Microsoft Sentinel Playbook managed identity using Azure Lighthouse
-subtitle: Grant access via Azure Lighthouse using User Access Administrator delegation. 
+title: Assign roles managed identities in Microsoft Sentinel playbooks using Azure Lighthouse
+subtitle: Grant access via Azure Lighthouse using User Access Administrator delegation, ARM-templates, pipelines and powershell. 
 tags:
   - Azure REST API
   - Microsoft Sentinel
