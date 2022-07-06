@@ -68,7 +68,7 @@ At this point we can onboard the template.
 ## 2. Deploy playbooks with managed identities enabled
 Using the Sentinel-as-Code project (https://github.com/javiersoriano/sentinelascode) as inspiration, we can deploy playbooks with a simple push-pipeline:
 
-Assuming a simple Azure DevOps setup similar to the one mentioned above with the SPN from the above Lighthouse-configuration defined as the `service-connection` or the subscription-object in the Azure Powershell-task:
+Assuming a simple Azure DevOps setup similar to the one mentioned above with the SPN from the above Lighthouse-configuration defined as the `service-connection` or the subscription-object in the Azure Powershell-task.
 
 ### Example pipeline
 
@@ -131,164 +131,23 @@ foreach ($armTemplate in $armTemplateFiles) {
     }
 }
 ```
-> *Note: script courtesy of Javier Soriano (https://github.com/javiersoriano/sentinelascode/blob/master/Scripts/CreatePlaybooks.ps1)*
+> *Note: script courtesy of [Javier Soriano.](https://github.com/javiersoriano/sentinelascode/blob/master/Scripts/CreatePlaybooks.ps1)*
 
 ### Example playbook template
 
-Sample playbook for changing severity:
+Sample playbook for changing incident severity can be found [here.](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "PlaybookName": {
-            "defaultValue": "Change-Incident-Severity",
-            "type": "string"
-        }
-    },
-    "variables": {
-        "AzureSentinelConnectionName": "[concat('azuresentinel-', parameters('PlaybookName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Web/connections",
-            "apiVersion": "2016-06-01",
-            "name": "[variables('AzureSentinelConnectionName')]",
-            "location": "[resourceGroup().location]",
-            "kind": "V1",
-            "properties": {
-                "displayName": "[parameters('PlaybookName')]",
-                "customParameterValues": {},
-                "parameterValueType": "Alternative",
-                "api": {
-                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/azuresentinel')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Logic/workflows",
-            "apiVersion": "2017-07-01",
-            "name": "[parameters('PlaybookName')]",
-            "location": "[resourceGroup().location]",
-            "tags": {
-                "LogicAppsCategory": "security"
-            },
-            "identity": {
-                "type": "SystemAssigned"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/connections', variables('AzureSentinelConnectionName'))]"
-            ],
-            "properties": {
-                "state": "Enabled",
-                "definition": {
-                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-                    "actions": {
-                        "Entities_-_Get_Accounts": {
-                            "inputs": {
-                                "body": "@triggerBody()?['object']?['properties']?['relatedEntities']",
-                                "host": {
-                                    "connection": {
-                                        "name": "@parameters('$connections')['azuresentinel']['connectionId']"
-                                    }
-                                },
-                                "method": "post",
-                                "path": "/entities/account"
-                            },
-                            "runAfter": {},
-                            "type": "ApiConnection"
-                        },
-                        "For_each": {
-                            "actions": {
-                                "Condition": {
-                                    "actions": {
-                                        "Update_incident": {
-                                            "inputs": {
-                                                "body": {
-                                                    "incidentArmId": "@triggerBody()?['object']?['id']",
-                                                    "severity": "High"
-                                                },
-                                                "host": {
-                                                    "connection": {
-                                                        "name": "@parameters('$connections')['azuresentinel']['connectionId']"
-                                                    }
-                                                },
-                                                "method": "put",
-                                                "path": "/Incidents"
-                                            },
-                                            "runAfter": {},
-                                            "type": "ApiConnection"
-                                        }
-                                    },
-                                    "expression": {
-                                        "or": [
-                                            {
-                                                "contains": [
-                                                    "@items('For_each')?['Name']",
-                                                    "admin"
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "runAfter": {},
-                                    "type": "If"
-                                }
-                            },
-                            "foreach": "@body('Entities_-_Get_Accounts')?['Accounts']",
-                            "runAfter": {
-                                "Entities_-_Get_Accounts": [
-                                    "Succeeded"
-                                ]
-                            },
-                            "type": "Foreach"
-                        }
-                    },
-                    "contentVersion": "1.0.0.0",
-                    "outputs": {},
-                    "parameters": {
-                        "$connections": {
-                            "defaultValue": {},
-                            "type": "Object"
-                        }
-                    },
-                    "triggers": {
-                        "Microsoft_Sentinel_incident": {
-                            "inputs": {
-                                "body": {
-                                    "callback_url": "@{listCallbackUrl()}"
-                                },
-                                "host": {
-                                    "connection": {
-                                        "name": "@parameters('$connections')['azuresentinel']['connectionId']"
-                                    }
-                                },
-                                "path": "/incident-creation"
-                            },
-                            "type": "ApiConnectionWebhook"
-                        }
-                    }
-                },
-                "parameters": {
-                    "$connections": {
-                        "value": {}
-                        }
-                }
-            }
-        }
-    ]
-}
-```
+> *Note: template courtesy of Yaniv Shasha*
 
 In order to enable managed identites the following block must be configured under the `"type": "Microsoft.Logic/workflows"`-resource:
 
 ```json
 "identity": {
   "type": "SystemAssigned"
-},
+}
 ```
 
-> *Note: template courtesy of Yaniv Shasha (https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)*
+If we add the template-file to the Playbook-folder this should trigger the pipeline and deploy the Playbook to Azure.
 
 ## 3. Create the ARM-template
 
