@@ -3,10 +3,6 @@
 # baseurl is the website's URL without the hostname
 
 # If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-  url: "https://infernuxmonster.github.io"
-  baseurl: ""
-  
-  destination: static
   
   # Name of website
   title: infernux.no
@@ -94,7 +90,7 @@ edit_page_button: true
   disqus: ""
   
   # Fill in your Google Analytics gtag.js ID to track your website using gtag
-  gtag: "UA-125990163-1"
+  gtag: "G-3TY2B5FHKR"
 
   # Fill in your Google Analytics ID to track your website using GA
   google_analytics: "UA-125990163-1"
