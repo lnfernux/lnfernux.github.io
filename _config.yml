@@ -74,8 +74,8 @@
   # page-img: "/img/bgimage.png"
   
   # --- Misc --- #
-  # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-  disqus: ""
+  # Google Tag Manager ID
+  gtm: "GTM-NDGVT23"
   
   # Fill in your Google Analytics gtag.js ID to track your website using gtag
   gtag: "G-3TY2B5FHKR"
