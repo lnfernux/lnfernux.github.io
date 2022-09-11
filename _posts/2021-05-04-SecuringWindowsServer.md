@@ -10,7 +10,7 @@ tags:
   - prep
 published: true
 author: author_infernux
-image: /img/ps.png
+image: /img/ws2.png
 ---
 
 # Securing Windows Server

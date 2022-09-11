@@ -12,7 +12,7 @@ tags:
   - User Access Administrator
 published: true
 author: author_infernux
-image: /img/ps.png
+image: /img/sentinel.png
 ---
 
 # Scenario

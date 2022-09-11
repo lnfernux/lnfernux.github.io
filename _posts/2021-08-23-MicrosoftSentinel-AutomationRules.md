@@ -10,7 +10,7 @@ tags:
   - PowerShell
 published: true
 author: author_infernux
-image: /img/ps.png
+image: /img/sentinel.png
 ---
 
 # Introduction to Automation Rules

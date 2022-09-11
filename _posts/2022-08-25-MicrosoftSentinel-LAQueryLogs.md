@@ -10,7 +10,7 @@ tags:
   - Audit
 published: true
 author: author_infernux
-image: /img/azure.png
+image: /img/sentinel.png
 ---
 
 # Scenario
