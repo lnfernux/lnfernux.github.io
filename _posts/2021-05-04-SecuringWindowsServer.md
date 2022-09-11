@@ -66,7 +66,7 @@ At this point I took the exam and passed, so my I don't have any notes or tips t
 ### Chapter 6 - Implement workload-specific security
 ### Scripts and more
 
-[Securing Windows Server (70-744) scripts](https://www.infernux.no/powershell/)
+[Securing Windows Server (70-744) scripts](https://www.infernux.no/securingwindowsserver01/)
 
 ## More resources
 
