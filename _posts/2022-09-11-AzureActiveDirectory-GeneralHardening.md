@@ -117,6 +117,7 @@ We can obviously not fix this entirely, but we can limit the amount of informati
 * Set this to `Yes`.
 
 Please note that this only disables the GUI-access to the Azure Portal, so it will not affect Powershell or other types of API-access. In order to limit API and Azure Portal access we'd need to use a [conditional access policy](https://docs.microsoft.com/nb-no/azure/active-directory/fundamentals/users-default-permissions#restrict-member-users-default-permissions) - this however is behind the Azure AD Premium P1 license.
+
 Please also note that this CA-policy only works for Azure Powershell, not Azure AD Powershell as it uses the Graph API. Limiting access to Graph API is a bit more tricky, but we can do things like [limiting the access users has to each others data](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) by using the `Set-MsolCompanySettings`-cmdlet with the `-UsersPermissionToReadOtherUsersEnabled` parameter set to `$false`.
 
 # Sources
