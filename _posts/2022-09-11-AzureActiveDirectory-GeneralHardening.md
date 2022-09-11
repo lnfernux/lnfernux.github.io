@@ -19,6 +19,9 @@ image: /img/azad.png
 
 The general idea of this "series" of posts is to list up some attack paths or scenarios where each post will outline a bunch of attack paths and it's mitigation. It will not be the most comprehensive guidance (there are great resources to dig deeper into this than I can provide) and the solutions might not cover your needs completely. If you have an idea for improvement or a question, please reach out.
 
+**Update:** 
+*For starters I will try to keep all the hardening I recommend free, but I might mention options or alternatives that are available under different licenses.*
+
 # Azure AD - App registrations
 
 ## Attack path - external app registration
@@ -105,7 +108,7 @@ After gaining access to an account, the first step attackers normally will do is
 
 ### Fix - Azure AD enumeration
 
-We can obviously not fix this entirely, but we can limit the amount of information someone with basic access can grab by default. Limiting the access to Azure AD to admin users only:
+We can obviously not fix this entirely, but we can limit the amount of information someone with basic access can grab by default. Limiting the access to Azure AD in the Azure portal to admin users only:
 
 * Go into Azure AD
 * Select the "User settings"-blade, here you will find the following option:
@@ -113,7 +116,8 @@ We can obviously not fix this entirely, but we can limit the amount of informati
 ![](/img/AzureAD/UserSettingsPortal.PNG)
 * Set this to `Yes`.
 
-*Note: We can also put access to admin roles behind Privileged Identity Management (PIM) or linked to Privileged Access groups, but this requires an EMS E5 or Azure AD P2 license, so I won't cover that in any more detail here.*
+Please note that this only disables the GUI-access to the Azure Portal, so it will not affect Powershell or other types of API-access. In order to limit API and Azure Portal access we'd need to use a [conditional access policy](https://docs.microsoft.com/nb-no/azure/active-directory/fundamentals/users-default-permissions#restrict-member-users-default-permissions) - this however is behind the Azure AD Premium P1 license.
+Please also note that this CA-policy only works for Azure Powershell, not Azure AD Powershell as it uses the Graph API. Limiting access to Graph API is a bit more tricky, but we can do things like [limiting the access users has to each others data](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) by using the `Set-MsolCompanySettings`-cmdlet with the `-UsersPermissionToReadOtherUsersEnabled` parameter set to `$false`.
 
 # Sources
 
