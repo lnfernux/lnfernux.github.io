@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Auditing Microsoft Azure queries in a Lighthouse-environment
+title: Auditing Microsoft Sentinel queries in an Azure Lighthouse-environment
 subtitle: Quick introduction to auditing Microsoft Sentinel queries in a cross-tenant scenario - and some things to be aware of. 
 tags:
   - Microsoft Sentinel
