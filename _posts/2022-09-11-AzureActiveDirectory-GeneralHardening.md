@@ -17,21 +17,21 @@ image: /img/azad.png
 
 # Introduction
 
-The general idea of this "series" of post is to just list up some attack paths or scenarios where each post will outline a bunch of paths and it's mitigation. It will not be the comprehensive and the solutions might not cover your organizations needs - if this is the case, please feel free to reach out and I can try to address it further down the road.
+The general idea of this "series" of posts is to list up some attack paths or scenarios where each post will outline a bunch of attack paths and it's mitigation. It will not be the most comprehensive guidance (there are great resources to dig deeper into this than I can provide) and the solutions might not cover your needs completely. If you have an idea for improvement or a question, please reach out.
 
 # Azure AD - App registrations
 
 ## Attack path - external app registration
 
-Consider tooling like [o365-attack-toolkit](https://github.com/mdsecactivebreach/o365-attack-toolkit). It uses an Azure AD App registration in order to trick users into consenting to giving the attacker certain rights in the context of the user, as shown in the image below.
+Consider tooling like [o365-attack-toolkit](https://github.com/mdsecactivebreach/o365-attack-toolkit). It uses an Azure AD App registration in order to trick users into consenting to giving the attacker certain rights in the context of the user, as shown in the image below:
 
 ![](https://github.com/mdsecactivebreach/o365-attack-toolkit/raw/master/images/Architecture.png)
 
-Users will be presented with a screen that looks like the following (courtesy of [Jeff Schertz](https://blog.schertz.name/2020/04/enterprise-application-consent-requests-in-azure/)):
+Users will be presented with a screen that looks like the following (courtesy of [Jeff Schertz](https://blog.schertz.name/2020/04/enterprise-application-consent-requests-in-azure/)) - but usually asking for way more in terms of permissions:
 
 ![](https://blog.schertz.name/wp-content/uploads/2020/04/image-7.png)
 
-Obviously we would like all users to be able to spot permissions that are a bit much, like the ability to read a users mail - but that will not always be the case. 
+Obviously we would like all users to be able to spot permissions that are a over the top and sketchy, like the ability to read a users mail, but that will not always be the case. 
 
 ---
 
@@ -73,7 +73,7 @@ We can limit the ability for users to consent to apps, and require admin approva
 
 * For the strictest option, which is the one I would recommend for small companies or very hardened tenants - select `Do not allow user consent`.
 * Generally the option selected in the image above represents the best solution - all apps will require verification to use.
-   * *Note, this leaves us vulnerable to the option of an attacker using app registrations internally to pivot - more on that further below.*
+   * *Note, this leaves us vulnerable to the option of an attacker using app registrations internally to pivot - more on that later.*
 * At this point we can select the "User settings"-blade, where you will be presented with the following options:
 
 ![](/img/AzureAD/EnterpriseAppUserSettings.PNG)
@@ -87,7 +87,7 @@ Users will now recieve a different screen, stating that you need admin approval:
 
 All users can by default register new app registrations, so attackers can use app registrations to pivot inside the organization after gaining initial access. You can use the aforementioned o365-attack-toolkit, but now the app registration will originate from inside the organization which means the chance users click it will increase drastically.
 
-As mentioned above, allowing users to consent to apps from verified customers also allows users to consent to app registrations from your own organization - leaving us vulernable to this attack path.
+As mentioned above, allowing users to consent to apps from verified customers also allows users to consent to app registrations from your own organization - leaving us vulnernable to this attack path.
 
 ## Fix - internal app registration
 
