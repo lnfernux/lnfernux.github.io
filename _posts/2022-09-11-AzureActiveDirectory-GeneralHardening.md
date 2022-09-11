@@ -1,12 +1,15 @@
 ---
 layout: post
-title: Hardening Azure Active Directory - Part 1
-subtitle: Going over some attack paths for Azure Active Directory (that I know of) and how to harden your environment to avoid exploitation (or just minimize the risk slightly). 
+title: Hardening Azure Active Directory Part 1
+subtitle: Going over some attack paths for Azure Active Directory (that I know of) and how to harden your environment to avoid exploitation (or just minimize the risk slightly). In this first part the focus is app registrations and basic enumeration.
 tags:
   - Microsoft Sentinel
   - Azure Active Directory
   - Hardening
   - Logging
+  - App registration
+  - Enterprise applications
+  - Consent
 published: true
 author: author_infernux
 image: /img/azad.png
