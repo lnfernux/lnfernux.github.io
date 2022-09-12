@@ -181,7 +181,8 @@ We'll modify two of the three parameters we put into the key vault:
 },
 ```
 
-## [Putting it all together](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureFunction_AddKeyVault.json)
+## Full key vault resource block
+
 
 ```json
 {
@@ -251,10 +252,13 @@ We'll modify two of the three parameters we put into the key vault:
   ]
 }
 ```
-Using this block, you can create add a key vault to any function app deployment.
+
+## Putting it all together
+
+Using this resource block you can add a key vault to any function app deployment.
 The steps you will need to take to make sure this works is:
 
-1. Add the block
+1. [Add the block](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureFunction_AddKeyVault.json)
 2. Make sure the `Microsoft.Web/sites` block has a Managed Identity configured
 3. Add dependencies for the key vault and secrets to the `config` block of the `Microsoft.Web/sites` block
 4. Change the references to the variables you wish to add to the key vault in the `config` block
