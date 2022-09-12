@@ -213,7 +213,7 @@ We'll modify two of the three parameters we put into the key vault:
       "family": "A",
       "name": "Standard"
     },
-    "tenantId": "[subscription().tenantId]",
+    "tenantId": "[subscription().tenantId]"
   },
   "resources": [
     {
