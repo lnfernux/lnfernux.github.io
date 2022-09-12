@@ -266,7 +266,7 @@ The steps you will need to take to make sure this works is:
 
 ### Full template
 
-The full template can be found [here, on my Github.](https://raw.githubusercontent.com/infernuxmonster/MicrosoftSentinel-Templates/main/QualysVM.json)
+The full template can be found [here, on my Github.](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/QualysVM.json)
 
 ## Sources
 
