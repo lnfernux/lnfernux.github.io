@@ -158,6 +158,14 @@ When referencing key vault secrets in ARM-templates, we can use the [following s
 "apiUsername": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('APIUsername')).secretUriWithVersion, ')')]",
 "apiPassword": "[concat('@Microsoft.KeyVault(SecretUri=', reference(variables('APIPassword')).secretUriWithVersion, ')')]",
 ```
+
+We also need to add the variable `KeyVaultName`, which uses the function name to create a name for the key vault in line with the other naming schemes:
+```json
+"variables": {
+  "KeyVaultName": "[concat(substring(variables('FunctionName'), 0, 20), 'sa')]"
+}
+```
+
 ## Modifying input from string to securestring
 
 Modyfing the input parameters to be `SecureString` in place of `String` will give the same result, but the input will be shielded and the value of the parameter [won't be saved to deployment history or logged.](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/data-types#secure-strings-and-objects)
@@ -262,7 +270,8 @@ The steps you will need to take to make sure this works is:
 2. Make sure the `Microsoft.Web/sites` block has a Managed Identity configured
 3. Add dependencies for the key vault and secrets to the `config` block of the `Microsoft.Web/sites` block
 4. Change the references to the variables you wish to add to the key vault in the `config` block
-5. [Optional] Change input type from `String` to `SecureString` for all applicable parameters
+5. Add the `KeyVaultName`-variable 
+6. [Optional] Change input type from `String` to `SecureString` for all applicable parameters
 
 ### Full template
 
