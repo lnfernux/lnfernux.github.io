@@ -23,33 +23,20 @@ Reviewing the [template](https://raw.githubusercontent.com/Azure/Azure-Sentinel/
 
 ![](/img/MicrosoftSentinel/QualysVMOptionalStep.PNG)
 
-Adding a key vault is set up as an optional step, one that perhaps many people will miss. Just below the text on the image it's linked to [some guidance](https://docs.microsoft.com/nb-no/azure/app-service/app-service-key-vault-references?WT.mc_id=Portal-fx&tabs=azure-cli) that can help you add a key vault - I recommend giving it a read.
+Adding a key vault is set up as an optional step, one that perhaps many people will miss. Just below the text on the image it links to [some guidance](https://docs.microsoft.com/nb-no/azure/app-service/app-service-key-vault-references?WT.mc_id=Portal-fx&tabs=azure-cli) that can help you add a key vault - I recommend giving it a read.
 
-In this post we will go through all the steps required to add a key vault to a data connector on an actual data connector tempalte and end up with something you could deploy yourself.
+In this post we will go through all the steps required to add a key vault to a data connector on an actual data connector template and end up with something you could deploy yourself.
 
 ## Adding the Key Vault
 
-We will add our key vault at the bottom, below the resource block that looks like this:
-
-```json
-{
-    "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
-    "apiVersion": "2019-06-01",
-    "name": "[concat(variables('FunctionName'), '/default/', tolower(variables('FunctionName')))]",
-    "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts/fileServices', variables('FunctionName'), 'default')]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('FunctionName'))]"
-    ],
-    "properties": {
-        "shareQuota": 5120
-    }
-}
-```
+We will add our key vault at the bottom, below the last resource block.
 
 For the key vault we will add three values into the keyvault:
 1. `workspaceKey`
 2. `APIUsername`
 3. `APIPassword`
+
+The resource block for the key vault itself will look like this:
 
 ```json
 {
@@ -96,7 +83,7 @@ It also adds an access policy to the Managed Identity of the Azure Function itse
 ```
 
 ## Adding secrets to the vault
-Moving on, we need to add the secrets themselves. Secret blocks are added as resources to the key vault block:
+Moving on, we need to add the secrets themselves. Secret blocks are added as resources under the key vault block:
 
 ```json
 ...
@@ -142,7 +129,7 @@ Moving on, we need to add the secrets themselves. Secret blocks are added as res
 
 ## Adding secrets to the function app
 
-First, we need to add a dependency to the `config` resource block under the `Microsoft.Web/sites` block:
+First, we need to add dependencies to the `config` resource block under the `Microsoft.Web/sites` block:
 
 ```json
 "dependsOn": [
@@ -194,7 +181,7 @@ We'll modify two of the three parameters we put into the key vault:
 },
 ```
 
-## [Full key vault block](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureFunction_AddKeyVault.json)
+## [Putting it all together](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureFunction_AddKeyVault.json)
 
 ```json
 {
@@ -273,7 +260,7 @@ The steps you will need to take to make sure this works is:
 4. Change the references to the variables you wish to add to the key vault in the `config` block
 5. [Optional] Change input type from `String` to `SecureString` for all applicable parameters
 
-## Full template
+### Full template
 
 The full template can be found [here, on my Github.](https://raw.githubusercontent.com/infernuxmonster/MicrosoftSentinel-Templates/main/QualysVM.json)
 
