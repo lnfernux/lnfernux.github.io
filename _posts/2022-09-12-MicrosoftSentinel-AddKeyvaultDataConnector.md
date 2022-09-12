@@ -225,7 +225,7 @@ We'll modify two of the three parameters we put into the key vault:
   },
   "resources": [
     {
-       "type": "Microsoft.KeyVault/vaults/secrets",
+       "type": "secrets",
       "apiVersion": "2021-04-01-preview",
       "name": "[variables('workspaceKey')]",
       "properties": {
@@ -236,7 +236,7 @@ We'll modify two of the three parameters we put into the key vault:
       ]
     },
     {
-       "type": "Microsoft.KeyVault/vaults/secrets",
+       "type": "secrets",
       "apiVersion": "2021-04-01-preview",
       "name": "[variables('APIUsername')]",
       "properties": {
@@ -247,7 +247,7 @@ We'll modify two of the three parameters we put into the key vault:
       ]
     },
     {
-       "type": "Microsoft.KeyVault/vaults/secrets",
+       "type": "secrets",
       "apiVersion": "2021-04-01-preview",
       "name": "[variables('APIPassword')]",
       "properties": {
