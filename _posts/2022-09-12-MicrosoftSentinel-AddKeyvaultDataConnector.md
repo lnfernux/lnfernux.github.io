@@ -162,7 +162,7 @@ When referencing key vault secrets in ARM-templates, we can use the [following s
 We also need to add the variable `KeyVaultName`, which uses the function name to create a name for the key vault in line with the other naming schemes:
 ```json
 "variables": {
-  "KeyVaultName": "[concat(substring(variables('FunctionName'), 0, 20), 'sa')]"
+  "KeyVaultName": "[concat(substring(variables('FunctionName'), 0, 20), 'kv')]"
 }
 ```
 
