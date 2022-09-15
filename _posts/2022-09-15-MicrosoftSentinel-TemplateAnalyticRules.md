@@ -129,7 +129,7 @@ The pipeline will do the following:
 
 *The `subscriptionId` isn't a secret in my environment, just was easier to set it to secret for the screenshot. If you want to keep it as a secret, you should be able to add a Powershell task to add the secret variable to `env:` and it should persist through all the tasks, as long as you don't split them into stages:*
 
-```json
+```yaml
 steps:
 - checkout: Scripts
 - task: PowerShell@2
