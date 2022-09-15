@@ -28,7 +28,8 @@ Let's write some Powershell-functions to download and parse our analytic rules i
 
 ## Get-MicrosoftSentinelAnalyticRulesStandalone.ps1
 
-Short and sweet script that requires the `Azure Powershell`-module. 
+**Requirements:**
+Scripts were tested locally using Powershell Core 7.2.5 and the Azure module (`Install-Module Az`).
 
 **It takes the following input:**
 * `ResourceGroup` - where the Sentinel-workspace is located.
@@ -304,7 +305,6 @@ End result is a json file that looks like this:
 
 We can now download and template analytic rules standalone or in a CI/CD pipeline. You can also modify the script to push the templates directly into a repository, and use a similar setup to [push analytic rules to Sentinel.](https://github.com/javiersoriano/sentinelascode)
 
-Scripts were tested locally using Powershell Core 7.2.5 and the Azure module (`Install-Module Az`).
 It was tested in a free Azure DevOps organization (using Github to sign in). Connections to Azure and Github (repository for hosting our pipeline and scripts) connected via [service connection.](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
 
 **If you wanted to try this out yourself:**
