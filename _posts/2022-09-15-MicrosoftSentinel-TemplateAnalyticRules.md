@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Templating Microsoft Sentinel Analytic Rules using Powershell
+title: Templating Microsoft Sentinel Analytic Rules using Powershell and CI/CD pipelines
 subtitle: Using the Microsoft Sentinel API and Powershell we can download all the components we want and template them for deployment - this allows you to create Analytic Rules in the Azure Portal and deploy them to multiple customers using CI/CD pipelines.
 tags:
   - Microsoft Sentinel
