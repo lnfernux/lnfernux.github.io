@@ -20,7 +20,7 @@ image: /img/azad.png
 The general idea of this "series" of posts is to list up some attack paths or scenarios where each post will outline a bunch of attack paths and it's mitigation. It will not be the most comprehensive guidance (there are great resources to dig deeper into this than I can provide) and the solutions might not cover your needs completely. If you have an idea for improvement or a question, please reach out.
 
 **Update:** 
-*For starters I will try to keep all the hardening I recommend free, but I might mention options or alternatives that are available under different licenses.*
+*For starters I will try to keep all the hardening I recommend in this post free, but I might mention options or alternatives that are available under different licenses.*
 
 # Azure AD - App registrations
 
