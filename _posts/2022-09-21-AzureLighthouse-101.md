@@ -47,7 +47,7 @@ In order to explain a bit better, consider this matrix for each of the terms use
 |Managing tenant|The service provider tenant|
 |Managed tenant|Customer tenant|
 
-We can also draw the map again, assuming that we want to give an Azure AD group an Azure RBAC role on a resource group:
+We can also draw the map again, assuming that we want to give an Azure AD group in the managing tenant an Azure RBAC role on a subscription in the managed tenant:
 
 ```mermaid
 graph LR
