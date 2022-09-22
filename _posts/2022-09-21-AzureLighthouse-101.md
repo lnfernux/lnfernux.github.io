@@ -16,7 +16,7 @@ image: /img/sentinel.png
 
 Azure Lighthouse is a hot topic, but based on my experiences not a lot of people know exactly what it does, how it works or how to use it themselves. 
 
-So let's try to remedy that, however do keep in mind this is *my understanding* of how Azure Lighthouse works - I might be completely off, but I have made it work at least twice so atleast I've got that going for me.
+So let's try to remedy that. Do keep in mind this is *my understanding* of how Azure Lighthouse works - I might be completely off, but I have made it work at least twice so atleast I've got that going for me.
 
 ## What is Azure Lighthouse?
 
@@ -89,7 +89,7 @@ graph LR
 
 ## How do you set up Azure Lighthouse?
 
-As mentioned earlier, Azure Lighthouse requires two tenants; the managing tenant and the managed tenant, but a part from that all that is required is a template, or an **offer**. The offer is defined by the MSSP and is either published to the Azure marketplace or sent directly to the customer as an ARM-template:
+As mentioned earlier, Azure Lighthouse requires two tenants; the managing tenant and the managed tenant, but apart from that all that is required is a template, or an **offer**. The offer is defined by the MSSP and is either published to the Azure marketplace or sent directly to the customer as an ARM-template:
 
 ![https://azure.microsoft.com/nb-no/blog/how-azure-lighthouse-enables-management-at-scale-for-service-providers/](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/53b4d61f-745d-4471-89e8-014b0b479471.png)
 
