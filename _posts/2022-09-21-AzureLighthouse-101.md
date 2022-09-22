@@ -169,8 +169,8 @@ This is where we combine the the `principals` with the `access`.
             ]
         }              
     }
-```
-
+```  
+   
 #### Resources
 
 **Microsoft.ManagedServices/registrationDefinitions** 
@@ -215,6 +215,8 @@ This registers the definition - in effect applying it and registering the offer.
     ]
 ```
 
+---
+
 ### Onboard the template
 
 At this point the customer can onboard the template - this is usually done by deploying a custom template in the [Azure Portal, but you can also use Azure CLI and Azure Powershell.](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/onboard-customer#deploy-the-azure-resource-manager-template)
@@ -251,11 +253,15 @@ This is also where you would chose what subscription to deploy into. For templat
 }
 ```
 
+---
+
 ## So what can we use Azure Lighthouse for?
 
 I would say only imagination really stops you - personally I enjoy using it with Microsoft Sentinel because it allows for a shared incident view and doing cross-workspace queries using the `workspace()` function in Kusto. 
 
 This isn't really the post to get into details on this - but I will share some more on how to use Azure Lighthouse for service principals and Sentinel in the future.
+
+---
 
 ## Disclaimer
 
@@ -266,6 +272,8 @@ I am aware there are more use cases for Azure Lighthouse than simply managed ser
 There are also multiple blocks to play around with in the schema, like `eligibleAuthorizations` which allows you to assign users as eligible to a role via Azure PIM. 
 
 Also do keep in mind that Azure Lighthouse currently **does not** support Azure AD roles - if this ever changes I will most likely write about how to use that as an addition to this post.
+
+---
 
 ## Sources and more resources
 
