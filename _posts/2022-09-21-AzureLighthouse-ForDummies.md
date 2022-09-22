@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Azure Lighthouse for dummies (like me)
-subtitle: What is Azure Lighthouse, what does it do and how does it do it? 
+title: Azure Lighthouse 101
+subtitle: What is Azure Lighthouse, what does it do and how does it do it?
 tags:
   - Azure
   - Azure Lighthouse
