@@ -60,6 +60,8 @@ graph LR
     p --> a
 ```
 
+---
+
 ### So what does that mean, in plain english?
 
 Let's assume we have two companies:
@@ -83,6 +85,8 @@ graph LR
     p --> a
 ```
 
+---
+
 ## How do you set up Azure Lighthouse?
 
 As mentioned earlier, Azure Lighthouse requires two tenants; the managing tenant and the managed tenant, but a part from that all that is required is a template, or an **offer**. The offer is defined by the MSSP and is either published to the Azure marketplace or sent directly to the customer as an ARM-template:
@@ -95,7 +99,7 @@ We can find some [samples](https://learn.microsoft.com/en-us/azure/lighthouse/sa
 
 ### Azure Lighthouse managed subscription
 
-Let's break it down. To see the full template, [click here.](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureLighthouse/azurelh-sub.json)
+Let's break a template down to it's parts in order to understand it. We will use a template I've created for the above example - to view the full template, [click here.](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureLighthouse/azurelh-sub.json)
 
 #### Parameters
 
@@ -111,7 +115,7 @@ This refers to the name of your managed service offering - which needs to be uni
                 "description": "Specify a unique name for your offer"
             },
             "defaultValue": "Shortcake Company - Managed Sentinel"
-        },
+        }
 ```
 
 **mspOfferDescription**
@@ -125,7 +129,7 @@ Description of the managed service offering.
                 "description": "Name of the Managed Service Provider offering"
             },
             "defaultValue": "Managed Sentinel as a Service"
-        },
+        }
 ```
 
 **managedByTenantId**
@@ -139,7 +143,7 @@ As it says, this is the `tenantId` of the managing tenant - in this case the the
                 "description": "Specify the tenant id of the Managed Service Provider"
             },
             "defaultValue": "tenantId"
-        },
+        }
 ```
 
 **Authorizations**
@@ -187,7 +191,7 @@ For our example, this means that it will create a managed services registration 
                 "managedByTenantId": "[parameters('managedByTenantId')]",
                 "authorizations": "[parameters('authorizations')]"
             }
-        },
+        }
 ```
 
 **Microsoft.ManagedServices/registrationAssignments**
@@ -208,7 +212,7 @@ This registers the definition - in effect applying it and registering the offer.
                 "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
             }
         }
-    ],
+    ]
 ```
 
 ### Onboard the template
