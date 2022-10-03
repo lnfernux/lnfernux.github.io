@@ -73,15 +73,11 @@
   page-col: "#eee"
   # page-img: "/img/bgimage.png"
   
-  # --- Misc --- #
-  # Google Tag Manager ID
-  gtm: "GTM-NDGVT23"
-  
-  # Fill in your Google Analytics gtag.js ID to track your website using gtag
-  gtag: "G-3TY2B5FHKR"
-
-  # Fill in your Google Analytics ID to track your website using GA
-  google_analytics: "UA-125990163-1"
+  # matomo
+  matomo:
+    site_id: "1"
+    uri: "https://infernux.matomo.cloud/"
+    opt-out: true 
   
   excerpt_length: 50
   title-separator: "-"
