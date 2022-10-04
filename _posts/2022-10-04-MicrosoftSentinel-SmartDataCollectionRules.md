@@ -32,13 +32,13 @@ If you need some resources, please look at [this excellent blog](https://techcom
 * We have Windows servers or workstations and we want to ingest logs to Microsoft Sentinel
 * We want to keep costs low 
 
-We can look to some projects like [OSSEM-ATTACK](https://github.com/OTRF/Microsoft-Sentinel2Go/tree/master/microsoft-sentinel/linkedtemplates/data-collection-rules/rules/ossem-attack) and [Palantir](https://github.com/OTRF/Microsoft-Sentinel2Go/tree/master/microsoft-sentinel/linkedtemplates/data-collection-rules/rules/palantir) for inspiration, but they are both very verbose in terms of logging. 
+We can look to some projects like [OSSEM-ATTACK](https://github.com/OTRF/Microsoft-Sentinel2Go/tree/master/microsoft-sentinel/linkedtemplates/data-collection-rules/rules/ossem-attack) and [Palantir](https://github.com/OTRF/Microsoft-Sentinel2Go/tree/master/microsoft-sentinel/linkedtemplates/data-collection-rules/rules/palantir) for inspiration, but they are both very verbose in terms of logging. In an ideal world we would log everything, but if that's not an option due to budget constraints then this post is for you.
 
 ## Idea
 
 The idea behind "smart" DCR is simple - we log only what we can use, and we keep the DCR updated every time we can use more data. 
 
-If we explain it using an illustration, we can see that analytic rules will consume event ids from the security events table. If we ingest 100 event ids, but we only have analytic rules that utilize 20 of them, we are ingesting 80 of them with no real utility bar hunting.
+If we explain it using an illustration, we can see that analytic rules will consume event ids from the security events table. If we ingest 100 event ids, but we only have analytic rules that utilize 20 of them, we are ingesting 80 of them with no real utility except hunting and for audit purposes.
 
 ```mermaid
 graph LR
