@@ -73,11 +73,7 @@
   page-col: "#eee"
   # page-img: "/img/bgimage.png"
   
-  # matomo
-  matomo:
-    site_id: "1"
-    uri: "https://infernux.matomo.cloud/"
-    opt-out: true 
+  cloudflare_analytics: ""
   
   excerpt_length: 50
   title-separator: "-"

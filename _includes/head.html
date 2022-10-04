@@ -16,7 +16,7 @@
   {% include gtag.html %}
   {% include gtm_head.html %}
   {% include google_analytics.html %}
-
+  {% include cloudflare_analytics.html %}
 
   {% if layout.common-ext-css %}
     {% for css in layout.common-ext-css %}
@@ -120,8 +120,5 @@
   <meta name="twitter:image" content="{{ site.url }}{{ site.avatar }}" />
   {% endif %}
 
-  {% if site.matomo %}
-  {% include matomo.html %}
-  {% endif %}
   
 </head>
