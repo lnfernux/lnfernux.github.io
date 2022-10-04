@@ -188,9 +188,9 @@ Whenever we want to push Data Collection Rules, we can use [this guidance](https
 
 ## Sources
 
-* https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview
-* https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/testing-the-new-version-of-the-windows-security-events-connector/ba-p/2483369
-* https://github.com/OTRF/OSSEM-DM
-* https://github.com/palantir/windows-event-forwarding
-* https://github.com/OTRF/Microsoft-Sentinel2Go
-* https://twitter.com/Cyb3rWard0g
+* [Data Collection Rule overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview)
+* [Testing the new Windows Security Events connector](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/testing-the-new-version-of-the-windows-security-events-connector/ba-p/2483369)
+* [OSSEM-DM](https://github.com/OTRF/OSSEM-DM)
+* [Palantir Windows event forwarding](https://github.com/palantir/windows-event-forwarding)
+* [Sentinel2Go](https://github.com/OTRF/Microsoft-Sentinel2Go)
+* [Cyb3rWard0g](https://twitter.com/Cyb3rWard0g)
