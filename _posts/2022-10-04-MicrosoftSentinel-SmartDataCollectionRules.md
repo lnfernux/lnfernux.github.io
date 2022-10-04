@@ -166,6 +166,7 @@ function New-XMLFile {
     $queryArray
 </QueryList>
 "@
+    return $queryFile
 }
 ```
 
