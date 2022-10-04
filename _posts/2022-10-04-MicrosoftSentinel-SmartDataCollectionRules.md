@@ -143,6 +143,7 @@ function New-XMLQuery {
     <Select Path="Security">*[System[(EventID=$eventId)]]</Select>
 </Query>
 "@
+    return $query
 }
 ```
 
@@ -179,6 +180,17 @@ $xmlFile | Out-File DCR.xml
 ```
 
 You can find the full script [here.](https://github.com/infernuxmonster/MicrosoftSentinel-Scripts/blob/main/Create-DataCollectionRuleFromAnalyticRules.ps1)
+
+The output will look something like this:
+```xml
+<?xml version="1.0" encoding="utf-16"?>
+<QueryList>
+    <Query Id="0" Path="Security">
+    <Select Path="Security">*[System[(EventID=4688)]]</Select>
+</Query>
+</QueryList>
+```
+
 
 ## Results
 
