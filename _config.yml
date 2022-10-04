@@ -73,7 +73,7 @@
   page-col: "#eee"
   # page-img: "/img/bgimage.png"
   
-  cloudflare_analytics: ""
+  cloudflare_analytics: "d26c40a4a04f46d79797c96ea1f727d1"
   
   excerpt_length: 50
   title-separator: "-"
