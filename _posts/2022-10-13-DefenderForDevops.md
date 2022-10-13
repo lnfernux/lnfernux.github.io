@@ -9,7 +9,7 @@ tags:
   - Azure DevOps
 published: true
 author: author_infernux
-image: /img/DefenderForDevops.png
+image: /img/devops.png
 ---
 
 # Introduction
