@@ -83,7 +83,8 @@ There's also a bunch of flags in order to limit the amount of scans your run:
 #### Categories
 
 This value defaults to the value `all`, but can be set to the following values:
-|value|
+
+|Value|
 |--|
 |`secrets`|
 | `code`|
