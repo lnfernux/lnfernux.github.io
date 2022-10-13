@@ -80,6 +80,8 @@ There's also a bunch of flags in order to limit the amount of scans your run:
     break: true
 ```
 
+---
+
 #### Categories
 
 This value defaults to the value `all`, but can be set to the following values:
@@ -92,10 +94,14 @@ This value defaults to the value `all`, but can be set to the following values:
 | `IaC`|
 | `containers`|
 
+---
+
 #### Languages
 
 This value also defaults to `all`, but you can set what language to look for. The task only gives two examples, `JavaScript` and `TypeScript`.
 We can assume some other values from the tools under, like `Python` from the tool `Bandit`.
+
+---
 
 #### Tools
 
@@ -112,6 +118,8 @@ Again, defaults to `all`, but can be set to the following values:
 |`trivy`|[Covers container images, file systems, git repositories](https://github.com/aquasecurity/trivy)
 
 **Credscan doesn't show up as a supported value in the description of the task, so might just be built in.*
+
+---
 
 #### Break
 
