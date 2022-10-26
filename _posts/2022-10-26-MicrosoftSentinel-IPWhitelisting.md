@@ -79,15 +79,17 @@ graph LR
     T[Webhook]
     T --> |Triggers| P
     W[Workflow settings]
-    P -.->  W 
+    P -->  W 
     end
     subgraph "SaaS"
     S[Script]
     PIP[SaaS Public IP]
     end
     S --> |Calls| T
-    W -.-> |If whitelist| PIP
-    style PIP fill:#D2042D,stroke:#333,stroke-width:2px
+    W -.-> |Check whitelist| PIP
+    style SaaS fill:#D2042D,stroke:#333,stroke-width:2px
+    W -.-> |If whitelist, run| P
+    W -.-> |If not, error| S
 ```
 
 ---
