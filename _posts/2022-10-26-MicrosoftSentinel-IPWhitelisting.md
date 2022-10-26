@@ -96,15 +96,15 @@ graph LR
 
 ### Add whitelisting to Microsoft Sentinel Playbook
 
-1. Go into workflow settings in the Playbook
+* Go into workflow settings in the Playbook
 
 ![](/img/IPWhitelisting/workflowSettings.PNG)
 
-2.  From here we can chose to either allow "Any IP", "Only other Logic Apps" or "Specific IP ranges":
+*  From here we can chose to either allow "Any IP", "Only other Logic Apps" or "Specific IP ranges":
 
 ![](/img/IPWhitelisting/workflowWhitelist.PNG)
 
-3. Add the public IP of the SaaS-platform.
+* Add the public IP of the SaaS-platform.
 
 # Summary
 
