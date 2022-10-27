@@ -4,9 +4,9 @@ title: Simple security in Azure DevOps pipelines
 subtitle: Quick introduction to starting pipelines with webhook triggers and (hopefully) making them secure-ish
 tags:
   - Cloud Security
-  - Storage account
   - Azure DevOps
   - Webhook triggers
+  - Pipelines
 published: true
 author: author_infernux
 image: /img/devops.png
