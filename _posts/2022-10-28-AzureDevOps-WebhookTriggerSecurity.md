@@ -60,7 +60,10 @@ So, let's look at the different parameters here:
 ## Triggering our pipeline via webhook
 
 So let's try to trigger our pipeline using a webhook - I will use PowerShell for this, but you can also just use Postman or other similar tools.
-The URI for triggering pipelines is `https://dev.azure.com/<org>/_apis/public/distributedtask/webhooks/<WebhookName>/?api-version=6.0-preview` - please note that this is the **Webhook Name** from the configuration of the webhook trigger, NOT the alias or the service connection name. This [topic from the developercommunity](https://developercommunity.visualstudio.com/t/cannot-use-generic-webhook-based-triggers-for-yaml/1135943#T-N1203277) let's us know some other common errors.
+The URI for triggering pipelines is `https://dev.azure.com/<org>/_apis/public/distributedtask/webhooks/<WebhookName>/?api-version=6.0-preview`. 
+Please note that this is the **Webhook Name** from the configuration of the webhook trigger, NOT the alias or the service connection name. 
+
+This [topic from the developercommunity](https://developercommunity.visualstudio.com/t/cannot-use-generic-webhook-based-triggers-for-yaml/1135943#T-N1203277) let's us know some other common errors.
 The most important thing however is that **you will need to manually trigger the pipeline once before the webhook trigger will work**. 
 
 First, let's try to trigger it without providing the expected JSON from above:
@@ -95,7 +98,7 @@ In the topic mentioned above from the dev community [this comment](https://devel
 
 ### Updating our webhook trigger with a secret value
 
-So we are adding a secret to our trigger. We can do this by editing the service connection, adding our secret (`WeLikeIce`). We also add the `Http Header` parameter as `X-Hub-Signature` before saving.
+First lets add a secret to our trigger. We can do this by editing the service connection, adding our secret (`WeLikeIce`). We also add the `Http Header` parameter as `X-Hub-Signature` before saving.
 
 ### [Post-Message-to-AzDO-Webhook.ps1](https://github.com/infernuxmonster/MicrosoftSentinel-Scripts/blob/main/Post-Message-to-AzDO-Webhook.ps1)
 
@@ -148,5 +151,7 @@ Woop, it works.
 First of all, for anyone trying to trigger my pipeline - I've already deleted it ;) 
 
 Hopefully this allows more people to use both the secret value and add filters for working with pipelines. 
+
+
 Filters are not really a security mechanism, but can be used for triggering different pipelines from one location without having to use multiple webhooks.
 The usage of the secret-value and the `Http Header` field still isn't very well documented, so hopefully someone from Microsoft picks that up and fixes it.
