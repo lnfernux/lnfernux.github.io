@@ -1,7 +1,7 @@
 ---
 layout: post
-title: IP Whitelisting in Microsoft Sentinel Playbooks
-subtitle: Quick introduction to IP Whitelisting in Microsoft Sentinel and some thoughts around how to (not) implement it.
+title: IP Allowlisting in Microsoft Sentinel Playbooks
+subtitle: Quick introduction to IP allowlisting in Microsoft Sentinel and some thoughts around how to (not) implement it.
 tags:
   - Cloud Security
   - Microsoft Sentinel
@@ -11,11 +11,11 @@ author: author_infernux
 image: /img/sentinel.png
 ---
 
-# Whitelisting introduction
+# Allowlisting introduction
 
-Many of the components we use in Azure (and other cloud providers) allow us to whitelist IP adresses that are allowed to communicate and use the service. This is useful for normal access in order to enforce access to sensitive data only from approved locations as an added layer of security. 
+Many of the components we use in Azure (and other cloud providers) allow us to allowlist IP adresses that are allowed to communicate and use the service. This is useful for normal access in order to enforce access to sensitive data only from approved locations as an added layer of security. 
 
-The general idea is that in order to access resource X you will need to fullfill certain conditions Y. In this scenario a IP in the whitelist will be the condition:
+The general idea is that in order to access resource X you will need to fullfill certain conditions Y. In this scenario a IP in the allowlist will be the condition:
 
 ```mermaid
 graph LR
@@ -24,7 +24,7 @@ graph LR
     U[User] -->|Fullfills| C --> |Access| R
 ```
 
-To make this as practical as possible I've created a scenario from real life where can look at how to implement IP whitelisting and hopefully avoid making any errors or wrong assumptions while doing so. The general idea is that we want to send updates to Sentinel from a SaaS-platform, using a playbook with webhook-triggers. 
+To make this as practical as possible I've created a scenario from real life where can look at how to implement IP allowlisting and hopefully avoid making any errors or wrong assumptions while doing so. The general idea is that we want to send updates to Sentinel from a SaaS-platform, using a playbook with webhook-triggers. 
 
 ## Inbound HTTPS requests
 
@@ -66,9 +66,9 @@ graph LR
 
 ---
 
-## Whitelisting the SaaS public ip(s) 
+## Allowlisting the SaaS public ip(s) 
 
-One possible solution is to whitelist the SaaS-platform, so that only calls made from the range of public IPs that it works from will be allowed. 
+One possible solution is to allowlist the SaaS-platform, so that only calls made from the range of public IPs that it works from will be allowed. 
 
 This is a decent solution and will result in a better security posture, but as you can see in the flowchart below it will move our point of weakness to the SaaS-platform itself. By this I mean that anyone that uses the same platform will be able to use the SaaS-platform to trigger the webhook:
 
@@ -86,31 +86,31 @@ graph LR
     PIP[SaaS Public IP]
     end
     S --> |Calls| T
-    W -.-> |Check whitelist| PIP
+    W -.-> |Check allowlist| PIP
     style SaaS fill:#D2042D,stroke:#333,stroke-width:2px
-    W -.-> |If whitelist, run| P
+    W -.-> |If allowlist, run| P
     W -.-> |If not, error| S
 ```
 
 ---
 
-### Add whitelisting to Microsoft Sentinel Playbook
+### Add allowlisting to Microsoft Sentinel Playbook
 
 * Go into workflow settings in the Playbook
 
-![](/img/IPWhitelisting/workflowSettings.PNG)
+![](/img/IPallowlisting/workflowSettings.PNG)
 
 *  From here we can chose to either allow "Any IP", "Only other Logic Apps" or "Specific IP ranges":
 
-![](/img/IPWhitelisting/workflowWhitelist.PNG)
+![](/img/IPallowlisting/workflowWhitelist.PNG)
 
 * Add the public IP of the SaaS-platform.
 
 # Summary
 
-Just some basic thoughts about IP whitelisting for a single scenario. I'll be trying to explore two more scenarios in the near future:
+Just some basic thoughts about IP allowlisting for a single scenario. I'll be trying to explore two more scenarios in the near future:
 
 * Sending data to an Azure storage account from an Azure DevOps pipeline task
-   * Trying to explore how to whitelist Microsoft-hosted agents (both statically and dynamically during build)
+   * Trying to explore how to allowlist Microsoft-hosted agents (both statically and dynamically during build)
 * Conditional access named location policy for accessing certain applications
-   * Exploring different levels of IP whitelisting for Conditional Access, namely country-based, IP-range or specific IP
+   * Exploring different levels of IP allowlisting for Conditional Access, namely country-based, IP-range or specific IP
