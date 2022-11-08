@@ -14,7 +14,7 @@ image: /img/devops.png
 
 # Introduction
 
-Last post I talked about some [simple whitelisting of IPs for Microsoft Sentinel Playbooks](https://www.infernux.no/MicrosoftSentinel-IPWhitelisting/) - today we're looking into similar topics when working with webhook triggers in Azure DevOps pipelines.
+Last post I talked about some [simple whitelisting of IPs for Microsoft Sentinel Playbooks](https://www.infernux.no/MicrosoftSentinel-IPallowlisting/) - today we're looking into similar topics when working with webhook triggers in Azure DevOps pipelines.
 
 Like last time, we're the general idea of IP whitelisting is that in order to access a resource X, you need to fullfill conditions Y (in this case, the IP you're trying to work form needs to be added to an allowlist).
 
@@ -32,7 +32,7 @@ This time we are following the same idea, but using some different parameters th
 Using webhooks we can trigger pipelines from a range of different applications, scripts and flows (like Power Automate). 
 One big downside to using this is that there's no way to add a list of allowed IPs and the only supported "security" feature is the secret field in the screenshot below, which, by looking quickly at [Github issues on the topic](https://github.com/MicrosoftDocs/azure-devops-docs/issues/8913) isn't very well documented.
 
-![](/img/IPWhitelisting/webhookTrigger.PNG)
+![](/img/IPallowlisting/webhookTrigger.PNG)
 
 So how can we secure our pipelines? Well, first, let look at how we configure it for usage in a pipeline.
 
@@ -77,7 +77,7 @@ Invoke-WebRequest -Uri $Url -Method Post -ContentType 'application/json'
 ```
 Remove the filters and this would have worked - we get a 200 but the pipeline doesn't trigger:
 
-![](/img/IPWhitelisting/resultWithoutFilter.PNG)
+![](/img/IPallowlisting/resultWithoutFilter.PNG)
 
 Let's try again, this time I'll provide the expected JSON in the body:
 
@@ -89,7 +89,7 @@ Invoke-WebRequest -Uri $Url -Method Post -ContentType 'application/json'
 
 This time it works as expected and the pipeline triggers:
 
-![](/img/IPWhitelisting/resultWithFilter.PNG)
+![](/img/IPallowlisting/resultWithFilter.PNG)
 
 ## Adding the secret value
 
@@ -142,7 +142,7 @@ Invoke-WebRequest -Uri $Url -Body $Body -Method Post -ContentType 'application/j
 
 Running the script gives us the following output:
 
-![](/img/IPWhitelisting/scriptwithSecret.PNG)
+![](/img/IPallowlisting/scriptwithSecret.PNG)
 
 Woop, it works.
 
