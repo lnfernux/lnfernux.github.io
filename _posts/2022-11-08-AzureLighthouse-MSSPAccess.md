@@ -107,7 +107,7 @@ I personally haven't used them, but for all intents and purposes - **design for 
 
 For all intents and purposes, **I'm assuming you're an MSSP providing SIEM management and 24/7 monitoring.**
 
-# Keep it simple, stupid
+# Lighthouse-design
 
 Let's try our hand at a access strategy - first of all let's split our teams. We usually work with two teams, `analysts` and `engineers`. We also need to consider Service Principals (SPNs) if you deploy using pipelines and scripts. 
 
