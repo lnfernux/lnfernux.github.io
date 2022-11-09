@@ -147,7 +147,10 @@ According to least privilege principles we should scope our access to the resour
 
 Now this is a hotly debated topic - I'm in favor of the "keep it simple, stupid"-approach, but I'm open to being wrong. 
 
-Instead of complicating your access with multiple roles, I'd like to argue that giving contributors eligible access to contributor on the resource group level is the easiest way to go. This is in big part thanks to the fact that multiple of the data connectors we implement require Azure Functions and there's [currently no role implemented to give the required access](https://learn.microsoft.com/en-us/answers/questions/427829/is-there-a-role-like-azure-function-contributor.html) and as far as I'm aware there's [no support](https://github.com/MicrosoftDocs/azure-docs/issues/60635) for custom roles in Azure Lighthouse ([yet](https://feedback.azure.com/d365community/idea/148efdcb-f824-ec11-b6e6-000d3a4f0da0)).
+Instead of complicating your access with multiple roles, I'd like to argue that giving your engineers eligible access to contributor on the resource group level is the easiest way to go. 
+This is in part due to the fact that multiple of the data connectors require Azure Functions and there's [currently no role implemented to give the required access](https://learn.microsoft.com/en-us/answers/questions/427829/is-there-a-role-like-azure-function-contributor.html) and as far as I'm aware there's [no support](https://github.com/MicrosoftDocs/azure-docs/issues/60635) for custom roles in Azure Lighthouse ([yet](https://feedback.azure.com/d365community/idea/148efdcb-f824-ec11-b6e6-000d3a4f0da0)). So if you're responsible for those data connectors:
+
+![this is the way](https://i.ytimg.com/vi/LaiN63o_BxA/maxresdefault.jpg)
 
 ## Service principal access
 
