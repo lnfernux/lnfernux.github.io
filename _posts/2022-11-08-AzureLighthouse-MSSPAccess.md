@@ -224,7 +224,7 @@ Maybe you want to split up your access a bit more? There are multiple strategies
 
 #### Day-to-day separation
 
-This works in a very simple way - the base role group `analyst` will be given access to all customers as a `reader` and `responder`. This allows the analysts to work their daily tasks without the hassle of having to activate multiple PIM-groups for different customers, or PIM for roles.
+This works in a very simple way - the base role group `analyst` will be given access to all customers as a `Microsoft Sentinel Reader` and `Microsoft Sentinel Responder`. This allows the analysts to work their daily tasks without the hassle of having to activate multiple PIM-groups for different customers, or PIM for roles.
 
 ```mermaid
 graph LR
@@ -248,7 +248,7 @@ You would then create a separate group, or multiple groups (see the chapter belo
 
 #### Customer separation
 
-This works both as a single concept, or in conjuction with the above. Basically you'll create one analyst- and one engineering-group per customer, which will give access to more privileged roles. You could add highly privileged roles (like `contributor`) to the eligible authorizations in the Lighthouse-config for even more depth here:
+This works both as a single concept, or in conjuction with the above. Basically you'll create one analyst- and one engineering-group per customer, which will give access to more privileged roles. You could add highly privileged roles (like `Contributor`) to the eligible authorizations in the Lighthouse-config for even more depth here:
 
 ```mermaid
 graph LR
