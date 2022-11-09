@@ -14,7 +14,7 @@ image: /img/devops.png
 
 # Introduction
 
-Last post I talked about some [simple whitelisting of IPs for Microsoft Sentinel Playbooks](https://www.infernux.no/MicrosoftSentinel-IPallowlisting/) - today we're looking into similar topics when working with webhook triggers in Azure DevOps pipelines.
+Last post I talked about some [simple whitelisting of IPs for Microsoft Sentinel Playbooks](https://www.infernux.no/MicrosoftSentinel-IPAllowlist/) - today we're looking into similar topics when working with webhook triggers in Azure DevOps pipelines.
 
 Like last time, we're the general idea of IP whitelisting is that in order to access a resource X, you need to fullfill conditions Y (in this case, the IP you're trying to work form needs to be added to an allowlist).
 
