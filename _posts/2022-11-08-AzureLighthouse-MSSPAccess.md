@@ -89,6 +89,8 @@ Read more:
 |Owner, Reader, Contributor|Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Microsoft Sentinel resources.|
 |Managed Services Registration Assignment Delete Role|Users in a managing tenant can remove access to delegated resources if they were granted the Managed Services Registration Assignment Delete Role for the customer's resources.|
 
+***NB:** owner isn't available through Lighthouse, but is required for setting up Microsoft Sentinel with the ability to run automation rules.*
+
 Read more:
 * [https://learn.microsoft.com/en-us/azure/sentinel/roles](https://learn.microsoft.com/en-us/azure/sentinel/roles)
 * [https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation)
