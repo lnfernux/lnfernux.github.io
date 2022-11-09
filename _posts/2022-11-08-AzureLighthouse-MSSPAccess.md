@@ -209,7 +209,6 @@ For our solution we would have our analysts and engineers activate their roles d
 ```mermaid
 graph LR
     subgraph "Azure AD" 
-    direction LR
     u[User] --> |Activate role group|p[PIM]
     p --> g
     u -.->  g[Group]
@@ -229,13 +228,11 @@ This works in a very simple way - the base role group `analyst` will be given ac
 ```mermaid
 graph LR
     subgraph "Managing tenant" 
-    direction LR
     u[User] --> |Activate role group|p[PIM]
     p --> g
     u -.->  g[Group]
     end
     subgraph "Managed tenant"
-    direction TB
     r[Day-to-day roles] --> s[Scope]
     end
     g --> |Access|r
@@ -253,7 +250,6 @@ This works both as a single concept, or in conjuction with the above. Basically 
 ```mermaid
 graph LR
     subgraph "Managing tenant" 
-    direction LR
     u[User] --> |Activate role group|p[PIM]
     p --> g
     u -...->  g[Group]
@@ -263,7 +259,6 @@ graph LR
     p2 --> g2
     end
     subgraph "Managed tenant"
-    direction TB
     r[Day-to-day roles] 
     rp[Privileged roles]
     r --> s[Scope]
