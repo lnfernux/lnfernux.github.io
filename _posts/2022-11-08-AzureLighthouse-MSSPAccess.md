@@ -23,7 +23,9 @@ In order to understand the rest of the post, there are some prerequisites you'll
 
 ### Azure Lighthouse
 
-I wrote a little [intro to Azure Lighthouse earlier.](https://www.infernux.no/AzureLighthouse-101/), but to summarize it quickly, Azure Lighthouse gives a **principal** in the **managing tenant** a level of **access** to a **scope** in the **managed tenant**:
+I wrote a little [intro to Azure Lighthouse earlier](https://www.infernux.no/AzureLighthouse-101/), but to summarize it quickly:
+
+> Azure Lighthouse gives a **principal** in the **managing tenant** a level of **access** to a **scope** in the **managed tenant**:
 
 ```mermaid
 graph LR
@@ -35,6 +37,7 @@ graph LR
     end
     p --> a
 ```
+---
 
 ### Privileged Identity Management and Privileged Access Groups
 
@@ -56,8 +59,9 @@ graph LR
     u -.-> |Activate role| p[PIM]
     p -.-> g[Group]
     u --> |Active member| g[Group]
-end
+    end
 ```
+---
 
 ### Relevant roles for Microsoft Sentinel
 
@@ -71,7 +75,10 @@ end
 |Microsoft Sentinel Automation Contributor|Allows Microsoft Sentinel to add playbooks to automation rules. It isn't meant for user accounts.
 |Microsoft Sentinel Playbook Operator|List, view and run playbooks.|
 
+Read more:
 * [https://learn.microsoft.com/en-us/azure/sentinel/roles](https://learn.microsoft.com/en-us/azure/sentinel/roles)
+
+---
 
 #### Other relevant roles
 
@@ -82,6 +89,7 @@ end
 |Owner, Reader, Contributor|Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Microsoft Sentinel resources.|
 |Managed Services Registration Assignment Delete Role|Users in a managing tenant can remove access to delegated resources if they were granted the Managed Services Registration Assignment Delete Role for the customer's resources.|
 
+Read more:
 * [https://learn.microsoft.com/en-us/azure/sentinel/roles](https://learn.microsoft.com/en-us/azure/sentinel/roles)
 * [https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation)
 
@@ -97,11 +105,11 @@ If you read the MSSP Playbook there are also a plethora of other roles mentioned
 
 I personally haven't used them, but for all intents and purposes - **design for your own mandate.** This means, if you work on a subscription level and manage data connectors, log ingestion VMs and more you'll probably want to have a quite involved least privilege setup. 
 
-**For the rest of this post, I'm assuming you're an MSSP providing SIEM management and 24/7 monitoring.**
+For all intents and purposes, **I'm assuming you're an MSSP providing SIEM management and 24/7 monitoring.**
 
 # Keep it simple, stupid
 
-Let's try our hand at a access strategy - first of all let's split our teams. We usually work with two teams, analysts and engineers. We also need to consider Serice Principals (SPNs) if you deploy using pipelines and scripts. 
+Let's try our hand at a access strategy - first of all let's split our teams. We usually work with two teams, `analysts` and `engineers`. We also need to consider Service Principals (SPNs) if you deploy using pipelines and scripts. 
 
 If you have a big team you might also split into Tier 1 and Tier 2 analysts, but I won't do that here. If you need to split, generally give Tier 1 read/respond access only and Tier 2 read/respond/modify within the bounds of Sentinel.
 
@@ -143,13 +151,16 @@ Instead of complicating your access with multiple roles, I'd like to argue that 
 
 ## Service principal access
 
-SPNs [can't use PIM](https://github.com/MicrosoftDocs/azure-docs/issues/49166) so all of these roles will be permanently active. The SPN will need to:
+SPNs [can't use PIM](https://github.com/MicrosoftDocs/azure-docs/issues/49166) so all of these roles will be permanently active. 
+The SPN will need to:
 * Create and remove resources (Contributor)
 * Assign roles to Managed Identities (User Access Administrator)
 
 **For more information on the use of User Access Administrator with SPNs, check out my posts on this topic:**
 * [Create Managed Identity and assign roles using Azure Lighthouse](https://www.infernux.no/AzureLighthouse-UserManagedIdentity/)
 * [Assign roles to managed identities in Microsoft Sentinel playbooks using Azure Lighthouse](https://www.infernux.no/AzureLighthouse-ManagedIdentity/)
+
+---
 
 ## Other considerations for Azure Lighthouse
 
@@ -166,13 +177,15 @@ This scenario will look like this:
 * [https://learn.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules#permissions-in-a-multi-tenant-architecture](https://learn.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules#permissions-in-a-multi-tenant-architecture)
 * [https://learn.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC](https://learn.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC)
 
+---
+
 # Privileged Identity Management
 
 We got our Lighthouse-configuration ready to go, but what about the assignment of groups?
 
 The idea is to split the access as we did above with role-groups. The two roles we are working with, and hence the two groups we will create is:
-* Analyst
-* Engineer
+* `Analyst`
+* `Engineer`
 
 We could use basic groups - you know them, you love (hate?) them. Any user you want to have access will be assigned to the group:
 
@@ -199,8 +212,8 @@ graph LR
     direction LR
     u[User] --> |Activate role group|p[PIM]
     p --> g
-    u -...->  g[Group]
-end
+    u -.->  g[Group]
+    end
 ```
 
 This allows us another layer of "defense" (against the dark arts) - but should you have all access to everything by default, or could you split it up even further?
@@ -219,7 +232,7 @@ graph LR
     direction LR
     u[User] --> |Activate role group|p[PIM]
     p --> g
-    u -...->  g[Group]
+    u -.->  g[Group]
     end
     subgraph "Managed tenant"
     direction TB
@@ -246,7 +259,7 @@ graph LR
     u -...->  g[Group]
     g --> |Gives access to more groups| p2[PIM]
     u --> |Activate customer-specific role group| p2
-    u -...-> g2[Group]
+    u -.-> g2[Group]
     p2 --> g2
     end
     subgraph "Managed tenant"
