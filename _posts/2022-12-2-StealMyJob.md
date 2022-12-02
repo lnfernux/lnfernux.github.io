@@ -12,7 +12,7 @@ tags:
   - GCP
 published: true
 author: author_infernux
-image: /img/devops.png
+image: /img/avatar-icon.png
 ---
 
 # Introduction
@@ -82,6 +82,8 @@ I like to build stuff, and I'd rather read a compact blogpost with 10 commands a
 
 This resulted in a job in Security Engineering - it's not really defined, I do development, maintenance, I create tooling to support analysts, CTI, management and my own team, I get to design solutions etc. I think it's very much *"what you make it"*. I can do a lot of different things while staying in the same team and with the same people.
 
+---
+
 # Basics
 
 To quote from [Teri Radichel's post "I Want to Be A Cloud Security Engineer"](https://medium.com/cloud-security/i-want-to-be-a-cloud-security-engineer-f2a04041d45c):
@@ -93,6 +95,8 @@ I agree with this sentiment in the general sense - you should learn your basics 
 If you know how to configure Active Directory, how trusts work, how the Windows operating system work, have some basic knowledge of Powershell and system administration in general - you'll write a much better report for the blue team and chances are you'll also be better at finding weaknesses and misconfigurations, compared to someone running a NESSUS scan. 
 
 Someone new might not know that Microsoft often bundles updates into cumulative updates, so for certain windows of time you might have different scan results in NESSUS showing missing critical patches until you updated NESSUS.
+
+---
 
 ## Learn operating systems
 
@@ -155,6 +159,8 @@ Try creating some simple services and understanding how it all works together an
 * [Azure 30 day trial](https://azure.microsoft.com/en-gb/free/)
 * [Azure for Students](https://azure.microsoft.com/en-gb/free/students/)
 * [Enterprise Mobility + Security E5 Trial](https://signup.microsoft.com/get-started/signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1&products=87dd2714-d452-48a0-a809-d2f58c4f68b7)
+
+---
 
 # Next step
 
@@ -229,6 +235,8 @@ Not mentioned above; I've tried a lot of stuff and most of it probably failed. P
 Embrace errors, embrace failures. Find yourself a boss, team and company that will allow you to fail a lot and who doesn't point fingers. That's how you learn.
 
 **Important note; always be honest.** If you don't know, you don't know. If you're unsure about something that means you're sure you're unsure, if that makes any sense?
+
+---
 
 # Most importantly
 
