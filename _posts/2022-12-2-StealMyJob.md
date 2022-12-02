@@ -18,7 +18,7 @@ image: /img/devops.png
 # Introduction
 
 Hello and welcome. Today I'm trying something different - I'm going to teach you how to take my job. 
-Now, I'm pretty impatient when it comes to reading stuff and I like learn by doing.
+Now, I'm pretty impatient when it comes to reading stuff and I like learning by doing, so I'll try to keep it short and sweet.
 
 **me**: I'm pretty impatient
 
