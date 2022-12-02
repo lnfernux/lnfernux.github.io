@@ -44,11 +44,34 @@ I like to build stuff, and I'd rather read a compact blogpost with 10 commands a
 
 ### What I've tried
 
-I was brought up on **Windows Server** (2003, 2008, 2012, 2012R2, 2016) using **Active Directory** and **Cisco** networking devices as a system/network administrator. I worked a while as a sysadmin and then as a sudo-developer. I also learned a bit about firewalls, namely **Palo Alto**. My scripting language go-to is **Powershell**, while I learned **C** in school. I know enough **python** to know what to google.
+* System administration
+* Network administration
+* Windows developer/automation engineer
+* Penetration tester
+* Security Engineering
 
-I spent some time doing **penetration tests** (mainly infrastructure) and teaching other people hacking concepts after spending a lot of time playing HackTheBox (mainly boot2root challenges). 
+### Technologies I've worked with
 
-In 2020 I graduated from on-premises and onto the cloud where I started working in a Security Operations Center. Here I learned **Azure**, **Azure Lighthouse**, **Microsoft Sentinel** and with infrastructure as code. Today I mainly use **Powershell** in **Azure DevOps** pipelines to **automate** security related deployments to Azure, among other things.
+* Windows Server (2003, 2008, 2012, 2012R2, 2016)
+* Active Directory
+* Cisco routers and switches
+* Palo Alto firewalls
+* Powershell
+* C, Assembly (don't remember anything)
+* Python
+* Azure
+   * Azure Lighthouse
+   * Microsoft Sentinel
+* AWS (a little)
+* Azure DevOps
+   * Pipelines
+* Virtualization
+   * VMWare vCenter/ESXi
+   * VirtualBox
+   * Hyper-V
+* Windows (XP, 7, 10, 11)
+* Linux (Ubuntu, Kali)
+* Probably a lot more that I don't remember, but these are the main things
 
 ### What did I learn?
 
