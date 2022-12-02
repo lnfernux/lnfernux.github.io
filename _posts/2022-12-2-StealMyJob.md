@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Steal my job
-subtitle: So you want to be a security engineer? What does it actually entail and what do you need to know?
+title: I want you to steal my job
+subtitle: I'm a Security Engineer (whatever that means) and maybe you want to be to? Hopefully this helps a little towards that.
 tags:
   - Cloud Security
   - Azure DevOps
@@ -18,7 +18,13 @@ image: /img/devops.png
 # Introduction
 
 Hello and welcome. Today I'm trying something different - I'm going to teach you how to take my job. 
-Now, I'm pretty impatient when it comes to reading stuff and I like learn by doing, so I'll try to keep it short and paractical.
+Now, I'm pretty impatient when it comes to reading stuff and I like learn by doing.
+
+**me**: I'm pretty impatient
+
+**me**: I'll try to keep it short and practical 
+
+**narrator**: he did not, in fact, keep it short and practical
 
 ## What to expect
 
