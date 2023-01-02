@@ -218,7 +218,7 @@ Put your stuff into a pipeline, automate testing as far as possible, automate sc
 
 I wrote about [templating analytic rules](https://www.infernux.no/MicrosoftSentinel-TemplateAnalyticRules/) earlier and included some resources to get started with [a free Azure DevOps organization](https://azure.microsoft.com/en-us/products/devops/) and how to get [1800 minutes free runtime](https://aka.ms/azpipelines-parallelism-request). You can also use Github and [actions](https://github.com/features/actions).
 
-My best advice is to identity a process you manually perform quite often and look into automating it:
+My best advice is to identify a process you manually perform quite often and look into automating it:
 
 * Does it have an API?
 * How can I call the API using my scripting language of choice?
