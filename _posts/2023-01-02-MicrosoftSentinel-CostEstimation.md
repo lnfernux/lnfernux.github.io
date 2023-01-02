@@ -48,10 +48,10 @@ First and foremost, ingestion in Microsoft Sentinel is billed twice. This is by 
 For Microsoft Sentinel, data ingestion is billed based on a couple of different factors:
 
 * **Type of log**
-   * Basic logs
+   * **Basic logs**
        * Comes at a lower price point for ingestion with limited retention and high search costs, usually reserved for verbose data sources like firewalls and networking equipment.
        * Billed per GB.
-   * Analyic logs
+   * **Analyic logs**
        * "Normal" logs with standard retention, searchable. 
        * Billed per GB or in [commitment-tiers](https://azure.microsoft.com/en-us/pricing/details/microsoft-sentinel/) starting at 100 GB per day up to 5000 GB per day.
 * **Azure Region**
@@ -105,8 +105,8 @@ You can try to ask a colleague, someone on a Sentinel-forum, Linkedin or other r
 
 This might seem like an obvious solution, but it's by far the most accurate method. The process is pretty simple:
 
-* Onboard the data source
-* Allow it to run for atleast 7 days (in order to capture an average over weekends) and check for outliers using the query below:
+* **Onboard the data source.**
+* **Allow it to run for atleast 7 days (*in order to capture an average over a weekend*) and check for outliers using the query below**:
 
 ```kusto
 Usage
@@ -117,7 +117,7 @@ Usage
 | render timechart 
 ```
 
-* Run a Kusto query to see how much data the solution generated over 7 days (or 30, if you let it run for that long):
+* **Run a Kusto query to see how much data the solution generated over 7 days (*or 30, if you let it run for that long*)**:
 
 ```kusto
 Usage
@@ -127,7 +127,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by DataType
 ```
 
-* Multiple that number by 4.3 (assuming every month is a bit more than 30 days).
+* **Multiple that number by 4.3 (*assuming every month is a bit more than 30 days*).**
 
 If you're unsure about doing it this way in fear of generating too much cost, you can implement a [cost cap.](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs#define-a-data-volume-cap-in-log-analytics) Just see what your average ingestion is pre onboarding the data connection and set the cap to double that - this should prevent your from blowing your entire SIEM-budget overnight:
 
