@@ -14,7 +14,9 @@ image: /img/sentinel.png
 
 # Introduction
 
-A quick word of warning - I'm writing this more as a personal note as I'm trying to learn more about cost estimation. Starting out very basic with some concepts and what factors might play into the amount of data you end up ingesting. This is useful for when we estimate based of earlier deployments of the same or similar data sources. I'll also try to touch on the topic of new data connectors, where we have no information from earlier deployments to lean to on and what do in that scenario. As always, questions and feedback are welcome.
+A quick word of warning - I'm writing this more as a personal note as I'm trying to learn more about cost estimation. Starting out very basic with some concepts and what factors might play into the amount of data you end up ingesting. This is useful for when we estimate based of earlier deployments of the same or similar data sources.
+
+ I'll also try to touch on the topic of new data connectors, where we have no information from earlier deployments to lean to on and what do in that scenario. As always, questions and feedback are welcome.
 
 ![](/img/CostEstimation/costestimation.png)
 
@@ -24,8 +26,8 @@ A quick word of warning - I'm writing this more as a personal note as I'm trying
 
 Jumping straight into it, doing estimation on cost usually requires knowledge about two factors:
 
-1. The amount of data to be ingested per unit of time
-2. The cost of data ingestion, either per unit of time or size
+1. **The amount of data to be ingested per unit of time**
+2. **The cost of data ingestion, either per unit of time or size**
 
 ## Amount of data
 
@@ -33,9 +35,9 @@ The amount of data coming in is usually either given in **Events per Second** (E
 
 It's important to know of factors that might affect the amount of data that comes in. Usually there are three big factors that play into this:
 
-1. Number of users/endpoints
-2. Policies
-3. Tresholds
+1. **Number of users/endpoints**
+2. **Policies**
+3. **Tresholds**
 
 Organizations of similar sizes (number of employees, servers) might have two different sets of policies (strict vs very lax) and two different philosophies in terms of log ingestion (high vs low treshold). These factors will impact the data ingestion in some way, depending on the log source. Sometimes it's a small dent, sometimes it will make a big difference - so it's important to keep in mind.
 
@@ -45,16 +47,16 @@ First and foremost, ingestion in Microsoft Sentinel is billed twice. This is by 
 
 For Microsoft Sentinel, data ingestion is billed based on a couple of different factors:
 
-* Type of log
+* **Type of log**
    * Basic logs
        * Comes at a lower price point for ingestion with limited retention and high search costs, usually reserved for verbose data sources like firewalls and networking equipment.
        * Billed per GB.
    * Analyic logs
        * "Normal" logs with standard retention, searchable. 
        * Billed per GB or in [commitment-tiers](https://azure.microsoft.com/en-us/pricing/details/microsoft-sentinel/) starting at 100 GB per day up to 5000 GB per day.
-* Azure Region
+* **Azure Region**
     * Which region you have your workspace in will effect costs.
-* Retention (not really part of ingestion cost, but will go into most price estimations).
+* **Retention** (not really part of ingestion cost, but will go into most price estimations).
    * Free up to 90 days in Sentinel.
 
 You also have things like data archival natively in Sentinel (or you could set up [data export for cold storage into a storage account](https://www.linkedin.com/pulse/howto-configure-azure-sentinel-data-export-long-term-storage-lauren/)), search jobs and more that can incur costs, but we'll avoid those for sake of brevity today.
@@ -103,9 +105,8 @@ You can try to ask a colleague, someone on a Sentinel-forum, Linkedin or other r
 
 This might seem like an obvious solution, but it's by far the most accurate method. The process is pretty simple:
 
-1. Onboard the data source
-2. Allow it to run for atleast 7 days (in order to capture an average over weekends) and check for outliers using the query below:
-   * You could also let it run for 30 days to get the actual number, but if you need a quick estimate this usually does the trick.
+* Onboard the data source
+* Allow it to run for atleast 7 days (in order to capture an average over weekends) and check for outliers using the query below:
 
 ```kusto
 Usage
@@ -116,7 +117,7 @@ Usage
 | render timechart 
 ```
 
-3. Run a Kusto query to see how much data the solution generated over 7 days (or 30, if you let it run for that long)
+* Run a Kusto query to see how much data the solution generated over 7 days (or 30, if you let it run for that long):
 
 ```kusto
 Usage
@@ -126,7 +127,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by DataType
 ```
 
-4. Multiple that number by 4.3 (assuming every month is a bit more than 30 days)
+* Multiple that number by 4.3 (assuming every month is a bit more than 30 days).
 
 If you're unsure about doing it this way in fear of generating too much cost, you can implement a [cost cap.](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs#define-a-data-volume-cap-in-log-analytics) Just see what your average ingestion is pre onboarding the data connection and set the cap to double that - this should prevent your from blowing your entire SIEM-budget overnight:
 
@@ -136,7 +137,9 @@ If you want some more ideas for queries to run, check out ["Run queries to under
 
 # Closing words
 
-Estimation is usually not tricky because it's hard to do, it's tricky because the number you end up producing will usually end up as a point of contention in some way. It's easy to overestimate in fear of estimating to low and being arrested on it later, but we should aim to be as accurate as possible. It's also important to be up front with anyone that has an interest in the estimation about the accuracy of the process. Sometimes it's close to impossible to produce an accurate estimate with the information available.
+Estimation is usually not tricky because it's hard to do, it's tricky because the number you end up producing will usually end up as a point of contention in some way. It's easy to overestimate in fear of estimating to low and being arrested on it later, but we should aim to be as accurate as possible. 
+
+It's also important to be up front with anyone that has an interest in the estimation about the accuracy of the process. Sometimes it's close to impossible to produce an accurate estimate with the information available.
 
 # Resources
 
