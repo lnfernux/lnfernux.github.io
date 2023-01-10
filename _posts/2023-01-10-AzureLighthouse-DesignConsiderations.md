@@ -185,13 +185,14 @@ As with design 1 the only logs will be actions taken on resources in Azure (in t
 
 # Summary
 
-I was pretty sure going in that the different in my two design was going to be that eligible authorizations would be better for customers in order to monitor roles activations made by the MSP/MSSP - this is sort of the case, but not quite. 
+I was pretty sure going in that the different in my two design was going to be that eligible authorizations would be better for customers in order to monitor roles activations made by the MSP/MSSP - this is sort of the case, *but not quite.* 
 
-I'd argue that you'll have equal control of actions taken on your resources with either strategy, but eligible authorizations in Azure Lighthouse will allow you to set up monitoring for activation of highly privileged roles if that's included in scope.
+I'd argue that you'll have **equal control of actions taken on your resources with either strategy**, but eligible authorizations in Azure Lighthouse will allow you to set up monitoring for activation of highly privileged roles if that's included in scope.
 
-Also, much like alert fatigue for security incidents is a big problem for security analysts, PIM fatigue is going to be a problem for everyone if we are too strict on it. 
+Also, much like alert fatigue for security incidents is a big problem for security analysts, **PIM fatigue is going to be a problem for everyone if we are too strict in our configuration of it**. 
 
-My takeaway is:
-* One PIM activation should cover day to day work.
-* Any write-access to customer tenants should (probably) require two activations, but this depends on multiple factors like the scope of the assignment, the actual actions the role can perform, etc.
-* Highly privileged roles should (probably) always be behind a manual review, again, this comes down to scope and role.
+## Some takeaways
+
+* **One PIM activation should cover day to day work.**
+* **Any write-access to customer tenants should (probably) require two activations, but this depends on multiple factors like the scope of the assignment, the actual actions the role can perform, etc.**
+* **Highly privileged roles should (probably) always be behind a manual review, again, this comes down to scope and role.**
