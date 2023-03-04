@@ -7,7 +7,7 @@ body {
   font-size: 18px;
   color: #1f1f1f;
   position: relative;
-  background: #FFECD1;
+  background: #FCF6EE;
   {% if site.page-col %}
   background: {{ site.page-col }};
   {% endif %}
