@@ -7,7 +7,7 @@ body {
   font-size: 18px;
   color: #1f1f1f;
   position: relative;
-  background: #8D8E8E;
+  background: #BBBBBF;
   {% if site.page-col %}
   background: {{ site.page-col }};
   {% endif %}
@@ -42,7 +42,7 @@ body {
 .cut-buffer {
   width: 100%;
   height: 4vw;
-  background: #475B5A;
+  background: #f5f5f5;
   margin-top: -4vw;
 }
 .page-section.cut1,
@@ -60,7 +60,7 @@ body {
   margin-top: 3.125rem;
   background: #05172d;
   padding: 10rem 0 13rem;
-  color: #475B5A;
+  color: #fff;
   background-image: url(/img/stardust-bg.png);
   animation: animatedBackground 100s linear infinite;
 } 
@@ -154,8 +154,8 @@ img {
 /* --- Navbar --- */
 
 .navbar-custom {
-  background: #475B5A;
-  border-bottom: 1px solid #475B5A;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #EAEAEA;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   {% if site.navbar-col %}
   background: {{ site.navbar-col }};
@@ -279,7 +279,7 @@ img {
   display: block;
   padding: 10px;
   padding-left: 30px;
-  background: #475B5A;
+  background: rgb(255, 255, 255);
   text-decoration: none !important;
   border-width: 0 1px 1px 1px;
   font-weight: normal;
@@ -537,7 +537,7 @@ footer .theme-by {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
-  color: #475B5A;
+  color: #8D8E8E;
 }
 .intro-header .post-heading .post-subheading {
   margin-bottom: 20px;
