@@ -27,9 +27,9 @@ The pitfall I often observe is that of **"everything, everywhere, all at once"**
 
 ## Enablers abound
 
-Buying a new product will (almost) never solve your security issues. Yeah, this cool new tool just came out, but what does it actually help you with? Maybe you're actually already partly covered, if you'd only dive deep enough in the settings of the tools you currently have and configured them properly? 
+Buying a new product will (almost) never solve your security issues. **Yeah, this cool new tool just came out, but what does it actually help you with?** Maybe you're actually already partly covered, if you'd only dive deep enough in the settings of the tools you currently have and configured them properly? 
 
-Let's put it like this; every time we enable a tool, be it for security or whatnot, it needs to have purpose. It must be part of the strategy and, maybe most importantly, someone needs to manage it. If it's an EDR that generates alerts, someone needs to actually handle those alerts. Most EDR-solutions are arguably secure-ish out of the box, but you need to tweak and tune the settings in order to get the most out of them.
+Let's put it like this; every time we enable a tool, be it for security or whatnot, it needs to have purpose. It must be part of the strategy and, maybe most importantly, someone needs to manage it. If it's an EDR that generates alerts, someone needs to actually handle those alerts. Most EDR-solutions are arguably secure-ish out of the box, but **you need to tweak and tune the settings in order to get the most out of them.**
 
 ## Alert fatigue drowns defenders
 
@@ -44,21 +44,21 @@ Let me explain:
 
 ### Threat landscapes and templates
 
-Just because an alert is generated does not mean you're doing your job as a Security operations Center or MSSP. An alert (or incident) should be actionable. It should be indicative of something bad that's happening. If 99% of all your alerts are false positives, what good does it do? Alerts needs to be enabled with purpose, tuned to specific environments and set at the right level of severity - and again, it must be actionable.
+**Just because an alert is generated does not mean you're doing your job** as a Security operations Center or MSSP. An alert (or incident) should be actionable. It should be indicative of something bad that's happening. If 99% of all your alerts are false positives, what good does it do? **Alerts needs to be enabled with purpose, tuned to specific environments and set at the right level of severity - and again, it must be actionable.**
 
 Log ingestion and security monitoring works the same as with security tooling and features. It's very similar. There needs to be a strategy, and it needs to be aligned with the business.
 
-Every outfit, company and organization have one thing in common - they're all different. They all have different setups in terms of tools they use for general productivity, how on-prem heavy they are, how risk-tolerant or averse they are. They also have very different usage patterns. Maybe one company will RDP from one server to another, while others will always only RDP from their workstation directly into servers.
+Every outfit, company and organization have one thing in common - **they're all different.** They all have different setups in terms of tools they use for general productivity, how on-prem heavy they are, how risk-tolerant or averse they are. They also have very different usage patterns. Maybe one company will RDP from one server to another, while others will always only RDP from their workstation directly into servers.
 
 Going back to the scheduled queries, analytic rules, alert rules (or whatever you call them), hopefully it's clear that this needs to be aligned with the threat landscape and usage patterns. Enabling a rule for finding nested RDP (which is sometimes indicative of a threat actor moving laterally) could also for some companies be legitimate usage. 
 
-When we buy a new tool, or set up ingestion of a new log source for detection we need to align it with our strategy.
+When we buy a new tool, or set up ingestion of a new log source for detection **we need to align it with our strategy.**
 
 ## Logs are not all the same value
 
 Depending on how your outfit is set up, be it cloud only or on-prem heavy, the logs you ingest for security monitoring will have different value. I will generally make the argument that netflow and firewall-logs are useless for most companies. Why? Well, first of all the security maturity is usually not at a point where they can actually gain anything from the logs, as it's mostly used post-breach and for enrichment purposes. 
 
-If we could ingest all the logs in world without worrying about cost we wouldn't need to talk about this, but we can't. Speaking from a business perspective - how can you justify paying X amount for a log source you gain next to nothing from until you're breached? 
+If we could ingest all the logs in world without worrying about cost we wouldn't need to talk about this, but we can't. **Speaking from a business perspective - how can you justify paying X amount for a log source you gain next to nothing from until you're breached, or you don't have the time to create good detection out of?**
 
 To put it plainly - if you needed to prioritize log sources we should prioritze highly actionable logs first, and then as we mature add more capabilities. I'm not saying never ingest firewall or netflow logs, but know how to use it well enough to actually gain value from them. Again, same with alerts, just because it's there doesn't mean you're doing your job - you need to do something with the logs first.
 
@@ -70,7 +70,7 @@ There's no "one tool" out there. If you don't have the process, people and knowl
 
 Enough ranting about what's wrong - what can we do better?
 
-First of all, we need a plan. That plan should be to secure ourselves on a high level, but it should also have some stages of maturity. Our maturity in this case just means that as we grow more familiar with our tools and improve our processes and automation we can expand our toolbox and handle more complex security tooling and security monitoring use cases.
+First of all, **we need a plan**. That plan should be to secure ourselves on a high level, but it should also have some stages of maturity. Our maturity in this case just means that as we **grow more familiar with our tools and improve our processes and automation** we can expand our toolbox and handle more complex security tooling and security monitoring use cases.
 
 So where do we begin? Well, that will vary. Yes, vague, I know. My personal strategy is working on a perimeter basis. Identify your outer perimeter and work on securing that. 
 **What is a perimeter?** Well, physical locations is one for sure. Networks, no doubt. Lately the most popular outer perimeter is **identity**.
