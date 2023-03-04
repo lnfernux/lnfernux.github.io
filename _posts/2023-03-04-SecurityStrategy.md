@@ -15,7 +15,7 @@ image: /img/sentinel.png
 
 # A quick note on security mindset
 
-THis just might be an assumption made due to my experience, but I find a lot of people in the security business think in a binary way, you're either **secure** or you're **not**. Which is a fair statement for the current status of your outfit, if you're a fan of dealing in absolutes. 
+This just might be an assumption made due to my experience, but I find a lot of people in the security business think in a binary way, you're either **secure** or you're **not**. Which is a fair statement for the current status of your outfit, if you're a fan of dealing in absolutes. 
 
 ![](/img/obi.gif)
 
