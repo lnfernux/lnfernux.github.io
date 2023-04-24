@@ -83,9 +83,7 @@ I can see this being a very useful feature. Having the ability to manage some co
 
 Compared to a Sentinel as Code solution **it's probably not strong enough yet to take over fully for most MSSP providers**, but if you are just getting into managing Sentinel as Code then this feature combined with the repository feature on a central workspace could be a good way to get started managing multiple workspaces. 
 
-My wishlist would obviously include **full playbook support** and the option to **allow for local changes on certain content**, as well as the ability to delete things.
-
-Will be following the development of this feature and can't wait to see what it brings to the table! 
+My wishlist would obviously include **full playbook support** and the option to **allow for local changes on certain content**, as well as the ability to delete things. If we look into other aspects of Sentinel that it might help manage, a central **health view** of analytic rules, automation and data ingestion would be very high on the wishlist!
 
 ![](/img/me3.gif)
 
