@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Some thoughts on Microsoft Sentinel Workspace Manager
-subtitle: Short introduction to the new preview, what it does, what I think of it currently and future potential usage.
+title: Microsoft Sentinel Workspace Manager
+subtitle: Short introduction to the new preview, what it does and what I think of it currently.
 tags:
   - Cloud Security
   - Microsoft Sentinel
