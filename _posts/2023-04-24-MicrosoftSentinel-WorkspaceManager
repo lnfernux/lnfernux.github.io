@@ -27,6 +27,8 @@ Currently there are some limitations as to what it can do, but it can manage the
 
 Obviously playbooks missing is a big deal, and workspace manager can't delete content. It's all about part of the [known expectations](https://learn.microsoft.com/en-us/azure/sentinel/workspace-manager#known-limitations) however, so expect this to probably be remedied in the future.
 
+---
+
 # Architecture
 
 Workspace Manager utilizes Azure Lighthouse. It requires the person configuring it to have Microsoft Sentinel Contributor roles on all workspaces you want to manage, and the workspace you manage from.
@@ -39,6 +41,8 @@ For an MSSP this shows that we can:
 * Simply manage a few workspaces
 * Co-manage workspaces
 * Create nested configurations for complex customer environments
+
+---
 
 # Thoughts and usage
 
@@ -54,6 +58,8 @@ Please note, I'm comparing this to a solution built on the original [Sentinel as
 * Nesting workspaces using N-Tier was also nice.
 * You can set up scheduled updates.
 
+
+
 ### Con's 
 
 * Missing Playbooks.
@@ -63,9 +69,13 @@ Please note, I'm comparing this to a solution built on the original [Sentinel as
    * Small note on this: I guess you can set this up with a SPN isntead of a user account, which would work fine and actually would be preferable. 
 * No option to delete in the managed tenants from the central workspace.
 
+
+
 ### Needs more testing
 
 * Last time I tested this I observed content being overwritten on a schedule from the central workspace - this would mean that local tuning for specific customers would not be possible. We would need to host multiple versions of the same rule locally and deploy using different groups.
+
+---
 
 ## Thoughts
 
