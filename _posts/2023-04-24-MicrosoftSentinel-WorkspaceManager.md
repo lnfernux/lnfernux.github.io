@@ -14,7 +14,7 @@ image: /img/sentinel.png
 
 # Introduction
 
-Workspace Manager is a new cool feature that's just reached public preview. In this short post I'll be describing quickly what it allows us to do, how it works and what I think of the feature currently.
+**Workspace Manager** is a new cool feature that's just reached public preview. In this short post I'll be describing quickly what it allows us to do, how it works and what I think of the feature currently.
 
 # What can Workspace Manager do?
 
@@ -73,19 +73,20 @@ Please note, I'm comparing this to a solution built on the original [Sentinel as
 
 ### Needs more testing
 
-* Last time I tested this I observed content being overwritten on a schedule from the central workspace - this would mean that local tuning for specific customers would not be possible. We would need to host multiple versions of the same rule locally and deploy using different groups.
+* Last time I tested this I observed content being overwritten on a schedule from the central workspace - this would mean that **local tuning for specific customers would not be possible**. We would need to host multiple versions of the same rule locally and deploy using different groups.
 
 ---
 
 ## Thoughts
 
-![](/img/me3.gif)
+I can see this being a very useful feature. Having the ability to manage some content from a central workspace and have it being constantly pushed and overwritten on a schedule in order to make sure there's **no configuration drift** (or people making changes to the wrong thing, etc) would be nice. Unfortunately, this mostly goes for playbooks which _isn't fully supported_.
 
-I can see this being a very useful feature in the future. Having the ability to manage some content from a central workspace and have it being constantly pushed and overwritten on a schedule in order to make sure there's no configuration drift (or people making changes to the wrong thing, etc) would be nice. Unfortunately, this mostly goes for playbooks which isn't fully supported.
+Compared to a Sentinel as Code solution **it's probably not strong enough yet to take over fully for most MSSP providers**, but if you are just getting into managing Sentinel as Code then this feature combined with the repository feature on a central workspace could be a good way to get started managing multiple workspaces. 
 
-Compared to a Sentinel as Code solution it's probably not strong enough yet to take over fully for most MSSP providers, but if you are just getting into managing Sentinel as Code then this feature combined with the repository feature on a central workspace could be a good way to get started managing multiple workspaces. 
-
-My wishlist would obviously include full playbook support and the option to allow for local changes on certain content, as well as the ability to delete things.
+My wishlist would obviously include **full playbook support** and the option to **allow for local changes on certain content**, as well as the ability to delete things.
 
 Will be following the development of this feature and can't wait to see what it brings to the table! 
+
+![](/img/me3.gif)
+
 
