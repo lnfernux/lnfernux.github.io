@@ -109,7 +109,7 @@
     - README.md
     - Vagrantfile
 
-  gems:
+  plugins:
   - jekyll-paginate
   - jekyll-mentions
   - jemoji
