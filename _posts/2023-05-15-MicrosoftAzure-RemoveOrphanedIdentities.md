@@ -26,7 +26,7 @@ When that identity principal is removed, the assignment will still linger and sh
 # ObjectType will be unknown
 $objectType = "Unknown"
 $orphanedIdentities = Get-AzRoleAssignment | Where-object -Property ObjectType -eq $objectType
-foreach($identity in $orphanedIdentities = {
+foreach($identity in $orphanedIdentities) = {
    # Role assignment removals will require the principal, definition name/id and scope of assignment to work
    Remove-AzRoleAssignment -ObjectId $identity.ObjectId -RoleDefinitionName $identity.RoleDefinitionName -Scope $identity.Scope
 }
