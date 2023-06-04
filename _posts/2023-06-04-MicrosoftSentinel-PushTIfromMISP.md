@@ -123,7 +123,11 @@ Let's try to see if this all works. First, let's spin up a MISP server to test.
 
 1. Created a new Azure VM called MISP running Ubuntu LTS 20.04:
 
-![](/img/MISP/MISP_VM.png)
+<div style="text-align: center;">
+
+![MISP VM](/img/MISP/MISP_VM.png)
+
+</div>
 
 2. All default settings except for adding an NSG with only port 22 open to my IP address for SSH access, and changed the username to `misp`.
 3. Followed the [MISP installation guide](https://misp.github.io/MISP/INSTALL.ubuntu2004) to install MISP on the VM by running the following command:
@@ -131,30 +135,53 @@ Let's try to see if this all works. First, let's spin up a MISP server to test.
 ```bash
 wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2.4/INSTALL/INSTALL.sh
 ```
+<div style="text-align: center;">
 
 ![](/img/MISP/MISP_install.png)
+
+</div>
 
 4. Opened port 443 in the NSG to allow for access to the MISP server from the Azure Function.
    - I did this in two rounds, first I opened only for my own public IP locally, then I added the outbound IP adresses of the Azure Function (you can find these in the `Networking` tab of the Azure Function).
 5. We can now log in to the MISP server using default credentials
 
+<div style="text-align: center;">
+
 ![](/img/MISP/InitialInstall.png)
+
+</div>
 
 5. Go to the `Feeds` tab.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/Feeds.png)
+
+</div>
 
 6. Enable the two default feeds.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/EnabledSelectedFeeds.png)
+
+</div>
 
 7. Pull data from the feeds.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/FetchAllEvents.png)
+
+</div>
 
 8. We should be able to see events being pulled from the feeds now if we head over to the `Administration` tab and select `Jobs`.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/FetchFeedsJobs.png)
+
+</div>
 
 8. The output we need from the MISP server is the following:
     - URL (this will be the Azure public IP address of the VM in the format of `https://<ip address>/`)
@@ -164,28 +191,52 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 1. Created a new App Registration in Azure AD called `MISP2Sentinel` using all default settings.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/MISP2Sentinel.png)
+
+</div>
 
 2. Add a new secret under Certificates & secrets - remember to take a note of the value.
 3. Under API permissions, choose "Add a permission" and select Microsoft Graph.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/GraphPermissions.png)
+
+</div>
 
 4. Select Application Permissions.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/ApplicationPermissions.png)
+
+</div>
 
 4. Add `ThreatIndicators.ReadWrite.OwnedBy`.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/ThreatIndicatorsPermissions.png)
+
+</div>
 
 5. We then need to grant admin consent for the permissions by clicking on "Grant admin consent for <tenant>". Click yes to the prompt.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/GrantAdminConsent.png)
+
+</div>
 
 6. Make sure the API permissions are granted correctly:
 
+<div style="text-align: center;">
+
 ![](/img/MISP/ConsentGranted.png)
+
+</div>
 
 7. Output that we need to save from this step are the following:
     - Application (client) ID
@@ -222,7 +273,11 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 - Other settings can be left to default values. Click *Review + Create*
 3. After the creation of the Azure Function, add a [system managed identity to the Azure Function](https://learn.microsoft.com/EN-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp#add-a-system-assigned-identity). This will be used to authenticate with the Key Vault.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/AzureFunctionManagedIdentity.png)
+
+</div>
 
 4. Give the managed identity the `Reader` role on the Key Vault.
 5. Go to the Key Vault and click on *Access policies*.
@@ -231,17 +286,30 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 8. Select the *Select principal* tab and search for the name of the Azure Function.
 9. Click *Add* and *Save*.
 10. Go back to the Azure Function and click on *Configuration*.
-10. Add a new application setting with the name `tenants` and the Key Vault reference string `@Microsoft.KeyVault(SecretUri=https://<keyvaultname>.vault.azure.net/secrets/tenants/)`.
-11. Add a new application setting with the name `mispkey` and the Key Vault reference string `@Microsoft.KeyVault(SecretUri=https://<keyvaultname>.vault.azure.net/secrets/mispkey/)`.
-12. Add a new application setting with the name `mispurl` and the value of the URL of your MISP instance.
-13. Add a new application setting with the name `timerTriggerSchedule`
-    * The `timerTriggerSchedule` takes a cron expression. For more information, see [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cin-process&pivots=programming-language-python).
+10. Add a new application setting with the the following settings:
+    - **Name**: `tenants` 
+    - **Value**: `@Microsoft.KeyVault(SecretUri=https://<keyvaultname>.vault.azure.net/secrets/tenants/)`
+11. Add a new application setting with the the following settings:
+    - **Name**: `mispkey`
+    - **Value**: `@Microsoft.KeyVault(SecretUri=https://<keyvaultname>.vault.azure.net/secrets/mispkey/)`
+12. Add a new application setting with the the following settings:
+    - **Name**: `mispurl` 
+    - **Value**: URL of your MISP instance (e.g. `https://<url>` or `https://<ip address>`)
+13. Add a new application setting with the the following settings:
+    - **Name**: `timerTriggerSchedule`
+    - The `timerTriggerSchedule` takes a cron expression. For more information, see [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cin-process&pivots=programming-language-python).
     * Run once every two hours cron expression: `0 */2 * * *`
-14. *OPTIONAL* - Add a new application setting with the name `AzureFunctionsJobHost__functionTimeout` and set the value to `00:10:00` if using the consumption plan, or `02:00:00` if using premium or dedicated plans. This setting is required to prevent the function from timing out when processing large amounts of data.
+14. *OPTIONAL* - Add a new application setting with the the following settings:
+    - **Name**: `AzureFunctionsJobHost__functionTimeout` 
+    - **Value**: `00:10:00` if using the consumption plan, or `02:00:00` if using premium or dedicated plans. *This setting is required to prevent the function from timing out when processing large amounts of data.*
 
 This is how the application settings should look like (*I like to start of with a low frequency on the timer trigger to make sure everything is working as expected*):
 
+<div style="text-align: center;">
+
 ![](/img/MISP/AppSettings.png)
+
+</div>
 
 ### Upload the Function Code with Visual Studio Code
 
@@ -258,7 +326,12 @@ This is how the application settings should look like (*I like to start of with 
 6. You should see `Deployment succesful` in the output window after a short while.
 7. The `MISP2Sentinel` function should also show up under the Function App.
 
+<div style="text-align: center;">
+
 ![](/img/MISP/Function.png)
+
+
+</div>
 
 ## Adding multi-tenancy support
 
@@ -272,8 +345,11 @@ This is how the application settings should look like (*I like to start of with 
 https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_reload=true
 ```
 2. If done correctly, you should see the following page:
+<div style="text-align: center;">
 
 ![](/img/MISP/AskForConsentViaLink.png)
+
+</div>
 
 3. Update the `tenants` secret in the Key Vault to include the new tenant ID. The client ID and secret should remain the same.
 4. Make sure the ThreatIntelligence data connector is enabled in the new tenant.
