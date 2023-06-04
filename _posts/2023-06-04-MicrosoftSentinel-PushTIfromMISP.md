@@ -30,7 +30,9 @@ The two github projects I've used as a base for this update are the following:
 
 They are both based on the original sample [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP) presented in the [Integrating open source threat feeds with MISP and Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/integrating-open-source-threat-feeds-with-misp-and-sentinel/ba-p/1350371) techcommunity blog post from 2020.
 
-The general idea is as follows:
+---
+
+### How the script works
 
 1. The script, using the MISP key and URL, fetches the latest indicators from MISP.
    - The indicators are fetched based on a filter, usually the type of indicators, tags, etc.
@@ -58,19 +60,23 @@ G --> MS
 end
 ```
 
+---
+
 ## The problem
 
 If you wanted to push indicators from a single MISP-server to a single Microsoft Sentinel instance, you could run the script locally (and there's even great guidance from the MISP project [on how to accomplish this](https://www.misp-project.org/2023/04/03/MISP-Sentinel.html/)).
 
 This however does not scale very well without modifications, and it feels a bit dated to push data from a virtual machine directly to Sentinel. It's easier to integrate error handling, logging and alerts if we use Azure Functions to run the script instead. 
 
-The solution already exists - sort of. The project from [zolderio](https://github.com/zolderio/misp-to-sentinel) already solves putting the misp2sentinel script into an Azure Function. That is already taken care of. It also covers the multi-sentinel part, but only for a single Azure tenant (as of writing this). It's also not up to date with the latest developments going on in the [cudeso/misp2sentinel](https://github.com/cudeso/misp2sentinel) repository, which has been pushed by the MISP-project as it's updating the original script to account for the lastest MISP changes, and soon to allow for the use of the new `Upload Indicators API` instead of the `Graph Security API`.
+**The solution already exists - *sort of***. The project from [zolderio](https://github.com/zolderio/misp-to-sentinel) already solves putting the misp2sentinel script into an Azure Function. That is already taken care of. It also covers the multi-sentinel part, but only for a single Azure tenant (as of writing this). It's also not up to date with the latest developments going on in the [cudeso/misp2sentinel](https://github.com/cudeso/misp2sentinel) repository, which has been pushed by the MISP-project as it's updating the original script to account for the lastest MISP changes, and soon to allow for the use of the new `Upload Indicators API` instead of the `Graph Security API`.
+
+---
 
 ## My solution
 
 Isn't very different from the solution from zolderio presented - it's a multi-sentinel version of the script, but updated with the cudeso code. I've also updated the guidance so that one might be able to push to multiple Azure tenants instead of just one. 
 
-Putting it into a schematic, it would look something like this:
+### How the updated version works
 
 ```mermaid
 graph LR
@@ -105,6 +111,8 @@ AZF -.-> |Push| MS2
 
 Keep in mind, the logical diagrams might not correctly display what is going on, but the idea here is that we can create a multi-tenant app registration and use the enterprise application (once admin consent has been given) to push to multiple Azure tenants.
 
+---
+
 ### List of changes from the other projects
 
 - Moved the `mispkey` and `mispurl` to the environment settings of the script, allowing them to be set through the Azure Function configuration.
@@ -114,6 +122,7 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 - Updated the INSTALL.MD with guidance for multi-tenant setup.
 - Updated the README.MD with the short-form guidance of the above changes.
 - Updated requirements.txt to account for new dependencies and running in Azure Functions.
+- Some other minor fixes, will update this chapter with the finished PR once (if) it's accepted.
 
 ---
 
