@@ -118,10 +118,10 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 - Moved the `mispkey` and `mispurl` to the environment settings of the script, allowing them to be set through the Azure Function configuration.
    - These will now be set in the `config.py` file using the os library.
 - Added the multi-Sentinel feature from [zolderio](https://github.com/zolderio/misp-to-sentinel) to the updated [cudeso/misp2sentinel](https://github.com/cudeso/misp2sentinel) scripts.
-- Updated the INSTALL.MD with guidance for these changes.
-- Updated the INSTALL.MD with guidance for multi-tenant setup.
-- Updated the README.MD with the short-form guidance of the above changes.
-- Updated requirements.txt to account for new dependencies and running in Azure Functions.
+- Updated the `INSTALL.MD` with guidance for these changes.
+- Updated the `INSTALL.MD` with guidance for multi-tenant setup.
+- Updated the `README.MD` with the short-form guidance of the above changes.
+- Updated `requirements.txt` to account for new dependencies and running in Azure Functions.
 - Some other minor fixes, will update this chapter with the finished PR once (if) it's accepted.
 
 ---
