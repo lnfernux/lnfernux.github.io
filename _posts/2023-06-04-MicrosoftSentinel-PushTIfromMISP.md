@@ -115,11 +115,11 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 - Updated the README.MD with the short-form guidance of the above changes.
 - Updated requirements.txt to account for new dependencies and running in Azure Functions.
 
-# How to set it up
+---
 
-Let's try to see if this all works. First, let's spin up a MISP server to test.
+# Setup
 
-## MISP
+## MISP server
 
 1. Created a new Azure VM called MISP running Ubuntu LTS 20.04:
 
@@ -187,6 +187,8 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
     - URL (this will be the Azure public IP address of the VM in the format of `https://<ip address>/`)
     - API key (this was in the output when the install finished, but we can also add a new one by going to `Administration` and selecting `Add authentication key`.)
 
+---
+
 ## Azure AD App Registration
 
 1. Created a new App Registration in Azure AD called `MISP2Sentinel` using all default settings.
@@ -243,6 +245,8 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
     - Directory (tenant) ID
     - Client secret
 
+---
+
 ## Azure Key Vault
 
 1. Create a new Azure Key Vault called `MISP2Sentinel-kv` using all default settings.
@@ -258,9 +262,19 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 4. You can limit access to the Key Vault by removing the public endpoint access, and only allowing access from the Azure Function by specifying the Azure Functions outbound IP addresses in the Key Vault firewall. This is not required, but recommended.
 
+---
+
 ## Microsoft Sentinel
 
 1. Make sure the ThreatIntelligence data connector is enabled.
+
+<div style="text-align: center;">
+
+![](/img/MISP/TI_Enabled_DataConnector.png)
+
+</div>
+
+---
 
 ## Azure Function
 
@@ -311,14 +325,16 @@ This is how the application settings should look like (*I like to start of with 
 
 </div>
 
-### Upload the Function Code with Visual Studio Code
+---
+
+## Upload the Function Code with Visual Studio Code
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/)
 2. Install the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ![](/img/MISP/AzureFunctionsVSCode.png)
 
-3. Clone this repo and open the folder in Visual Studio Code.
+3. Clone [this repo (link will update once PR is merged)](https://github.com/infernuxmonster/misp2sentinel) and open the folder in Visual Studio Code.
 3. If required, make changes to `config.py` - this will mainly consist of updating the filter and lifetime of the IOCs. 
    - The parameters for the filter object can be found [here](https://buildmedia.readthedocs.org/media/pdf/pymisp/latest/pymisp.pdf) on page 34 and onward.
 4. Right click on the folder called `Azure Function` and select *Deploy to Function App...*
@@ -332,6 +348,8 @@ This is how the application settings should look like (*I like to start of with 
 
 
 </div>
+
+---
 
 ## Adding multi-tenancy support
 
@@ -354,6 +372,8 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
 3. Update the `tenants` secret in the Key Vault to include the new tenant ID. The client ID and secret should remain the same.
 4. Make sure the ThreatIntelligence data connector is enabled in the new tenant.
 
+---
+
 ## Verify successful execution
 
 1. Go to the Azure Function and click on *Monitor*
@@ -365,6 +385,8 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
 4. You can also check the `ThreatIntelligenceIndicator` table in the Log Analytics workspace to see the indicators that have been pushed to Sentinel. 
 
 ![](/img/MISP/ThreatIntelligenceIndicatorTable.png)
+
+---
 
 # Final thoughts
 
