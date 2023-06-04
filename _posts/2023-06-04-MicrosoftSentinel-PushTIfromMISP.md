@@ -130,12 +130,9 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 
 ## MISP server
 
-1. Created a new Azure VM called MISP running Ubuntu LTS 20.04:
-
+1. Create a new Azure VM called MISP running Ubuntu LTS 20.04:
 
     ![MISP VM](/img/MISP/MISP_VM.png)
-
- 
 
 2. All default settings except for adding an NSG with only port 22 open to my IP address for SSH access, and changed the username to `misp`.
 3. Followed the [MISP installation guide](https://misp.github.io/MISP/INSTALL.ubuntu2004) to install MISP on the VM by running the following command:
@@ -146,30 +143,18 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 ![](/img/MISP/MISP_install.png)
 
- 
-
 4. Opened port 443 in the NSG to allow for access to the MISP server from the Azure Function.
-   - I did this in two rounds, first I opened only for my own public IP locally, then I added the outbound IP adresses of the Azure Function (you can find these in the `Networking` tab of the Azure Function).
-5. We can now log in to the MISP server using default credentials
-
+5. We can now log in to the MISP server using default credentials.
 
     ![](/img/MISP/InitialInstall.png)
 
- 
-
 5. Go to the `Feeds` tab.
-
 
     ![](/img/MISP/Feeds.png)
 
- 
-
 6. Enable the two default feeds.
 
-
     ![](/img/MISP/EnabledSelectedFeeds.png)
-
- 
 
 7. Pull data from the feeds by clicking on the arrow pointing down next to the feed name.
 8. We should be able to see events being pulled from the feeds now if we head over to the `Administration` tab and select `Jobs`.
@@ -189,48 +174,30 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 1. Created a new App Registration in Azure AD called `MISP2Sentinel` using all default settings.
 
-
     ![](/img/MISP/MISP2Sentinel.png)
-
- 
 
 2. Add a new secret under Certificates & secrets - remember to take a note of the value.
 3. Under API permissions, choose "Add a permission" and select Microsoft Graph.
 
-
     ![](/img/MISP/GraphPermissions.png)
-
- 
 
 4. Select Application Permissions.
 
-
     ![](/img/MISP/ApplicationPermissions.png)
 
- 
-
-4. Add `ThreatIndicators.ReadWrite.OwnedBy`.
-
+5. Add `ThreatIndicators.ReadWrite.OwnedBy`.
 
     ![](/img/MISP/ThreatIndicatorsPermissions.png)
 
- 
-
-5. We then need to grant admin consent for the permissions by clicking on "Grant admin consent for <tenant>". Click yes to the prompt.
-
+6. We then need to grant admin consent for the permissions by clicking on "Grant admin consent for <tenant>". Click yes to the prompt.
 
     ![](/img/MISP/GrantAdminConsent.png)
 
- 
-
-6. Make sure the API permissions are granted correctly:
-
+7. Make sure the API permissions are granted correctly:
 
     ![](/img/MISP/ConsentGranted.png)
 
- 
-
-7. Output that we need to save from this step are the following:
+8. Output that we need to save from this step are the following:
     - **Application (client) ID**
     - **Directory (tenant) ID**
     - **Client secret**
@@ -258,11 +225,9 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 1. Make sure the ThreatIntelligence data connector is enabled.
 
-
     ![](/img/MISP/TI_Enabled_DataConnector.png)
 
  
-
 ---
 
 ## Azure Function
@@ -276,10 +241,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 - Other settings can be left to default values. Click *Review + Create*
 3. After the creation of the Azure Function, add a [system managed identity to the Azure Function](https://learn.microsoft.com/EN-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp#add-a-system-assigned-identity). This will be used to authenticate with the Key Vault.
 
-
     ![](/img/MISP/AzureFunctionManagedIdentity.png)
-
- 
 
 4. Give the managed identity the `Reader` role on the Key Vault.
 5. Go to the Key Vault and click on *Access policies*.
@@ -307,7 +269,6 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 This is how the application settings should look like (*I like to start of with a low frequency on the timer trigger to make sure everything is working as expected*):
 
-
 ![](/img/MISP/AppSettings.png)
 
 ---
@@ -327,11 +288,7 @@ This is how the application settings should look like (*I like to start of with 
 6. You should see `Deployment succesful` in the output window after a short while.
 7. The `MISP2Sentinel` function should also show up under the Function App.
 
-
     ![](/img/MISP/Function.png)
-
-
- 
 
 ---
 
@@ -349,8 +306,6 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
 2. If done correctly, you should see the following page:
 
     ![](/img/MISP/AskForConsentViaLink.png)
-
- 
 
 3. Update the `tenants` secret in the Key Vault to include the new tenant ID. The client ID and secret should remain the same.
 4. Make sure the ThreatIntelligence data connector is enabled in the new tenant.
