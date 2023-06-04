@@ -130,11 +130,11 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 
 ## MISP server
 
-1. Create a new Azure VM called MISP running Ubuntu LTS 20.04:
+1. Create a new Azure VM called MISP running **Ubuntu LTS 20.04**:
 
     ![MISP VM](/img/MISP/MISP_VM.png)
 
-2. All default settings except for adding an NSG with only port 22 open to my IP address for SSH access, and changed the username to `misp`.
+2. All default settings except for **adding an NSG with only port 22 open to my IP address for SSH access**, and changed the username to `misp`.
 3. Followed the [MISP installation guide](https://misp.github.io/MISP/INSTALL.ubuntu2004) to install MISP on the VM by running the following command:
 
 ```bash
@@ -143,7 +143,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 ![](/img/MISP/MISP_install.png)
 
-4. Opened port 443 in the NSG to allow for access to the MISP server from the Azure Function.
+4. **Opened port 443** in the NSG to **allow for access to the MISP server from the Azure Function**.
 5. We can now log in to the MISP server using default credentials.
 
     ![](/img/MISP/InitialInstall.png)
@@ -152,36 +152,33 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
     ![](/img/MISP/Feeds.png)
 
-6. Enable the two default feeds.
+6. **Enable** the two default feeds.
 
     ![](/img/MISP/EnabledSelectedFeeds.png)
 
-7. Pull data from the feeds by clicking on the arrow pointing down next to the feed name.
+7. **Pull data** from the feeds by clicking on the arrow pointing down next to the feed name.
 8. We should be able to see events being pulled from the feeds now if we head over to the `Administration` tab and select `Jobs`.
-
 
     ![](/img/MISP/FetchFeedsJobs.png)
 
- 
-
 8. The output we need from the MISP server is the following:
-    - **URL** (this will be the Azure public IP address of the VM in the format of `https://<ip address>/`)
-    - **API key** (this was in the output when the install finished, but we can also add a new one by going to `Administration` and selecting `Add authentication key`.)
+    - `URL` (this will be the Azure public IP address of the VM in the format of `https://<ip address>/`)
+    - `API key` (this was in the output when the install finished, but we can also add a new one by going to `Administration` and selecting `Add authentication key`.)
 
 ---
 
 ## Azure AD App Registration
 
-1. Created a new App Registration in Azure AD called `MISP2Sentinel` using all default settings.
+1. **Create a new App Registration** in Azure AD called `MISP2Sentinel` using all default settings.
 
     ![](/img/MISP/MISP2Sentinel.png)
 
-2. Add a new secret under Certificates & secrets - remember to take a note of the value.
-3. Under API permissions, choose "Add a permission" and select Microsoft Graph.
+2. **Add a new secret** under Certificates & secrets - remember to take a note of the value.
+3. Under API permissions, choose **Add a permission** and **select Microsoft Graph**.
 
     ![](/img/MISP/GraphPermissions.png)
 
-4. Select Application Permissions.
+4. **Select Application Permissions**.
 
     ![](/img/MISP/ApplicationPermissions.png)
 
@@ -189,7 +186,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
     ![](/img/MISP/ThreatIndicatorsPermissions.png)
 
-6. We then need to grant admin consent for the permissions by clicking on "Grant admin consent for <tenant>". Click yes to the prompt.
+6. We then need to grant admin consent for the permissions by clicking on **Grant admin consent for <tenant>**. **Click yes** when prompted.
 
     ![](/img/MISP/GrantAdminConsent.png)
 
@@ -198,16 +195,16 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
     ![](/img/MISP/ConsentGranted.png)
 
 8. Output that we need to save from this step are the following:
-    - **Application (client) ID**
-    - **Directory (tenant) ID**
-    - **Client secret**
+    - `Application (client) ID`
+    - `Directory (tenant) ID`
+    - `Client secret`
 
 ---
 
 ## Azure Key Vault
 
-1. Create a new Azure Key Vault called `MISP2Sentinel-kv` using all default settings.
-2. Add the following secrets to the Key Vault:
+1. **Create a new Azure Key Vault** called `MISP2Sentinel-kv` using all default settings.
+2. **Add the following secrets** to the Key Vault:
     - `mispkey`
     - `mispurl`
     - `tenants`
@@ -223,7 +220,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 ## Microsoft Sentinel
 
-1. Make sure the ThreatIntelligence data connector is enabled.
+1. Make sure the **ThreatIntelligence data connector is enabled**.
 
     ![](/img/MISP/TI_Enabled_DataConnector.png)
 
@@ -275,12 +272,12 @@ This is how the application settings should look like (*I like to start of with 
 
 ## Upload the Function Code with Visual Studio Code
 
-1. Download and install [Visual Studio Code](https://code.visualstudio.com/)
-2. Install the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+1. **Download and install** [Visual Studio Code](https://code.visualstudio.com/)
+2. **Install** the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ![](/img/MISP/AzureFunctionsVSCode.png)
 
-3. Clone [this repo (link will update once PR is merged)](https://github.com/infernuxmonster/misp2sentinel) and open the folder in Visual Studio Code.
+3. **Clone [this repo (link will update once PR is merged)](https://github.com/infernuxmonster/misp2sentinel)** and open the folder in Visual Studio Code.
 3. If required, make changes to `config.py` - this will mainly consist of updating the filter and lifetime of the IOCs. 
    - The parameters for the filter object can be found [here](https://buildmedia.readthedocs.org/media/pdf/pymisp/latest/pymisp.pdf) on page 34 and onward.
 4. Right click on the folder called `Azure Function` and select **Deploy to Function App...**
