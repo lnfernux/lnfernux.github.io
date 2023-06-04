@@ -167,7 +167,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 6. Enable the two default feeds.
 
 
-![](/img/MISP/EnabledSelectedFeeds.png)
+    ![](/img/MISP/EnabledSelectedFeeds.png)
 
  
 
@@ -237,9 +237,9 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
  
 
 7. Output that we need to save from this step are the following:
-    - Application (client) ID
-    - Directory (tenant) ID
-    - Client secret
+    - **Application (client) ID**
+    - **Directory (tenant) ID**
+    - **Client secret**
 
 ---
 
