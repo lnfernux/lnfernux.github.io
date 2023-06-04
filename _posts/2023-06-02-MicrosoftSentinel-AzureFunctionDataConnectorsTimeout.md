@@ -37,7 +37,7 @@ No matter what plan you're on, you have two options to configure the timeout:
 1. Modify the `functionTimeout` in the `host.json` [file](https://learn.microsoft.com/en-us/azure/azure-functions/functions-host-json#functiontimeout)
 2. Add the `AzureFunctionsJobHost__functionTimeout` app setting in the configuration of the function in the Azure Portal
 
-Please note that trying to extend the timeout beyond the maximum will result in an error. This does not really apply to the premium or dedicated plans, but will apply to the consumption plan.
+* Please note that trying to extend the timeout beyond the maximum will not work. This does not really apply to the premium or dedicated plans, but will apply to the consumption plan. *
 
 ## host.json
 
