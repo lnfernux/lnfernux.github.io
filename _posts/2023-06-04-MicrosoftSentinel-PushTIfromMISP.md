@@ -232,24 +232,24 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 ## Azure Function
 
-1. Go to the service *Function App*
-2. Click *Create* to generate a new Azure Function
+1. Go to the service **Function App**
+2. Click **Create** to generate a new Azure Function
 - Give the function a descriptive name like `MISP2Sentinel`
-- Choose at Publish for *Code*, and *Python* as the Runtime Stack.
+- Choose at Publish for **Code**, and **Python** as the Runtime Stack.
 - OS can remain Linux
-- At plan type choose *App service plan* or *Premium* for production workloads. I'll use consumption for this demo.
-- Other settings can be left to default values. Click *Review + Create*
-3. After the creation of the Azure Function, add a [system managed identity to the Azure Function](https://learn.microsoft.com/EN-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp#add-a-system-assigned-identity). This will be used to authenticate with the Key Vault.
+- At plan type choose **App service plan** or **Premium** for production workloads. *I'll use consumption for this demo.*
+- Other settings can be left to default values. Click **Review + Create**
+3. After the creation of the Azure Function, add a [**system managed identity to the Azure Function**](https://learn.microsoft.com/EN-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp#add-a-system-assigned-identity). This will be used to authenticate with the Key Vault.
 
     ![](/img/MISP/AzureFunctionManagedIdentity.png)
 
-4. Give the managed identity the `Reader` role on the Key Vault.
-5. Go to the Key Vault and click on *Access policies*.
-6. Click on *Add Access Policy*.
-7. Select the *Secret permissions* tab and choose *Get* and *List* from the options.
-8. Select the *Select principal* tab and search for the name of the Azure Function.
-9. Click *Add* and *Save*.
-10. Go back to the Azure Function and click on *Configuration*.
+4. Give the managed identity the **Reader** role on the Key Vault.
+5. Go to the Key Vault and click on **Access policies**.
+6. Click on **Add Access Policy**.
+7. Select the **Secret permissions** tab and choose **Get** and **List** from the options.
+8. Select the **Select principal** tab and search for the name of the Azure Function.
+9. Click **Add** and **Save**.
+10. Go back to the Azure Function and click on **Configuration**.
 10. Add a new application setting with the the following settings:
     - **Name**: `tenants` 
     - **Value**: `@Microsoft.KeyVault(SecretUri=https://<keyvaultname>.vault.azure.net/secrets/tenants/)`
@@ -263,7 +263,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
     - **Name**: `timerTriggerSchedule`
     - The `timerTriggerSchedule` takes a cron expression. For more information, see [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cin-process&pivots=programming-language-python).
     * Run once every two hours cron expression: `0 */2 * * *`
-14. *OPTIONAL* - Add a new application setting with the the following settings:
+14. ***OPTIONAL*** - Add a new application setting with the the following settings:
     - **Name**: `AzureFunctionsJobHost__functionTimeout` 
     - **Value**: `00:10:00` if using the consumption plan, or `02:00:00` if using premium or dedicated plans. *This setting is required to prevent the function from timing out when processing large amounts of data.*
 
@@ -283,9 +283,9 @@ This is how the application settings should look like (*I like to start of with 
 3. Clone [this repo (link will update once PR is merged)](https://github.com/infernuxmonster/misp2sentinel) and open the folder in Visual Studio Code.
 3. If required, make changes to `config.py` - this will mainly consist of updating the filter and lifetime of the IOCs. 
    - The parameters for the filter object can be found [here](https://buildmedia.readthedocs.org/media/pdf/pymisp/latest/pymisp.pdf) on page 34 and onward.
-4. Right click on the folder called `Azure Function` and select *Deploy to Function App...*
-5. Select the Azure Function you created in the previous steps and click *Deploy*
-6. You should see `Deployment succesful` in the output window after a short while.
+4. Right click on the folder called `Azure Function` and select **Deploy to Function App...**
+5. Select the Azure Function you created in the previous steps and click **Deploy**
+6. You should see **Deployment succesful** in the output window after a short while.
 7. The `MISP2Sentinel` function should also show up under the Function App.
 
     ![](/img/MISP/Function.png)
@@ -294,11 +294,11 @@ This is how the application settings should look like (*I like to start of with 
 
 ## Adding multi-tenancy support
 
-0. Add a redirect URI to the app registration we created earlier, like `https://portal.azure.com`
+0. Add a **redirect URI** to the app registration we created earlier, like `https://portal.azure.com`
 
     ![](/img/MISP/RedirectURIs.png)
 
-1. To make the app registration work in the other tenants you will need to grant admin consent to the enterprise app in each tenant. This can be done by navigating to the following URL:
+1. To make the app registration work in the other tenants you will need to grant admin consent to the enterprise app in each tenant. This can be done **by navigating to the following URL**:
  
 ```
 https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_reload=true
@@ -308,14 +308,14 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
     ![](/img/MISP/AskForConsentViaLink.png)
 
 3. Update the `tenants` secret in the Key Vault to include the new tenant ID. The client ID and secret should remain the same.
-4. Make sure the ThreatIntelligence data connector is enabled in the new tenant.
+4. Make sure the **ThreatIntelligence data connector is enabled** in the new tenant.
 
 ---
 
 ## Verify successful execution
 
-1. Go to the Azure Function and click on *Monitor*
-2. Click on *Logs* to see the output of the function live, or check the *Invocations* to see the execution history.
+1. Go to the Azure Function and click on **Monitor**
+2. Click on **Logs** to see the output of the function live, or check the **Invocations** to see the execution history.
 
     ![](/img/MISP/FunctionRuns.png)
 
@@ -336,4 +336,4 @@ Once the project is up and running on the new API I will update this repository 
 
 If you spot any errors or bugs in this code, please let me know.
 
-Happy hunting!
+**Happy hunting!**
