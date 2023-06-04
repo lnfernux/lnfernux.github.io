@@ -171,13 +171,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
  
 
-7. Pull data from the feeds.
-
-
-    ![](/img/MISP/FetchAllEvents.png)
-
- 
-
+7. Pull data from the feeds by clicking on the arrow pointing down next to the feed name.
 8. We should be able to see events being pulled from the feeds now if we head over to the `Administration` tab and select `Jobs`.
 
 
