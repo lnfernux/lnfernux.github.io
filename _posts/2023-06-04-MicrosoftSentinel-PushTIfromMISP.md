@@ -132,11 +132,10 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 
 1. Created a new Azure VM called MISP running Ubuntu LTS 20.04:
 
-<div style="text-align: center;">
 
-![MISP VM](/img/MISP/MISP_VM.png)
+    ![MISP VM](/img/MISP/MISP_VM.png)
 
-</div>
+ 
 
 2. All default settings except for adding an NSG with only port 22 open to my IP address for SSH access, and changed the username to `misp`.
 3. Followed the [MISP installation guide](https://misp.github.io/MISP/INSTALL.ubuntu2004) to install MISP on the VM by running the following command:
@@ -144,57 +143,51 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 ```bash
 wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2.4/INSTALL/INSTALL.sh
 ```
-<div style="text-align: center;">
 
 ![](/img/MISP/MISP_install.png)
 
-</div>
+ 
 
 4. Opened port 443 in the NSG to allow for access to the MISP server from the Azure Function.
    - I did this in two rounds, first I opened only for my own public IP locally, then I added the outbound IP adresses of the Azure Function (you can find these in the `Networking` tab of the Azure Function).
 5. We can now log in to the MISP server using default credentials
 
-<div style="text-align: center;">
 
-![](/img/MISP/InitialInstall.png)
+    ![](/img/MISP/InitialInstall.png)
 
-</div>
+ 
 
 5. Go to the `Feeds` tab.
 
-<div style="text-align: center;">
 
-![](/img/MISP/Feeds.png)
+    ![](/img/MISP/Feeds.png)
 
-</div>
+ 
 
 6. Enable the two default feeds.
 
-<div style="text-align: center;">
 
 ![](/img/MISP/EnabledSelectedFeeds.png)
 
-</div>
+ 
 
 7. Pull data from the feeds.
 
-<div style="text-align: center;">
 
-![](/img/MISP/FetchAllEvents.png)
+    ![](/img/MISP/FetchAllEvents.png)
 
-</div>
+ 
 
 8. We should be able to see events being pulled from the feeds now if we head over to the `Administration` tab and select `Jobs`.
 
-<div style="text-align: center;">
 
-![](/img/MISP/FetchFeedsJobs.png)
+    ![](/img/MISP/FetchFeedsJobs.png)
 
-</div>
+ 
 
 8. The output we need from the MISP server is the following:
-    - URL (this will be the Azure public IP address of the VM in the format of `https://<ip address>/`)
-    - API key (this was in the output when the install finished, but we can also add a new one by going to `Administration` and selecting `Add authentication key`.)
+    - **URL** (this will be the Azure public IP address of the VM in the format of `https://<ip address>/`)
+    - **API key** (this was in the output when the install finished, but we can also add a new one by going to `Administration` and selecting `Add authentication key`.)
 
 ---
 
@@ -202,52 +195,46 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 1. Created a new App Registration in Azure AD called `MISP2Sentinel` using all default settings.
 
-<div style="text-align: center;">
 
-![](/img/MISP/MISP2Sentinel.png)
+    ![](/img/MISP/MISP2Sentinel.png)
 
-</div>
+ 
 
 2. Add a new secret under Certificates & secrets - remember to take a note of the value.
 3. Under API permissions, choose "Add a permission" and select Microsoft Graph.
 
-<div style="text-align: center;">
 
-![](/img/MISP/GraphPermissions.png)
+    ![](/img/MISP/GraphPermissions.png)
 
-</div>
+ 
 
 4. Select Application Permissions.
 
-<div style="text-align: center;">
 
-![](/img/MISP/ApplicationPermissions.png)
+    ![](/img/MISP/ApplicationPermissions.png)
 
-</div>
+ 
 
 4. Add `ThreatIndicators.ReadWrite.OwnedBy`.
 
-<div style="text-align: center;">
 
-![](/img/MISP/ThreatIndicatorsPermissions.png)
+    ![](/img/MISP/ThreatIndicatorsPermissions.png)
 
-</div>
+ 
 
 5. We then need to grant admin consent for the permissions by clicking on "Grant admin consent for <tenant>". Click yes to the prompt.
 
-<div style="text-align: center;">
 
-![](/img/MISP/GrantAdminConsent.png)
+    ![](/img/MISP/GrantAdminConsent.png)
 
-</div>
+ 
 
 6. Make sure the API permissions are granted correctly:
 
-<div style="text-align: center;">
 
-![](/img/MISP/ConsentGranted.png)
+    ![](/img/MISP/ConsentGranted.png)
 
-</div>
+ 
 
 7. Output that we need to save from this step are the following:
     - Application (client) ID
@@ -277,11 +264,10 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 1. Make sure the ThreatIntelligence data connector is enabled.
 
-<div style="text-align: center;">
 
-![](/img/MISP/TI_Enabled_DataConnector.png)
+    ![](/img/MISP/TI_Enabled_DataConnector.png)
 
-</div>
+ 
 
 ---
 
@@ -296,11 +282,10 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 - Other settings can be left to default values. Click *Review + Create*
 3. After the creation of the Azure Function, add a [system managed identity to the Azure Function](https://learn.microsoft.com/EN-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp#add-a-system-assigned-identity). This will be used to authenticate with the Key Vault.
 
-<div style="text-align: center;">
 
-![](/img/MISP/AzureFunctionManagedIdentity.png)
+    ![](/img/MISP/AzureFunctionManagedIdentity.png)
 
-</div>
+ 
 
 4. Give the managed identity the `Reader` role on the Key Vault.
 5. Go to the Key Vault and click on *Access policies*.
@@ -328,11 +313,10 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
 This is how the application settings should look like (*I like to start of with a low frequency on the timer trigger to make sure everything is working as expected*):
 
-<div style="text-align: center;">
 
-![](/img/MISP/AppSettings.png)
+    ![](/img/MISP/AppSettings.png)
 
-</div>
+ 
 
 ---
 
@@ -351,12 +335,11 @@ This is how the application settings should look like (*I like to start of with 
 6. You should see `Deployment succesful` in the output window after a short while.
 7. The `MISP2Sentinel` function should also show up under the Function App.
 
-<div style="text-align: center;">
 
-![](/img/MISP/Function.png)
+    ![](/img/MISP/Function.png)
 
 
-</div>
+ 
 
 ---
 
@@ -364,7 +347,7 @@ This is how the application settings should look like (*I like to start of with 
 
 0. Add a redirect URI to the app registration we created earlier, like `https://portal.azure.com`
 
-![](/img/MISP/RedirectURIs.png)
+    ![](/img/MISP/RedirectURIs.png)
 
 1. To make the app registration work in the other tenants you will need to grant admin consent to the enterprise app in each tenant. This can be done by navigating to the following URL:
  
@@ -372,11 +355,10 @@ This is how the application settings should look like (*I like to start of with 
 https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_reload=true
 ```
 2. If done correctly, you should see the following page:
-<div style="text-align: center;">
 
-![](/img/MISP/AskForConsentViaLink.png)
+    ![](/img/MISP/AskForConsentViaLink.png)
 
-</div>
+ 
 
 3. Update the `tenants` secret in the Key Vault to include the new tenant ID. The client ID and secret should remain the same.
 4. Make sure the ThreatIntelligence data connector is enabled in the new tenant.
@@ -388,12 +370,12 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
 1. Go to the Azure Function and click on *Monitor*
 2. Click on *Logs* to see the output of the function live, or check the *Invocations* to see the execution history.
 
-![](/img/MISP/FunctionRuns.png)
+    ![](/img/MISP/FunctionRuns.png)
 
 3. You should see that indicators are being pushed to the tenants you specified in the `tenants` secret
 4. You can also check the `ThreatIntelligenceIndicator` table in the Log Analytics workspace to see the indicators that have been pushed to Sentinel. 
 
-![](/img/MISP/ThreatIntelligenceIndicatorTable.png)
+    ![](/img/MISP/ThreatIntelligenceIndicatorTable.png)
 
 ---
 
