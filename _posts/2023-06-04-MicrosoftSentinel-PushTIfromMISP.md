@@ -136,12 +136,10 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 
 2. All default settings except for **adding an NSG with only port 22 open to my IP address for SSH access**, and changed the username to `misp`.
 3. Followed the [MISP installation guide](https://misp.github.io/MISP/INSTALL.ubuntu2004) to install MISP on the VM by running the following command:
-
-```bash
-wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2.4/INSTALL/INSTALL.sh
-```
-
-![](/img/MISP/MISP_install.png)
+    ```bash
+    wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2.4/INSTALL/INSTALL.sh
+    ```
+    ![](/img/MISP/MISP_install.png)
 
 4. **Opened port 443** in the NSG to **allow for access to the MISP server from the Azure Function**.
 5. We can now log in to the MISP server using default credentials.
@@ -161,7 +159,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 
     ![](/img/MISP/FetchFeedsJobs.png)
 
-8. The output we need from the MISP server is the following:
+9. The output we need from the MISP server is the following:
     - `URL` (this will be the Azure public IP address of the VM in the format of `https://<ip address>/`)
     - `API key` (this was in the output when the install finished, but we can also add a new one by going to `Administration` and selecting `Add authentication key`.)
 
@@ -209,11 +207,9 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
     - `mispurl`
     - `tenants`
 3. The `tenants` secret is a JSON object containing the tenant ID, client id and secret of each tenant you want to push TI to:
-
-```json
-{"<TENANT_ID>": {"id": "<APP_ID>", "secret": "<APP_SECRET>"}}
-```
-
+    ```json
+    {"<TENANT_ID>": {"id": "<APP_ID>", "secret": "<APP_SECRET>"}}
+    ```
 4. You can limit access to the Key Vault by removing the public endpoint access, and only allowing access from the Azure Function by specifying the Azure Functions outbound IP addresses in the Key Vault firewall. This is not required, but recommended.
 
 ---
