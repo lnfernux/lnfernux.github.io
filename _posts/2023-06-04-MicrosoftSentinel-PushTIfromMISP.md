@@ -308,9 +308,7 @@ wget --no-cache -O /tmp/INSTALL.sh https://raw.githubusercontent.com/MISP/MISP/2
 This is how the application settings should look like (*I like to start of with a low frequency on the timer trigger to make sure everything is working as expected*):
 
 
-    ![](/img/MISP/AppSettings.png)
-
- 
+![](/img/MISP/AppSettings.png)
 
 ---
 
