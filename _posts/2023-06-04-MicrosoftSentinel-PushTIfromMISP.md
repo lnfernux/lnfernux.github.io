@@ -184,7 +184,7 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 
     ![](/img/MISP/ThreatIndicatorsPermissions.png)
 
-6. We then need to grant admin consent for the permissions by clicking on **Grant admin consent for <tenant>**. **Click yes** when prompted.
+6. We then need to grant admin consent for the permissions by clicking on **Grant admin consent for <tenant>. Click yes** when prompted.
 
     ![](/img/MISP/GrantAdminConsent.png)
 
