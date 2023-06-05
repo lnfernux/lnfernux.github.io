@@ -25,9 +25,23 @@ Despite managing to type the following:
 
 **The TL;DR is simply this**: I borrowed some code from two projects and splyced them together, so that I can push threat intelligence from MISP to Microsoft Sentinel. My version simply allows you to push to multiple Azure tenants with guidance included.
 
-## MISP
+## What is MISP?
 
-For those of you who are unaware of what MISP is, it's short for Malware Information Sharing Platform. It's an open source threat intelligence platform used among other things to share indicators of compromise. For more information, please visit their site at [https://www.misp-project.org/](https://www.misp-project.org/).
+For those of you who are unaware of what MISP is, it's short for **Malware Information Sharing Platform**. It's an open source threat intelligence platform used among other things to **share indicators of compromise**. 
+
+For more information, please [**visit their website**](https://www.misp-project.org/).
+
+### Indicators of Compromise
+
+An **Indicator of compromise**, or IOC for short, is a forensic artifact, observed on the network or host. An IOC indicates - with *some level* of confidence - a **computer or network intrusion has occurred**. IOCs are observable, which links them directly to measurable events. Some IOC examples include:
+
+- **Hashes** of known malware
+- **Signatures** of malicious network traffic
+- **URLs or domains** that are known malware distributors
+
+For more information on IOCs, please check out [Indicator of compromise (IoC) overview](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/manage-indicators?view=o365-worldwide) from Microsoft Learn.
+
+---
 
 ## 'Borrowing' some code 
 
@@ -36,6 +50,8 @@ The two github projects I've used as a base for this update are the following:
 - [zolderio/misp-to-sentinel](https://github.com/zolderio/misp-to-sentinel)
 
 They are both based on the original sample [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP) presented in the [Integrating open source threat feeds with MISP and Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/integrating-open-source-threat-feeds-with-misp-and-sentinel/ba-p/1350371) techcommunity blog post from 2020.
+
+
 
 ---
 
