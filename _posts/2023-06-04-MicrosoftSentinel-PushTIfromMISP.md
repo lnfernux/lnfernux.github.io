@@ -16,7 +16,14 @@ image: /img/sentinel.png
 
 # Background
 
-See my [previous post](https://www.infernux.no/MicrosoftSentinel-AzureFunctionDataConnectorsTimeout/) for more information. The TL;DR is simply this: I borrowed some code from two projects and splyced them together, so that I can push threat intelligence from MISP to Microsoft Sentinel in multiple Azure tenants.
+See my [previous post](https://www.infernux.no/MicrosoftSentinel-AzureFunctionDataConnectorsTimeout/) for more information.
+Despite managing to type the following:
+
+> When (if) I’m done, I’ll write a new post about it.
+
+![](/img/threat.gif)
+
+**The TL;DR is simply this**: I borrowed some code from two projects and splyced them together, so that I can push threat intelligence from MISP to Microsoft Sentinel. My version simply allows you to push to multiple Azure tenants with guidance included.
 
 ## MISP
 
