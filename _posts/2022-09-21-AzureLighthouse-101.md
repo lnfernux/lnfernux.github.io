@@ -99,7 +99,7 @@ We can find some [samples](https://learn.microsoft.com/en-us/azure/lighthouse/sa
 
 ### Azure Lighthouse managed subscription
 
-Let's break a template down to it's parts in order to understand it. We will use a template I've created for the above example - to view the full template, [click here.](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureLighthouse/azurelh-sub.json)
+Let's break a template down to it's parts in order to understand it. We will use a template I've created for the above example - to view the full template, [click here.](https://github.com/lnfernux/MicrosoftSentinel-Templates/blob/main/AzureLighthouse/azurelh-sub.json)
 
 #### Parameters
 

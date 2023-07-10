@@ -296,7 +296,7 @@ This is how the application settings should look like (*I like to start of with 
 
 ![](/img/MISP/AzureFunctionsVSCode.png)
 
-3. **Clone [this repo (link will update once PR is merged)](https://github.com/infernuxmonster/misp2sentinel)** and open the folder in Visual Studio Code.
+3. **Clone [this repo (link will update once PR is merged)](https://github.com/lnfernux/misp2sentinel)** and open the folder in Visual Studio Code.
 3. If required, **make changes to `config.py`**. This will mainly consist of updating the filter and lifetime of the IOCs. 
    - The parameters for the filter object can be found [here](https://buildmedia.readthedocs.org/media/pdf/pymisp/latest/pymisp.pdf) on page 34 and onward.
 4. Right click on the folder called `Azure Function` and select **Deploy to Function App...**

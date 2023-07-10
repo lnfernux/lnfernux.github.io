@@ -38,7 +38,7 @@ So how can we secure our pipelines? Well, first, let look at how we configure it
 
 ## Implementing a webhook trigger in a Azure DevOps pipeline
 
-I've created a simple `hello world`-pipeline over in my [github repo](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/webhook_trigger.yml) to demonstrate how to add the webhook resource. The relevant portions are the `resources`-block:
+I've created a simple `hello world`-pipeline over in my [github repo](https://github.com/lnfernux/MicrosoftSentinel-Templates/blob/main/webhook_trigger.yml) to demonstrate how to add the webhook resource. The relevant portions are the `resources`-block:
 
 ```yaml
 resources:
@@ -100,7 +100,7 @@ In the topic mentioned above from the dev community [this comment](https://devel
 
 First lets add a secret to our trigger. We can do this by editing the service connection, adding our secret (`WeLikeIce`). We also add the `Http Header` parameter as `X-Hub-Signature` before saving.
 
-### [Post-Message-to-AzDO-Webhook.ps1](https://github.com/infernuxmonster/MicrosoftSentinel-Scripts/blob/main/Post-Message-to-AzDO-Webhook.ps1)
+### [Post-Message-to-AzDO-Webhook.ps1](https://github.com/lnfernux/MicrosoftSentinel-Scripts/blob/main/Post-Message-to-AzDO-Webhook.ps1)
 
 ```powershell
 Param

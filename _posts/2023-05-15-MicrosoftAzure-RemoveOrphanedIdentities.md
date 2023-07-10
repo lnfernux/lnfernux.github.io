@@ -36,7 +36,7 @@ I've seen plenty of solutions for this, using both scripts as I've done above an
 
 ## Source
 
-- [Script](https://github.com/infernuxmonster/MicrosoftSentinel-Scripts/blob/main/Remove-OrphanedAzureResourceAssignments.ps1)
+- [Script](https://github.com/lnfernux/MicrosoftSentinel-Scripts/blob/main/Remove-OrphanedAzureResourceAssignments.ps1)
 - [Stackoverflow thread](https://stackoverflow.com/questions/75002189/delete-orphaned-role-assignments-in-azure)
 - [Removing Unknown Azure RBAC Role Assignments with PowerShell @ jloudon.com](https://jloudon.com/cloud/Removing-Unknown-Azure-RBAC-Role-Assignments-with-PowerShell/)
 - [Orphaned Azure Security Principals Clean-up & Azure Policy Managed Identity Role Assignment Automation](https://mortenknudsen.net/?p=938)

@@ -103,7 +103,7 @@ function Get-MicrosoftSentinelAnalyticRules {
 
 We are now able to download analytic rules and parse them into templates - the only thing you'd require to deploy them to multiple customers is to add back customer specific values in the pipelines used to create analytic rules.
 
-> You can download the [full standalone script from my Github.](https://github.com/infernuxmonster/MicrosoftSentinel-Scripts/blob/main/Get-MicrosoftSentinelAnalyticRulesStandalone.ps1)
+> You can download the [full standalone script from my Github.](https://github.com/lnfernux/MicrosoftSentinel-Scripts/blob/main/Get-MicrosoftSentinelAnalyticRulesStandalone.ps1)
 
 # Pipeline
 
@@ -189,7 +189,7 @@ steps:
     ArtifactName: ParsedRules
 ```
 
-> The entire [Get-MicrosoftSentinelAnalyticRules.yaml file can be downloaded on my Github.](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/Pipelines/Get-MicrosoftSentinelAnalyticRules.yaml)
+> The entire [Get-MicrosoftSentinelAnalyticRules.yaml file can be downloaded on my Github.](https://github.com/lnfernux/MicrosoftSentinel-Templates/blob/main/Pipelines/Get-MicrosoftSentinelAnalyticRules.yaml)
 
 ## Preparing the script for running in an Azure DevOps pipeline
 
@@ -228,7 +228,7 @@ try {
 
 We also added some [logging commands](https://docs.microsoft.com/en-us/azure/devops/pipelines/scripts/logging-commands?view=azure-devops&tabs=powershell) in order to raise an alert in the pipeline-run if the script errors out.
 
-> You can download the [full script, modified for usage in Azure DevOps pipelines on my Github.](https://github.com/infernuxmonster/MicrosoftSentinel-Scripts/blob/main/Get-MicrosoftSentinelAnalyticRulesPipeline.ps1)
+> You can download the [full script, modified for usage in Azure DevOps pipelines on my Github.](https://github.com/lnfernux/MicrosoftSentinel-Scripts/blob/main/Get-MicrosoftSentinelAnalyticRulesPipeline.ps1)
 
 ## Running the pipeline
 

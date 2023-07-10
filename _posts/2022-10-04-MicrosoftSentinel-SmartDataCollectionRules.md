@@ -179,7 +179,7 @@ $xmlFile = New-XMLFile -eventIdList $eventIdList
 $xmlFile | Out-File DCR.xml
 ```
 
-You can find the full script [here.](https://github.com/infernuxmonster/MicrosoftSentinel-Scripts/blob/main/Create-DataCollectionRuleFromAnalyticRules.ps1)
+You can find the full script [here.](https://github.com/lnfernux/MicrosoftSentinel-Scripts/blob/main/Create-DataCollectionRuleFromAnalyticRules.ps1)
 
 The output will look something like this:
 ```xml

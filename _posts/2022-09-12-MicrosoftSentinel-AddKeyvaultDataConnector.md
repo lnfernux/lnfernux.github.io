@@ -266,7 +266,7 @@ We'll modify two of the three parameters we put into the key vault:
 Using this resource block you can add a key vault to any function app deployment.
 The steps you will need to take to make sure this works is:
 
-1. [Add the block](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/AzureFunction_AddKeyVault.json)
+1. [Add the block](https://github.com/lnfernux/MicrosoftSentinel-Templates/blob/main/AzureFunction_AddKeyVault.json)
 2. Make sure the `Microsoft.Web/sites` block has a Managed Identity configured
 3. Add dependencies for the key vault and secrets to the `config` block of the `Microsoft.Web/sites` block
 4. Change the references to the variables you wish to add to the key vault in the `config` block
@@ -275,9 +275,9 @@ The steps you will need to take to make sure this works is:
 
 ### Full template
 
-The full template can be found [here, on my Github.](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/QualysVM.json)
+The full template can be found [here, on my Github.](https://github.com/lnfernux/MicrosoftSentinel-Templates/blob/main/QualysVM.json)
 
 ## Sources
 
-* [Deploy Key Vault with a list of secrets](https://github.com/infernuxmonster/MicrosoftSentinel-Templates/blob/main/QualysVM.json)
+* [Deploy Key Vault with a list of secrets](https://github.com/lnfernux/MicrosoftSentinel-Templates/blob/main/QualysVM.json)
 * [Reference secrets from Key Vault](https://docs.microsoft.com/nb-no/azure/app-service/app-service-key-vault-references?tabs=azure-powershell)
