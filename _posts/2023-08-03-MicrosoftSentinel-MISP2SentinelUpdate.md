@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pushing Threat Intelligence from MISP to Microsoft Sentinel
+title: Use Update Indicators API to push Threat Intelligence from MISP to Microsoft Sentinel
 subtitle: A quick intro on how to set up MISP, Azure Functions and Sentinel to push threat intelligence from MISP to Sentinel
 tags:
   - Cloud Security
@@ -9,6 +9,7 @@ tags:
   - Azure Functions
   - Automation
   - MISP
+  - Upload Indicators API
 published: true
 author: author_infernux
 image: /img/sentinel.png
