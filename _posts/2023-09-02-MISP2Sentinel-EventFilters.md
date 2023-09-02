@@ -118,7 +118,7 @@ This is a very useful filter, as it allows you to only pull events that have bee
 
 | Name | Description | Example |
 | ---- | ----------- | ------- |
-| **`to_ids`** `(Union[TypeVar(ToIDSType, str, int, bool), List[TypeVar(ToIDSType, str, int, bool)], None])`|By default all attributes are returned that match the other filter parameters, regardless of their to_ids setting. To restrict the returned data set to to_ids only attributes set this parameter to 1. 0 for the ones with to_ids set to False.|`to_ids=1`|
+| **`to_ids`** `(Union[TypeVar(ToIDSType, str, int, bool), List[TypeVar(ToIDSType, str, int, bool)], None])`|By default all attributes are returned that match the other filter parameters, regardless of their to_ids setting. To restrict the returned data set to to_ids only attributes set this parameter to 1. 0 for the ones with to_ids set to False.|`"to_ids": 1`|
 
 > Attributes in MISP have a boolean flag to_ids allowing you to indicate if an attribute should be used for detection or correlation actions. According to the [MISP core format data standard](https://www.misp-standard.org/rfc/misp-standard-core.html#rfc.section.2.4.2), the to_ids flag represents whether the attribute is meant to be actionable. *[https://www.vanimpe.eu/2019/09/24/tracking-false-positives-and-disabling-to_ids-in-misp/](https://www.vanimpe.eu/2019/09/24/tracking-false-positives-and-disabling-to_ids-in-misp/).*
 
