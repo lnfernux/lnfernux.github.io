@@ -12,6 +12,31 @@ author: author_infernux
 image: /img/sentinel.png
 ---
 
+#### Table of contents
+
+- [Let's get hunting](#lets-get-hunting)
+- [Event filtering basics](#event-filtering-basics)
+- [Default MISP2Sentinel filters](#default-misp2sentinel-filters)
+    - [`published`](#published)
+    - [`tags`](#tags)
+    - [`enforceWarninglist`](#enforcewarninglist)
+    - [`includeEventTags`](#includeeventtags)
+    - [`publish_timestamp`](#publish_timestamp)
+- [Some honorable mentions](#some-honorable-mentions)
+    - [`to_ids`](#to_ids)
+    - [`type_attribute`](#type_attribute)
+- [Putting it all together](#putting-it-all-together)
+    - [Managed MISP](#managed-misp)
+        - [TLP-levels](#tlp-levels)
+        - [Workflow based tags](#workflow-based-tags)
+        - [Published events](#published-events)
+    - [Umanaged MISP](#umanaged-misp)
+        - [On feeds](#on-feeds)
+        - [Some examples](#some-examples)
+- [Closing remarks](#closing-remarks)
+    - [Previous writing on MISP](#previous-writing-on-misp)
+    - [References](#references)
+
 # Let's get hunting
 
 With the new [Upload Indicators API]() coming out, the [misp2sentinel](https://github.com/cudeso/misp2sentinel)-project being [updated to use this new API](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/) and provided [as a solution in Content Hub](https://portal.azure.com/#create/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel), I thought it would be a good time to write a bit about how event filters work in MISP and hopefully help some people hunting for threats in their environments.
