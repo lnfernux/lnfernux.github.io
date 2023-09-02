@@ -120,8 +120,6 @@ If we use TLP-levels, we can use the `tags` parameter to include only events tha
 
 If you're wondering what TLP-levels are, TLP is short for Traffic Light Protocol and we currently have 5 levels. 
 
-<details><summary>Click here to learn more about the different <b>Traffic Light Protocol</b> levels!</summary>
-
 #### TLP:RED
 ![](https://www.cisa.gov/sites/default/files/styles/16x9_small/public/2023-02/tlp_teaser_red.png?h=c653ff14&itok=QOt4tAAU)
 
@@ -151,8 +149,6 @@ Disclosure is not limited.
 This TLP was formerly known as `TLP:WHITE`. 
 
 *Microsoft Graph API uses `TLP:WHITE` instead of `TLP:CLEAR`, so when trying to sync events with `TLP:CLEAR` you might get an error.*
-
-</details>
 
 ### Workflow based tags
 
