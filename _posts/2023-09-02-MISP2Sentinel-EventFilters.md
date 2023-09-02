@@ -1,7 +1,7 @@
 ---
 layout: post
-title: misp2sentinel - Event Filters
-subtitle: How they work and how to use them
+title: Figuring out MISP2Sentinel Event Filters
+subtitle: How they work, how to use them and some (hopefully not horrible) examples.
 tags:
   - MISP
   - Threat Intelligence
@@ -12,7 +12,7 @@ author: author_infernux
 image: /img/sentinel.png
 ---
 
-# Let's go hunting
+# Let's get hunting
 
 With the new [Upload Indicators API]() coming out, the [misp2sentinel](https://github.com/cudeso/misp2sentinel)-project being [updated to use this new API](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/) and provided [as a solution in Content Hub](https://portal.azure.com/#create/microsoftsentinelcommunity.azure-sentinel-solution-misp2sentinel), I thought it would be a good time to write a bit about how event filters work in MISP and hopefully help some people hunting for threats in their environments.
 
@@ -57,7 +57,7 @@ This parameter represents the event publication state. If the event was publishe
 
 |Name | Description | Example |
 |-----|-------------|---------|
-|`tags (Optional[TypeVar(SearchParameterTypes, str, List[Union[str, int]], Dict[str, Union[str, int]])])`| Tags to search or to exclude. You can pass a list, or the output of build_complex_query|Include all events with the tag `workflow:state` set to `complete` - `"tags": [ "workflow:state=\"complete\""]`</br>Include `TLP:Green` and exclude `TLP:Red` - `"tags": ["!TLP:RED","TLP:GREEN"]`|
+|`tags (Optional[TypeVar(SearchParameterTypes, str, List[Union[str, int]], Dict[str, Union[str, int]])])`| Tags to search or to exclude. You can pass a list, or the output of build_complex_query|Include all events with the tag `workflow:state` set to `complete` - `"tags": [ "workflow:state=\"complete\""]`<br>Include `TLP:Green` and exclude `TLP:Red` - `"tags": ["!TLP:RED","TLP:GREEN"]`|
 
 This parameter is used to search for events with a specific tag. You can pass a list of tags. This is an optional value, but a very strong filter to use. According to the [MISP Best Practices](https://www.circl.lu/doc/misp/best-practices/), tagging with TLP-levels is a **minimum** for events. 
 
