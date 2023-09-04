@@ -48,6 +48,7 @@ With the new [Upload Indicators API]() coming out, the [misp2sentinel](https://g
 The first thing we need to know about MISP event filters is that they are an implementation of parameters used to search the [MISP API](https://www.misp-project.org/openapi/#tag/Events/operation/restSearchEvents). A similar list of parameters can be found in the [PyMISP documentation](https://pymisp.readthedocs.io/en/latest/modules.html#pymisp.PyMISP.search). MISP allows for exporting events in the [STIX](https://stixproject.github.io/) format, which is also what the new upload indicators API accepts. The image below shows the workflow of the MISP2Sentinel project and where the event filters are used.
 
 ![](https://www.misp-project.org/img/blog/misp2sentinel-workflow.png)
+*Image showing workflow courtesy of [Koen Van Impe](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/).*
 
 The second thing we need to know is that how we implement our filter will vary a lot depending on a few factors with **how you manage MISP** being the primary factor. For brevity I've split the different management methods into two categories:
 
