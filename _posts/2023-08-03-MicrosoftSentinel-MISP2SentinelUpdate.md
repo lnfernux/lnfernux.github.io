@@ -105,8 +105,8 @@ Not much will change from my previous post, so most of this guidance will be sim
 
 ## Microsoft Sentinel
 
-1. Make sure the **ThreatIntelligence data connector is enabled**.
-
+1. Install the **ThreatIntelligence** solution from the Microsoft Sentinel content hub.
+2. Once onboarded, the data connector should show up (and turn green once data starts flowing in):
     ![](/img/MISP/TI_Enabled_DataConnector.png)
 
  
@@ -210,10 +210,12 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
 
     ![](/img/MISP/AskForConsentViaLink.png)
 
-    > **NEW**: This should only say `Sign in and read user profile` for the updated guidance, but I'm to lazy to update the screenshot.
+3. The enterprise application should now show up in the customer-environment. Grant this enterprise application the `Microsoft Sentinel Contributor`-role on the workspace. 
+    * This can be accomplished by navigating to the IAM-menu and adding a role assignment.
+    * Search for the **name** or **ObjectId** of the enterprise application (this needs to be the object ID of the enterprise application in the customer tenant).
 
 3. Update the `tenants` secret in the Key Vault to include the new tenant ID. The client ID and secret should remain the same.
-4. Make sure the **ThreatIntelligence data connector is enabled** in the new tenant.
+5. Make sure the **ThreatIntelligence data connector is enabled** in the new tenant (install the Threat Intelligence solution if it's not already installed).
 
 ---
 
@@ -233,4 +235,17 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
 
 # More information
 
-- Will be updated with links once they are published.
+## MISP2Sentinel solution
+
+MISP2Sentinel is now also available as a solution!
+
+![](/img/MISP/MISP2SentinelSolution.png)
+
+You can find it in the content hub and it will show up as a new data connector (this helps your verify that you are actually ingesting MISP-events over other TI-sources):
+
+![](/img/MISP/dataConnectorNew.png)
+
+## References
+
+- [Koen's blog post on the MISP-project site](https://www.misp-project.org/2023/08/26/MISP-Sentinel-UploadIndicatorsAPI.html/)
+- [misp2sentinel repository](https://github.com/cudeso/misp2sentinel)
