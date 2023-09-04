@@ -94,7 +94,7 @@ If we want to filter out events with a certain tag, we can use the `!`-operator.
 | ---- | ----------- | ------- |
 | **`enforce_warninglist`** `(Optional[bool])`| Remove any attributes from the result that would cause a hit on a warninglist entry. |`"enforceWarninglist": True`|
 
-This is basically as false positivve filter, which will remove a lot of common IPs (like those belonging to Cloud Providers) from the results. This is an optional value.
+This is basically as false positive filter, which will remove a lot of common IPs (like those belonging to Cloud Providers) from the results. This is an optional value.
 
 ## `includeEventTags`
 
