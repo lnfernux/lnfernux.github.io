@@ -122,6 +122,7 @@ First, before we move on with developing a use case, we need to take into accoun
 **If the answer is yes**, then this use case would probably not be worth it to implement. Yes, it would be actionable, but it would probably **generate more false positives than actual alerts**. We could probably implement it as an informational use case in that case.
 
 ![](/img/NotASecurityThreat.gif)
+
 *Your IT operations team when you implement a use case that generates a lot of false positives from their normal usage, probably.*
 
 **If the answer is no** we can go ahead and start implementing the use case. First of all, we need to identify the data sources that we need to collect. In this case, we need to collect event logs from our relevant Windows servers. This blog won't dive into the specifics on how to ingest the logs themselves, but you can read more about [connecting data sources here](https://docs.microsoft.com/en-us/azure/sentinel/connect-data-sources).
@@ -172,4 +173,14 @@ Follow up the query, maybe annotate the name so it's clear that the query is in 
 
 # Final thoughts
 
-This blog post is not meant to be a comprehensive guide on how to write use cases, but rather a brief introduction to the process. I hope that it has been helpful. If you have any corrections, disagreements or questions feel free to reach out (check the about me page for contact details).
+This blog post is not meant to be a comprehensive guide on how to write use cases, but rather a brief introduction to the process. If you take anything away from it, let it be the following;
+
+1. **Use cases are hypotheses about malicious activity you want to detect**
+2. Use cases that create alerts/incidents should be actionable
+3. **Use cases that are not actionable should be used for correlation and automation should be used to close them**
+4. Use cases should be tested before being put into production
+5. **Use cases should be monitored over time to make sure they are tuned correctly**
+6. Use cases templates should NOT be implemented without being changed to suit your own usage patterns
+7. **Use cases should be updated as your environment changes**
+
+I hope that it has been helpful. If you have any corrections, disagreements or questions feel free to reach out (check the about me page for contact details).
