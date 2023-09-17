@@ -176,11 +176,11 @@ Follow up the query, maybe annotate the name so it's clear that the query is in 
 This blog post is not meant to be a comprehensive guide on how to write use cases, but rather a brief introduction to the process. If you take anything away from it, let it be the following;
 
 1. **Use cases are hypotheses about malicious activity you want to detect**
-2. Use cases that create alerts/incidents should be actionable
+2. **Use cases that create alerts/incidents should be actionable**
 3. **Use cases that are not actionable should be used for correlation and automation should be used to close them**
-4. Use cases should be tested before being put into production
+4. **Use cases should be tested before being put into production**
 5. **Use cases should be monitored over time to make sure they are tuned correctly**
-6. Use cases templates should NOT be implemented without being changed to suit your own usage patterns
+6. **Use cases templates should NOT be implemented without being changed to suit your own usage patterns**
 7. **Use cases should be updated as your environment changes**
 
 I hope that it has been helpful. If you have any corrections, disagreements or questions feel free to reach out (check the about me page for contact details).
