@@ -133,7 +133,7 @@ At this point we've defined our hypothesis and identified the data sources we ne
 
 ### Finding the correct events
 
-When it comes to detecting RDP nesting, first we need to detect that someone has logged on to the server. This is usually indicated by an event with the ID **[4624](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624)** in the **Security** log. 
+When it comes to detecting RDP nesting, first we need to detect that someone has logged on to the server. This is usually indicated by an event with the ID **[4624](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624)** in the windows event log. 
 
 In these events we can see the field **Logon Type**. This field will tell us how the user logged on to the server. In this case, we are interested in **[Logon Type 10](https://learn.microsoft.com/en-us/windows-server/identity/securing-privileged-access/reference-tools-logon-types)** which indicates a remote interactive logon.
 
