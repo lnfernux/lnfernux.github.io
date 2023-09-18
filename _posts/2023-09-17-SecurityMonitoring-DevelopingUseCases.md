@@ -52,7 +52,7 @@ So our job is to identify the logs we need to collect, create rules to query tha
 
 Simply because I think **good detection engineering** and **use case development is important**. A lot of **alert fatigue and burnout** in our industry is **because of poorly written use cases** that generate **a lot of false positives**. This is why I think it's important to write about this topic.
 
-I'm not a detection engineer, I'm not very good at KQl nor am I a SOC analyst, but I've been a part of the process enough to have a grasp of it works and how I think it should be done. As always, this is my opinion and *you are free to disagree with me*.
+I'm not a detection engineer, I'm not very good at KQL nor am I a SOC analyst, but I've been a part of the process enough to have a grasp of it works and how I think it should be done. As always, this is my opinion and *you are free to disagree with me*.
 
 I've also been quite vocal about my distaste for the **all the logs, all the queries** approach some seem to favor. I've written about this before in my post [**Field notes on Security Strategy**](https://www.infernux.no/SecurityStrategy/).
 
@@ -60,27 +60,29 @@ I've also been quite vocal about my distaste for the **all the logs, all the que
 
 Different people with have varying definitions of a use case, but in my a use case is;
 
-> A hypothesis that a certain malicious activity or behaviour will occur in your environment and how to detect it.
+> A hypothesis that a certain activity or behaviour will occur in your environment (and the assumption that it's malicious) and how to detect it.
 
 So, for example, a use case could be;
 
-> An attacker will attempt to brute force a user account in my environment and I want to detect it.
+> An attacker will attempt to brute force a user account in my environment.
 
 ## Actionable and informational use cases 
 
-Let's take a look at our example; *"An attacker will attempt to brute force a user account in my environment and I want to detect it."*
+Let's take a look at our example; *"An attacker will attempt to brute force a user account in my environment."*
 
-Is this a good use case? I'd say it's alright. It lets us see activity that most likely is malicious (*unless the password sync didn't reach your RADIUS server and now your PC is trying to connect to the office Wi-Fi with the wrong password*). But it's not actionable. **What do we do when we see this activity?**
+Is this a good use case? I'd say it's alright. It lets us see activity that most likely is malicious (*unless the password sync didn't reach your RADIUS server and now your PC is trying to connect to the office Wi-Fi with the wrong password*). But it's not actionable. **So, what do we do when we see this activity?**
 
 ### Informational use cases as parts of the puzzle
 
-Let me put it like this; any brute force alerts, even if tuned decently, will usually result in a lot of alerts. These are usually not actionable. **Do we block the IP address?** No, you can't block the IP address because it could be a VPN, proxy or a shared ISP/Cloud provider PIP that will rotate into legitimate use after burn. 
+Let me put it like this; any brute force alerts, even if tuned decently, will usually result in a lot of alerts. These are usually not actionable. **Do we block the IP address?** No, you can't (usually) block the IP address because it could be a VPN, proxy or a shared ISP/Cloud provider PIP that will rotate into legitimate use after burn. 
 
-**Do we reset the user's password?** Why? It's just attempts at brute force, not successful logins (and hopefully there's MFA involved). **Do we just ignore it?** No, because this could be a part of a larger operation. If we only had actionable alerts, we'd only see fragments of the puzzle. 
+**Do we reset the user's password?** Why? It's just attempts at brute force, not successful logins (and hopefully there's MFA involved). **Do we just ignore it?** No, because this could be a part of a larger operation. If we only had actionable alerts, we'd be left looking at only fragments of a puzzle. 
 
-Having use cases that cover all parts of an operation is integral to a good security monitoring program - however, a big part of the reason why **alert fatigue** is so common is that a lot of people mistake a decent use case for a actionable use case that needs to be handled by a human. 
+![](/img/homerpuzzle.gif)
 
-This is where **automation** comes in to play. In Microsoft Sentinel, we can use **automation rules** to automatically close certain alerts that we know are not actionable. These will still be used for correlation and can be visualised in a workbook or in the incident graph, but they won't be sent to the SOC for triage on their own. 
+Having use cases that cover all parts of an operation is integral to a good security monitoring program - however, a big part of the reason why **alert fatigue** is so common is that **a lot of people mistake a decent use case for a actionable use case that needs to be handled by a human**. 
+
+This is where **automation** comes in to play. In *Microsoft Sentinel*, we can use **automation rules** to automatically close certain alerts that we know are not actionable. These will still be used for correlation and can be visualised in a workbook or in the incident graph, but they won't be sent to the SOC for triage on their own. 
 
 ```mermaid
 graph LR
