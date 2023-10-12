@@ -97,7 +97,7 @@ Not much will change from my previous post, so most of this guidance will be sim
     - `tenants`
 3. The `tenants` secret is a JSON object containing the tenant ID, client id and secret of each tenant you want to push TI to:
     ```json
-    {"<TENANT_ID>": {"id": "<APP_ID>", "secret": "<APP_SECRET>"}}
+   {"<TENANT_ID_WITH_APP>": {"id": "<APP_ID>", "secret": "<APP_SECRET>", "workspaceid": "<WORKSPACE_ID>"} }
     ```
 4. You can limit access to the Key Vault by removing the public endpoint access, and only allowing access from the Azure Function by specifying the Azure Functions outbound IP addresses in the Key Vault firewall. This is not required, but recommended.
 
