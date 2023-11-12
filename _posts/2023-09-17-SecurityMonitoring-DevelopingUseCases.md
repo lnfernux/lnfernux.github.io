@@ -13,6 +13,8 @@ author: author_infernux
 image: /img/sentinel.png
 ---
 
+In this blog post I'll be writing about developing use cases for security monitoring. I'll be using Microsoft Sentinel as an example, but the same principles apply to any SIEM or security monitoring platform.
+
 ### Table of contents
 
 - [A brief comment on the need for good use cases](#a-brief-comment-on-the-need-for-good-use-cases)

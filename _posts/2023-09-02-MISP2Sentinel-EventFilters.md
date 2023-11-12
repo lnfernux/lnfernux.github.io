@@ -12,6 +12,8 @@ author: author_infernux
 image: /img/sentinel.png
 ---
 
+MISP is becoming a popular open source option for managing threat intelligence at the operational level by sharing indicators of compromise (IOCs) and contextualizing them with other data. It can, however, be a bit daunting to figure out how to use the event filters. In this post I'll go through the different filters and how they work, and hopefully provide some examples that you can use in your own environment.
+
 #### Table of contents
 
 - [Let's get hunting](#lets-get-hunting)

@@ -15,6 +15,22 @@ author: author_infernux
 image: /img/sentinel.png
 ---
 
+An updated guidance on how to set up the MISP2Sentinel Azure Function to push threat intelligence from MISP to Microsoft Sentinel using the new Upload Indicators API.
+
+#### Table of Contents
+- [MISP2Sentinel](#misp2sentinel)
+  - [Installation documents](#installation-documents)
+- [Updated guidance](#updated-guidance)
+    - [MISP server](#misp-server)
+    - [Azure AD App Registration](#azure-ad-app-registration)
+    - [Azure Key Vault](#azure-key-vault)
+    - [Microsoft Sentinel](#microsoft-sentinel)
+    - [Azure Function](#azure-function)
+    - [Verify successful execution](#verify-successful-execution)
+- [More information](#more-information)
+    - [MISP2Sentinel solution](#misp2sentinel-solution)
+    - [References](#references)
+
 # MISP2Sentinel
 
 So my [previous post](https://www.infernux.no/MicrosoftSentinel-PushTIfromMISP/) was about pushing Threat Intelligence from MISP to Microsoft Sentinel, namely the `ThreatIntelligenceIndicators`-table. The method for doing this was using the `Microsoft Graph API`, which is in the process of being superseded by the new `Upload Indicators API`. This means we've got some updates to do!
