@@ -4,21 +4,22 @@ title: Share your work!
 subtitle: How to get started sharing what you create and a book-review, of sorts.
 tags:
   - Book review
-  - 
 published: true
 author: author_infernux
 image: /img/avatar-icon.png
 ---
 
-Early on in my career I had this weird aversion for people who wrote blogs. I'm pretty sure at least part of it was a result of the nordic phenomenon called the Law of Jante, which can be summarized as a code of conduct used colloquially to denote a social attitude of disapproval towards expressions of individuality and personal success (thanks Wikipedia).
+Early on in my career I had this weird aversion for people who wrote blogs. I'm pretty sure at least part of it was a result of the nordic phenomenon called the Law of Jante, which can be summarized as a code of conduct used colloquially to denote a social attitude of disapproval towards expressions of individuality and personal success (*thanks Wikipedia*). 
+
+And, while the *actually* originates from fiction, you can certainly notice it's effect to a certain extent.
 
 > You're not to think you know more than we do.
 
-When I read blogs online I thought to myself; Why are they sharing this? What are they hoping to gain by writing articles, posting to Twitter and talking at conferences? Mindless self-promotion for personal gain?
+When I read blogs online I used to think to myself; Why are they sharing this? What are they hoping to gain by writing articles, posting to Twitter and talking at conferences? Personal gain, influence and fame? *Or is there something else at play here?*
 
 > You're not to think you are anything special.
 
-If you find yourself in agreement with what I just wrote or hold similiar views, please take a minute to reflect on who writes all the answers on StackOverflow, Microsoft Techcommunity and that blog you keep refering to for work and so on.
+If you find yourself in agreement with what I just wrote or hold similiar views, please take a minute to reflect on who writes all the answers on StackOverflow, Microsoft Techcommunity and the blogs you keep going to for work, and so on.
 
 It's obvious to me now that my take on blogging was wrong, but it took some time to actually understand why. The two main things I learned was the following;
 
@@ -29,9 +30,9 @@ One thing in particular that helped me get over my initial hurdle was Austin Kle
 
 > You're not to think you are smarter than we are.
 
-I'm not a rockstar hacker presenting some fresh exploit or new novel attack, so what do I have to contribute? Well, throughout reading "Steal Like An Artist" I learned that most work is derivative in some way, shape or form and that's okay. 
+I'm not a rockstar hacker presenting some fresh exploit or new novel attack, so what do I have to contribute? Well, throughout reading "Steal Like An Artist" I learned that most work is derivative in some way, and that's okay. 
 
-We find inspiration from people we look up to, people we respect and work we admire. We can take all that and through our experience and knowledge convert it into something that's ours. Something that, yes, is derivative, but not so much so that it's not valuable in it's own way.
+We find inspiration from people we look up to, people we respect and work we admire. We can take all that and through our experience and knowledge convert it into something **that's ours**. Something that, yes, might be derivative, but not so much so that it's not valuable in it's own way.
 
 > You're not to think you can teach us anything.
 
@@ -39,7 +40,7 @@ The value comes from providing something that's relevant to whatever field you w
 
 > You're not to think you are good at anything.
 
-That's quite abstract and fluffy, I'll admit that. So let's drag this back down to earth. You might be thinking, in this day and age of AI, plagiarism of libraries of content, both written and recorded, and "everyone" wanting to be a influencer; why should YOU start sharing your work?
+That's quite abstract and fluffy, I'll admit that. So let's drag this back down to earth. You might be thinking, in this day and age of AI, plagiarism of libraries of content, both written and recorded, and "everyone" wanting to be a influencer; why should **YOU** start sharing your work?
 
 > You're not to imagine yourself better than we are.
 
@@ -47,7 +48,7 @@ Another book to mention at this point is another one by Austin Kleon called "Sho
 
 Maybe the most important thing is that in order for people to be inspired and learn, someone had to start sharing at some point. Take a look at the internet today. 
 
-What websites have you have recently visited to get an answer to some questions? Wether they are technical, personal or something else entirely - someone wrote or created that to help others. By sharing their work, they helped you with yours. And that's something you can also do!
+What websites have you have recently visited to get an answer to some questions? Wether they are technical, personal or something else entirely - someone wrote or created that to help others. **By sharing their work, they helped you with yours.** And that's something you can also do!
 
 > You're not to think you are more important than we are.
 
@@ -78,3 +79,9 @@ I prefer the stoic way of thinking about sharing my work; this means I try not t
 Hopefully this gives you a slight incling to maybe start typing some words down on a page, or start sharing some things you have created. 
 
 Maybe you even pick up a copy of the two books I've recommended; they're aimed at creatives, but I think technology can be very creative as well. If nothing else, now you know why I share my work.
+
+### References
+
+- [The Law of Jante](https://en.wikipedia.org/wiki/Law_of_Jante)
+- [Steal Like An Artist](https://www.amazon.com/Steal-Like-Artist-Things-Creative/dp/0761169253)
+- [Show Your Work](https://www.amazon.com/Show-Your-Work-Austin-Kleon/dp/076117897X)
