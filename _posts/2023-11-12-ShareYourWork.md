@@ -46,6 +46,8 @@ That's quite abstract and fluffy, I'll admit that. So let's drag this back down 
 
 Another book to mention at this point is another one by Austin Kleon called "Show Your Work". Here he focuses more on the side of why _you_ specifically should start sharing _your_ work. 
 
+![](/img/showyourwork.jpg)
+
 Maybe the most important thing is that in order for people to be inspired and learn, someone had to start sharing at some point. Take a look at the internet today. 
 
 What websites have you have recently visited to get an answer to some questions? Wether they are technical, personal or something else entirely - someone wrote or created that to help others. **By sharing their work, they helped you with yours.** And that's something you can also do!
