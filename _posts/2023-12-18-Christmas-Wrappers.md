@@ -92,7 +92,7 @@ We can accomplish the same in Powershell by creating a hashtable with the header
 
 This functions requires an authentication key as input and returns a hashtable with the authentication header.
 
-```pwsh
+```powershell
 function New-MISPAuthHeader {
   param(
     $MISPAuthKey
@@ -118,7 +118,7 @@ This function requires the output from `New-MISPAuthHeader`, a method, a body an
 
 We will also implement our `try/catch` logic here, so that we can handle the error-message from MISP if we try to add an attribute that already exists on the event.
 
-```pwsh
+```powershell
 function Invoke-MISPRestMethod {
   param(
     $Headers,
@@ -159,7 +159,7 @@ Another option is the [`/events/index`](https://www.misp-project.org/openapi/#ta
 
 We'll be looking at the event name, in MISP this will be the `eventinfo`-field. In some cases multiple events have the same name, so we can also look at an attribute we might expect to see in the event. Here, we'll use the `attribute`-field which allows us to filter on the attributes of events. We can also specify the organization we want to search in with the `org`-field, as we'll most likely want to use our own MISP organization. 
 
-```pwsh
+```powershell
 function Get-MISPEvent {
   param(
     $AuthHeader,
