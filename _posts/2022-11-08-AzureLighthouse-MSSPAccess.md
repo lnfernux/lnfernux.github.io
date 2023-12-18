@@ -76,7 +76,7 @@ graph LR
 |Microsoft Sentinel Playbook Operator|List, view and run playbooks.|
 
 Read more:
-* [https://learn.microsoft.com/en-us/azure/sentinel/roles](https://learn.microsoft.com/en-us/azure/sentinel/roles)
+* [https://learn.microsoft.com/en-us/azure/sentinel/roles](https://learn.microsoft.com/en-us/azure/sentinel/roles/?wt.mc_id=SEC-MVP-5005030)
 
 ---
 
@@ -92,8 +92,8 @@ Read more:
 ***NB:** owner isn't available through Lighthouse, but is required for setting up Microsoft Sentinel with the ability to run automation rules.*
 
 Read more:
-* [https://learn.microsoft.com/en-us/azure/sentinel/roles](https://learn.microsoft.com/en-us/azure/sentinel/roles)
-* [https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation)
+* [https://learn.microsoft.com/en-us/azure/sentinel/roles](https://learn.microsoft.com/en-us/azure/sentinel/roles/?wt.mc_id=SEC-MVP-5005030)
+* [https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/remove-delegation/?wt.mc_id=SEC-MVP-5005030)
 
 If you read the MSSP Playbook there are also a plethora of other roles mentioned:
 
@@ -150,7 +150,7 @@ According to least privilege principles we should scope our access to the resour
 Now this is a hotly debated topic - I'm in favor of the "keep it simple, stupid"-approach, but I'm open to being wrong. 
 
 Instead of complicating your access with multiple roles, I'd like to argue that giving your engineers eligible access to contributor on the resource group level is the easiest way to go. 
-This is in part due to the fact that multiple of the data connectors require Azure Functions and there's [currently no role implemented to give the required access](https://learn.microsoft.com/en-us/answers/questions/427829/is-there-a-role-like-azure-function-contributor.html) and as far as I'm aware there's [no support](https://github.com/MicrosoftDocs/azure-docs/issues/60635) for custom roles in Azure Lighthouse ([yet](https://feedback.azure.com/d365community/idea/148efdcb-f824-ec11-b6e6-000d3a4f0da0)). So if you're responsible for those data connectors:
+This is in part due to the fact that multiple of the data connectors require Azure Functions and there's [currently no role implemented to give the required access](https://learn.microsoft.com/en-us/answers/questions/427829/is-there-a-role-like-azure-function-contributor.html/?wt.mc_id=SEC-MVP-5005030) and as far as I'm aware there's [no support](https://github.com/MicrosoftDocs/azure-docs/issues/60635) for custom roles in Azure Lighthouse ([yet](https://feedback.azure.com/d365community/idea/148efdcb-f824-ec11-b6e6-000d3a4f0da0)). So if you're responsible for those data connectors:
 
 ![this is the way](https://i.ytimg.com/vi/LaiN63o_BxA/maxresdefault.jpg)
 
@@ -179,8 +179,8 @@ This scenario will look like this:
 
 ![](https://learn.microsoft.com/en-us/azure/sentinel/media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png)
 
-* [https://learn.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules#permissions-in-a-multi-tenant-architecture](https://learn.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules#permissions-in-a-multi-tenant-architecture)
-* [https://learn.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC](https://learn.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC)
+* [https://learn.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules#permissions-in-a-multi-tenant-architecture](https://learn.microsoft.com/en-us/azure/sentinel/automate-incident-handling-with-automation-rules#permissions-in-a-multi-tenant-architecture/?wt.mc_id=SEC-MVP-5005030)
+* [https://learn.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC](https://learn.microsoft.com/en-us/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC/?wt.mc_id=SEC-MVP-5005030)
 
 ---
 

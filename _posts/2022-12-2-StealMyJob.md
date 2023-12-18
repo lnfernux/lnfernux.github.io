@@ -110,7 +110,7 @@ My best tip here is to have a project, something you do daily that you'd like to
 
 ### Resources
 
-* [Getting started with Powershell](https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started?view=powershell-7.3)
+* [Getting started with Powershell](https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started?view=powershell-7.3/?wt.mc_id=SEC-MVP-5005030)
 * [Getting started with Python](https://www.python.org/about/gettingstarted/)
 
 ## Learn a hypervisor
@@ -140,17 +140,17 @@ My advice here is to look at the diagrams of the architecture and try to underst
 ### Resources
 
 * [AWS IAM](https://aws.amazon.com/iam/?nc=bc&pg=ft)
-* [Azure AD Fundamentals](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/)
+* [Azure AD Fundamentals](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals//?wt.mc_id=SEC-MVP-5005030)
 * [Building a small lab using VirtualBox by chryzsh](https://hunter2.gitbook.io/darthsidious/building-a-lab/building-a-small-lab)
 * [Building a lab with ESXi and Vagrant by chryzsh](https://hunter2.gitbook.io/darthsidious/building-a-lab/building-a-lab-with-esxi-and-vagrant)
 
 ## Learn a cloud
 
-Get into a cloud provider like Azure, AWS or GCP. I recommend trying out Azure and looking at the [AZ-900](https://learn.microsoft.com/en-us/certifications/exams/az-900) certification and learning path:
+Get into a cloud provider like Azure, AWS or GCP. I recommend trying out Azure and looking at the [AZ-900](https://learn.microsoft.com/en-us/certifications/exams/az-900/?wt.mc_id=SEC-MVP-5005030) certification and learning path:
 
-1. [Microsoft Azure Fundamentals: Describe cloud concepts](https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/)
-2. [Azure Fundamentals: Describe Azure architecture and services](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/)
-3. [Azure Fundamentals: Describe Azure management and governance](https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/)
+1. [Microsoft Azure Fundamentals: Describe cloud concepts](https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/?wt.mc_id=SEC-MVP-5005030)
+2. [Azure Fundamentals: Describe Azure architecture and services](https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/?wt.mc_id=SEC-MVP-5005030)
+3. [Azure Fundamentals: Describe Azure management and governance](https://learn.microsoft.com/en-us/training/paths/describe-azure-management-governance/?wt.mc_id=SEC-MVP-5005030)
 
 Try creating some simple services and understanding how it all works together and translate the things you've looked at earlier to the Cloud, for example networking - how does CloudX implement networks and subnets, firewalls? 
 
@@ -226,7 +226,7 @@ My best advice is to identify a process you manually perform quite often and loo
 
 ### Resources
 
-* [Create your first pipeline in Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser)
+* [Create your first pipeline in Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser/?wt.mc_id=SEC-MVP-5005030)
 
 ## Fail a bunch
 

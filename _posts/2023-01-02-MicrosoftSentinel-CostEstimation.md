@@ -129,11 +129,11 @@ Usage
 
 * **Multiple that number by 4.3 (*assuming every month is a bit more than 30 days*).**
 
-If you're unsure about doing it this way in fear of generating too much cost, you can implement a [cost cap.](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs#define-a-data-volume-cap-in-log-analytics) Just see what your average ingestion is pre onboarding the data connection and set the cap to double that - this should prevent your from blowing your entire SIEM-budget overnight:
+If you're unsure about doing it this way in fear of generating too much cost, you can implement a [cost cap.](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs#define-a-data-volume-cap-in-log-analytics/?wt.mc_id=SEC-MVP-5005030) Just see what your average ingestion is pre onboarding the data connection and set the cap to double that - this should prevent your from blowing your entire SIEM-budget overnight:
 
 ![](https://learn.microsoft.com/en-us/azure/sentinel/media/billing-monitor-costs/daily-cap.png)
 
-If you want some more ideas for queries to run, check out ["Run queries to understand your data ingestion"](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs#run-queries-to-understand-your-data-ingestion) courtesy of Microsoft Learn.
+If you want some more ideas for queries to run, check out ["Run queries to understand your data ingestion"](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs#run-queries-to-understand-your-data-ingestion/?wt.mc_id=SEC-MVP-5005030) courtesy of Microsoft Learn.
 
 # Closing words
 
@@ -145,8 +145,8 @@ It's also important to be up front with anyone that has an interest in the estim
 
 * [Microsoft Sentinel Cost Workbook](https://azurecloudai.blog/2021/12/01/using-the-microsoft-sentinel-cost-workbook/) - blog post by Rod Trent
 * [Hunting down costs within Log Analytics](https://www.linkedin.com/pulse/hunting-down-costs-within-log-analytics-nathan-swift/) - article by Nathan Swift
-* [Manage and monitor costs for Microsoft Sentinel](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs) - Microsoft Learn
+* [Manage and monitor costs for Microsoft Sentinel](https://learn.microsoft.com/en-us/azure/sentinel/billing-monitor-costs/?wt.mc_id=SEC-MVP-5005030) - Microsoft Learn
 * [Data and cost estimation for Log Analytics](https://blog.peterschen.de/data-and-cost-estimation-for-log-analytics/) - blog post by Christoph Petersen
-* [Azure Monitor Logs cost calculations and options](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs) - Microsoft Learn
-* [Reduce costs for Microsoft Sentinel](https://learn.microsoft.com/en-us/azure/sentinel/billing-reduce-costs) - Microsoft Learn
+* [Azure Monitor Logs cost calculations and options](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs/?wt.mc_id=SEC-MVP-5005030) - Microsoft Learn
+* [Reduce costs for Microsoft Sentinel](https://learn.microsoft.com/en-us/azure/sentinel/billing-reduce-costs/?wt.mc_id=SEC-MVP-5005030) - Microsoft Learn
 * [Optimize your Microsoft Sentinel pricing](https://medium.com/@koosg/optimize-microsoft-sentinel-pricing-ca9901840b75) - by Koos Goossens

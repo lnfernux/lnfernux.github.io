@@ -39,7 +39,7 @@ An **Indicator of compromise**, or IOC for short, is a forensic artifact, observ
 - **Signatures** of malicious network traffic
 - **URLs or domains** that are known malware distributors
 
-For more information on IOCs, please check out [Indicator of compromise (IoC) overview](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/manage-indicators?view=o365-worldwide) from Microsoft Learn.
+For more information on IOCs, please check out [Indicator of compromise (IoC) overview](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/manage-indicators?view=o365-worldwide/?wt.mc_id=SEC-MVP-5005030) from Microsoft Learn.
 
 ---
 
@@ -255,7 +255,7 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
 - OS can remain Linux
 - At plan type choose **App service plan** or **Premium** for production workloads. *I'll use consumption for this demo.*
 - Other settings can be left to default values. Click **Review + Create**
-3. After the creation of the Azure Function, add a [**system managed identity to the Azure Function**](https://learn.microsoft.com/EN-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp#add-a-system-assigned-identity). This will be used to authenticate with the Key Vault.
+3. After the creation of the Azure Function, add a [**system managed identity to the Azure Function**](https://learn.microsoft.com/EN-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=portal%2Chttp#add-a-system-assigned-identity/?wt.mc_id=SEC-MVP-5005030). This will be used to authenticate with the Key Vault.
 
     ![](/img/MISP/AzureFunctionManagedIdentity.png)
 
@@ -277,7 +277,7 @@ Keep in mind, the logical diagrams might not correctly display what is going on,
     - **Value**: URL of your MISP instance (e.g. `https://<url>` or `https://<ip address>`)
 13. Add a new application setting with the the following settings:
     - **Name**: `timerTriggerSchedule`
-    - The `timerTriggerSchedule` takes a cron expression. For more information, see [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cin-process&pivots=programming-language-python).
+    - The `timerTriggerSchedule` takes a cron expression. For more information, see [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cin-process&pivots=programming-language-python/?wt.mc_id=SEC-MVP-5005030).
     * Run once every two hours cron expression: `0 */2 * * *`
 14. ***OPTIONAL*** - Add a new application setting with the the following settings:
     - **Name**: `AzureFunctionsJobHost__functionTimeout` 
@@ -346,7 +346,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=<APP_ID>&sso_rel
 
 This is a temporary update to the misp2sentinel project to allow it to run multi-tenant and in an Azure Function, deployed directly from the repository. 
 
-With the new [Upload Indicators API](https://learn.microsoft.com/en-us/azure/sentinel/upload-indicators-api) being released and the work being done [to port the current project to the new API](https://github.com/cudeso/misp2sentinel/tree/upload_indicators_api), this update will be deprecated soon. 
+With the new [Upload Indicators API](https://learn.microsoft.com/en-us/azure/sentinel/upload-indicators-api/?wt.mc_id=SEC-MVP-5005030) being released and the work being done [to port the current project to the new API](https://github.com/cudeso/misp2sentinel/tree/upload_indicators_api), this update will be deprecated soon. 
 
 Once the project is up and running on the new API I will update this repository to reflect the changes and transfer this code to the new API to the best of my limited abilities.
 

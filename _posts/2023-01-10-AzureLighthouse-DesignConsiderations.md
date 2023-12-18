@@ -109,7 +109,7 @@ PIM activations will not show in any logs in the customer tenant. The only logs 
 * Every engineer is assigned as eligible to the `engineering`-group.
 * Activating the `engineering`-group makes you eligible to activate the `Microsoft Sentinel Contributor`-role for each customer. 
 * You could, optionally, add a customer-specific group you would have to activate in order to then be able to activate specific roles, but that seems a bit overkill.
-* The `Microsoft Sentinel Contributor`-role is added as an eligible authorization in the Lighthouse-template (example given from [Microsoft Learn](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/create-eligible-authorizations#define-eligible-authorizations-in-your-parameters-file)):
+* The `Microsoft Sentinel Contributor`-role is added as an eligible authorization in the Lighthouse-template (example given from [Microsoft Learn](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/create-eligible-authorizations#define-eligible-authorizations-in-your-parameters-file/?wt.mc_id=SEC-MVP-5005030)):
 
 ```json
 "authorizations": {
@@ -177,7 +177,7 @@ As with design 1, any PIM activations in this design (so both role group activat
 
 ### Customer tenant
 
-I was pretty sure that eligible authorizations would show up in the `AuditLogs`-table, but [boy was I wrong](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/create-eligible-authorizations#how-eligible-authorizations-work) - it will be in the `AzureActivity`-table. It will show up as either `Create role assignment` for activation and `Delete role assignment` for deactivation.
+I was pretty sure that eligible authorizations would show up in the `AuditLogs`-table, but [boy was I wrong](https://learn.microsoft.com/en-us/azure/lighthouse/how-to/create-eligible-authorizations#how-eligible-authorizations-work/?wt.mc_id=SEC-MVP-5005030) - it will be in the `AzureActivity`-table. It will show up as either `Create role assignment` for activation and `Delete role assignment` for deactivation.
 
 The drawback here is that the log entries only contain the `PrincipalId` of the user activating the role, which corresponds to the Azure AD `ObjectId` of the user. So it's possible, with some help from an administrator in the managing tenant to map activations to users, but it's not straight forward for the customer. You can still see what role is being activated, so you can set up monitoring for highly privileged role activations if you want to track that.
 

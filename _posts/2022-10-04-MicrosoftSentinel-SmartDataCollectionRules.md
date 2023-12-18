@@ -16,7 +16,7 @@ image: /img/sentinel.png
 
 ## Introduction
 
-[Data Collection Rules](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview) are rules that allow us to specify what data is collected, how it's transformed and where to send it. We will be looking specifically at a scenario where we use the Azure Monitor Agent on Windows machines for gathering security events from the event log.
+[Data Collection Rules](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview/?wt.mc_id=SEC-MVP-5005030) are rules that allow us to specify what data is collected, how it's transformed and where to send it. We will be looking specifically at a scenario where we use the Azure Monitor Agent on Windows machines for gathering security events from the event log.
 
 ### Assumptions
 
@@ -201,7 +201,7 @@ Whenever we want to push Data Collection Rules, we can use [this guidance](https
 
 ## Sources
 
-* [Data Collection Rule overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview)
+* [Data Collection Rule overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview/?wt.mc_id=SEC-MVP-5005030)
 * [Testing the new Windows Security Events connector](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/testing-the-new-version-of-the-windows-security-events-connector/ba-p/2483369)
 * [OSSEM-DM](https://github.com/OTRF/OSSEM-DM)
 * [Palantir Windows event forwarding](https://github.com/palantir/windows-event-forwarding)

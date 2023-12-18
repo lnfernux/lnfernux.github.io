@@ -25,7 +25,7 @@ There's three high level steps to this process, as mentioned in the guidance fro
 
 ## Connect DevOps environments
 
-The following features will be enabled (from [Microsoft](https://learn.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-devops)):
+The following features will be enabled (from [Microsoft](https://learn.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-devops/?wt.mc_id=SEC-MVP-5005030)):
 
 * Defender for Cloud's CSPM features - Assesses your Azure DevOps resources according to ADO-specific security recommendations. These recommendations are also included in your secure score. Resources will be assessed for compliance with built-in standards that are specific to DevOps. Defender for Cloud's asset inventory page is a multicloud enabled feature that helps you manage your Azure DevOps resources alongside your Azure resources.
 
@@ -51,8 +51,7 @@ The following features will be enabled (from [Microsoft](https://learn.microsoft
 7. Select your organization from the drop-down menu and select either auto-discover or a specific project.
 8. Select Next: Review and create, then click create.
 
-You can also view the full quickstart from Microsoft [here](https://learn.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-devops#connect-your-azure-devops-organization
-) with some pictures.
+You can also view the full quickstart from Microsoft [here](https://learn.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-devops#connect-your-azure-devops-organization/?wt.mc_id=SEC-MVP-5005030) with some pictures.
 
 ## Azure DevOps
 
@@ -112,7 +111,7 @@ Again, defaults to `all`, but can be set to the following values:
 |`bandit`|[Covers Python](https://github.com/PyCQA/bandit)
 |`binskim`|[Covers binaries - Windows, ELF](https://github.com/Microsoft/binskim)
 |`eslint`|[Covers JavaScript](https://github.com/eslint/eslint)
-|`credscan`*|[Microsoft-tool to identity credential leaks](https://learn.microsoft.com/en-us/azure/defender-for-cloud/detect-credential-leaks)
+|`credscan`*|[Microsoft-tool to identity credential leaks](https://learn.microsoft.com/en-us/azure/defender-for-cloud/detect-credential-leaks/?wt.mc_id=SEC-MVP-5005030)
 |`template-analyzer`|[Covers ARM, Bicep](https://github.com/Azure/template-analyzer)
 |`terrascan`|[Covers Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, Cloud Formation	](https://github.com/accurics/terrascan)
 |`trivy`|[Covers container images, file systems, git repositories](https://github.com/aquasecurity/trivy)
@@ -137,4 +136,4 @@ Stops the task if set to `true`, defaults to `false`.
 |(Preview) GitHub repositories should have secret scanning enabled	|GitHub scans repositories for known types of secrets, to prevent fraudulent use of secrets that were accidentally committed to repositories. Secret scanning will scan the entire Git history on all branches present in the GitHub repository for any secrets. Examples of secrets are tokens and private keys that a service provider can issue for authentication. If a secret is checked into a repository, anyone who has read access to the repository can use the secret to access the external service with those privileges. Secrets should be stored in a dedicated, secure location outside the repository for the project. (No related policy)|	High
 |(Preview) GitHub repositories should have Dependabot scanning enabled	|GitHub sends Dependabot alerts when it detects vulnerabilities in code dependencies that affect repositories. A vulnerability is a problem in a project's code that could be exploited to damage the confidentiality, integrity, or availability of the project or other projects that use its code. Vulnerabilities vary in type, severity, and method of attack. When code depends on a package that has a security vulnerability, this vulnerable dependency can cause a range of problems. (No related policy)	|Medium
 
-From [DevOps recommendations.](https://learn.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference#devops-recommendations) Each tool mentioned above will also surface their own recommendations locally in Azure DevOps and in Defender for Cloud.
+From [DevOps recommendations.](https://learn.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference#devops-recommendations/?wt.mc_id=SEC-MVP-5005030) Each tool mentioned above will also surface their own recommendations locally in Azure DevOps and in Defender for Cloud.

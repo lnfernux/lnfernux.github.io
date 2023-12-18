@@ -16,7 +16,7 @@ image: /img/sentinel.png
 
 # Background
 
-During the last few months I've been working on sending indicators from a [MISP-server](https://www.misp-project.org/) to Sentinel. First porting it to an Azure Function myself, then stealing some code from [zolderik](https://github.com/zolderio/misp-to-sentinel/tree/main) to make the code work for multi-tenant pushing. I have also upgraded it to include the work of [cudeso](https://github.com/cudeso/misp2sentinel) and also hope to upgrade it to use the new [upload indicators API](https://learn.microsoft.com/en-us/azure/sentinel/whats-new#may-2023) that just went into general availability.
+During the last few months I've been working on sending indicators from a [MISP-server](https://www.misp-project.org/) to Sentinel. First porting it to an Azure Function myself, then stealing some code from [zolderik](https://github.com/zolderio/misp-to-sentinel/tree/main) to make the code work for multi-tenant pushing. I have also upgraded it to include the work of [cudeso](https://github.com/cudeso/misp2sentinel) and also hope to upgrade it to use the new [upload indicators API](https://learn.microsoft.com/en-us/azure/sentinel/whats-new#may-2023/?wt.mc_id=SEC-MVP-5005030) that just went into general availability.
 
 You can follow the 'official' repo [here](https://github.com/cudeso/misp2sentinel) and follow development on the upload indicators version of the same script [here](https://github.com/cudeso/misp2sentinel/tree/upload_indicators_api). I'm planning to push my current multi-tenant implementation as a PR (soonTM) and hopefully expand it to this new API as well. 
 
@@ -26,7 +26,7 @@ _When (if) I'm done, I'll write a new post about it._
 
 ![](/img/timeout.gif)
 
-[According to Microsoft](https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions?tabs=v4&pivots=programming-language-csharp#timeout) there's a default timeout of 5 minutes for Azure Functions on the consumption plan with a maximum duration of 10 minutes. This is fine for most functions, but when you're working with data connectors, you might run into issues, especially if you're working with large amounts of data in a single run.
+[According to Microsoft](https://learn.microsoft.com/en-us/azure/azure-functions/functions-versions?tabs=v4&pivots=programming-language-csharp#timeout/?wt.mc_id=SEC-MVP-5005030) there's a default timeout of 5 minutes for Azure Functions on the consumption plan with a maximum duration of 10 minutes. This is fine for most functions, but when you're working with data connectors, you might run into issues, especially if you're working with large amounts of data in a single run.
 
 If we upgrade to the premium plan, however, we can increase this timeout to 30 minutes default or unlimited maximum. This might be a bit overkill in some cases, but for the MISP2Sentinel function it's a must.
 
@@ -34,7 +34,7 @@ If we upgrade to the premium plan, however, we can increase this timeout to 30 m
 
 No matter what plan you're on, you have two options to configure the timeout: 
 
-1. Modify the `functionTimeout` in the `host.json` [file](https://learn.microsoft.com/en-us/azure/azure-functions/functions-host-json#functiontimeout)
+1. Modify the `functionTimeout` in the `host.json` [file](https://learn.microsoft.com/en-us/azure/azure-functions/functions-host-json#functiontimeout/?wt.mc_id=SEC-MVP-5005030)
 2. Add the `AzureFunctionsJobHost__functionTimeout` app setting in the configuration of the function in the Azure Portal
 
 * Please note that trying to extend the timeout beyond the maximum will not work. This does not really apply to the premium or dedicated plans, but will apply to the consumption plan. *

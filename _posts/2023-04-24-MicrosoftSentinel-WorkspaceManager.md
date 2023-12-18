@@ -25,7 +25,7 @@ Currently there are some limitations as to what it can do, but it can manage the
 * Workbooks
 * Kusto functions (hunting queries, parsers etc)
 
-Obviously playbooks missing is a big deal, and workspace manager can't delete content. It's all about part of the [known expectations](https://learn.microsoft.com/en-us/azure/sentinel/workspace-manager#known-limitations) however, so expect this to probably be remedied in the future.
+Obviously playbooks missing is a big deal, and workspace manager can't delete content. It's all about part of the [known expectations](https://learn.microsoft.com/en-us/azure/sentinel/workspace-manager#known-limitations/?wt.mc_id=SEC-MVP-5005030) however, so expect this to probably be remedied in the future.
 
 ---
 
@@ -33,7 +33,7 @@ Obviously playbooks missing is a big deal, and workspace manager can't delete co
 
 Workspace Manager utilizes Azure Lighthouse. It requires the person configuring it to have Microsoft Sentinel Contributor roles on all workspaces you want to manage, and the workspace you manage from.
 
-In the [official documentation](https://learn.microsoft.com/en-us/azure/sentinel/workspace-manager) Microsoft presents the following three architectures:
+In the [official documentation](https://learn.microsoft.com/en-us/azure/sentinel/workspace-manager/?wt.mc_id=SEC-MVP-5005030) Microsoft presents the following three architectures:
 
 ![](/img/MicrosoftSentinel/architectures.png)
 
