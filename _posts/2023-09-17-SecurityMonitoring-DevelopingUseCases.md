@@ -106,7 +106,7 @@ So what exactly is an actionable use case? Well, it's a use case that has a clea
 
 > An attacker will try to pivot between my servers using RDP and I want to detect it.
 
-This is what we refer to as [**RDP Nesting**](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/run-remote-desktop-connection-session) - it's a technique that attackers use to move laterally between servers by RDPing from one server to another, usually deploying tooling **like Mimikatz** to extract credentials and move further into the environment.
+This is what we refer to as [**RDP Nesting**](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/run-remote-desktop-connection-session/?wt.mc_id=SEC-MVP-5005030) - it's a technique that attackers use to move laterally between servers by RDPing from one server to another, usually deploying tooling **like Mimikatz** to extract credentials and move further into the environment.
 
 ```mermaid
 graph LR
@@ -129,7 +129,7 @@ First, before we move on with developing a use case, we need to take into accoun
 
 *Your IT operations team when you implement a use case that generates a lot of false positives from their normal usage, probably.*
 
-**If the answer is no** we can go ahead and start implementing the use case. First of all, we need to identify the data sources that we need to collect. In this case, we need to collect event logs from our relevant Windows servers. This blog won't dive into the specifics on how to ingest the logs themselves, but you can read more about [connecting data sources here](https://docs.microsoft.com/en-us/azure/sentinel/connect-data-sources).
+**If the answer is no** we can go ahead and start implementing the use case. First of all, we need to identify the data sources that we need to collect. In this case, we need to collect event logs from our relevant Windows servers. This blog won't dive into the specifics on how to ingest the logs themselves, but you can read more about [connecting data sources here](https://learn.microsoft.com/en-us/azure/sentinel/connect-data-sources/?wt.mc_id=SEC-MVP-5005030).
 
 ## Developing the use case
 
@@ -137,9 +137,9 @@ At this point we've defined our hypothesis and identified the data sources we ne
 
 ### Finding the correct events
 
-When it comes to detecting RDP nesting, first we need to detect that someone has logged on to the server. This is usually indicated by an event with the ID **[4624](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624)** in the windows event log. 
+When it comes to detecting RDP nesting, first we need to detect that someone has logged on to the server. This is usually indicated by an event with the ID **[4624](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624/?wt.mc_id=SEC-MVP-5005030)** in the windows event log. 
 
-In these events we can see the field **Logon Type**. This field will tell us how the user logged on to the server. In this case, we are interested in **[Logon Type 10](https://learn.microsoft.com/en-us/windows-server/identity/securing-privileged-access/reference-tools-logon-types)** which indicates a remote interactive logon.
+In these events we can see the field **Logon Type**. This field will tell us how the user logged on to the server. In this case, we are interested in **[Logon Type 10](https://learn.microsoft.com/en-us/windows-server/identity/securing-privileged-access/reference-tools-logon-types/?wt.mc_id=SEC-MVP-5005030)** which indicates a remote interactive logon.
 
 ![](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/images/event-4624.png)
 

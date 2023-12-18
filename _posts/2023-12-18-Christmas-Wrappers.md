@@ -16,6 +16,21 @@ One of my earliest posts was ["Building a function"](https://www.infernux.no/Aut
 
 ![](/img/MISP/santa.png)
 
+### Table of contents
+
+- [What is a wrapper script?](#what-is-a-wrapper-script)
+- [Choosing an API](#choosing-an-api)
+  - [But we need a use case](#but-we-need-a-use-case)
+- [Creating the wrapper script](#creating-the-wrapper-script)
+  - [What functions do we need?](#what-functions-do-we-need)
+  - [Function map](#function-map)
+  - [Creating the functions](#creating-the-functions)
+    - [New-MISPAuthHeader](#new-mispauthheader)
+    - [Invoke-MISPRestMethod](#invoke-misprestmethod)
+    - [Get-MISPEvent](#get-mispevent)
+- [Summary](#summary)
+- [Links](#links)
+
 ## What is a wrapper script?
 
 A wrapper script is a script that wraps around another script, function or API. It's a way to add functionality to a script without modifying the original script. This is useful if you want to add logging, error-handling or other functionality to a script without modifying the original script.

@@ -172,7 +172,7 @@ Not much will change from my previous post, so most of this guidance will be sim
     - **Value**: URL of your MISP instance (e.g. `https://<url>` or `https://<ip address>`)
 13. Add a new application setting with the the following settings:
     - **Name**: `timerTriggerSchedule`
-    - The `timerTriggerSchedule` takes a cron expression. For more information, see [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cin-process&pivots=programming-language-python).
+    - The `timerTriggerSchedule` takes a cron expression. For more information, see [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=python-v2%2Cin-process&pivots=programming-language-python/?wt.mc_id=SEC-MVP-5005030).
     * Run once every two hours cron expression: `0 */2 * * *`
 14. ***OPTIONAL*** - Add a new application setting with the the following settings:
     - **Name**: `AzureFunctionsJobHost__functionTimeout` 
@@ -222,7 +222,7 @@ az functionapp deployment source config-zip --resource-group <resourcegroupname>
 
 ### WEBSITE_RUN_FROM_PACKAGE
 
-You can also use the [`WEBSITE_RUN_FROM_PACKAGE`](https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings#website_run_from_package) configuration setting, which will allow you to upload the ZIP-file to a storage account (or Github repository) and have the Azure Function run from there. This is useful if you want to use a CI/CD pipeline to deploy the Azure Function, meaning you can just update the ZIP-file and have the Azure Function automatically update.
+You can also use the [`WEBSITE_RUN_FROM_PACKAGE`](https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings#website_run_from_package/?wt.mc_id=SEC-MVP-5005030) configuration setting, which will allow you to upload the ZIP-file to a storage account (or Github repository) and have the Azure Function run from there. This is useful if you want to use a CI/CD pipeline to deploy the Azure Function, meaning you can just update the ZIP-file and have the Azure Function automatically update.
 
 ## Adding multi-tenancy support
 
