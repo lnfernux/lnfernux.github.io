@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Christmas Wrappers: Part 1
+title: Christmas Wrappers - Part 1
 subtitle: How to create a wrapper script in Powershell
 tags:
   - Powershell
