@@ -103,6 +103,8 @@ curl  --header "Authorization: YOUR_API_KEY" \
 
 We can accomplish the same in Powershell by creating a hashtable with the headers we need. We can then use this hashtable as input to the `Invoke-WebRequest` cmdlet.
 
+---
+
 #### New-MISPAuthHeader
 
 This functions requires an authentication key as input and returns a hashtable with the authentication header.
@@ -123,9 +125,11 @@ function New-MISPAuthHeader {
 
 If we want to run the function:
 
-```pwsh
+```powershell
 $MISPHeader = New-MISPAuthHeader -MISPAuthKey "dadada..."
 ```
+
+---
 
 #### Invoke-MISPRestMethod
 
@@ -160,9 +164,11 @@ function Invoke-MISPRestMethod {
 
 If we want to run the function:
   
-```pwsh
+```powershell
 $MISPResult = Invoke-MISPRestMethod -Headers $MISPHeader -Method "POST" -Body $MISPBody -Uri $MISPURI
 ```
+
+---
 
 #### Get-MISPEvent
 
@@ -203,9 +209,11 @@ function Get-MISPEvent {
 
 Using this function:
 
-```pwsh
+```powershell
 $MISPEvent = Get-MISPEvent -AuthHeader $MISPHeader -MISPUri https://misp.domain -MISPOrg "infernux.no" -MISPEventName "Test Event 1011" -MISPAttribute "exampleText"
 ```
+
+---
 
 ## Summary
 
