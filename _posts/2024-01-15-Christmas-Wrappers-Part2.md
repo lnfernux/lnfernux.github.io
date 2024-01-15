@@ -256,6 +256,8 @@ function Create-MISPEvent {
 }
 ```
 
+---
+
 #### How does the script work? 
 
 This part is generated entirely by Github Copilot:
