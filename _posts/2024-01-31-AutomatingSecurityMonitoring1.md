@@ -31,10 +31,12 @@ Lately I've been presenting a few times on the topic of automation and in partic
 
 # An introduction to the issue
 
-Alert fatigue happens when we have too many alerts compared to our capacity. Alerts are usually surfaced based on detection queries. These queries in turn are hypothesis that something bad will occur if we observe certain conditions in our data, something malicious is going on. The consequence, then, is that we risk missing the true positives in the sea of false positives. Automation can help us combat this, in addition to two other factors:
+**Alert fatigue happens when we have too many alerts compared to our capacity**. Alerts are usually surfaced based on detection queries. These queries in turn are hypothesis that something bad will occur if we observe certain conditions in our data, something malicious is going on. The consequence, then, is that we risk missing the true positives in the sea of false positives. **Automation** can help us combat this, in addition to two other factors:
 
 1. Data
 2. Detection queries
+
+The **focus of this post is on the dimension of data**. This post, in combination with a post I've already written about [detection and how to do use case development](https://www.infernux.no/SecurityMonitoring-DevelopingUseCases/) will serve as the foundation for the next parts in this series on automation.
 
 ---
 
@@ -82,8 +84,6 @@ We can to a certain degree work with our data to make sure we have a good balanc
 That being said, there's only so much we can do with this - at some point we need to agree that even though not all alerts are equally interesting on their own, they help paint a broader picture of what's going down. 
 
 This is where Security Automation, Orchestration and Response (SOAR) comes into play. This is a broad term we use to describe what we can do with alerts and incidents that have been surfaced. Using SOAR we can close, enrich, label, change and respond to our alerts in bulk, making the security team able to pick out the true positives much more easily.
-
-*I've already spent some time discussing [use cases and their development in a previous post](https://www.infernux.no/SecurityMonitoring-DevelopingUseCases/), so I will refrain from talking too much about detection queries and use cases in this post.*
 
 ## The Challenge of Alert Fatigue
 
