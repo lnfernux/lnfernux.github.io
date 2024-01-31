@@ -43,7 +43,7 @@ Alert fatigue happens when we have too many alerts compared to our capacity. Ale
 Let's imagine a scenario where a user interacts with a malicious website. We assume that the machine has some level of protection, like an Endpoint Detection and Response (EDR) tool.
 
 ```mermaid
-graph TD
+graph LR
 C(Computer) --> |Generates| L[(Logs)]
 H((Human)) --> |Use| C
 H --> |Visits| M[Malicious website]
@@ -54,12 +54,12 @@ M -..-> L
 As we can see, the user uses the computer to visit the malicious website. This _should_ trigger some level of response from the EDR-tool and in turn generate logs. From here we can usually ingest the logs into our SIEM tool of choice.
 
 ```mermaid
-graph TD
+graph LR
 L[(Logs)] --> Fwd[Forwarding Mechanism]
 A(Agent) -.-> Fwd
 LL(Logserver) -.-> Fwd
 API(API) -.-> Fwd
-Fwd --> S{{SIEM}}
+Fwd --> S{SIEM}
 ```
 
 During this operation, the data is usually parsed or indexed to make it searchable in the query language of the SIEM. 
@@ -142,7 +142,7 @@ D[(Raw data)] --> DEP(Data engineering pipeline)
 DEP --> R[(Refined data)]
 R --> DAP(Data analytics pipeline)
 DAP --> S(((Signals)))
-style S fill:#f00,stroke:#333,stroke-width:4px
+style S fill:#f00,stroke:#333;
 ```
 
 The general idea here is that we should have some level of control over the data we ingest - **not ingesting it for the sake of ingesting**, but because it holds a value. The cost/value is determined by the risk profile of the company, the data source itself and the maturity of the security team.
