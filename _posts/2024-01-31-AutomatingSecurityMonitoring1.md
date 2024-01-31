@@ -58,9 +58,9 @@ As we can see, the user uses the computer to visit the malicious website. This _
 ```mermaid
 graph LR
 L[(Logs)] --> Fwd[Forwarding Mechanism]
-A(Agent) -.-> Fwd
-LL(Logserver) -.-> Fwd
-API(API) -.-> Fwd
+Fwd -.-> A(Agent) 
+Fwd -.-> LL(Logserver)
+Fwd -.-> API(API)
 Fwd --> S{SIEM}
 ```
 
