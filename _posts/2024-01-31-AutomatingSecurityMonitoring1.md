@@ -18,6 +18,8 @@ Lately I've been presenting a few times on the topic of automation and in partic
 
 ### Table of Contents
 - [An introduction to the issue](#an-introduction-to-the-issue)
+  - [Data ingestion scenario](#data-ingestion-scenario)
+  - [Data manipulation](#data-manipulation)
   - [The Challenge of Alert Fatigue](#the-challenge-of-alert-fatigue)
   - [What is alert fatigue?](#what-is-alert-fatigue)
   - [How do we combat it?](#how-do-we-combat-it)
