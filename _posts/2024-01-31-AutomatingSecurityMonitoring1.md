@@ -40,6 +40,8 @@ The **focus of this post is on the dimension of data**. This post, in combinatio
 
 ---
 
+![](/img/future.png)
+
 ## Data ingestion scenario
 
 Let's imagine a scenario where a user interacts with a malicious website. We assume that the machine has some level of protection, like an Endpoint Detection and Response (EDR) tool.
@@ -79,41 +81,41 @@ P --> |Indexed| T
 
 ## Data manipulation
 
-We can to a certain degree work with our data to make sure we have a good balance of quality and quantity, and we can tune and tweak our detection queries to make sure we limit the amounts of false positives we get. 
+We can to a **certain degree work with our data to make sure we have a good balance of quality and quantity**, and we can **tune and tweak our detection queries** to make sure we **limit the amounts of false positives** we get. 
 
-That being said, there's only so much we can do with this - at some point we need to agree that even though not all alerts are equally interesting on their own, they help paint a broader picture of what's going down. 
+That being said, there's **only so much we can do with this** - at some point we need to agree that even though not all alerts are equally interesting on their own, they help paint a broader picture of what's going down. 
 
-This is where Security Automation, Orchestration and Response (SOAR) comes into play. This is a broad term we use to describe what we can do with alerts and incidents that have been surfaced. Using SOAR we can close, enrich, label, change and respond to our alerts in bulk, making the security team able to pick out the true positives much more easily.
+This is where Security Automation, Orchestration and Response (SOAR) comes into play. This is a broad term we use to describe what we can do with alerts and incidents that have been surfaced. Using SOAR we can close, enrich, label, change and respond to our alerts in bulk, **making the security team able to pick out the true positives much more easily**.
 
 ## The Challenge of Alert Fatigue
 
-In security monitoring, alert fatigue poses a significant challenge, with security teams overwhelmed by the sheer volume of alerts. This chapter delves into the consequences of alert fatigue and explores the inherent limitations of relying solely on detection queries to manage the deluge of security alerts.
+In security monitoring, **alert fatigue poses a significant challenge**, with security teams overwhelmed by the sheer volume of alerts. This chapter delves into the consequences of alert fatigue and explores the inherent limitations of relying solely on detection queries to manage the deluge of security alerts.
 
 ## What is alert fatigue?
 
-Imagine you're at work, whatever you're currently working as, and you have 4 very important tasks you need to get done by the end of the day. Even at full speed it would take you the entire day to complete 2 of the 4 tasks. You're not going to be able to complete all 4 tasks, and you're going to have to prioritize. Now imagine all the tasks are similar, maybe you're compiling a report and their all similar, but for different departments. How would you prioritize?
+Imagine you're at work, whatever you're currently working as, and you have **4 very important tasks you need to get done by the end of the day**. Even **at full speed it would take you the entire day to complete 2 of the 4 tasks**. You're **not going** to be able to **complete all 4 tasks**, and you're **going to have to prioritize**. Now imagine all **the tasks are similar**. How would you prioritize?
 
-It's the same for security monitoring, except here the stakes (might) be a bit higher. You have 4 alerts of high priority, all involving phishing of different users. Which do you prioritize? Which do you investigate first? If you're only able to investigate 2 of the 4 alerts, how do you know you're investigating the right ones? This is alert fatigue in a nutshell, and you're just hoping that the ones you are able to get to are the actual true positives.
+It's the same for security monitoring, except here the stakes (*might*) be a bit higher. You have **4 alerts of high priority**, all involving **phishing of different users**. Which do you prioritize? Which do you **investigate first?** If you're only able to investigate 2 of the 4 alerts, **how do you know you're investigating the right ones?** This is alert fatigue in a nutshell, and you're just **hoping that the ones you are able to get to are the actual true positives**.
 
 ## How do we combat it?
 
 There are three main components (aside from staffing, training and other non-technical solutions) that we can use to combat alert fatigue:
 
-1. Work with our data
-2. Work with our detection queries
-3. Work with our alerts (automation/SOAR)
+1. Work with our **data**
+2. Work with our **detection** queries
+3. Work with our alerts (**automation**/SOAR)
 
 As I've already covered a bit on detection queries [earlier](https://www.infernux.no/SecurityMonitoring-DevelopingUseCases/), let's start with data.
 
 # Data: Quantity vs. Quality
 
-In the realm of cybersecurity, the effectiveness of our defense mechanisms hinges on the data we collect and analyze. As we strive to fortify our digital perimeters, a critical dichotomy emerges—balancing the quality of data against its sheer quantity. This chapter delves into the pivotal role that data plays in the generation of security alerts.
+In the realm of cybersecurity, the effectiveness of our defense mechanisms **hinges on the data we collect and analyze**. As we strive to fortify our digital perimeters, a critical dichotomy emerges—balancing the **quality of data against its sheer quantity**. This chapter delves into the pivotal role that data plays in the generation of security alerts.
 
 ## The Data Dilemma
 
-Since the dawn of monitoring and detection, the challenge of data has been a constant. The more data we have and the more we can analyze, the more we can detect. If we have "all" the data, this would mean that we would be able to detect everything, right? Not really, as I've [written about before](https://www.infernux.no/SecurityStrategy/), since it's very dependant on your ability to actually analyze and understand the data, build good queries and actually be able to work the alerts.
+Since the dawn of monitoring and detection, the challenge of data has been a constant. The **more data we have** and **the more we can analyze**, the more **we can detect**. If we **have "all" the data**, this would mean that we would be able to **detect everything, right?** Not really, as I've [written about before](https://www.infernux.no/SecurityStrategy/), since it's very dependant on your ability to actually analyze and understand the data, build good queries and **actually be able to handle the alerts**.
 
-So should we just ignore data? Yes, to a certain degree. And before everyone gets mad at me for this point, not forever, of course. My stance is one of building brick by brick, or to quote Will Smith:
+So should we just **ignore data? Yes, to a certain degree**. *And before everyone gets mad at me for this point, not forever, of course*. My stance is one of building brick by brick, or to quote Will Smith:
 
 > **You don't set out to build a wall. You don't say 'I'm going to build the biggest, baddest, greatest wall that's ever been built.' You don't start there. You say, 'I'm going to lay this brick as perfectly as a brick can be laid.' You do that every single day. And soon you have a wall.**
 
@@ -126,7 +128,7 @@ To summarize this point, I'll refer to myself;
 5. Finish implementing.
 6. See 1.
 
-Doing it this way, you'll be able to build a solid foundation for your security monitoring, and you'll be able to build on it as you go. This helps us make good use of the tools and data sources we currently have and it helps build a solid foundation. When we start onboarding new data sources, we can use the same process to make sure we're not just adding data for the sake of adding data, but that we're actually able to use it.
+Doing it this way, you'll be able to build a **solid foundation for your security monitoring**, and you'll be able to **build on it as you go**. This helps us make good use of the tools and data sources we currently have and it helps build a solid foundation. When we start onboarding new data sources, we can use the same process to make sure we're **not just adding data for the sake of adding data**, but that we're actually **able to use it**.
 
 **People and processes over tools and data, *always*.**
 
@@ -156,4 +158,4 @@ If the value is deemed to low to be used as a source for detection we might send
 
 # Summary
 
-In this post we've looked at the issue of alert fatigue, what it is and how we can combat it. We've done this mainly by looking at the importance of data and how we can work with it to make sure we're not just ingesting everything, but that we're actually able to use it. In the next post we'll look at automation, specifically security automation, orchestration and response (SOAR) and how we can use it to combat alert fatigue.
+In this post we've looked at the issue of alert fatigue, what it is and how we can combat it. We've done this mainly by looking at the importance of data and how we can work with it to make sure we're **not just ingesting everything**, but that we're actually able to use it. In the next post we'll look at automation, specifically security automation, orchestration and response (SOAR) and how we can use it to combat alert fatigue.
