@@ -125,24 +125,7 @@ style L fill:#f81,stroke:#333;
 style T fill:#f81,stroke:#333;
 ```
 
-Let's break this flow down again, but this time with a bit more detail:
-
-1. A user interacts with a computer, using a browser and downloads the file `malware.exe`.
-2. The EDR detects and blocks the file, which generates logs.
-3. The logs are forwarded to a SIEM by some sort of forwarding mechanism.
-    * This can be a log server, an agent (the EDR itself might be the agent) or an API.
-    * Data can also be sent to the EDR tool and ingested/forwarded to the SIEM from there.
-4. The SIEM ingests the logs, where they are parsed and stored in a table.
-    * In this sence, the logs are the table, just made searchable in the query language of the SIEM.
-5. A detection query is run against the logs, which creates an alert.
-    * In some cases, we might also just consume an alert from the EDR tool directly.
-6. At a certain treshold alert(s) become an incident, which triggers automation.
-7. The SOAR component takes over (this can be built-in to the SIEM, or a separate tool).
-    * The SOAR component enriches the incident with more data.
-    * The SOAR component orchestrates the response, forwarding it to an ITSM tool.
-        * ITSM stands for "IT Service Management", and is a tool used to manage incidents and changes in IT.
-    * The SOAR component also performs some automated response, isolating the computer.
-8. Changes to the incident either in the ITSM-tool or the SIEM are bi-directionally synced.
+---
 
 # Automation in practice
 
