@@ -52,19 +52,18 @@ I've created a diagram for presentation to sort of visualize this:
 
 Let's attack this from a high level perspective. We have a security monitoring flow that will break down into something like the following:
 
-1. Somewhere something happens, usually a user interacts with a computer.
-2. This generates logs, which are forwarded to a SIEM.
-3. The SIEM ingests the logs, where they are parsed and stored in a table.
-4. A detection query is run against the logs, and if something malicious is found this creates an alert.
-5. At a certain treshold alert(s) become an incident, which triggers automation.
-6. The SOAR component takes over, enriches the incident with more data and orchestrates the response.
+1. **Somewhere something happens**, usually a user interacts with a computer.
+2. This **generates logs**, which are forwarded to a SIEM.
+3. The **SIEM ingests the logs**, where they are **parsed** and stored in a table.
+4. A **detection** query is run against the logs, and if something malicious is found this creates an **aler**t.
+5. At a certain treshold alert(s) become an **incident**, which **triggers automation**.
+6. The SOAR component takes over, **enriches** the incident with more data and **orchestrates** the flow.
 
-I've visualized this flow in the following diagram:
+I've visualized this flow in the two following diagrams:
 
 ```mermaid
 graph LR
 U[User]
-EXAPI[External API]
 subgraph "Computer"
 B[Browser]
 M[Malware.exe]
@@ -81,10 +80,13 @@ end
 subgraph "Forwarding mechanism"
 LS[Logserver]
 A --> LS 
-A --> API
 end
+```
+
+```mermaid
+graph LR
+EXAPI[External API]
 subgraph "SIEM"
-API[Ingestion API]
 P[Parser]
 T[Table]
 D[Detection query]
@@ -94,12 +96,15 @@ I[Incident]
 En[Enrichment]
 Response[Response]
 Orchestration[Orchestration]
-LS --> API
+L --> API
 API --> P 
+subgraph Computer
+L[Logs]
+end
 L -....-> |Same, but indexed and searchable|T
 P --> T
 D --> |Queries| T 
-D --> |Creates| AL 
+D --> |Creates| AL
 AL --> |Becomes at treshold| I 
 I --> |Automated actions taken| SOAR
 SOAR --> En
