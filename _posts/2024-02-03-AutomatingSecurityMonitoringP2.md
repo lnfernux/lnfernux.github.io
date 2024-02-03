@@ -55,7 +55,7 @@ Automation in this context is usually referred to as SOAR, which stands for "Sec
 
 I've created a diagram for presentation to sort of visualize this:
 
-![SOAR](/IMG/shapesofsoar.png)
+![](/img/shapesofsoar.png)
 
 **Expanding on this** to give you an idea about what this might actually include, here are some examples:
 
