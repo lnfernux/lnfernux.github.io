@@ -13,12 +13,12 @@ author: author_infernux
 image: /img/powerautomate.png
 ---
 
-Let's get straight to the point; **security monitoring is the process of consuming data, analyzing it and detecting malicious activity, then handling that malicious activity**. There are **more factors at play that will influence some of your decisions**:
+Let's get straight to the point; **security monitoring** is the process of **consuming data**, **analyzing** it and **detecting malicious activity**, then **handling** that malicious activity. There are **more factors** at play that will influence some of your decisions:
 
-* What data sources you focus on
-* What security tooling you opt for
-* What detection rules you need to write
-* How you handle different alerts,
+* What **data sources** you focus on
+* What **security tooling** you opt for
+* What **detection rules** you need to write
+* How you **handle different alerts**,
 * And so on and so forth..
 
 In essence, we are looking at the three same core components, **data, detection and automation**.
