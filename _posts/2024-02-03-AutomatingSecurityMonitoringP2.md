@@ -27,6 +27,21 @@ We've already looked a little bit at **[data](https://www.infernux.no/Automating
 
 ## Table of Contents
 
+* [An introduction to automation in security monitoring](#an-introduction-to-automation-in-security-monitoring)
+* [The Security Monitoring flow](#the-security-monitoring-flow)
+* [Automation in practice](#automation-in-practice)
+    * [What to automate](#what-to-automate)
+    * [Identifying what to automate](#identifying-what-to-automate)
+    * [Jumping back into security](#jumping-back-into-security)
+    * [Making the case for user input and testing](#making-the-case-for-user-input-and-testing)
+* [Some automation samples](#some-automation-samples)
+    * [Mapping everything to Microsoft Sentinel](#mapping-everything-to-microsoft-sentinel)
+    * [Enrichment](#enrichment)
+    * [Orchestration](#orchestration)
+    * [Response](#response)
+* [Conclusion](#conclusion)
+
+
 # An introduction to automation in security monitoring
 
 Automation in this context is usually referred to as SOAR, which stands for "Security Automation, Orchestration and Response". Translating this into human, we can say that it's what we do once a top level security alert is triggered. Whatever you chose to call this, I will refer to this as an **incident**. When an incident is triggered, we need to perform some incident response. This can be a lot of different things.CrowdStrike breaks down SOAR itself into the following categories ([source](https://www.crowdstrike.com/cybersecurity-101/security-orchestration-automation-and-response-soar/)):
