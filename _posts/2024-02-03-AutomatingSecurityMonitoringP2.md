@@ -117,8 +117,8 @@ L -....-> |Same, but indexed and searchable|T
 P --> T
 D --> |Queries| T 
 D --> |Creates| AL
-AL --> |Becomes at treshold| I 
-I --> |Automated actions taken| SOAR
+AL --> |Treshold| I 
+I -->  SOAR
 TICK[Ticket]
 SOAR --> Orchestration
 Orchestration --> |Forward| TICK
