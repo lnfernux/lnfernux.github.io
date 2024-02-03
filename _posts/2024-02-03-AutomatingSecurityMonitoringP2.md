@@ -100,15 +100,12 @@ end
 
 ```mermaid
 graph LR
-EXAPI[External API]
-subgraph "SIEM"
 P[Parser]
 T[Table]
 D[Detection query]
 SOAR[SOAR]
 AL[Alert]
 I[Incident]
-En[Enrichment]
 Response[Response]
 Orchestration[Orchestration]
 L --> API
@@ -122,19 +119,12 @@ D --> |Queries| T
 D --> |Creates| AL
 AL --> |Becomes at treshold| I 
 I --> |Automated actions taken| SOAR
-SOAR --> En
-end
-subgraph "ITSM"
 TICK[Ticket]
 SOAR --> Orchestration
 Orchestration --> |Forward| TICK
-En -.-> |Add relevant information|TICK
-end
-En --> |Gather information|EXAPI
 SOAR --> Response 
 Response --> |Isolate|Computer
 TICK -...-> |Bi-diretional sync| I
-I -...-> |Bi-diretional sync| TICK
 style Response fill:#f00,stroke:#333;
 style L fill:#f81,stroke:#333;
 style T fill:#f81,stroke:#333;
