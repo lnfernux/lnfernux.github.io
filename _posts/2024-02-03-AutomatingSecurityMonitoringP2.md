@@ -274,10 +274,10 @@ These were as mentioned just some quick examples of what you can automate. I hop
 
 Also, some other flows that might be good to keep in mind, in order of usefulness:
 
-1. Bi-directional integration with ITSM
-2. System for automatically closing certain incidents
+1. **Bi-directional integration with ITSM**
+2. **System for automatically closing certain incidents**
     * Based on certain criteria, for instance if a certain amount of time has passed, or we know that the incident is a false positive
-3. System for automatically escalating certain incidents 
+3. **System for automatically escalating certain incidents**
     * If user entity is a VIP or admin
     * If the server is a domain controller
     * If an entity has a match in a threat intelligence service
