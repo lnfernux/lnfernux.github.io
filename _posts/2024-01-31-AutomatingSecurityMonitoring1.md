@@ -11,7 +11,7 @@ tags:
   - Data Engineering Pipelines
 published: true
 author: author_infernux
-image: /img/powerautomate.png
+image: /img/sentinel.png
 ---
 
 Lately I've been presenting a few times on the topic of automation and in particular for security monitoring to combat alert fatigue. One of the most important parts of this is the automation part. It's not so much about security or security monitoring, but about teaching what automation is, what tools we have available and how to get started. **Most automation is done by and for those with the know-how to get it done**, so my goal is to try and make it more accessible to everyone.

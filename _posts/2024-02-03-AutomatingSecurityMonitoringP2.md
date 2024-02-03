@@ -10,7 +10,7 @@ tags:
   - Security Automation Orchestration and Response
 published: true
 author: author_infernux
-image: /img/powerautomate.png
+image: /img/sentinel.png
 ---
 
 Let's get straight to the point; **security monitoring** is the process of **consuming data**, **analyzing** it and **detecting malicious activity**, then **handling** that malicious activity. There are **more factors** at play that will influence some of your decisions:
