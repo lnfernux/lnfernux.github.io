@@ -216,7 +216,7 @@ To visualize how automation rules work, I've created a simple flowchart:
 
 ![AutomationRule](/img/automationrules.png)
 
-The **do something** can refer to starting a playbook. Playbooks are a bit more advanced, and can do a lot more than automation rules. [Microsoft does a great job of introducing them here](https://learn.microsoft.com/en-us/azure/sentinel/automate-responses-with-playbooks). They are Azure Logic Apps beneath the surface and can be compared to lego robotics, for those of you who have tried that. With that I mean that you have a library of **triggers** and **actions** that you can drag into order, give a little input and that's your flow.
+The **do something** can refer to starting a playbook. Playbooks are a bit more advanced, and can do a lot more than automation rules. [Microsoft does a great job of introducing them here](https://learn.microsoft.com/en-us/azure/sentinel/automate-responses-with-playbooks/?wt.mc_id=SEC-MVP-5005030). They are Azure Logic Apps beneath the surface and can be compared to lego robotics, for those of you who have tried that. With that I mean that you have a library of **triggers** and **actions** that you can drag into order, give a little input and that's your flow.
 
 ---
 
