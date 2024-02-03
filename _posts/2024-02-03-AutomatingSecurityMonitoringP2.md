@@ -23,7 +23,7 @@ Let's get straight to the point; **security monitoring** is the process of **con
 
 In essence, we are looking at the three same core components, **data, detection and automation**.
 
-We've already looked a little bit at [data](https://www.infernux.no/AutomatingSecurityMonitoring1/) in oart 1 of this series. Earlier I've also talked about good detection [in my post on use-case development](https://www.infernux.no/SecurityMonitoring-DevelopingUseCases/). Thus, in this post we will be focusing on the last component; **automation**. I'd also love to recommend my post on [security strategy](https://www.infernux.no/SecurityStrategy/) which goes a bit more into details on how to approach security and security monitoring.
+We've already looked a little bit at **[data](https://www.infernux.no/AutomatingSecurityMonitoring1/) in part 1** of this series. Earlier I've also talked about **writing good detection [in my post on use-case development](https://www.infernux.no/SecurityMonitoring-DevelopingUseCases/)**. Thus, in this post we will be focusing on the last component; **automation**. I'd also love to recommend my post on **[security strategy](https://www.infernux.no/SecurityStrategy/)** which goes a bit more into details on how to approach security and security monitoring.
 
 ## Table of Contents
 
