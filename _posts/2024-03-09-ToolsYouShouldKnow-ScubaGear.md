@@ -66,6 +66,8 @@ The application must have the following permissions:
 |User.Read.All|Microsoft Graph permission to read users.|
 |PrivilegedEligibilitySchedule.Read.AzureADGroup|Microsoft Graph permission to read privileged eligibility schedule (this means PIM assignments in cleartext).|
 
+---
+
 ## Setup
 
 The [usage](https://github.com/cisagov/ScubaGear?tab=readme-ov-file#usage)-section on the ScubaGear-github page covers most of the setup and eventual troubleshooting. Here's a quick rundown:
@@ -129,6 +131,8 @@ Invoke-SCuBA -ProductNames aad,defender
 |Sharepoint and OneDrive|sharepoint|
 |Teams|teams|
 
+---
+
 ## Results
 
 After running the tool, you'll get an output in the form of a folder with the naming scheme `M365BaselineConformance_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND`. This folder will be located on the path where you executed the tool, or in the path you specified with the `-OutputPath` parameter. The folder contains the following:
@@ -140,6 +144,8 @@ After running the tool, you'll get an output in the form of a folder with the na
 |BaseLineReports.html|A HTML-report of the test results.|
 |ProviderSettingsExport.json|All exported settings.|
 |IndividualReports|A folder containing individual reports for each product.|
+
+---
 
 > If you're a dumb-dumb like me, and ran the tool in the wrong version of Powershell (7) you might not get any Entra ID or SharePoint-results. This can be resolved by following the documentation and running in the correct version of Powershell, which is **5**.
 
@@ -161,6 +167,8 @@ The colors correspond to the following:
 |🟡 (Yellow)|Checks passed with warnings|
 |🔴 (Red)|Checks failed|
 |⚪ (Imagine this is grey, *please*)|Checks not applicable, or manual check required|
+
+---
 
 ### Updating settings
 
