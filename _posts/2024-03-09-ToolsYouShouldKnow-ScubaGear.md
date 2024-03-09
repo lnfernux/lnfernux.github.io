@@ -75,13 +75,16 @@ The [usage](https://github.com/cisagov/ScubaGear?tab=readme-ov-file#usage)-secti
 3. Open a PowerShell prompt and navigate to the folder where you extracted the files.
 4. Start by running the `SetUp.ps1` script. This will install all the dependencies.
 
-![ScubaGear Setup](/img/Tools/ScubaGear/setupps1.png)
+    ![ScubaGear Setup](/img/Tools/ScubaGear/setupps1.png)
 
 5. Import the module
+
 ```pwsh
 Import-Module -Name .\PowerShell\ScubaGear
 ```
+
 6. We should now be able to see the module being loaded
+
 ```pwsh
 (Get-Module ScubaGear).ExportedCommands
 
