@@ -81,22 +81,22 @@ The [usage](https://github.com/cisagov/ScubaGear?tab=readme-ov-file#usage)-secti
 
 5. Import the module
 
-```pwsh
-Import-Module -Name .\PowerShell\ScubaGear
-```
+    ```pwsh
+    Import-Module -Name .\PowerShell\ScubaGear
+    ```
 
 6. We should now be able to see the module being loaded
 
-```pwsh
-(Get-Module ScubaGear).ExportedCommands
+    ```pwsh
+    (Get-Module ScubaGear).ExportedCommands
 
-Key                        Value
----                        -----
-Copy-ScubaBaselineDocument Copy-ScubaBaselineDocument
-Disconnect-SCuBATenant     Disconnect-SCuBATenant
-Invoke-RunCached           Invoke-RunCached
-Invoke-SCuBA               Invoke-SCuBA
-```
+    Key                        Value
+    ---                        -----
+    Copy-ScubaBaselineDocument Copy-ScubaBaselineDocument
+    Disconnect-SCuBATenant     Disconnect-SCuBATenant
+    Invoke-RunCached           Invoke-RunCached
+    Invoke-SCuBA               Invoke-SCuBA
+    ```
 
 ## Usage
 
