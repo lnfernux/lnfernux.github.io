@@ -57,10 +57,14 @@ $token = ($response.Content | ConvertFrom-Json).access_token
 
 The missing piece in all of this is how to authenticate to Azure Devops. Referenced only by way of "oh, by the way", we can find that in the Microsoft documentation for Azure DevOps services REST API regarding managing PATs, [there's a reference to aquire an acces token for the API.](https://learn.microsoft.com/en-us/rest/api/azure/devops/tokens/pats?view=azure-devops-rest-7.1/?wt.mc_id=SEC-MVP-5005030)
 
-In short, this scope, `499b84ac-1321-427f-aa17-267ca6975798/.default`, is the scope for Azure DevOps. This is the scope you need to use to get an access token for Azure DevOps. This is how you do it in PowerShell:
+In short, this scope, `499b84ac-1321-427f-aa17-267ca6975798/.default`, is the scope for Azure DevOps. This is the scope you need to use to get an access token for Azure DevOps. 
+
+*We can also use just `499b84ac-1321-427f-aa17-267ca6975798` as the scope.* 
+
+This is how you do it in PowerShell:
 
 ```powershell
-$token = (Get-AzAccessToken -ResourceUrl "499b84ac-1321-427f-aa17-267ca6975798/.default").Token
+$token = (Get-AzAccessToken -ResourceUrl "499b84ac-1321-427f-aa17-267ca6975798").Token
 ```
 
 ## Putting it into a script
@@ -69,7 +73,7 @@ Here is a simple script that will authenticate to Azure using a managed identity
 
 ```powershell
 Connect-AzAccount -Identity
-$token = (Get-AzAccessToken -ResourceUrl "499b84ac-1321-427f-aa17-267ca6975798/.default").Token
+$token = (Get-AzAccessToken -ResourceUrl "499b84ac-1321-427f-aa17-267ca6975798").Token
 $org = "MyOrg"
 $project = "SecretSauce"
 $uri = "https://dev.azure.com/$org/$project/_apis/git/repositories?api-version=7.0" 

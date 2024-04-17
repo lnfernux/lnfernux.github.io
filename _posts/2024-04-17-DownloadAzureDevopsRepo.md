@@ -19,7 +19,7 @@ In this post, we will go over how to download Azure DevOps repositories using a 
 
 ```powershell
 Connect-AzAccount -Identity
-$token = (Get-AzAccessToken -ResourceUrl "499b84ac-1321-427f-aa17-267ca6975798/.default").Token
+$token = (Get-AzAccessToken -ResourceUrl "499b84ac-1321-427f-aa17-267ca6975798").Token
 $org = "MyOrg"
 $project = "SecretSauce"
 $uri = "https://dev.azure.com/$org/$project/_apis/git/repositories?api-version=7.0" 
