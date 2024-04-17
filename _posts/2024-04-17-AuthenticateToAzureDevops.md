@@ -40,12 +40,6 @@ Now we have authenticated to Azure, but we still need to authenticate to Azure D
 $token = (Get-AzAccessToken).Token
 ```
 
-We can also do the same operation in the Azure CLI:
-
-```bash
-token=$(az account get-access-token --query accessToken --output tsv)
-```
-
 Or we can also do it directly using cURL or any other HTTP client:
 
 ```powershell
