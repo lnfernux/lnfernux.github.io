@@ -144,7 +144,7 @@ These recommendations are usually mapped against CIS, NIST, PCI-DSS and other st
 
 We also have a similar score for identity in [Entra ID](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-identity-secure-score/?wt.mc_id=SEC-MVP-5005030) that can be used to follow up on your identity security. Use this similarly to the Secure Score in Defender for Cloud described above.
 
-## A concept of moving to higher level functions
+## On the concept of moving to higher level functions
 
 I read a brilliant article by the UK NCSC on [Anti-Patterns in Security Architecture](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns). I'd read it if I was you, but for this I specifically want to discuss [higher level functions](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns#section_6). 
 
