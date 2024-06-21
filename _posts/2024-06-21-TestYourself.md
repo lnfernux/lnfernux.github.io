@@ -14,7 +14,7 @@ author: author_infernux
 image: /img/azure.png
 ---
 
-Cloud infrastructure is by nature complex, and it's **constantly changing** (at least the names, looking at you *Defender ~~365~~ XDR*). At least, it seems that way. Truth is, security in itself hasn't evolved a lot. Basic security, according to the [Microsoft Digital Defense Report from 2023](https://www.microsoft.com/en-us/security/security-insider/microsoft-digital-defense-report-2023) we can protect 99% of all attacks by following these basic principles:
+Cloud infrastructure is by nature complex, and it's **constantly changing** (at least the names, looking at you *Defender ~~365~~ XDR*). At least, it seems that way. Truth is, security in itself hasn't evolved a lot. Basic security, according to the [Microsoft Digital Defense Report from 2023](https://www.microsoft.com/en-us/security/security-insider/microsoft-digital-defense-report-2023) can help us protect 99% of all attacks by following these basic principles:
 
 1. **Multi-Factor Authentication**: Should be a no brainer at this point. 
 2. **Follow Zero Trust Principles**: Zero trust has been co-opted as a buzzword in the same way AI has, but what we are getting at here is basically "don't let anyone skip MFA or other security protocols just because they are on the internal network".
@@ -22,13 +22,16 @@ Cloud infrastructure is by nature complex, and it's **constantly changing** (at 
 4. **Patch stuff**: Just do it.
 5. **Protect data**: Know where your data is, protect said data. 
 
-Now, we throw in XDR and Zero Trust and it sounds a bit fancy, doesn't it? Truth is, good security is very boring. It's about getting the basics right, and then building on top of that. 
+Okay, so I might have lied a bit - we throw in some **XDR** and a sprinkle of **Zero Trust** and it sounds a bit fancy, doesn't it? Truth is, good security is very boring. It's about getting the basics right, and then building on top of that. 
 
-# An intro to testing yourself - the folly of security
+# An intro to testing yourself
 
 ## Example: Bob Industries
 
-To eximplify this, let's start with an example. You're now an IT consultant, congratulations. You have a client, Bob Industries, which is a small/medium business in the market for an XDR or SIEM solution. They also want to know about Copilot for Security. Their reasoning is that " we don't have enough people to monitor all of our systems, and we need to be able to respond to incidents faster" and that "their current tools don't cover all their bases".
+To eximplify this, let's start with an example. **You're now an IT consultant, congratulations**. You have a client, **Bob Industries**, which is a **small/medium business** in the market for an **XDR or SIEM solution**. They also want to know about **Copilot for Security**. Their reasoning is:
+
+> We don't have enough people to monitor all of our systems, and we need to be able to respond to incidents faster
+> Our current tools don't cover all their bases
 
 ### Some background on Bob Industries:
 
@@ -38,15 +41,19 @@ To eximplify this, let's start with an example. You're now an IT consultant, con
 - They have Active Directory, but no one knows how it's set up since it was configured by a previous sysadmin that left for greener pastures.
 - They pay for E5 licenses, but everything is out of the box.
 
+In other words, they seem to be **lacking a strategy and a process for implementing it**. They are looking for **tools to cover their bases**, but they **don't have the people or processes in place to handle these tools**. They also have E5 licenses, which includes Microsoft XDR, but maybe they are using it out of the box and not **configuring it properly**?
+
 ### Conclusion
 
-What would you do? If this company came asking for a security test, I could write it up to the CISO wanting to show how bad things were to secure more budget. But, in this case, let's review:
+**What would you do**? If this company came asking for a security test, I could write it up to the CISO wanting to show how bad things were to secure more budget. But, in this case, let's review:
 
 - They need a security strategy
 - This strategy needs to outline patching, backups, inventory management (to mention some things...) - just in general proccesses for good IT hygiene.
 - They need people to put these processes into place, and people to perform the tasks outline in these processes.
 - Their current tools SHOULD be covering their bases, but likely they don't have the people or processes in place to make it work.
 - Out-of-the-box are usually not enough - they need to be configured and maintained.
+
+---
 
 ## Back to reality
 
@@ -58,17 +65,17 @@ My list would be something like this instead:
 4. **Backup**: Have a backup policy, and test this regularly.
 5. **Basic security**: Review what your core business is, and how you go about protecting that. Act accordingly - this might be a lot of different things, but things like making sure you are properly segmenting your network, make sure you are adhering to best practices in terms of identity management and permissions, etc. Look for quick wins as well - endpoint detection and response is a great way to do this, but keep in mind that there are ways to bypass tools like this, and we need people to handle incidents that come from our tools - it's not a magic solution even if you sprinkle some AI on top.
 
-On top of this, I'll add in that all of these points should make a point to follow Zero Trust principles. There should be MFA no matter where you are on the network, or what location you are at. We also need to know where our critical data and systems are, and protect them accordingly. Not all systems are as important, so we need to know what to prioritize. 
+On top of this, I'll add in that all of these points should make a point to follow **Zero Trust principles**. There should be MFA no matter where you are on the network, or what location you are at. We also need to know **where our critical data and systems are**, and protect them accordingly. Not all systems are equally important, so we need to know what to prioritize. 
 
 ## Process
 
-You should have a strategy. How you implement this strategy should be some sort of multi year plan, and this plan should start with people and process. If you need a tool, it should be to support your people and process, not the other way around.
+**You should have a strategy** (duh). How you implement this strategy needs to be up to the company, but ideally in my eyes **it should** be some sort of **multi year plan**, and this plan should start with people and process. **If you need a tool, it should be to support your people and process, not the other way around**.
 
 **The point I'm trying to make is;**
 
-If your security strategy is "buying missing tools from your puzzle of coverage" or "we need copilot because we are understaffed" you are doing it wrong in my mind. For most companies, a solid foundation is more important than the latest and greatest tool. It's also easier to build on top of a solid foundation, than it is to try to build foundations under a lot of different tools with no processes, no people and no plan.
+If your security strategy is ***"buying missing tools from your puzzle of coverage"*** or ***"we need copilot because we are understaffed"*** you are **doing it wrong** *in my mind*. For most companies, a **solid foundation is more important than the latest and greatest tool**. It's also easier to build on top of a solid foundation, than it is to try to build foundations under a lot of different tools with no processes, no people and no plan.
 
-Visualizing helps me understand stuff, so I created a simple diagram to show how I see this process when it comes to high level security strategy:
+Visualizing helps me understand stuff, so I created a simple diagram to show **how I see this process when it comes to high level security strategy**:
 
 ```mermaid
 graph LR
@@ -93,13 +100,13 @@ style B fill:#e56,stroke:#333,stroke-width:4px
 style C fill:#c90,stroke:#333,stroke-width:4px
 ```
 
-**This is a cyclical process that has to be followed. The tests you run and the tools you run will change as you go along, as you will reach target/goals and mature your security posture.**
+This is a cyclical process that has to be followed. **The tests you run and the tools you run will change as you go along, as you will reach target/goals and mature your security posture.**
 
 # Testing yourself
 
-With all this in mind, why test yourself? What's the point? Well, we need to know where we are at and how we are looking. From the perspective of the defender, we have a bunch of settings in different parts of the portals we manage (and tools, and services, and...). Attackers? They run some scripts and easily find our weak spots. So what's stopping us from doing the same? 
+**With all this in mind, why test yourself?** What's the point? Well, we need to know where we are at and how we are looking. From the perspective of the defender, we have a bunch of settings in different parts of the portals we manage (and tools, and services, and...). **Attackers? They run some scripts and easily find our weak spots. So what's stopping us from doing the same?**
 
-They key here is - we don't always need a penetration test or architecture review to check our security. 
+They key idea here is - **we don't always need a penetration test or architecture review to check our security**. Some of it we can do ourselves, and some of it we can automate. This is where tools come in.
 
 ![fine](/img/fine.gif)
 
@@ -109,7 +116,7 @@ Just a simple reminder here, I will mainly focus on cloud for this part as that'
 
 ### Microsoft Cloud Security Benchmark and Secure Score
 
-First of all, we don't even need any external tools to get started. If we look at Azure (or even AWS and GCP), we will have [a security score in Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls/?wt.mc_id=SEC-MVP-5005030) that we can look to for guidance. This score for Azure is based on the [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/en-us/security/benchmark/azure/introduction/?wt.mc_id=SEC-MVP-5005030) and can be used as a good place to start. Simply follow the basic process of looking at the recommendations, and then implementing them.
+First of all, we don't even need any external tools to get started. If we **look at Azure** (*or even AWS and GCP*), we will have [a security score in Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls/?wt.mc_id=SEC-MVP-5005030) that we can look to for guidance. This score for Azure is based on the [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/en-us/security/benchmark/azure/introduction/?wt.mc_id=SEC-MVP-5005030) and can be used as a good place to start. Simply follow the basic process of looking at the recommendations, and then implementing them.
 
 These recommendations are usually mapped against CIS, NIST, PCI-DSS and other standards, so you can be sure that you are following best practices. After implementing, you can look at the score and see if you are improving over time. This is something that needs to be put into a process, and you need to have people to follow up on this. Best practices change, so your score will drift back down. 
 
@@ -133,7 +140,7 @@ It incorporates the entire set of tests from [CISAs SCuBA](https://www.cisa.gov/
 
 ## Specific tooling
 
-For more specific use cases, I will discuss tools in more detail in future posts. The idea with these tools is to verify more specific use cases and settings. Say you are at a level where you are pretty confident in your security posture, but you want to test if that is the case. These tools will help you with that, in that they will either validate your settings or help you emulate an attack to see if you are vulnerable.
+For more specific use cases, I will discuss tools in more detail in future posts. **The idea with these tools is to verify more specific use cases and settings**. Say you are at a level where you are pretty **confident in your security posture**, but you want to **test if that is the case**. These tools will help you with that, in that they will **either validate your settings** or help you **emulate an attack** to see if you are vulnerable.
 
 For now, I'll just mention two familiar tools that I've used in the past:
 
@@ -151,8 +158,8 @@ AzureHound is the Azure collector for BloodHound. We can usually with an unprivi
 
 This post is a bit messy, I'll admit, but it boils down to a few simple points. 
 
-1. A lot of security is at it's core just good, basic IT. Might be boring, but it's what works. When we have implemented that, we can start adding on more complexity, but only after we have people and processes to handle it.
-2. Once we get to that level, we need to actually start putting our money where our zero trust spouting mouth is. This means testing and continuously monitoring our configurations. We can do this with a bunch built-in features in most clouds, some of which you have to pay a license for of course. There are also external tools that help us with this. 
-3. The focus for tools should still be "keep it simple, stupid". No need to go overboard and run a bunch of very specific hacking tools if you are not able to detect them, or do anything with the output. 
+1. **A lot of security is at it's core just good, basic IT**. Might be boring, but it's what works. When we have implemented that, we can start adding on more complexity, but only after we have people and processes to handle it.
+2. **Once we get to a higher level, we need to actually start putting our money where our zero trust spouting mouth is**. This means testing and continuously monitoring our configurations. We can do this with a bunch built-in features in most clouds, some of which you have to pay a license for of course. There are also external tools that help us with this. 
+3. **The focus for tools should still be *"keep it simple, stupid"***. No need to go overboard and run a bunch of very specific hacking tools if you are **not able to detect them, or do anything with the output**. 
 
 ![brick](/img/brick.png)
