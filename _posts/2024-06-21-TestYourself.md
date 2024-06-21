@@ -150,11 +150,25 @@ We can look to [Automatic VM Guest Patching](https://learn.microsoft.com/en-us/a
 
 Tools have layers. Some tools are broad, while some are specialized. There are a bunch of cool tools for testing your configurations in Azure and Entra ID, things like the [AzureADAssessment tool](https://github.com/AzureAD/AzureADAssessment), [Extensible Azure Security Tool or EAST](https://github.com/jsa2/EAST) which is tool for assessing Azure and to some extent Azure AD security controls and something I recently wrote about, [ScubaGear](https://www.infernux.no/ToolsYouShouldKnow-ScubaGear/). These tools are pretty broad - they cover a lot of ground, and will validate a lot of settings quickly. 
 
+### [maester.dev](https://maester.dev/)
+
 When starting out and testing very broadly, I'd recommend [Maester](https://maester.dev/). Maester is, and I quote:
 
-> "Maester is a PowerShell based test automation framework to help you stay in control of your Microsoft security configuration."
+> "... a PowerShell based test automation framework to help you stay in control of your Microsoft security configuration."
+
+![](/img/maester-architecture.png)
 
 It incorporates the entire set of tests from [CISAs SCuBA](https://www.cisa.gov/resources-tools/services/secure-cloud-business-applications-scuba-project), the [Entra ID Attack and Defense Playbooks](https://github.com/Cloud-Architekt/AzureAD-Attack-Defense) own config analyzer [EIDSCA](https://github.com/Cloud-Architekt/AzureAD-Attack-Defense/blob/main/AADSecurityConfigAnalyzer.md) and a bunch of Maester-only tests. It also allows you to implement custom tests. It's a great tool to start with, and one that can be implemented into a CI/CD workflow to continuously test and monitor your configurations.
+
+I'm not going to tell you how to use, because this is not the article for that, but they have a pretty good [installation](https://maester.dev/docs/installation) guidance as well as guides on implementing it for [CI/CD](https://maester.dev/docs/monitoring/). 
+
+Running a simple test standalone is as simple as following the installation guidance and running the following command:
+
+```powershell
+Invoke-Maester
+```
+
+Which will [run all tests (`*.Tests.ps1` files)](https://maester.dev/docs/commands/Invoke-Maester/) in the current directory and subdirectories.
 
 ## Specific tooling
 
