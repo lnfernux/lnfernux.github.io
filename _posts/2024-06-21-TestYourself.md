@@ -132,6 +132,8 @@ They key idea here is - **we don't always need a penetration test or architectur
 
 Just a simple reminder here, I will mainly focus on cloud for this part as that's where I have the most experience. If anyone has any good tips or resources for on-prem, please let me know and I'll add them in as reference for future articles.
 
+The first two chapters here we'll touch on are **Microsoft Cloud Security Benchmark and Secure Score** and **Entra ID Identity Secure Score**. These are built-in features in Azure and Entra ID that can help us get started with testing our configurations. These are mainly here because it's a good place to start if you haven't really been into this before, and the recommendations will tell you what to do for the most part. You can also obviously google to find out more.
+
 ### Microsoft Cloud Security Benchmark and Secure Score
 
 First of all, we don't even need any external tools to get started. If we **look at Azure** (*or even AWS and GCP*), we will have [a security score in Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/secure-score-security-controls/?wt.mc_id=SEC-MVP-5005030) that we can look to for guidance. This score for Azure is based on the [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/en-us/security/benchmark/azure/introduction/?wt.mc_id=SEC-MVP-5005030) and can be used as a good place to start. Simply follow the basic process of looking at the recommendations, and then implementing them.
@@ -142,9 +144,25 @@ These recommendations are usually mapped against CIS, NIST, PCI-DSS and other st
 
 We also have a similar score for identity in [Entra ID](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-identity-secure-score/?wt.mc_id=SEC-MVP-5005030) that can be used to follow up on your identity security. Use this similarly to the Secure Score in Defender for Cloud described above.
 
+## A concept of moving to higher level functions
+
+I read a brilliant article by the UK NCSC on [Anti-Patterns in Security Architecture](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns). I'd read it if I was you, but for this I specifically want to discuss [higher level functions](https://www.ncsc.gov.uk/whitepaper/security-architecture-anti-patterns#section_6). 
+
+If we refer to the [shared responsibility matrix for Azure](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility/?wt.mc_id=SEC-MVP-5005030):
+
+![](https://learn.microsoft.com/en-us/azure/security/fundamentals/media/shared-responsibility/shared-responsibility.svg)
+
+If we decide that we trust Microsoft, the chance that you as an SMB or even as an enterprise will be able to patch your servers better than Microsoft is slim. So if we migrate onto higher level functions and let Microsoft handle that for us, we are able to focus on other things. 
+
+This **increases security by reducing the attack surface**, and it also **reduces the complexity** of our environment, while **freeing up resources to focus on other things**.
+
+I'll admit that for some companies this is not an option, because legacy is legacy and we still need it. But for new companies, **designing to avoid legacy** and a lot of **overhead in terms of IT maintenance is a (probably) good idea**.
+
 ### Auto Patch in Azure
 
-We can look to [Automatic VM Guest Patching](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching) in Azure to help us with patching. Another option is to look to migrate onto higher level functions, like Azure SQL Managed Instance or Azure App Services, where patching is handled by Microsoft.
+If we need Virtual Machines we can look to [Automatic VM Guest Patching](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching) in Azure to help us with patching. 
+
+Another option is to look to migrate whatever workload we are running on our compute onto higher level functions, like Azure SQL Managed Instance for databases or Azure App Services for web applications.
 
 ## Moving to tools
 
