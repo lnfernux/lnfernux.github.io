@@ -150,7 +150,7 @@ I read a brilliant article by the UK NCSC on [Anti-Patterns in Security Architec
 
 If we refer to the [shared responsibility matrix for Azure](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility/?wt.mc_id=SEC-MVP-5005030):
 
-![](https://learn.microsoft.com/en-us/azure/security/fundamentals/media/shared-responsibility/shared-responsibility.svg)
+![](/img/shared-responsibility.png)
 
 If we decide that we trust Microsoft, the chance that you as an SMB or even as an enterprise will be able to patch your servers better than Microsoft is slim. So if we migrate onto higher level functions and let Microsoft handle that for us, we are able to focus on other things. 
 
