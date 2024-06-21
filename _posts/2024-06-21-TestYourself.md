@@ -24,6 +24,24 @@ Cloud infrastructure is by nature complex, and it's **constantly changing** (at 
 
 Okay, so I might have lied a bit - we throw in some **XDR** and a sprinkle of **Zero Trust** and it sounds a bit fancy, doesn't it? Truth is, good security is very boring. It's about getting the basics right, and then building on top of that. 
 
+## Table of Contents
+
+- [An intro to testing yourself](#an-intro-to-testing-yourself)
+  - [Example: Bob Industries](#example-bob-industries)
+    - [Some background on Bob Industries:](#some-background-on-bob-industries)
+    - [Conclusion](#conclusion)
+  - [Back to reality](#back-to-reality)
+    - [Process](#process)
+- [Testing yourself](#testing-yourself)
+  - [Starting with the basics](#starting-with-the-basics)
+    - [Microsoft Cloud Security Benchmark and Secure Score](#microsoft-cloud-security-benchmark-and-secure-score)
+    - [Entra ID Identity Secure Score](#entra-id-identity-secure-score)
+    - [Auto Patch in Azure](#auto-patch-in-azure)
+  - [Moving to tools](#moving-to-tools)
+    - [AADInternals](#aadinternals)
+    - [BloodHound/AzureHound](#bloodhoundazurehound)
+  - [Specific tooling](#specific-tooling)
+
 # An intro to testing yourself
 
 ## Example: Bob Industries
