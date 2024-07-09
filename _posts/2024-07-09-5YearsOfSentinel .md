@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '5 Years On - The Microsoft Sentinel Experience'
-subtitle: 'Around 5 years ago, Microsoft announced the general availability of Azure Sentinel. This post is a reflection on the journey so far - the good, the bad and the ugly.'
+subtitle: 'Around 5 years ago, Microsoft announced the general availability of Azure Sentinel. This post aims to assess how far we along we have come - the good, the bad and the ugly.'
 tags:
   - Cyber Security
   - Security Monitoring
