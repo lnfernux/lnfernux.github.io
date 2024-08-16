@@ -57,7 +57,7 @@ $graphSPN = Get-MgServicePrincipal -Filter "AppId eq '00000003-0000-0000-c000-00
 ## Find the roleId
 
 ```powershell
-$roleObject = $Msgraph.AppRoles| Where-Object {$_.Value -eq $roleName} 
+$roleObject = $graphSPN.AppRoles| Where-Object {$_.Value -eq $roleName} 
 ```
 
 ## Add the role to managed identity
@@ -73,6 +73,6 @@ Connect-MgGraph -Scopes Application.Read.All, RoleManagement.ReadWrite.Directory
 $objectId = "<objectId of Managed Identity>"
 $role = "<name of role, like Mail.Send>"
 $graphSPN = Get-MgServicePrincipal -Filter "AppId eq '00000003-0000-0000-c000-000000000000'"
-$roleObject = $Msgraph.AppRoles| Where-Object {$_.Value -eq $roleName} 
+$roleObject = $graphSPN.AppRoles| Where-Object {$_.Value -eq $roleName} 
 New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $graphSPN -PrincipalId $objectId -ResourceId $graphSPN.Id -AppRoleId $roleObject.Id
 ```
