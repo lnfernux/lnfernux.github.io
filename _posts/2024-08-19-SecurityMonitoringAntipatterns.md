@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Security Monitoring Antipatterns'
-subtitle: 'Ho'
+subtitle: 'A little bit of a deconstruction of some antipatterns in Security Operations'
 tags:
   - Cyber Security
   - Security Architecture
