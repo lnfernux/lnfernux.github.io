@@ -103,7 +103,7 @@ Let me just get rid of all these tools we've selected to do their job and fits o
 
 This topic is the same as the previous and the next - it's based around **misunderstanding of what tools can and should do**. It's also rooted in the misconception people have that the **tools you buy give you inherently more security, which is mostly wrong**. If you integrate XDR into a unsecure environment, it might stop some things, but it will still be bypassed. One tool does not excuse you implementing other controls. **It's like buying zero trust networking equipment for the company wifi and then turning of MFA on that same wifi** (if you don't understand why that's not a good idea, read a little about zero trust).  
 
-Out of the box tools also don't do as much as people expect them too - SIEMs need tuning and configuration (and a infrastructure for log collection), XDRs need integrations and policies, updated settings - you get the gist.  
+Out of the box tools also don't do as much as people expect them too - SIEMs need tuning and configuration (and an infrastructure for log collection), XDRs need integrations and policies, updated settings - you get the gist.  
 
 ## Toolapalooza
 
