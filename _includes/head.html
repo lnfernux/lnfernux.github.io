@@ -17,6 +17,15 @@
   {% include gtm_head.html %}
   {% include google_analytics.html %}
   {% include cloudflare_analytics.html %}
+  
+  <!-- Add this script to prevent FOUC -->
+  <script>
+    (function() {
+      if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    })();
+  </script>
 
   {% if layout.common-ext-css %}
     {% for css in layout.common-ext-css %}
