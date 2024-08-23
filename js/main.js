@@ -70,13 +70,17 @@ var main = {
     // Add IDs to headers and wrap them in anchor tags
     const headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
     headers.forEach(header => {
-      const id = header.id || header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
-      header.id = id;
-      const link = document.createElement("a");
-      link.href = `#${id}`;
-      link.innerHTML = header.innerHTML;
-      header.innerHTML = "";
-      header.appendChild(link);
+      try {
+        const id = header.id || header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        header.id = id;
+        const link = document.createElement("a");
+        link.href = `#${id}`;
+        link.textContent = header.textContent; // Use textContent to avoid XSS
+        header.innerHTML = ""; // Clear existing content
+        header.appendChild(link);
+      } catch (error) {
+        console.error("Error processing header:", error);
+      }
     });
   },
 
