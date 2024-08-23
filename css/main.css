@@ -79,11 +79,18 @@ h1 {
   font-weight: 700; /* Roboto-Bold */
   text-decoration: underline;
 }
-/* h2 to h6 styles */
-h2, h3, h4, h5, h6 {
+/* h2 to h3 styles */
+h2, h3 {
+  text-decoration: underline;
   font-family: 'Roboto', sans-serif;
-  font-style: italic; /* Roboto Italic */
   font-weight: 600; /* Regular weight */
+  text-decoration: none;
+}
+
+h4, h5, h6 {
+  text-decoration: underline;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500; /* Regular weight */
   text-decoration: none;
 }
 /* Code styles */
@@ -418,7 +425,7 @@ footer .theme-by {
   margin-bottom: 10px;
   font-family: 'Roboto', sans-serif;
   font-weight: 700; /* Roboto-Bold */
-  font-style: italic; /* Italic */
+  font-style: italic;
 }
 .post-preview .post-meta,
 .post-heading .post-meta {
