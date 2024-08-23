@@ -66,6 +66,20 @@ var main = {
 
     // show the big header image
     main.initImgs();
+
+    // Add IDs to headers and wrap them in anchor tags
+    document.addEventListener("DOMContentLoaded", function() {
+      const headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+      headers.forEach(header => {
+        const id = header.id || header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        header.id = id;
+        const link = document.createElement("a");
+        link.href = `#${id}`;
+        link.innerHTML = header.innerHTML;
+        header.innerHTML = "";
+        header.appendChild(link);
+      });
+    });
   },
 
   initImgs : function() {
