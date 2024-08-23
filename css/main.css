@@ -184,6 +184,11 @@ img {
     margin-top: 40px;
   }
 }
+.aboutme-image {
+  float: right;
+  margin: 0 0 10px 10px;
+  max-width: 200px; /* Adjust the size as needed */
+}
 
 /* --- Navbar --- */
 
