@@ -7,17 +7,9 @@ subtitle:
 
 ## $whoami
 
-Hi, I'm Truls.
-Early 30's security architect/engineer with a love for automating everything I can. 
+**Hi, I'm Truls.** I'm an early 30's security architect/engineer with a passion for automating everything I can. As a Microsoft MVP in both "SIEM & XDR" and "Cloud Security," I bring at least *some* knowledge and experience to the table, however miniscule it might be.
 
-
-
-
-As of 2022 I'm also a Microsoft MVP in Security, which is pretty neat.
-
-
-This website is just my own personal notes, if it helps someone else that's a bonus.
-Feedback always welcome.
+On this blog, you'll find my personal notes and insights on various topics related to security, automation, and IT careers. I cover a wide range of subjects, from cloud security strategies and log ingestion techniques to hands-on tutorials on tools like Microsoft Sentinel and Azure DevOps. Expect to see detailed guides, practical tips, and my thoughts on the latest trends in the security landscape.
 
 ## invoke-contact
 
