@@ -120,7 +120,7 @@ This also goes for the marketplace - creating offers there programatically can't
 
 If you **ingest a large number of incidents from Defender your automation rules will start failing with internal errors**. This is mostly a load issue, and we've seen it across multiple environments. It's still not fixed as of 1st of July, but I know the product group is working on it. The reason I'm mentioning this is that **some people might not be aware that it's a thing, but you can use this query to see if you're affected**:
 
-```kql
+```kusto
 SentinelHealth
 | where Status == "Failure"
 | where Description contains "An internal server error occurred. Please contact support for assistance."
