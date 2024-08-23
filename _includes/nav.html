@@ -16,6 +16,12 @@
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav navbar-right">
+       <!-- Dark Mode Toggle Button -->
+       <li>
+        <button id="dark-mode-toggle" class="btn btn-link nav-link" aria-label="Toggle Dark Mode">
+          🌙
+        </button>
+      </li>
       {% for link in site.navbar-links %}
         {% if link[1].first %}
           <li class="navlinks-container">
