@@ -432,6 +432,7 @@ footer .theme-by {
   font-family: 'Roboto', sans-serif;
   font-weight: 700; /* Roboto-Bold */
   font-style: italic;
+  text-decoration: none;
 }
 .post-preview .post-meta,
 .post-heading .post-meta {
