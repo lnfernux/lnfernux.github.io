@@ -35,6 +35,28 @@ layout: base
 
       <article role="main" class="blog-post">
         {{ content }}
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            // Select headers only within the post content
+            const postContent = document.querySelector(".post-content");
+            if (postContent) {
+              const headers = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
+              headers.forEach(header => {
+                try {
+                  const id = header.id || header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+                  header.id = id;
+                  const link = document.createElement("a");
+                  link.href = `#${id}`;
+                  link.textContent = header.textContent; // Use textContent to avoid XSS
+                  header.innerHTML = ""; // Clear existing content
+                  header.appendChild(link);
+                } catch (error) {
+                  console.error("Error processing header:", error);
+                }
+              });
+            }
+          });
+        </script>
       </article>
 
       {% if page.tags.size > 0 %}
@@ -78,22 +100,4 @@ layout: base
       {% endif %}
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-      headers.forEach(header => {
-        try {
-          const id = header.id || header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
-          header.id = id;
-          const link = document.createElement("a");
-          link.href = `#${id}`;
-          link.textContent = header.textContent; // Use textContent to avoid XSS
-          header.innerHTML = ""; // Clear existing content
-          header.appendChild(link);
-        } catch (error) {
-          console.error("Error processing header:", error);
-        }
-      });
-    });
-  </script>
 </div>
