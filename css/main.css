@@ -6,9 +6,9 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400; /* Roboto-Regular */
   font-size: 18px;
-  color: #1f1f1f;
+  color: #333333;
   position: relative;
-  background: #FCF6EE;
+  background: #f8f9fa;
   {% if site.page-col %}
   background: {{ site.page-col }};
   {% endif %}
@@ -61,7 +61,7 @@ body {
   margin-top: 3.125rem;
   background: #05172d;
   padding: 10rem 0 13rem;
-  color: #fff;
+  color: #ffffff;
   background-image: url(/img/stardust-bg.png);
   animation: animatedBackground 100s linear infinite;
 } 
@@ -71,7 +71,7 @@ p {
 }
 p a {
   /* text-decoration: underline */
-  color: #008AFF;
+  color: #333333;
 }
 /* h1 styles */
 h1 {
@@ -79,6 +79,7 @@ h1 {
   font-weight: 700; /* Roboto-Bold */
   text-decoration: underline;
   margin-bottom: 0.5em; /* Reduce bottom margin to half of what it is now */
+  color: #343a40; /* Dark grey headers */
 }
 /* h2 to h3 styles */
 h2, h3 {
@@ -86,12 +87,14 @@ h2, h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 600; /* Regular weight */
   margin-bottom: 0.5em; /* Reduce bottom margin to half of what it is now */
+  color: #343a40; /* Dark grey headers */
 }
 
 h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 500; /* Regular weight */
   text-decoration: none;
+  color: #343a40; /* Dark grey headers */
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -101,7 +104,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover,
 h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-  color: #890000;
+  color: #007bff;
 }
 
 a {
@@ -109,7 +112,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #890000;
+  color: #007bff;
 }
 blockquote {
   color: #808080;
@@ -347,8 +350,8 @@ img {
 
 footer {
   padding: 30px 0;
-  background: rgb(206, 206, 206);
-  border-top: 1px #EAEAEA solid;
+  background: #343a40;
+  border-top: 1px #ffffff solid;
   margin-top: 50px;
   font-size: 14px;
   {% if site.footer-col %}
@@ -361,9 +364,11 @@ footer {
 }
 
 footer a {
-  color: #404040;
+  color: #ffffff;
 }
-
+footer a:hover {
+  color: #007bff; /* Blue on hover */
+}
 footer .list-inline {
   margin: 0;
   padding: 0;
@@ -908,11 +913,12 @@ td.gutter {
 
 .navbar-default button.navbar-toggle:focus,
 .navbar-default button.navbar-toggle:hover {
-  background-color: initial;
+  background-color: #218838; /* Green buttons */
+  color: #ffffff; /* White text */
 }
 
 .navbar-default button.navbar-toggle[aria-expanded="true"] {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #28a745; /* Green buttons */
 }
 
 /* Tags page */
