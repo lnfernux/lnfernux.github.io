@@ -68,17 +68,15 @@ var main = {
     main.initImgs();
 
     // Add IDs to headers and wrap them in anchor tags
-    document.addEventListener("DOMContentLoaded", function() {
-      const headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-      headers.forEach(header => {
-        const id = header.id || header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
-        header.id = id;
-        const link = document.createElement("a");
-        link.href = `#${id}`;
-        link.innerHTML = header.innerHTML;
-        header.innerHTML = "";
-        header.appendChild(link);
-      });
+    const headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    headers.forEach(header => {
+      const id = header.id || header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      header.id = id;
+      const link = document.createElement("a");
+      link.href = `#${id}`;
+      link.innerHTML = header.innerHTML;
+      header.innerHTML = "";
+      header.appendChild(link);
     });
   },
 
@@ -88,67 +86,60 @@ var main = {
       main.bigImgEl = $("#header-big-imgs");
       main.numImgs = main.bigImgEl.attr("data-num-img");
 
-          // 2fc73a3a967e97599c9763d05e564189
-	  // set an initial image
-	  var imgInfo = main.getImgInfo();
-	  var src = imgInfo.src;
-	  var desc = imgInfo.desc;
-  	  main.setImg(src, desc);
+      // set an initial image
+      var imgInfo = main.getImgInfo();
+      var src = imgInfo.src;
+      var desc = imgInfo.desc;
+      main.setImg(src, desc);
 
-	  // For better UX, prefetch the next image so that it will already be loaded when we want to show it
-  	  var getNextImg = function() {
-	    var imgInfo = main.getImgInfo();
-	    var src = imgInfo.src;
-	    var desc = imgInfo.desc;
+      // For better UX, prefetch the next image so that it will already be loaded when we want to show it
+      var getNextImg = function() {
+        var imgInfo = main.getImgInfo();
+        var src = imgInfo.src;
+        var desc = imgInfo.desc;
 
-		var prefetchImg = new Image();
-  		prefetchImg.src = src;
-		// if I want to do something once the image is ready: `prefetchImg.onload = function(){}`
+        var prefetchImg = new Image();
+        prefetchImg.src = src;
 
-  		setTimeout(function(){
-                  var img = $("<div></div>").addClass("big-img-transition").css("background-image", 'url(' + src + ')');
-  		  $(".intro-header.big-img").prepend(img);
-  		  setTimeout(function(){ img.css("opacity", "1"); }, 50);
+        setTimeout(function(){
+          var img = $("<div></div>").addClass("big-img-transition").css("background-image", 'url(' + src + ')');
+          $(".intro-header.big-img").prepend(img);
+          setTimeout(function(){ img.css("opacity", "1"); }, 50);
 
-		  // after the animation of fading in the new image is done, prefetch the next one
-  		  //img.one("transitioned webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-		  setTimeout(function() {
-		    main.setImg(src, desc);
-			img.remove();
-  			getNextImg();
-		  }, 1000);
-  		  //});
-  		}, 6000);
-  	  };
+          setTimeout(function() {
+            main.setImg(src, desc);
+            img.remove();
+            getNextImg();
+          }, 1000);
+        }, 6000);
+      };
 
-	  // If there are multiple images, cycle through them
-	  if (main.numImgs > 1) {
-  	    getNextImg();
-	  }
+      // If there are multiple images, cycle through them
+      if (main.numImgs > 1) {
+        getNextImg();
+      }
     }
   },
 
   getImgInfo : function() {
-  	var randNum = Math.floor((Math.random() * main.numImgs) + 1);
+    var randNum = Math.floor((Math.random() * main.numImgs) + 1);
     var src = main.bigImgEl.attr("data-img-src-" + randNum);
-	var desc = main.bigImgEl.attr("data-img-desc-" + randNum);
+    var desc = main.bigImgEl.attr("data-img-desc-" + randNum);
 
-	return {
-	  src : src,
-	  desc : desc
-	}
+    return {
+      src : src,
+      desc : desc
+    }
   },
 
   setImg : function(src, desc) {
-	$(".intro-header.big-img").css("background-image", 'url(' + src + ')');
-	if (typeof desc !== typeof undefined && desc !== false) {
-	  $(".img-desc").text(desc).show();
-	} else {
-	  $(".img-desc").hide();
-	}
+    $(".intro-header.big-img").css("background-image", 'url(' + src + ')');
+    if (typeof desc !== typeof undefined && desc !== false) {
+      $(".img-desc").text(desc).show();
+    } else {
+      $(".img-desc").hide();
+    }
   }
 };
-
-// 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', main.init);
