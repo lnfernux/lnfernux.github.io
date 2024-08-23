@@ -43,13 +43,3 @@
     window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
   });
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/kusto.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-      document.querySelectorAll('pre code').forEach((block) => {
-        hljs.highlightBlock(block);
-      });
-    });
-  </script>
