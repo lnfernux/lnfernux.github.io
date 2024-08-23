@@ -3,7 +3,8 @@
 /* --- General --- */
 
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Roboto-Regular */
   font-size: 18px;
   color: #1f1f1f;
   position: relative;
@@ -72,9 +73,23 @@ p a {
   /* text-decoration: underline */
   color: #008AFF;
 }
-h1,h2,h3,h4,h5,h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+/* h1 styles */
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Roboto-Bold */
+  text-decoration: underline;
+}
+/* h2 to h6 styles */
+h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic; /* Roboto Italic */
+  font-weight: 600; /* Regular weight */
+  text-decoration: none;
+}
+/* Code styles */
+code {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100; /* Roboto-Light */
 }
 a {
   color: #008AFF;
@@ -86,6 +101,8 @@ a:focus {
 blockquote {
   color: #808080;
   font-style: italic;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Roboto-Regular */
 }
 blockquote p:first-child {
   margin-top: 0;
@@ -110,7 +127,8 @@ hr.small {
 }
 
 .main-explain-area {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Roboto-Regular */
   padding: 15px inherit;
 }
 
@@ -156,7 +174,7 @@ img {
 .navbar-custom {
   background: rgb(255, 255, 255);
   border-bottom: 1px solid #EAEAEA;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   {% if site.navbar-col %}
   background: {{ site.navbar-col }};
   {% endif %}
@@ -338,7 +356,8 @@ footer .list-inline {
   padding: 0;
 }
 footer .copyright {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Roboto-Regular */
   text-align: center;
   margin-bottom: 0;
 }
@@ -391,11 +410,15 @@ footer .theme-by {
   text-decoration: underline;
   font-size: 30px;
   margin-top: 0;
+  font-weight: 900; /* Roboto-Black */
+  font-family: 'Roboto', sans-serif;
 }
 .post-preview .post-subtitle {
   margin: 0;
-  font-weight: 300;
   margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; /* Roboto-Bold */
+  font-style: italic; /* Italic */
 }
 .post-preview .post-meta,
 .post-heading .post-meta {
@@ -403,9 +426,11 @@ footer .theme-by {
   font-size: 18px;
   font-style: italic;
   margin: 0 0 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; /* Roboto-Regular */
 }
 .post-preview .post-entry {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .post-entry-container {
   display: inline-block;
@@ -431,6 +456,7 @@ footer .theme-by {
 }
 .post-preview .post-read-more {
   font-weight: 800;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media only screen and (min-width: 768px) {
