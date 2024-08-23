@@ -84,11 +84,9 @@ h2, h3 {
   text-decoration: underline;
   font-family: 'Roboto', sans-serif;
   font-weight: 600; /* Regular weight */
-  text-decoration: none;
 }
 
 h4, h5, h6 {
-  text-decoration: underline;
   font-family: 'Roboto', sans-serif;
   font-weight: 500; /* Regular weight */
   text-decoration: none;
@@ -746,14 +744,18 @@ table tr td :last-child {
 }
 
 /* --- Code blocks --- */
+/* --- Code blocks --- */
 pre {
   font-size: 16px;
   line-height: 1.5em;
   font-family: 'Roboto', sans-serif;
   font-weight: 100; /* Roboto-Light */
+  white-space: pre-wrap; /* Enable line wrapping */
+  word-wrap: break-word; /* Break long words */
 }
 pre code {
-  white-space: pre;
+  white-space: pre-wrap; /* Enable line wrapping */
+  word-wrap: break-word; /* Break long words */
 }
 pre.highlight, .highlight > pre, td.code pre {
   background: #FAFAFA;
@@ -762,6 +764,8 @@ pre.highlight, .highlight > pre, td.code pre {
   background-size: 3em 3em;
   background-position: 0px 10px;
   border-left: 7px solid #444;
+  white-space: pre-wrap; /* Enable line wrapping */
+  word-wrap: break-word; /* Break long words */
 }
 code table, code table td, code table th, code table tbody, code table tr,
 td.gutter pre {
