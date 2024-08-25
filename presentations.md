@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Presentations
+css: 
+  - /css/custom.css
 ---
 
 # Presentations
@@ -29,6 +31,5 @@ Here is a list of presentations I've made:
 
 | Date|Podcast| Title | Description| Link|
 |-----|----|---|--|--|
-|2023|[Microsoft EMS Community Podcast](https://www.youtube.com/@msems)| MS EMS Community Podcast E002 | The MS EMS Community Podcast! With no particular agenda other than having a casual chat about recent tech events, this time including:<br>Hybrid Identities, Security Posture, Mindset changes & Cross-Tenant Sync! | https://www.youtube.com/watch?v=0RAvGTAlDSc
-|2023|[Azure Security Podcast](https://azuresecuritypodcast.azurewebsites.net/)|Modern Security Strategy|In this episode Michael and Mark talk with Microsoft Security MVP Truls Dahlsveen about modern security strategy. Actually, Mark and Truls mainly do the talking :) We also discuss Azure Security news about Application Gateway TLS policy, Defender for IoT and the Zero Trust Commandments. |https://rss.com/podcasts/azsecpodcast/1064208
-|
+|2023|[Microsoft EMS Community Podcast](https://www.youtube.com/@msems)| MS EMS Community Podcast E002 | The MS EMS Community Podcast! With no particular agenda other than having a casual chat about recent tech events, this time including:<br>Hybrid Identities, Security Posture, Mindset changes & Cross-Tenant Sync! |[Listen here](https://www.youtube.com/watch?v=0RAvGTAlDSc)
+|2023|[Azure Security Podcast](https://azuresecuritypodcast.azurewebsites.net/)|Modern Security Strategy|In this episode Michael and Mark talk with Microsoft Security MVP Truls Dahlsveen about modern security strategy. Actually, Mark and Truls mainly do the talking :) We also discuss Azure Security news about Application Gateway TLS policy, Defender for IoT and the Zero Trust Commandments. |[Listen here](https://rss.com/podcasts/azsecpodcast/1064208)
