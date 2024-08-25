@@ -9,7 +9,7 @@ body.dark-mode {
   }
   
   body.dark-mode header {
-    background-color: #1f1f1f;
+    background-color: #121212;
     color: #e0e0e0;
   }
   
@@ -40,11 +40,11 @@ body.dark-mode {
   }
   
   body.dark-mode .container {
-    background-color: #1e1e1e;
+    background-color: #121212;
   }
   
   body.dark-mode .navbar {
-    background-color: #1f1f1f;
+    background-color: #121212;
     color: #e0e0e0;
   }
   
@@ -57,7 +57,7 @@ body.dark-mode {
   }
   
   body.dark-mode .card {
-    background-color: #1e1e1e;
+    background-color: #121212;
     color: #e0e0e0;
   }
   
@@ -70,7 +70,7 @@ body.dark-mode {
   }
   
   body.dark-mode .table {
-    background-color: #1e1e1e;
+    background-color: #121212;
     color: #e0e0e0;
   }
   
@@ -79,7 +79,7 @@ body.dark-mode {
   }
   
   body.dark-mode .form-control {
-    background-color: #1e1e1e;
+    background-color: #121212;
     color: #e0e0e0;
     border-color: #343a40;
   }
@@ -125,7 +125,7 @@ body.dark-mode {
   }
   
   body.dark-mode .modal-content {
-    background-color: #2a2a2a;
+    background-color: #121212;
     color: #e0e0e0;
   }
   
