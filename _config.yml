@@ -15,6 +15,7 @@
   # List of links in the navigation bar
   navbar-links:
     Archive: Archive
+    Presentations: presentations
     About me: aboutme
   # --- avatar: "/img/avatar-icon.png"
 
