@@ -14,17 +14,6 @@ title: Presentations
 |2024|[TDC](https://2024.trondheimdc.no/)|Automating Security Monitoring|N/A|N/A|N/A|
 
 ## Previous
-Here is a list of presentations I've made:
-
-| Date|Conference| Title | Description| Video| Slides|
-|-----|----|---|--|--|----|
-|2021|[FIRST TC Oslo](https://www.coldincidentresponse.no/)|Deploying and Managing Microsoft Sentinel as Code|N/A|N/A|N/A|
-|2023|[Sikkerhetsfestivalen](https://sikkerhetsfestivalen.no/)|Automating Security Monitoring|N/A|N/A|N/A|
-|2023|[MVP-Dagen](https://mvpdagen.no/)|Automating Security Monitoring|N/A|N/A|N/A|
-|2024|[NDC Security](https://ndc-security.com/)|Automating Security Monitoring|N/A|[Watch on Youtube](https://www.youtube.com/watch?v=RDYtEZltIY4)|N/A|
-|2024|[Microsoft Security User Group](https://www.meetup.com/microsoft-security-user-group/)|Automating Security Monitoring|N/A|N/A|N/A|
-
-Here is a list of presentations I've made:
 
 | Date|Conference| Title | Description| Video| Slides|
 |-----|----|---|--|--|----|
