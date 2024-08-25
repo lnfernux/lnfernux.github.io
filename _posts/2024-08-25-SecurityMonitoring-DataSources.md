@@ -65,7 +65,7 @@ The company has the following "tech stack":
 This is how it looks in terms of the logical flow of information:
 
 ```mermaid
-graph LR
+graph TD
     subgraph "Cloud (Azure)"
     CRM[CRM]
     ERP[ERP]
@@ -460,7 +460,7 @@ This indicates that we probably would do well with some way of tracking changes 
 We are finally at the point where we can change the infrastructure. It's been decided to make some changes to the workstations in the warehouse and to segment the network:
 
 ```mermaid
-graph LR
+graph TD
     subgraph "Cloud (Azure)"
     EntraID[Entra ID]
     end
