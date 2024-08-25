@@ -69,31 +69,41 @@ body.dark-mode {
     color: #3700b3;
   }
   
+ /* Dark Mode Styles for Tables */
   body.dark-mode .table {
-    background-color: #121212;
+    background-color: #1e1e1e;
+    color: #c0c0c0;
+  }
+
+  body.dark-mode .table th,
+  body.dark-mode .table td {
+    border-color: #343a40;
+    padding: 8px;
+  }
+
+  body.dark-mode .table th {
+    background-color: #2a2a2a;
     color: #e0e0e0;
   }
-  
-  body.dark-mode .table th, body.dark-mode .table td {
-    border-color: #343a40;
+
+  body.dark-mode .table tr:nth-child(even) {
+    background-color: #2a2a2a;
   }
-  
-  body.dark-mode .form-control {
-    background-color: #121212;
-    color: #e0e0e0;
-    border-color: #343a40;
+
+  body.dark-mode .table tr:hover {
+    background-color: #343a40;
   }
-  
+
   /* Additional styles from main.css */
   body.dark-mode .jumbotron {
     background-color: #2a2a2a;
     color: #e0e0e0;
   }
-  
+
   body.dark-mode .jumbotron a {
     color: #bb86fc;
   }
-  
+
   body.dark-mode .jumbotron a:hover {
     color: #3700b3;
   }
