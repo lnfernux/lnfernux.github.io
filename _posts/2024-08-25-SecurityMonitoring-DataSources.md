@@ -117,15 +117,16 @@ The infrastructure is as follows:
 
 ### On-premises
 
-| Server | Description | OS | Role | IP |
-| --- | --- | --- | --- | --- |
-| DC01 | Domain Controller | Windows Server 2019 | Active Directory | 192.168.5.5 |
-| Orders01 | Orders Application | Windows Server 2019 | Custom Orders Application | 192.168.5.10  |
-| SupplyChain01 | Supply Chain Application | Windows Server 2019 | Custom Supply Chain Application | 192.168.5.11 |
-| Firewall01 | Firewall | Palo Alto | Firewall | 192.168.5.1 |
-| ESXi01 | ESXi Host | VMware ESXi | Virtualization | 172.16.0.5 |
-| WorkstationX | Workstation | Windows 10 | Workstation | 192.168.10.5-10|
+| Server | Description | OS | Role | 
+| --- | --- | --- | --- | 
+| DC01 | Domain Controller | Windows Server 2019 | Active Directory | 
+| Orders01 | Orders Application | Windows Server 2019 | Custom Orders Application |
+| SupplyChain01 | Supply Chain Application | Windows Server 2019 | Custom Supply Chain Application | 
+| Firewall01 | Firewall | Palo Alto | Firewall | 
+| ESXi01 | ESXi Host | VMware ESXi | Virtualization |
+| WorkstationX | Workstation | Windows 10 | Workstation |
 
+Some more information about the infrastructure:
 * The servers are all virtualized on a VMware ESXi host. 
 * The servers all run on the same virtual network and are connected to the internet through the firewall. 
 * The firewall is a layer 7 firewall configured with default outbound allow and default inbound deny. 
@@ -150,6 +151,7 @@ The infrastructure is as follows:
 | Entra ID Connect | Connects Entra ID to on-premises AD | SaaS | Identity and Access Management | N/A |
 | HR | Human resources system for managing employees and salary integrated with Entra ID using an Enterprise Application | SaaS | HR | N/A |
 
+Some more information about the cloud services:
 * The cloud services are all integrated with Entra ID for SSO.
 * The websites has an input form that when submitted sends information to the custom orders application over the VPN.
 * The HR system is integrated with Entra ID for both SSO and lifecycle management of users.
@@ -201,11 +203,11 @@ Our general understanding of the business needs to be translated into a list of 
 | VPN | The site-to-site VPN that connects the on-premises network to the Azure cloud | High |
 
 This is the list that I came up with. My reasoning is the following:
-1. The applications are obviously critical to the business, as they are used to process orders and manage inventory.
-2. Anything that supports these applications is also critical, such as the domain controller.
-3. The shared mailbox is critical as it is used to take orders.
-4. The website is critical as it is the main point of contact for customers and it's used to take orders.
-5. The VPN is critical as it connects the on-premises network to the cloud, which is required for both the website and the sales team to communicate with the orders application. 
+1. **The applications are obviously critical to the business**, as they are used to process orders and manage inventory.
+2. **Anything that supports these applications is also critical**, such as the domain controller.
+3. **The shared mailbox is critical** as it is used to take orders.
+4. **The website is critical** as it is the main point of contact for customers and it's used to take orders.
+5. **The VPN is critical** as it connects the on-premises network to the cloud, which is required for both the website and the sales team to communicate with the orders application. 
 
 Now, if we dig even deeper, we see that as long as the on premise infrastructure is up and running, along with either the shared mailbox or website, the company can continue to receive orders. As the workstations in the warehouse are able to communicate with the servers, they can be used to enter orders manually if the VPN is down. In case of emergency, we could update the website to include a phone number and separate email address for orders, which would allow the sales team to take orders over the phone and manually input them into the orders application by using the workstations.
 
@@ -216,17 +218,17 @@ What we have here is the semblance of a business continuity plan. We have identi
 At this point, I want to acknowledge for everyone reading that, yes, what this company needs the most is not security monitoring. We don't know anything about the actual security strategy, BCP, patch management, inventory management, etc. We are just focusing on security monitoring for the sake of this post.
 
 That being said, some things to obviosuly consider based on what we know are:
-1. Architecture review, primarily the network architecture and the on-premises infrastructure.
-2. Identity and Access Management review, primarily the AD and Entra ID setup. 
+1. **Architecture review**, primarily the network architecture and the on-premises infrastructure.
+2. **Identity and Access Management review**, primarily the AD and Entra ID setup. 
    * We already know that the company could benefit from implementing MFA for the warehouse workers, so maybe a F3 or F5 license for them would be a good idea.
-3. Defender XDR configuration, in this case making sure that all the services are configured after best practices.
-4. Consider enabling Defender for Identity and configuring it, same with Defender for Cloud Apps.
+3. **Defender XDR configuration**, in this case making sure that all the services are configured after best practices.
+4. **Consider enabling Defender for Identity and configuring it, same with Defender for Cloud Apps.**
 
-Usually I would always advise to start with the basics, but in this case, we are focusing on security monitoring. So let's get back to that.
+Usually I would **always advise to start with the basics**, but in this case, we are focusing on security monitoring. So let's get back to that.
 
 ### What are you afraid of?
 
-So now comes the fun part. In an ideal world, we would enable all the data sources and all the use cases, then have a stacked team of analysts to go through the alerts together with some magic automation and AI to help us out. This however, is not the case. Usually most companies are in a situation where they have to prioritize what they do and what they do should probably have good effect for the amount of effort it takes. It's also the case of cost and resources - logs cost money, and analysts cost money.
+So now comes the *fun part*. In an **ideal world, we would enable all the data sources and all the use cases**, then have a **stacked team of analysts** to go through the alerts together with some magic **automation and AI to help us out**. This however, **is not the case**. Usually most companies are in a situation where they have to prioritize what they do and what they do should probably have good effect for the amount of effort it takes. **It's also the case of cost and resources - logs cost money, and analysts cost money**.
 
 To this point, the idea is that if we can determine what is the most important things to us and monitor that, then we are in a good place. If we can create use cases using this data that are high fidelity, then the time spent looking into alerts will be time well spent rather than time wasted. In our case, we have only two people dedicated to security, which in reality means no full time security analysts. So we need to be smart about what we do.
 
@@ -352,13 +354,13 @@ So, given what we know currently, we can come up with the following mitigations:
 | DOS attack on the website | Monitor failed authentications to the website.<br>Monitor number of requests.<br>*If we could, we would enable DDOS protection, use a web application firewall and in general follow the guidance in the  [Azure security baseline for App Service](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/app-service-security-baseline/?wt.mc_id=SEC-MVP-5005030).*  | This will allow us to monitor the website for any suspicious activity. |
 
 Some other quick wins that require little effort and can be done quickly are:
-1. Enable logging for Azure and Microsoft 365 and send them to Microsoft Sentinel.
+1. **Enable logging for Azure and Microsoft 365 and send them to Microsoft Sentinel.**
     * This will allow us to monitor the cloud services for any suspicious activity.
-2. Enable selective logging for the firewall and send it to Microsoft Sentinel
+2. **Enable selective logging for the firewall and send it to Microsoft Sentinel**
     * This is a layer 7 firewall, so assuming it has a IDS/IPS system, we can monitor for any alerts there. This is a quick win, and based on our network setup it should not be too noisy.
     * Going beyond that level of logging at this point would probably be overkill - the network is not segmented and we likely don't have good insight into what data is allowed to travel where. 
     * Network data like firewall logs and netflow data is mostly used for incident response and forensics, not for monitoring. It can be used for monitoring, but it's relatively low value compared to the cost.
-3. Enable selective logging for the VPN and send it to Microsoft Sentinel.
+3. **Enable selective logging for the VPN and send it to Microsoft Sentinel.**
     * Assuming we have a basic semblance of what the VPN is used for and when, we can monitor for any unusual activity here.  
 
 Normally we would probably set up log servers (syslog and a windows event collector) to collect logs from all the servers and workstations. We could then place this server somewhere in DMZ, or with access to Azure via private link, but given the constraints of this scenario, we will limit ourselves to installing agents and logging directly to Microsoft Sentinel.
@@ -484,17 +486,17 @@ graph LR
 
 The changes can be summarized as follows:
 
-1. The network will be segmented so that the servers are on a separate network from the workstations.
-2. The workstations in the warehouse will be replaced with thin clients that are only able to access the custom applications.
-3. The warehouse workers will be given individual accounts created in Entra ID that are used to access the custom applications.
-4. The warehouse workers will be given SmartCard/FIDO2 to access the workstations.
+1. **The network will be segmented so that the servers are on a separate network from the workstations.**
+2. **The workstations in the warehouse will be replaced with thin clients that are only able to access the custom applications.**
+3. **The warehouse workers will be given individual accounts created in Entra ID that are used to access the custom applications.**
+4. **The warehouse workers will be given SmartCard/FIDO2 to access the workstations.**
 
 Given these changes, we can now apply the four question framework to Infernux Corp:
 
-- Assess Scope - What are we working on? We are working on securing the custom applications and the domain controller, in addition to segmenting the on-premise network.
-- Identify what can go wrong - User adoption of the new workstations and the new access controls, misconfiguration of the new network segments, misconfiguration of the new access controls. 
-- Identify countermeasures or manage risk - Focus on security culture and training, have a plan for monitoring the new network segments and access controls, have a plan for monitoring the new workstations.
-- Assess your work - Did we do a good job? This is where we would evaluate the success of the changes and the monitoring of the new network segments and access controls. At this very moment, it's hard to tell, but we can at least have a plan in place for how to evaluate the success of the changes.
+- **Assess Scope** - What are we working on? We are working on securing the custom applications and the domain controller, in addition to segmenting the on-premise network.
+- **Identify what can go wrong** - User adoption of the new workstations and the new access controls, misconfiguration of the new network segments, misconfiguration of the new access controls. 
+- **Identify countermeasures or manage risk** - Focus on security culture and training, have a plan for monitoring the new network segments and access controls, have a plan for monitoring the new workstations.
+- **Assess your work** - Did we do a good job? This is where we would evaluate the success of the changes and the monitoring of the new network segments and access controls. At this very moment, it's hard to tell, but we can at least have a plan in place for how to evaluate the success of the changes.
 
 ## Conclusion
 
