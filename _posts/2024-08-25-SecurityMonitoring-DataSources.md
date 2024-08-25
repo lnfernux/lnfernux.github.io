@@ -370,11 +370,11 @@ Normally we would probably set up log servers (syslog and a windows event collec
 The validation is how we can check if our mitigations are working. This can be anything from checking logs to running a red team exercise. For Infernux Corp, we will limit ourselves to checking logs in Microsoft Sentinel and verifying that the use cases are working as intended. I wrote a bit more in detail about this in another [post](https://www.infernux.no/SecurityMonitoring-DevelopingUseCases/#testing-the-use-case).
 
 My validation would be to check the following:
-1. Check that the logs in Microsoft Sentinel are being ingested correctly.
-2. For each use case, run a test to see if it triggers an alert.
+1. **Check that the logs in Microsoft Sentinel are being ingested correctly.**
+2. **For each use case, run a test to see if it triggers an alert.**
     * For example, I could create a new user and assign it a privileged role to see if it triggers any alerts.
     * It's important to do this for each use case, as it's the only way to know if they are working as intended.
-    * Obviously don't run an actual ransomware attack, but you could simulate one by running a script that creates a lot of dummy files on the servers and then performs actions common in ransomware.
+    * ***Obviously don't run an actual ransomware attack***, but you could simulate one by running a script that creates a lot of dummy files on the servers and then performs actions common in ransomware.
 
 ## Next steps
 
