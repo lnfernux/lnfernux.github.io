@@ -2,7 +2,7 @@
 layout: page
 title: Presentations
 css: 
-  - /css/custom.css
+  - /css/presentations.css
 ---
 
 # Presentations
