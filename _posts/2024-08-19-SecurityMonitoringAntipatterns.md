@@ -29,7 +29,7 @@ Welcome back to another post - this time we are talking about antipatterns. If y
 
 # Introduction to antipatterns
 
-Now, even if you have never heard of antipatterns as a concept, I can almost guarantee you've heard of some - if you are a reader here you will have seen me mention multiple.
+Now, even if you have never heard of antipatterns as a concept, I can almost guarantee you've heard of some - if you are a reader here you will have seen me mention multiple. I recently attended the SEC530 course from SANS and I saw a lot of examples of antipatterns although they were not called that. So this jogged the idea in my mind to explore the topic a bit further - no matter if it's defined as antipatterns, or just as examples of bad practice. One of the most important things we can do is to learn from common mistakes!
 
 The idea for this post is pretty simple - Mark Simos and friends over at Microsoft have created the Microsoft Cybersecurity Reference Architecture or MCRA for short. Here we can find a lot of good examples of antipatterns, which I'm going to *borrow/steal*. To be more specific, I'm going to take one of their slides on antipatterns in security monitoring and deconstruct it, to see if it makes sense.
 
