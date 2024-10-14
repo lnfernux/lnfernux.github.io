@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Security Monitoring - Threat Modelling and Data Sources
+title: Security Monitoring - Threat Modeling and Data Sources
 subtitle: One of the most misunderstood aspects of security monitoring is determining what data sources to use for what purpose. In this post, we will go through the process of determining what data sources to use for what purpose, where to prioritize developing use cases and how to plan for the future.
 tags:
   - Security Monitoring
@@ -15,7 +15,7 @@ image: /img/sentinel.png
 
 The idea that ingesting [all the data](https://www.infernux.no/SecurityStrategy/) and enabling [all the use cases](https://www.infernux.no/SecurityMonitoring-DevelopingUseCases/) is the best approach to security monitoring is something we have explored [time](https://www.infernux.no/SecurityMonitoringAntipatterns/#collection-is-not-detection) and [time again](https://www.infernux.no/AutomatingSecurityMonitoring1/) here on this blog. So I thought, instead of just ranting about it, let's show you how I would go about doing it. For this purpose I have create a mock company, which I will present, and a mock infrastructure. I will then go through the process of determining what data sources to use for what purpose, where to prioritize developing use cases and how to plan for the future.
 
-I will also touch a little bit on threat modelling. For those of you who are adept at this, please bear with me. I've dumbed it down quite a bit, but I think it's important to show how threat modelling can be used in a practical sense for small and medium sized companies. 
+I will also touch a little bit on threat modeling. For those of you who are adept at this, please bear with me. I've dumbed it down quite a bit, but I think it's important to show how threat modeling can be used in a practical sense for small and medium sized companies. 
 
 ## Table of Contents
 
@@ -36,7 +36,7 @@ I will also touch a little bit on threat modelling. For those of you who are ade
     * [Create new use cases](#create-new-use-cases)
     * [Monitor the alerts](#monitor-the-alerts)
     * [Implement a feedback loop](#implement-a-feedback-loop)
-    * [Threat modelling lifecycle](#threat-modelling-lifecycle)
+    * [Threat modeling lifecycle](#threat-modeling-lifecycle)
         * [Applying the four question framework to Infernux Corp](#applying-the-four-question-framework-to-infernux-corp)
 * [Conclusion](#conclusion)
 
@@ -236,9 +236,9 @@ So what are we afraid of?
 
 ![Monster under the bed](/img/monsterunderthebed.png)
 
-To accomplish this, let's do some threat modelling.
+To accomplish this, let's do some threat modeling.
 
-> *"Threat modelling works to identify, communicate, and understand threats and mitigations within the context of protecting something of value."* - [OWASP](https://owasp.org/www-community/Threat_Modeling)
+> *"Threat modeling works to identify, communicate, and understand threats and mitigations within the context of protecting something of value."* - [OWASP](https://owasp.org/www-community/Threat_Modeling)
 
 A threat model typically includes:
 
@@ -416,11 +416,11 @@ P[Identified threat] --> |Mitigated by| Detection
 D --> |Improve or create more| Detection
 ```
 
-The idea is that based on threat modelling and what we are afraid of, we can generate detection. By responding to these alerts, we gain some insight into wether or not it's a good detection in it's current form, or if it needs improvement in the form of tuning. This in turn becomes our validation of sorts, which informs the detection process further. If the detection is in an alright state, we can move on to the next threat.
+The idea is that based on threat modeling and what we are afraid of, we can generate detection. By responding to these alerts, we gain some insight into wether or not it's a good detection in it's current form, or if it needs improvement in the form of tuning. This in turn becomes our validation of sorts, which informs the detection process further. If the detection is in an alright state, we can move on to the next threat.
 
-### Threat modelling lifecycle
+### Threat modeling lifecycle
 
-As with the above paragraph on feedback loops for use cases, we also need to have some sort of threat modelling lifecycle in place. We obviously might not have the time, people or resources to fully threat model everything - luckily we get some pretty decent tools from OWASP in form of the **four question framework**:
+As with the above paragraph on feedback loops for use cases, we also need to have some sort of threat modeling lifecycle in place. We obviously might not have the time, people or resources to fully threat model everything - luckily we get some pretty decent tools from OWASP in form of the **four question framework**:
 
 > A possible threat exists when the combined likelihood of the threat occurring and impact it would have on the organization create a significant risk. The following four question framework can help to organize threat modeling:
 
@@ -431,7 +431,7 @@ As with the above paragraph on feedback loops for use cases, we also need to hav
 
 >There are many methods or techniques that can be used to answer each of these questions. There is no “right” way to evaluate the search space of possible threats, but structured models exist in order to help make the process more efficient. Attempting to evaluate all the possible combinations of threat agent, attack, vulnerability, and impact is often a waste of time and effort. It is helpful to refine the search space in order to determine which possible threats to focus on.
 
-We can visualzie the threat modelling lifecycle like this:
+We can visualzie the threat modeling lifecycle like this:
 
 ```mermaid
 graph TD
@@ -440,7 +440,7 @@ Change
 System -...-> Change
 Component -.-> Change
 Scope ----> |Treshold| Change
-subgraph "Threat Modelling"
+subgraph "Threat Modeling"
 Q1[What are we working on?]
 Q2[What can go wrong?]
 Q3[What are we going to do?]
@@ -452,7 +452,7 @@ Q3 --> Outcome
 Outcome --> Q4[Did we do a good job?]
 ```
 
-This indicates that we probably would do well with some way of tracking changes - in the form of a change management process. This will also inform our threat modelling process, as we can then focus on the changes that are happening in the infrastructure and the business that exceed our determined scope. Not every change needs to be fully modelled, but we need to have a way of determining what changes are important to model.
+This indicates that we probably would do well with some way of tracking changes - in the form of a change management process. This will also inform our threat modeling process, as we can then focus on the changes that are happening in the infrastructure and the business that exceed our determined scope. Not every change needs to be fully modeled, but we need to have a way of determining what changes are important to model.
 
 
 #### Applying the four question framework to Infernux Corp
