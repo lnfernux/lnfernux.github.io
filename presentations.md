@@ -9,9 +9,9 @@ If you're looking for a speaker for your conference, meetup or podcast, feel fre
 
 ## Upcoming (might not always be up to date)
 
-| Date|Conference| Title | Description| Video| Slides|
-|-----|----|---|--|--|----|
-
+| Date|Conference| Title | Video| Slides|
+|--|--|--|--|--|
+| N/A | N/A | N/A | N/A | N/A |
 
 ## Previous
 
