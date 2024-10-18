@@ -30,21 +30,21 @@ The layout for this article will be quite straightforward. I will create a table
     - [External user leave settings](#external-user-leave-settings)
     - [Collaboration restrictions](#collaboration-restrictions)
     - [User features](#user-features)
-- [External Identities | Cross-tenant access settings](#external-identities--cross-tenant-access-settings)
+- [External Identities - Cross-tenant access settings](#external-identities--cross-tenant-access-settings)
 - [Enterprise applications](#enterprise-applications)
-    - [Consent and permissions | User consent settings](#consent-and-permissions--user-consent-settings)
+    - [Consent and permissions - User consent settings](#consent-and-permissions--user-consent-settings)
     - [Admin consent requests](#admin-consent-requests)
-    - [Consent and permissions | Permission classifications](#consent-and-permissions--permission-classifications)
+    - [Consent and permissions - Permission classifications](#consent-and-permissions--permission-classifications)
 - [Protection - Identity Protection](#protection---identity-protection)
-  - [Identity Protection | Conditional Access](#identity-protection--conditional-access)
-  - [Identity Protection | User risk policy](#identity-protection--user-risk-policy)
-  - [Identity Protection | Sign-in risk policy](#identity-protection--sign-in-risk-policy)
-  - [Identity Protection | Multifactor authentication registration policy](#identity-protection--multifactor-authentication-registration-policy)
-  - [Security | Named locations](#security--named-locations)
-  - [Security | Authentication methods | Policies](#security--authentication-methods--policies)
-  - [Security | Authentication methods | Password protection](#security--authentication-methods--password-protection)
-  - [Security | Authentication methods | Registration campaign](#security--authentication-methods--registration-campaign)
-  - [Security | Authentication methods | Authentication strengths](#security--authentication-methods--authentication-strengths)
+  - [Identity Protection - Conditional Access](#identity-protection--conditional-access)
+  - [Identity Protection - User risk policy](#identity-protection--user-risk-policy)
+  - [Identity Protection - Sign-in risk policy](#identity-protection--sign-in-risk-policy)
+  - [Identity Protection - Multifactor authentication registration policy](#identity-protection--multifactor-authentication-registration-policy)
+  - [Security - Named locations](#security--named-locations)
+  - [Security - Authentication methods - Policies](#security--authentication-methods--policies)
+  - [Security - Authentication methods - Password protection](#security--authentication-methods--password-protection)
+  - [Security - Authentication methods - Registration campaign](#security--authentication-methods--registration-campaign)
+  - [Security - Authentication methods - Authentication strengths](#security--authentication-methods--authentication-strengths)
 
 
 ## User settings
@@ -205,6 +205,8 @@ For larger companies I can see setting the user setting a bit more lenient, like
 
 ## Protection - Identity Protection
 
+You can get to the Identity Protection settings [here](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/OverviewNew/fromNav/Identity).
+
 ## Identity Protection | Conditional Access
 
 Conditional access is huge, and I would much rather you go check out [Daniel Chronlund](https://danielchronlund.com/2020/11/26/azure-ad-conditional-access-policy-design-baseline-with-automatic-deployment-support/) and his work on this for a good baseline. 
@@ -233,11 +235,15 @@ I'd set this to block for high (or medium), depending on company size. You can (
 
 ### Identity Protection | Multifactor authentication registration policy
 
+Access the MFA registration [setting here.](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/MfaPolicy/fromNav/Identity)
+
 Only changes I'd make from the default here is to change the default targetting. 
 
 Default it targets all users with no exceptions, I'd change this to **exclude any break the glass users** you might have.
 
 ### Security | Named locations
+
+Named locations can be accessed [here](https://entra.microsoft.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/NamedLocations/fromNav/Identity).
 
 I would add at least two named locations here:
 
