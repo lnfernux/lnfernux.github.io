@@ -285,3 +285,7 @@ I would enable the registration campaign, and limit the number of snoozes. I wou
 ### Security | Authentication methods | Authentication strengths
 
 I would not change anything here, unless you have certain requirements for authentication strengths in your company. In this case, create a custom strength and use that in your conditional access policies.
+
+## Summary
+
+This is a list of settings I would change in any Entra ID-tenant I manage. I hope this list is helpful to you, and that you can use it as a baseline for your own hardening. If you have any questions, feel free to reach out.
