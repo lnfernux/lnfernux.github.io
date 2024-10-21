@@ -47,6 +47,14 @@ The layout for this article will be quite straightforward. I will create a table
   - [Security - Authentication methods - Authentication strengths](#security--authentication-methods--authentication-strengths)
 
 
+## Introduction
+
+In this post you'll find some guidance on settings in Entra ID or Azure that will enhance your security. There is an important note here, however:
+
+**Context is key.**
+
+What you are using your Azure tenant for will impact what level of security you go for. The settings I advocate are mainly for those who use their tenants to deliver either a managed service, or if they host a platform/service in Azure that customers access. That being said, I've also added some assumptions for some of the settings I'm recommending that gives a bit more context to why I'm recommending them.
+
 ## User settings
 
 You can find the user settings [here](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/UserSettings/menuId/UserSettings) and an overview over default user permissions [on Microsoft Learn](https://learn.microsoft.com/en-us/entra/fundamentals/users-default-permissions/?wt.mc_id=SEC-MVP-5005030)
@@ -67,7 +75,13 @@ I find these settings to be the most important to change in small companies. We 
 | --- | --- | --- | --- |
 |Guest user access restrictions | Limited access (default), Guests can see membership of all non-hidden groups | Restricted access (new), Guests can't see membership of any groups | Restrict guest user access |
 
-This setting is important to restrict what guest users can see in the tenant. 
+This setting is important to restrict what guest users can see in the tenant. For this setting, I think context is important:
+
+- Allowing guest users in a tenant usually result in stale accounts
+- When someone changes jobs, or teams, who is responsible for removing the guest user?
+
+I prefer to use identity governance for this, and create access packages. With this you can scope the access to a certain level and limit the people who can apply for it only to a certain company (tenant). You can also configure the life cycle of the users here - so this saves you a lot of job in the long run, as it will handle removal of the guest users for you and also make sure that access is removed if it's not needed anymore.
+
 ### Administration center
 
 | Setting | Default | Change | Reason |
@@ -224,6 +238,8 @@ If all else fails, I'd recommend the following policies to be in place at least:
    * Sign-in frequency to 7-9 hours 
    * Persistent browser sessions off
    * Sign-in risk policy for high risk sign-ins or users in block
+
+Context here; I assume that you are using Intune-managed compliant devices, in which case the total amount of prompts would be once per browser (if you assume that you're using that browser to sign in to all services defined in tenant X). If you're not using a machine devie with Windows Hello, I would recommend looking into the session policies and maybe exempting low privileged users from some of the session controls to ensure a smooth user experience and avoiding MFA fatigue.
 
 ### Identity Protection | User risk policy
 
