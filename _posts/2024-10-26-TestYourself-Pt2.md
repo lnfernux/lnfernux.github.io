@@ -374,6 +374,8 @@ In this blogpost we've gone through how you can use Maester to test your Entra I
 
 One important lesson I learned personally is that even if something technically is "secured by default" or "enabled by default", it's **important to explicitly set these settings to make sure they don't change in the future**.
 
+Another thing, like the `EIDSCA.PR02: Default Settings - Password Rule Settings - Password Protection - Enable password protection on Windows Server Active Directory.` test (*I haven't mentioned it before now, but it fails*) - it's not really relevant as I do not have any on-premise AD. I could obviously fix this by going to the [password protection settings](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/PasswordProtection) and switching the `Password protection for Windows Server Active Directory` mode to `Enforced` (it's set to `Audit` by default), but that would only be a cosmetic fix. So, it's important to **understand the context of the tests and recommendations**.
+
 For future articles, we'll try to cover some more of Azure and Azure RBAC, Microsoft 365 and it's tools like Exchange and Teams to a certain degree. We'll focus on some other tools aside from Maester. The idea is that Maester reviews your posture, but other tools can help you map out any potential attack paths (like AzureHound), help you simulate attacks to make sure they are either blocked or detected. All these things are important to include when testing your own environment.
 
 **Comments, feedback? Reach out anywhere you can find me!**
