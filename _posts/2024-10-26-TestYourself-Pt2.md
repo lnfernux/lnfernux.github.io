@@ -186,6 +186,8 @@ The report is quite extensive, and I won't go through all of it here. But I'll s
 
 This test fails initially. This was an error on my part, as I had not set the guest invite restrictions. This is a good example of how Maester can help you identify things you might have missed. In my [recommendation here](https://www.infernux.no/EntraID-GeneralHardening/#guest-invite-settings) I had recommended the value to be set to `Only users assigned to specific admin roles can invite guest users` but forgot to update it.
 
+It can be updated in the [external collaboration settings](https://portal.azure.com/#view/Microsoft_AAD_IAM/AllowlistPolicyBlade) in the Azure portal. Set the `Guest invite restrictions` to `Only users assigned to specific admin roles can invite guest users`.
+
 After changing it, the test passes:
 
 ![](/img/Maester/testpass.png)
@@ -194,39 +196,38 @@ We can also see the test details, like where the recommendation is coming from, 
 
 ### EIDSCA.AP07: Default Authorization Settings - Guest user access.
 
-In my article I recommended ["Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)"](https://www.infernux.no/EntraID-GeneralHardening/#guest-user-access). Again, in my tenant I had forgot to change from the default "Guest users have limited access to properties and memberships of directory objects":
+In my article I recommended ["Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)"](https://www.infernux.no/EntraID-GeneralHardening/#guest-user-access). Again, in my tenant I had forgot to change from the default `Guest users have limited access to properties and memberships of directory objects`:
 
 ![](/img/Maester/testfail.png)
+
+We can set this [in the User settings](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/UserSettings) by changing the `Guest user access restrictions` to `Guest users access is restricted to properties and memberships of their own directory objects (most restrictive)`.
 
 ## Password Policy
 
 ### EIDSCA.PR05: Default Settings - Password Rule Settings - Smart Lockout - Lockout duration in seconds.
 
-Now, this test is pretty cool because it recommends `60` (I recommended `120` in my article, but `60` is also fine). The test fails because the value is not excplicitly set in my tenant, meaning that if Microsoft changes the default in the future, it will also change in my tenant. So it's a good idea to set this explicitly to at least `60`.
+Now, this test is pretty cool because it recommends `60` (I recommended `120` in my article, but `60` is also fine). The test fails because the value is not excplicitly set in my tenant, meaning that if Microsoft changes the default in the future, it will also change in my tenant. So it's a good idea to set this explicitly to at least `60`. 
+
+We can do this by going to [password protection settings](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/PasswordProtection) and changing the value to `120`:
+
+![](/img/Maester/lockoutduration.png)
+
+
 
 ### EIDSCA.PR06: Default Settings - Password Rule Settings - Smart Lockout - Lockout threshold.
 
-This is the same as the above, where the the test will fail even if the correct treshold is set because it's not explicitly set.
+This is the same as the above, where the the test will fail even if the correct treshold is set because it's not explicitly set. We can do this by going to [password protection settings](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/PasswordProtection) and changing the value to `5`:
+
+![](/img/Maester/lockouttreshold.png)
+
 
 ## Conditional Access
-
-### MS.AAD.1.1: Legacy authentication SHALL be blocked.
-
-This is a pass, since we have blocked legacy authentication in our tenant using CA policies.
-
-### MS.AAD.2.1: Users detected as high risk SHALL be blocked.
-
-I didn't include any recommendations directly in my article, but I referenced [Daniel Chronlund's conditional access baseline work](https://danielchronlund.com/2020/11/26/azure-ad-conditional-access-policy-design-baseline-with-automatic-deployment-support/) as a reference, which inludes blocking high risk users. This is a pass.
-
-### MS.AAD.2.3: Sign-ins detected as high risk SHALL be blocked.
-
-Same as above, pass.
 
 ### MS.AAD.3.1: Phishing-resistant MFA SHALL be enforced for all users.
 
 This fails because I have not enforced phishing-resistant MFA for all users. This is a good example of how Maester can help you identify things you might have missed, or things that you might not "agree" on with the recommendations. 
 
-To put it in other words, yes, phishing resistant MFA might be the best security option, but we also have to take into account the context of the systems we have. Not all users have privileged access to systems, and not all systems are critical. So, in some cases, it might be better to have a more granular approach to MFA that makes sense for your organization and balances usability.
+To put it in other words, yes, **phishing resistant MFA might be the best security option**, but we also have to take into account the context of the systems we have. Not all users have privileged access to systems, and not all systems are critical. So, in some cases, it **might be better to have a more granular approach to MFA that makes sense for your organization and balances usability**.
 
 ## Consent and Permissions
 
@@ -257,7 +258,15 @@ This fails, even if the setting is "correct" because it's set to default. Here w
 
 This fails. Ruh-roh, I even thought I had this enabled. So I went to the [authentication methods](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods) section and enabled it. 
 
-I also got my FIDO2 key out from my drawer and travelled to [myaccount.microsoft.com](https://myaccount.microsoft.com) to register it.
+I also got my FIDO2 key out from my drawer and travelled to [myaccount.microsoft.com](https://myaccount.microsoft.com) to register it:
+
+![](/img/Maester/fido2.png)
+
+Very creative naming there, I know, but now it's registered:
+
+![](/img/Maester/fido2_2.png)
+
+*Yay me.*
 
 ### EIDSCA.AM06: Authentication Method - Microsoft Authenticator - Show application name in push and passwordless notifications.
 
@@ -363,6 +372,8 @@ Invoke-Maester -Verbosity Normal -OutputFolder $OutputFolder
 
 In this blogpost we've gone through how you can use Maester to test your Entra ID tenant, and how you can use the results to fix issues in your tenant. There's a lot more things to fix about my dev tenant, but we've covered the process and how to read the results. 
 
+One important lesson I learned personally is that even if something technically is "secured by default" or "enabled by default", it's **important to explicitly set these settings to make sure they don't change in the future**.
+
 For future articles, we'll try to cover some more of Azure and Azure RBAC, Microsoft 365 and it's tools like Exchange and Teams to a certain degree. We'll focus on some other tools aside from Maester. The idea is that Maester reviews your posture, but other tools can help you map out any potential attack paths (like AzureHound), help you simulate attacks to make sure they are either blocked or detected. All these things are important to include when testing your own environment.
 
-Comments, feedback? Reach out anywhere you can find me!
+**Comments, feedback? Reach out anywhere you can find me!**
