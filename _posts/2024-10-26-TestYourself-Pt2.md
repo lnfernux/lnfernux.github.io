@@ -312,7 +312,7 @@ This takes us [to the Password policies and account restrictions in Microsoft En
 
 In short, you can update this setting doing the following: 
 
-You can disable the use of SSPR for administrator accounts using the Update-MgPolicyAuthorizationPolicy PowerShell cmdlet. The -AllowedToUseSspr:$true|$false parameter enables/disables SSPR for administrators. Policy changes to enable or disable SSPR for administrator accounts can take up to 60 minutes to take effect.
+> You can disable the use of SSPR for administrator accounts using the `Update-MgPolicyAuthorizationPolicy` PowerShell cmdlet. The `-AllowedToUseSspr:$true|$false` parameter enables/disables SSPR for administrators. Policy changes to enable or disable SSPR for administrator accounts can take up to 60 minutes to take effect. [Source: Microsoft Learn](https://learn.microsoft.com/nb-no/entra/identity/authentication/concept-sspr-policy#administrator-password-policy-differences/?wt.mc_id=SEC-MVP-5005030)
 
 ```powershell
 Update-MgPolicyAuthorizationPolicy -AllowedToUseSspr:$false
