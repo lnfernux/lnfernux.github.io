@@ -19,13 +19,46 @@ In the last article called "Test Yourself: The Prelude", we talked about some ba
 - [Test Yourself: The Prelude](https://www.infernux.no/TestYourself/)
 - [Threat Modeling](https://www.infernux.no/SecurityMonitoring-DataSources/)
 
-## Table of Contents
+# Table of Contents
 
-## Identity
+- [Identity](#identity)
+- [Example Company: Infernux Inc](#example-company-infernux-inc)
+- [Starting with the basics](#starting-with-the-basics)
+- [Introduction to Maester](#introduction-to-maester)
+  - [Getting started with Maester](#getting-started-with-maester)
+  - [Installing Maester](#installing-maester)
+  - [Running Maester](#running-maester)
+- [Going through the report](#going-through-the-report)
+  - [Guest Access Settings](#guest-access-settings)
+    - [EIDSCA.AP04: Default Authorization Settings - Guest invite restrictions](#eidscap04-default-authorization-settings---guest-invite-restrictions)
+    - [EIDSCA.AP07: Default Authorization Settings - Guest user access](#eidscap07-default-authorization-settings---guest-user-access)
+  - [Password Policy](#password-policy)
+    - [EIDSCA.PR05: Default Settings - Password Rule Settings - Smart Lockout - Lockout duration in seconds](#eidscapr05-default-settings---password-rule-settings---smart-lockout---lockout-duration-in-seconds)
+    - [EIDSCA.PR06: Default Settings - Password Rule Settings - Smart Lockout - Lockout threshold](#eidscapr06-default-settings---password-rule-settings---smart-lockout---lockout-threshold)
+  - [Conditional Access](#conditional-access)
+    - [MS.AAD.1.1: Legacy authentication SHALL be blocked](#msaad11-legacy-authentication-shall-be-blocked)
+    - [MS.AAD.2.1: Users detected as high risk SHALL be blocked](#msaad21-users-detected-as-high-risk-shall-be-blocked)
+    - [MS.AAD.2.3: Sign-ins detected as high risk SHALL be blocked](#msaad23-sign-ins-detected-as-high-risk-shall-be-blocked)
+    - [MS.AAD.3.1: Phishing-resistant MFA SHALL be enforced for all users](#msaad31-phishing-resistant-mfa-shall-be-enforced-for-all-users)
+  - [Consent and Permissions](#consent-and-permissions)
+    - [MS.AAD.5.3: An admin consent workflow SHALL be configured for applications](#msaad53-an-admin-consent-workflow-shall-be-configured-for-applications)
+  - [Authentication Methods](#authentication-methods)
+    - [EIDSCA.AG01: Authentication Method - General Settings - Manage migration](#eidscaag01-authentication-method---general-settings---manage-migration)
+    - [EIDSCA.AG02: Authentication Method - General Settings - Report suspicious activity - State](#eidscaag02-authentication-method---general-settings---report-suspicious-activity---state)
+    - [EIDSCA.AF01: Authentication Method - FIDO2 security key - State](#eidscaaf01-authentication-method---fido2-security-key---state)
+    - [EIDSCA.AM06: Authentication Method - Microsoft Authenticator - Show application name in push and passwordless notifications](#eidscam06-authentication-method---microsoft-authenticator---show-application-name-in-push-and-passwordless-notifications)
+    - [EIDSCA.AM09: Authentication Method - Microsoft Authenticator - Show geographic location in push and passwordless notifications](#eidscam09-authentication-method---microsoft-authenticator---show-geographic-location-in-push-and-passwordless-notifications)
+    - [EIDSCA.AT01: Authentication Method - Temporary Access Pass - State](#eidscat01-authentication-method---temporary-access-pass---state)
+  - [Authorization Settings](#authorization-settings)
+    - [EIDSCA.AP01: Default Authorization Settings - Enabled Self service password reset for administrators](#eidscap01-default-authorization-settings---enabled-self-service-password-reset-for-administrators)
+- [Rerunning Maester](#rerunning-maester)
+- [Conclusion](#conclusion)
+
+# Identity
 
 Is identity the new, primary perimeter for security? Maybe it is, but regardless, it's becoming an increasingly important part of security. We know for a fact that active directory is at the center of a lot of breaches historically (and still is, for some reason). Even more so now, when most companies are moving to the cloud and you can work from Bali, Starbucks or Home (at least for now), cloud identity is becoming more and more important.
 
-### Example Company: Infernux Inc
+## Example Company: Infernux Inc
 
 Let's take an example company, Infernux Inc. In this case, they're a pretty new startup with a cloud-first approach. They're only in the cloud, as of now. Microsoft 365 with Teams, Outlook and Sharepoint is the main way to collaborate inside the company and also to access any other business-tools they might need. For all of this, Entra ID is the main identity provider. They currently get devices from the company, but it's not managed in any way.
 
@@ -34,7 +67,7 @@ What does this tell us?
 1. Even if the computers are handed out by the company, they're not managed and can be considered similar to BYOD-devices. 
 2. The company is cloud-first, which means that the identity provider is the main way to access anything.
 
-## Starting with the basics
+# Starting with the basics
 
 I wrote an article recently about [Hardening Entra ID](https://www.infernux.no/EntraID-GeneralHardening/) which is a very light introduction to how you can start securing your ~~Azure AD~~ Entra ID. I suggest you give it a read if you haven't already. It covers some of the most important things to consider when setting up a new Azure tenant on the Entra ID side, with some references to other resources that can help you further, but is by no means exhaustive.
 
@@ -42,7 +75,7 @@ Now the **entire idea of this blog is very simple**. We're going to **install an
 
 It's not 🚀 science, it's 🔥 Maester.
 
-## Introduction to Maester
+# Introduction to Maester
 
 So what is [Master.dev](https://maester.dev/)? Well, it's a test framework built on top of Pester, a Powershell test framework. Maester allows you to test your infrastructure by allowing you to run tests against it. I've covered [ScubaGear](https://www.infernux.no/ToolsYouShouldKnow-ScubaGear/) from CISA before, and the Secure Cloud Business Applications (SCuBA) tests are all part of Maester, along with some Maester-specific tests, the [Entra ID Security Config Analyzer (EIDSCA) tests](https://github.com/Cloud-Architekt/AzureAD-Attack-Defense/blob/main/AADSecurityConfigAnalyzer.md) from the [Entra ID Attack and Defense Playbook](https://github.com/Cloud-Architekt/AzureAD-Attack-Defense) and finally the option to write your [own custom tests!](https://maester.dev/docs/writing-tests)
 
@@ -54,7 +87,7 @@ This is all made possible by the Maester PowerShell module, which runs the tests
 
 The introduction guide for setting up Maester is solid, so I won't go into much details here apart from sharing the commands I run to generate my report. You can find the guide [here](https://maester.dev/docs/installation).
 
-### Installing Maester
+## Installing Maester
 
 Start up a PowerShell session and run the following commands:
 
@@ -111,7 +144,7 @@ Update-Module ExchangeOnlineManagement -Force
 
 This is all we need to do for setup right now.
 
-### Running Maester
+## Running Maester
 
 To run Maester, we need to run the following command:
 
@@ -159,13 +192,13 @@ The report will look something like this:
 
 ![](/img/Maester/maesterreport.png)
 
-## Going through the report 
+# Going through the report 
 
 The report is quite extensive, and I won't go through all of it here. But I'll show you some of the things that are interesting to look at. Let's first scope things out - we are first and foremost looking into Entra ID today. For the most part, we will base our review on the settings discussed in the [Hardening Entra ID](https://www.infernux.no/EntraID-GeneralHardening/) article.
 
-### Guest Access Settings
+## Guest Access Settings
 
-#### EIDSCA.AP04: Default Authorization Settings - Guest invite restrictions.
+### EIDSCA.AP04: Default Authorization Settings - Guest invite restrictions.
 
 This test fails initially. This was an error on my part, as I had not set the guest invite restrictions. This is a good example of how Maester can help you identify things you might have missed. In my [recommendation here](https://www.infernux.no/EntraID-GeneralHardening/#guest-invite-settings) I had recommended the value to be set to `Only users assigned to specific admin roles can invite guest users` but forgot to update it.
 
@@ -175,53 +208,53 @@ After changing it, the test passes:
 
 We can also see the test details, like where the recommendation is coming from, in this case it's from CISA SCuBA 2.18: "Only users with the Guest Inviter role SHOULD be able to invite guest users".
 
-#### EIDSCA.AP07: Default Authorization Settings - Guest user access.
+### EIDSCA.AP07: Default Authorization Settings - Guest user access.
 
 In my article I recommended ["Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)"](https://www.infernux.no/EntraID-GeneralHardening/#guest-user-access). Again, in my tenant I had forgot to change from the default "Guest users have limited access to properties and memberships of directory objects":
 
 ![](/img/Maester/testfail.png)
 
-### Password Policy
+## Password Policy
 
-#### EIDSCA.PR05: Default Settings - Password Rule Settings - Smart Lockout - Lockout duration in seconds.
+### EIDSCA.PR05: Default Settings - Password Rule Settings - Smart Lockout - Lockout duration in seconds.
 
 Now, this test is pretty cool because it recommends `60` (I recommended `120` in my article, but `60` is also fine). The test fails because the value is not excplicitly set in my tenant, meaning that if Microsoft changes the default in the future, it will also change in my tenant. So it's a good idea to set this explicitly to at least `60`.
 
-#### EIDSCA.PR06: Default Settings - Password Rule Settings - Smart Lockout - Lockout threshold.
+### EIDSCA.PR06: Default Settings - Password Rule Settings - Smart Lockout - Lockout threshold.
 
 This is the same as the above, where the the test will fail even if the correct treshold is set because it's not explicitly set.
 
-### Conditional Access
+## Conditional Access
 
-#### MS.AAD.1.1: Legacy authentication SHALL be blocked.
+### MS.AAD.1.1: Legacy authentication SHALL be blocked.
 
 This is a pass, since we have blocked legacy authentication in our tenant using CA policies.
 
-#### MS.AAD.2.1: Users detected as high risk SHALL be blocked.
+### MS.AAD.2.1: Users detected as high risk SHALL be blocked.
 
 I didn't include any recommendations directly in my article, but I referenced [Daniel Chronlund's conditional access baseline work](https://danielchronlund.com/2020/11/26/azure-ad-conditional-access-policy-design-baseline-with-automatic-deployment-support/) as a reference, which inludes blocking high risk users. This is a pass.
 
-#### MS.AAD.2.3: Sign-ins detected as high risk SHALL be blocked.
+### MS.AAD.2.3: Sign-ins detected as high risk SHALL be blocked.
 
 Same as above, pass.
 
-#### MS.AAD.3.1: Phishing-resistant MFA SHALL be enforced for all users.
+### MS.AAD.3.1: Phishing-resistant MFA SHALL be enforced for all users.
 
 This fails because I have not enforced phishing-resistant MFA for all users. This is a good example of how Maester can help you identify things you might have missed, or things that you might not "agree" on with the recommendations. 
 
 To put it in other words, yes, phishing resistant MFA might be the best security option, but we also have to take into account the context of the systems we have. Not all users have privileged access to systems, and not all systems are critical. So, in some cases, it might be better to have a more granular approach to MFA that makes sense for your organization and balances usability.
 
-### Consent and Permissions
+## Consent and Permissions
 
-#### MS.AAD.5.3: An admin consent workflow SHALL be configured for applications.
+### MS.AAD.5.3: An admin consent workflow SHALL be configured for applications.
 
 This is a fail, because I have not configured an admin consent workflow for applications. While `User consent settings` was set to `Do not allow user consent` we didn't configure the `Admin consent requests` settings:
 
 ![](/img/Maester/adminconsentflow.png)
 
-### Authentication Methods
+## Authentication Methods
 
-#### EIDSCA.AG01: Authentication Method - General Settings - Manage migration.
+### EIDSCA.AG01: Authentication Method - General Settings - Manage migration.
 
 This is a setting that many people might forget even exists, I just included it because I see a lot of tenants that are still in `migrationInProgress` mode. Information for this:
 
@@ -232,17 +265,17 @@ To fix it, we can click on the `View in Microsoft Entra admin center` link and t
 
 ![](/img/Maester/migrationcomplete.png)
 
-#### EIDSCA.AG02: Authentication Method - General Settings - Report suspicious activity - State.
+### EIDSCA.AG02: Authentication Method - General Settings - Report suspicious activity - State.
 
 This fails, even if the setting is "correct" because it's set to default. Here we can go in and excplitly set the setting to `Enabled` to change this to a pass. We simply navigate to [authentication method settings](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AuthMethodsSettings) and change the state from Microsoft Managed to Enabled.
 
-#### EIDSCA.AF01: Authentication Method - FIDO2 security key - State.
+### EIDSCA.AF01: Authentication Method - FIDO2 security key - State.
 
 This fails. Ruh-roh, I even thought I had this enabled. So I went to the [authentication methods](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods) section and enabled it. 
 
 I also got my FIDO2 key out from my drawer and travelled to [myaccount.microsoft.com](https://myaccount.microsoft.com) to register it.
 
-#### EIDSCA.AM06: Authentication Method - Microsoft Authenticator - Show application name in push and passwordless notifications.
+### EIDSCA.AM06: Authentication Method - Microsoft Authenticator - Show application name in push and passwordless notifications.
 
 This fails, because I have this set to Microsoft Managed. We can go to [authentication methods](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods), chose Microsoft Authenticator settings and set it to enabled:
 
@@ -250,7 +283,7 @@ This fails, because I have this set to Microsoft Managed. We can go to [authenti
 
 That's a pass!
 
-#### EIDSCA.AM09: Authentication Method - Microsoft Authenticator - Show geographic location in push and passwordless notifications.
+### EIDSCA.AM09: Authentication Method - Microsoft Authenticator - Show geographic location in push and passwordless notifications.
 
 This fails, because I have this set to Microsoft Managed. We can go to [authentication methods](https://portal.azure.com/#view/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/~/AdminAuthMethods), chose Microsoft Authenticator settings and set it to enabled:
 
@@ -262,7 +295,7 @@ What can we say to that?
 
 *Another one!*
 
-#### EIDSCA.AT01: Authentication Method - Temporary Access Pass - State.
+### EIDSCA.AT01: Authentication Method - Temporary Access Pass - State.
 
 This setting is set to `False`. The recommended setup is to enable this, and also require both compliant device and MFA on registration for new users. This requires Temporary Access Pass (TAP) to be enabled for the MFA portion during registration.
 
@@ -272,9 +305,9 @@ We head over to the [authentication methods](https://portal.azure.com/#view/Micr
 
 Here I made some changes, like changing the maximum lifetime to 2 hours and requiring one time use. I also increased the characters from 8 to 14 for some reason. Maybe it's my caveman brain going ***"more number more good"***.
 
-### Authorization Settings
+## Authorization Settings
 
-#### EIDSCA.AP01: Default Authorization Settings - Enabled Self service password reset for administrators.
+### EIDSCA.AP01: Default Authorization Settings - Enabled Self service password reset for administrators.
 
 This fails, because I have not changed this setting. It's by default set to `True`. 
 
@@ -298,7 +331,7 @@ Running `Get-MgPolicyAuthorizationPolicy | fl` afterwards should show that the `
 
 That's one more fail moved to a pass!
 
-## Rerunning Maester
+# Rerunning Maester
 
 At this point, we probably could have kept going, but for the sake of brevity I think the point is made. We can now rerun Maester and see how we're doing. On our first run we had 77 fails, 36 passes and 20 skipped. Let's see how we're doing now:
 
@@ -342,7 +375,7 @@ $OutputFolder = "C:\temp\TestYourselfPt2\output" # Change this
 Invoke-Maester -Verbosity Normal -OutputFolder $OutputFolder
 ```
 
-## Conclusion
+# Conclusion
 
 In this blogpost we've gone through how you can use Maester to test your Entra ID tenant, and how you can use the results to fix issues in your tenant. There's a lot more things to fix about my dev tenant, but we've covered the process and how to read the results. 
 
