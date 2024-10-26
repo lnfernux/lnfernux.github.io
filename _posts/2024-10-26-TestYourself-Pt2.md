@@ -155,7 +155,7 @@ Invoke-Maester
 The `Invoke-Maester` command has a few parameters that can be useful, it's documented on the [maester.dev](https://maester.dev/docs/commands/Invoke-Maester) website. For our purposes, to get a bit more output we'll use the `-Verbosity` parameter and set it to normal, as well as the different output formats and output folder:
 
 ```powershell
-Invoke-Maester -Verbosity Normal -OutputHtmlFile -OutputJsonFile -OutputFolder "C:\temp\TestYourselfPt2\output"
+Invoke-Maester -Verbosity Normal -OutputFolder "C:\temp\TestYourselfPt2\output"
 ```
 
 And we are off:
