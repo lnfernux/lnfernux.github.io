@@ -979,3 +979,9 @@ div.highlight button {
   right: 0;
   border-radius: 0 0.15rem;
 }
+
+.copied-message {
+  color: green;
+  font-size: 0.8em;
+  margin-left: 10px;
+}

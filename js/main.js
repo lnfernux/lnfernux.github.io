@@ -144,6 +144,13 @@ document.addEventListener("DOMContentLoaded", function() {
     copy.addEventListener("click", handleCopyClick);
     // append the copy button to each code block
     div.append(copy);
+
+    // create the copied message
+    const copiedMessage = document.createElement("span");
+    copiedMessage.innerHTML = "Code copied!";
+    copiedMessage.className = "copied-message";
+    copiedMessage.style.display = "none";
+    div.append(copiedMessage);
   });
 });
 
@@ -176,8 +183,13 @@ function handleCopyClick(evt) {
   const { innerText } = Array.from(children)[0];
   // copy all of the code to the clipboard
   copyToClipboard(innerText);
-  // alert to show it worked, but you can put any kind of tooltip/popup to notify it worked
-  alert("Code copied to clipboard!");
+
+  // show the copied message
+  const copiedMessage = evt.target.nextElementSibling;
+  copiedMessage.style.display = "inline";
+  setTimeout(() => {
+    copiedMessage.style.display = "none";
+  }, 2000);
 }
 
 document.addEventListener('DOMContentLoaded', main.init);
