@@ -10,10 +10,8 @@ tags:
   - Microsoft Sentinel
 published: true
 author: author_infernux
-image: /img/pwsh.png
+image: /img/ps.png
 ---
-
-# Introduction
 
 You can find the module on [PowershellGallery](https://www.powershellgallery.com/packages/pwshmisp/1.0.0) and you can install it by running `Install-Module -Name pwshmisp` and `Import-Module pwshmisp`. The module is also available on [GitHub](https://github.com/lnfernux/pwshmisp) if you want to contribute or report issues.
 
