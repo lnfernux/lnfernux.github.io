@@ -11,7 +11,7 @@ tags:
   - Detection
 published: true
 author: author_infernux
-image: /img/azure.png
+image: /img/sentinel.png
 ---
 
 First things first, for those who might be wondering - what is Cyber Threat Intelligence (CTI)? Well, for starters, **it's data**. Data that is **collected** **processed**, and **analyzed** to **understand the threat landscape**. This data can be **used to make informed decisions** and take actions to **protect your organization**.
