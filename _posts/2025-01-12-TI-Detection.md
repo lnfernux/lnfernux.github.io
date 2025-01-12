@@ -90,7 +90,7 @@ Let's explore these two paths:
 
 #### IOC detection
 
-![](/img/onti/IOCDetection.png)
+![](/img/OnTI/IOCDetection.png)
 
 IOC detection is the most common path - it simple requires feeding indicators into tables that can be queried by the detection component of the SIEM. Usually this is done by creating a rule that **triggers on a match**. There are ways to make this more accurate, like making sure the sources we use are high fidelity and has a low frequency of false positives. If it's supported, we can also use the tags and confidence levels that are provided by the TI source to make the detection more accurate.
 
