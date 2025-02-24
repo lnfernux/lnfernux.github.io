@@ -16,7 +16,7 @@ image: /img/sentinel.png
 
 Workspace transformation rules are defined in data collection rules and use kusto query language (KQL) in order to transform data in the cloud pipeline, before ingestion into Microsoft Sentinel.
 
-![](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/media/data-collection-transformations/transformation-overview.png)
+![](/img/transformation-overview.png)
 
 Doing it this way requires you to 
 > "...create a new DCR using its JSON definition or add a transformation to an existing DCR."
@@ -25,7 +25,7 @@ Now, what about tables that don't use DCR for data ingestion? Well, we have some
 
 > "The purpose of this DCR is to perform transformations on data that does not yet use a DCR for its data collection, and thus has no means to define a transformation." - [Microsoft Docs](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-transformations#workspace-transformation-dcr//?wt.mc_id=SEC-MVP-5005030)
 
-![](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/media/data-collection-transformations/workspace-transformation-dcr.png)
+![](/img/workspace-transformation-dcr.png)
 
 ## Rule 1 - Filter `AADNonInteractiveUserSignInLogs`
 
