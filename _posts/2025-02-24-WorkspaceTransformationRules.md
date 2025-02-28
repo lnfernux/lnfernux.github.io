@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Two very useful workspace transformation rules'
+title: 'Workspace Transformation Rules in Practice'
 subtitle: 'This post will show you two very useful workspace transformation rules that you can use to save money on your data ingestion in Microsoft Sentinel.'
 tags:
   - Cyber Security
