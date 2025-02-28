@@ -295,6 +295,7 @@ Now, let's **jump into Azure AI search and continue there**. Inside Azure AI sea
 **Follow the wizard**. For the sake of brevity, keep **everything as default**. If all is well in the world of automagic, you should see your data source indexed, vectorized and searchable. If you're like me and these terms confuse you and make you feel a bit scared, don't worry. **We're in this together.**
 
 ![](/img/pal.png)
+
 *I'm afraid I can't let you leave just yet, Dave. We need to set up the AI to help us prioritize the tests 🤖🔧.*
 
 ### Option 1: Security Copilot
