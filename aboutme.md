@@ -7,21 +7,24 @@ subtitle:
 
 ## $whoami
 
-**Hi, I'm Truls.** I'm an early 30's security architect/engineer with a passion for automating everything I can. I'm a Microsoft MVP in the "SIEM & XDR" and "Cloud Security" categories. I know a few things, but I mostly drink (that's a joke, kind of, reference below).
-
-![](/img/know.gif)
-
-On this blog, you'll find my personal notes and insights on various topics related to security, automation, and IT careers. I cover a wide range of subjects, from cloud security strategies and log ingestion techniques to hands-on tutorials on tools like Microsoft Sentinel and Azure DevOps. Expect to see detailed guides, practical tips, and my thoughts on the latest trends in the security landscape.
-
-
+**Hi, I'm Truls.** I'm a security architect/engineer with a passion for automating stuff. I'm a Microsoft MVP in the "SIEM & XDR" and "Cloud Security" categories.
 
 ## invoke-contact
 
-Feel free to reach out regarding any questions you might have about security, automation or anything related to careers in IT in general. I'd usually say "ask someone else first", but if you want you can. 
-
-I rarely check my mail, so SLA is around 0.005% - but I should be pretty easy to track down on LinkedIn and various security discords.
-
+* [Bluesky](https://bsky.app/profile/truls.infernux.no)
 * [Email](mailto:YmxvZ0BpbmZlcm51eC5ubw==)
+* [Github](https://github.com/lnfernux)
+
+## invoke-projects
+
+Some of the stuff I'm currently working on:
+* [pwshuploadindicatorsapi](https://github.com/lnfernux/pwshuploadindicatorsapi) - A PowerShell module for uploading indicators to Microsoft Sentinel using the API.
+* [pwshmisp](https://github.com/lnfernux/pwshmisp) - A PowerShell module for interacting with the MISP API.
+* psmisp2sentinel - rewrite of the Azure Function `misp2sentinel` to use PowerShell, TBA.
+
+## speaking engagements
+
+I'm available for speaking engagements, workshops and training. If you want me to speak at your event, please reach out to me via email.
 
 ---
 
